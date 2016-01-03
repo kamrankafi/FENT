@@ -1,0 +1,3190 @@
+/* UI/UX: RohanIT.ir */
+/* طراحی رابط و تجربه کاربری فن آوری اطلاعات روهان */
+@charset "utf-8";
+@import "base";
+@import "compass/css3";
+a {
+	background-color: $color1;
+	color: lighten($color1, 45);
+	text-decoration: none;
+	@include transition(all 0.15s ease);
+	&:hover {
+		background-color: $color2;
+		color: lighten($color2, 45);
+		cursor: pointer;
+	}
+}
+.titleBackground {
+	height: 55px;
+	line-height: 55px;
+	vertical-align: middle;
+	/*background-color: lighten($colorGray, 10);*/
+	background-color: rgba(0,0,0,0.19);
+	overflow: hidden;
+}
+.block {
+	color: $fontColor1;
+	font: 1.3em/1em $fontApp;
+	line-height: 1.45;
+	.title {
+		color: $colorWhite;
+		font: 1.5em/1em $fontAppTitle;
+		font-weight: 600;
+		line-height: 1.85;
+		.titleLogo {
+			width: 55px;
+			height: 55px;
+			line-height: 55px;
+			vertical-align: middle;
+			margin: 5px 0 0 25px;
+		}
+		.titleTxt {
+			width: auto;
+			height: 55px;
+			line-height: 55px;
+			vertical-align: middle;
+		}.ver {
+			width: auto;
+			height: 55px;
+			line-height: 55px;
+			vertical-align: middle;
+			color: rgba(255,255,255,0.25);
+			font: 0.55em/1em $fontApp;
+			margin: 25px 15px 0 0;
+		}
+		.txtSpace {
+			margin: 2px 4px;
+			padding: 2px 4px;
+		}
+		a, a:visited {
+			background-color: transparent;
+			color: $colorWhite;
+			&:hover {
+				background-color: transparent;
+				color: $colorWhite;
+				cursor: pointer;
+			}
+		}
+		&:hover {
+		}
+	}
+	.desc {
+		color: $colorGrayDark;
+		font: 1.1em/1em $fontApp;
+	}
+	.desctitleCustom {
+		@extend .desc;
+		font: 0.9em/1em $fontApp;
+		text-align: left;
+		margin: 14px 0 0 0;
+		float: left;
+		.btnActionPlace {
+			text-align: left;
+			margin: 0 4px 0 0;
+			float: left;
+		}
+	}
+	.desctitleCustomFooter {
+		@extend .desc;
+		font: 0.9em/1em $fontApp;
+		margin: 3px 0 0 0;
+		.btnActionPlace {
+			margin: 0 4px 0 0;
+		}
+	}
+}
+.blockSpace {
+	@extend .block;
+	margin: 0.4em auto;
+}
+.blockType {
+	padding: 0.2em;
+}
+.blockTypeA {
+	@extend .blockType;
+	background-color: $color1Bk;
+	color: $color1;
+}
+.blockTypeB {
+	@extend .blockType;
+	background-color: $color2Bk;
+	color: $color2;
+}
+.blockTypeC {
+	@extend .blockType;
+	/*background-color: $colorGrayLight;*/
+	background-color: rgba(0,0,0,0.19);
+	/*-webkit-filter: blur(10px);
+	filter: url('/media/blur.svg#blur');
+	filter: blur(10px);*/
+	/*color: $colorGrayDark;*/
+	color: $colorWhite;
+}
+.blockTypeCTxt {
+	@extend .blockType;
+	background-color: transparent;
+	color: $colorGrayDark;
+}
+.blockTypeD {
+	@extend .blockType;
+	background-color: $color3Bk;
+	color: $color3;
+}
+.blockTypeE {
+	@extend .blockType;
+	/*background-color: $colorGrayLight;*/
+	background-color: rgba(0,0,0,0);
+	/*-webkit-filter: blur(10px);
+	filter: url('/media/blur.svg#blur');
+	filter: blur(10px);*/
+	/*color: $colorGrayDark;*/
+	color: $colorWhite;
+}
+
+
+
+
+
+/* ==========================================================================
+   Remodal necessary styles
+   ========================================================================== */
+/* Hide scroll bar */
+html.remodal-is-locked {
+    overflow: hidden;
+}
+/* Anti FOUC */
+.remodal,
+[data-remodal-id] {
+    visibility: hidden;
+}
+/* Necessary styles of the overlay */
+.remodal-overlay {
+    position: fixed;
+    z-index: 9999;
+    top: -5000px;
+    right: -5000px;
+    bottom: -5000px;
+    left: -5000px;
+    display: none;
+}
+/* Necessary styles of the wrapper */
+.remodal-wrapper {
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+    overflow: auto;
+    text-align: center;
+    -webkit-overflow-scrolling: touch;
+}
+.remodal-wrapper:after {
+    display: inline-block;
+    height: 100%;
+    margin-left: -0.05em;
+    content: "";
+}
+/* Fix iPad, iPhone glitches */
+.remodal-overlay,
+.remodal-wrapper {
+    -webkit-transform: translateZ(0px);
+}
+/* Necessary styles of the modal dialog */
+.remodal {
+    position: relative;
+
+    display: inline-block;
+}
+/* Anti-zoom. Font-size should be >= 16px. 
+.remodal select,
+.remodal textarea,
+.remodal input,
+.remodal select:focus,
+.remodal textarea:focus,
+.remodal input:focus {
+	font: 1em/1em $fontApp;
+	line-height: 1.45;
+} */
+/* ==========================================================================
+   Remodal default theme
+   ========================================================================== */
+/* Default theme font */
+.remodal,
+.remodal * {
+    font: 1.05em/1em $fontApp;
+	line-height: 1.45;
+}
+/* Background for effects */
+.remodal-bg {
+	@include transition(all 0.2s ease-out);
+}
+body.remodal-is-active .remodal-bg {
+    -webkit-filter: blur(3px);
+    -ms-filter: blur(3px);
+    filter: blur(3px);
+    -moz-filter: blur(3px);
+    -o-filter: blur(3px);
+}
+/* Default theme styles of the overlay */
+.remodal-overlay {
+	@include transition(all 0.2s ease-out);
+
+    opacity: 0.75;
+    background: rgba(33, 36, 46, 0.75);
+}
+body.remodal-is-active .remodal-overlay {
+    opacity: 0.75;
+}
+/* Default theme styles of the modal dialog */
+.remodal {
+    /*font-size: 16px;*/
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 100%;
+    padding: 35px;
+	@include transition(all 0.2s ease-out, opacity 0.2s ease-out);
+    -webkit-transform: scale(0.95);
+    -moz-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    -o-transform: scale(0.95);
+    transform: scale(0.95);
+    opacity: 0;
+    color: #182a3c;
+    background: #f4f4f4;
+    background-clip: padding-box;
+	background-image: url(../images/remodalBk.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+}
+.remodalTitle {
+	color: $fontColorApp;
+	font: 1.35em/1em $fontYekan;
+    font-weight: 600;
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+	margin: 8px 0px;
+	
+}
+body.remodal-is-active .remodal {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+}
+/* Vertical align of the modal dialog */
+.remodal,
+.remodal-wrapper:after {
+    vertical-align: middle;
+}
+/* Media queries
+   ========================================================================== */
+@media only screen and (min-width: 641px) {
+    .remodal {
+        max-width: 700px;
+        min-height: 0;
+        margin: 20px auto;
+        -webkit-border-radius: 4px;
+        border-radius: 4px;
+    }
+}
+/* IE8
+   ========================================================================== */
+.lt-ie9 .remodal-overlay {
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F021242E, endColorstr=#F021242E);
+}
+.lt-ie9 .remodal {
+    width: 700px;
+    min-height: 0;
+    margin: 20px auto;
+}
+.lt-ie9 .remodal-close:after {
+    margin: auto;
+    text-align: center;
+}
+.lt-ie9 .remodal-close:hover,
+.lt-ie9 .remodal-close:active {
+    background: transparent;
+}
+.lt-ie9 .remodal-close:hover.remodal-close:after,
+.lt-ie9 .remodal-close:active.remodal-close:after {
+    color: #3e5368;
+}
+
+
+
+
+
+.blockTitle {
+	display: block;
+	height: 32px;
+	line-height: 32px;
+	vertical-align: middle;
+	color: $colorWhite;
+	overflow: hidden;
+	.blockTitleIcon {
+		display: inline-block;
+		height: 32px;
+		line-height: 32px;
+		vertical-align: middle;
+		font: 1.7em/1em $fontIcon;
+		padding-top: 2px;
+	}
+	.blockTitleTxt {
+		display: inline-block;
+		height: 32px;
+		line-height: 32px;
+		vertical-align: middle;
+		font: 1.1em/1em $fontAppTitle;
+		padding-top: 9px;
+	}
+}
+.blockTitleTotal {
+	@extend .blockTitle;
+	background-color: $colorSuccess;
+	/*border-top: 2px $colorSuccess solid;*/
+	margin: 0px 4px;
+	.blockTitleIcon {
+		font: 1.3em/1em $fontIcon;
+	}
+	.blockTitleTxt {
+		font: 0.9em/1em $fontAppTitle;
+	}
+	.blockTitleNom {
+		display: inline-block;
+		font: 1.7em/1em $fontAppTitle;
+		padding-top: 4px;
+		@include text-shadow(1px 1px 2px rgba(0, 0, 0, 0.25));
+	}
+}
+.blockTitleResult {
+	@extend .blockTitleTotal;
+	background-color: darken($color7, 12);
+	border-bottom: 1px $color7 dotted;
+	.blockTitleTxt2 {
+		color: rgba(255,255,255,0.65);
+		font: 0.7em/1em $fontAppTitle;
+		padding-top: 4px;
+	}
+}
+
+
+.blockGridTitleIcon {
+	color: rgba(255,255,255,0.45)
+}
+
+
+
+
+.blockSmall {
+	display: block;
+	position: relative;
+	height: 160px;
+	min-height: 160px;
+	max-height: 160px;
+	overflow: hidden;
+}
+.blockUser {
+	@extend .blockSmall;
+	width: 230px;
+	background-color: $color1;
+	@include border-radius($borderRadius);
+	margin: 4px;
+}
+.blockLogin {
+	@extend .blockSmall;
+}
+
+
+
+
+.itemSpaceUpMicropoint {
+	padding: 5px 0 0 0;
+}
+.itemSpaceUpLogBoard {
+	padding: 5px 0 0 0;
+}
+.itemSpaceUp {
+	padding: 4px 0 0 0;
+}
+.itemSpaceDown {
+	padding: 0 0 4px 0;
+}
+.itemSpace {
+	padding: 2px 4px;
+}
+.itemSpaceSmall {
+	padding: 8px;
+}
+.itemSpaceMedium {
+	padding: 18px 4px;
+}
+.itemSpaceMediumTop {
+	padding: 18px 4px 8px 4px;
+}
+.itemSpaceLarge {
+	padding: 38px 4px;
+}
+.itemSpaceLargeTop {
+	padding: 38px 4px 12px 4px;
+}
+.rowBlank {
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 5px;
+	min-height: 5px;
+	line-height: 5px;
+}
+.iconRight {
+	float: right;
+	padding-left: 4px;
+}
+.iconUp {
+	/*color: $colorSuccess;*/
+	color: darken($colorSuccess, 5);
+}
+.iconDown {
+	color: $colorWarning;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.btnDefault {
+	display: block;
+	position: relative;
+	width: 100%;
+    height: 27px;
+    line-height: 27px;
+    vertical-align: middle;
+	font: 1em/1em $fontYekan;
+    font-weight: 600;
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+	@include border-radius($borderRadius);
+    margin: 0;
+    padding: 0;
+    .icon {
+        display: inline-block;
+        font: 1.5em/1em $fontIcon;
+        height: 27px;
+        line-height: 27px;
+        vertical-align: middle;
+        margin: 0;
+        margin-top: 0;
+        padding: 0;
+        float: right;
+    }
+	.txt {
+		display: inline-block;
+		font: 0.9em/1em $fontYekan;
+		font-weight: 600;
+		padding-top: 8px;
+		margin-right: -24px;
+	}
+	&:hover {
+		@include box-shadow(inset 1px 1px 1px rgba(255, 255, 255, 0.3), 0 2px 2px rgba(0, 0, 0, 0.15), 0 1px 2px -2px rgba(0, 0, 0, 0.2));
+		cursor: pointer;
+	}
+}
+.btnDefault.icon {
+    display: inline-block;
+    font: 1.5em/1em $fontIcon;
+    height: 27px;
+    line-height: 27px;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    padding-top: 8px;
+    float: right;
+}
+.btnEnter {
+	@extend .btnDefault;
+	background-color: $colorSuccess;
+	color: $colorSuccessFont;
+	&:hover {
+		background-color: darken($colorSuccess, 8);
+		color: darken($colorSuccessFont, 8);
+		cursor: pointer;
+	}
+}
+.btnCancel {
+	@extend .btnDefault;
+	background-color: $colorWarning;
+	color: lighten($colorWarning, 15);
+	&:hover {
+		background-color: darken($colorWarning, 8);
+		color: lighten($colorWarning, 25);
+		cursor: pointer;
+	}
+}
+.btnProfilePic {
+	@extend .btnDefault;
+	background-color: rgba(0,0,0,0.55) !important;
+	color: rgba(255,255,255,0.75) !important;
+	font: 0.85em/1em $fontYekan;
+    font-weight: 600;
+    text-align: center;
+	@include box-shadow(0 0 0 0 rgba(0,0,0,0));
+	padding: 4px;
+	&:hover {
+		background-color: $colorWhite !important;
+		color: darken($color1Bk, 8) !important;
+		@include box-shadow(0 0 0 0 rgba(0,0,0,0));
+		cursor: pointer;
+	}
+	.icon {
+        display: inline-block;
+        font: 1.3em/1em $fontIcon;
+        height: 27px;
+        line-height: 27px;
+        vertical-align: middle;
+        margin: 0;
+        padding: 0;
+        float: right;
+    }
+}
+.btnFree {
+	display: block;
+	position: relative;
+	width: 100%;
+    height: auto;
+    line-height: auto;
+    vertical-align: middle;
+	font: 1em/1em $fontYekan;
+    font-weight: 600;
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    .icon {
+        display: inline-block;
+        font: 1.3em/1em $fontIcon;
+        height: 27px;
+        line-height: 27px;
+        vertical-align: middle;
+        margin: 0;
+        margin-top: 0;
+        padding: 0;
+        float: right;
+    }
+	.txt {
+		display: inline-block;
+		font: 0.9em/1em $fontYekan;
+		font-weight: 600;
+		padding-top: 8px;
+		margin-right: -24px;
+	}
+	.txtNo {
+		text-align: left;
+		margin-left: 4px;
+		float: left;
+	}
+	&:hover {
+		@include box-shadow(inset 1px 1px 1px rgba(255, 255, 255, 0.3), 0 2px 2px rgba(0, 0, 0, 0.15), 0 1px 2px -2px rgba(0, 0, 0, 0.2));
+		cursor: pointer;
+	}
+}
+.btnFree.icon {
+    display: inline-block;
+    font: 1.3em/1em $fontIcon;
+    height: auto;
+    line-height: auto;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    padding-top: 8px;
+    float: right;
+}
+.btnGreen {
+	@extend .btnFree;
+	height: 36px;
+    line-height: 36px;
+    vertical-align: middle;
+	background-color: $colorSuccess;
+	color: $colorSuccessFont;
+	&:hover {
+		background-color: $colorSuccess;
+		color: $colorSuccessFont;
+		@include box-shadow(0 0 0 0 rgba(0,0,0,0));
+		cursor: pointer;
+	}
+	.icon {
+        margin-top: 4px;
+		margin-right: 4px;
+    }
+}
+.btnOrange {
+	@extend .btnFree;
+	height: 36px;
+    line-height: 36px;
+    vertical-align: middle;
+	background-color: darken($colorAlert, 8);
+	color: lighten($colorAlert, 20);
+	&:hover {
+		background-color: darken($colorAlert, 8);
+		color: lighten($colorAlert, 35);
+		@include box-shadow(0 0 0 0 rgba(0,0,0,0));
+		cursor: pointer;
+	}
+	.icon {
+        margin-top: 4px;
+		margin-right: 4px;
+    }
+}
+.btnGrayLight {
+	@extend .btnFree;
+	height: 36px;
+    line-height: 36px;
+    vertical-align: middle;
+	background-color: $colorGrayLight;
+	color: $colorGrayDark;
+	&:hover {
+		background-color: $colorGrayLight;
+		color: $colorGrayDark;
+		@include box-shadow(0 0 0 0 rgba(0,0,0,0));
+		cursor: pointer;
+	}
+	.icon {
+        margin-top: 4px;
+		margin-right: 4px;
+    }
+}
+.btnWB {
+	@extend .btnFree;
+	height: 36px;
+    line-height: 36px;
+    vertical-align: middle;
+	background-color: $colorWhite;
+	color: $colorGrayDark;
+	&:hover {
+		background-color: $colorGrayLight;
+		color: $colorGrayDark;
+		/* @include box-shadow(0 0 0 0 rgba(0,0,0,0)); */
+		cursor: pointer;
+	}
+	.icon {
+        margin-top: 4px;
+		margin-right: 4px;
+    }
+}
+.btnLike {
+	@extend .btnFree;
+	height: 36px;
+    line-height: 36px;
+    vertical-align: middle;
+	background-color: $colorGrayLight;
+	color: $colorGrayDark;
+	&:hover {
+		background-color: darken($colorSuccess, 8);
+		color: darken($colorSuccessFont, 25);
+		cursor: pointer;
+	}
+	.icon {
+        margin-top: 4px;
+		margin-right: 4px;
+    }
+}
+.btnMaybe {
+	@extend .btnFree;
+	height: 36px;
+    line-height: 36px;
+    vertical-align: middle;
+	background-color: $colorGrayLight;
+	color: $colorGrayDark;
+	&:hover {
+		background-color: darken($colorInfo, 8);
+		color: lighten($colorInfo, 25);
+		cursor: pointer;
+	}
+	.icon {
+        margin-top: 4px;
+		margin-right: 4px;
+    }
+}
+.btnDislike {
+	@extend .btnFree;
+	height: 36px;
+    line-height: 36px;
+    vertical-align: middle;
+	background-color: $colorGrayLight;
+	color: $colorGrayDark;
+	&:hover {
+		background-color: darken($colorWarning, 8);
+		color: lighten($colorWarning, 25);
+		cursor: pointer;
+	}
+	.icon {
+        margin-top: 4px;
+		margin-right: 4px;
+    }
+}
+.btnIcon {
+	display: block;
+	position: relative;
+	width: 100%;
+    height: auto;
+    line-height: auto;
+    vertical-align: middle;
+	font: 1em/1em $fontYekan;
+    font-weight: 600;
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    .icon {
+        display: inline-block;
+        font: 1.5em/1em $fontIcon;
+		text-align: center;
+        height: auto;
+        line-height: auto;
+        vertical-align: middle;
+        margin: 0;
+        padding: 0;
+    }
+	&:hover {
+		@include box-shadow(inset 1px 1px 1px rgba(255, 255, 255, 0.3), 0 2px 2px rgba(0, 0, 0, 0.15), 0 1px 2px -2px rgba(0, 0, 0, 0.2));
+		cursor: pointer;
+	}
+}
+.btnIcon.icon {
+    display: inline-block;
+    font: 1.5em/1em $fontIcon;
+	text-align: center;
+    height: auto;
+    line-height: auto;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+}
+.btnAdd {
+	@extend .btnIcon;
+	height: 24px;
+    line-height: 24px;
+    vertical-align: middle;
+	background-color: $colorSuccess;
+	color: $colorSuccessFont;
+	@include border-radius($borderRadius);
+	&:hover {
+		background-color: darken($colorSuccess, 8);
+		color: darken($colorSuccessFont, 8);
+		cursor: pointer;
+	}
+	.icon {
+		text-align: center;
+    }
+}
+.btnRef {
+	@extend .btnIcon;
+	height: 24px;
+    line-height: 24px;
+    vertical-align: middle;
+	background-color: $color1;
+	color: $color1Bk;
+	@include border-radius($borderRadius);
+	&:hover {
+		background-color: darken($color1, 8);
+		color: darken($color1Bk, 8);
+		cursor: pointer;
+	}
+	.icon {
+		text-align: center;
+    }
+}
+.btnRefGrid {
+	@extend .btnIcon;
+	height: 17px;
+    line-height: 17px;
+    vertical-align: middle;
+	background-color: $colorGrayLight;
+	color: $colorGrayDark;
+	font: 0.85em/1em $fontYekan;
+	margin-top: 1px;
+	padding-top: 2px;
+	@include border-radius(0);
+	&:hover {
+		background-color: $color1;
+		color: $color1Bk;
+		cursor: pointer;
+	}
+	.icon {
+		text-align: center;
+    }
+}
+.btnRefRsult {
+	@extend .btnIcon;
+	height: 17px;
+    line-height: 17px;
+    vertical-align: middle;
+	background-color: $color7;
+	color: darken($color7, 12);
+	font: 0.85em/1em $fontYekan;
+	margin-top: 6px;
+	padding-top: 0px;
+	@include border-radius(0);
+	&:hover {
+		background-color: #FFCE54;
+		color: darken(#FFCE54, 25);
+		cursor: pointer;
+	}
+	.icon {
+		text-align: center;
+    }
+}
+.btnOk {
+	@extend .btnIcon;
+	width: 24px;
+	height: 24px;
+    line-height: 24px;
+    vertical-align: middle;
+	background-color: $colorSuccess;
+	color: $colorSuccessFont;
+	@include border-radius($borderRadius);
+	&:hover {
+		background-color: darken($colorSuccess, 8);
+		color: darken($colorSuccessFont, 8);
+		cursor: pointer;
+	}
+	.icon {
+		text-align: center;
+    }
+}
+.btnNok {
+	@extend .btnIcon;
+	width: 24px;
+	height: 24px;
+    line-height: 24px;
+    vertical-align: middle;
+	/*background-color: $colorWarning;
+	color: lighten($colorWarning, 20);*/
+	background-color: $colorWhite;
+	color: $colorGrayDark;
+	@include border-radius($borderRadius);
+	&:hover {
+		background-color: darken($colorWarning, 8);
+		color: lighten($colorWarning, 25);
+		cursor: pointer;
+	}
+	.icon {
+		text-align: center;
+    }
+}
+.btnActionShareboard {
+	@extend .btnIcon;
+	width: 24px;
+	height: 24px;
+    line-height: 24px;
+    vertical-align: middle;
+	background-color: transparent;
+	color: rgba(40,40,40,0.35);
+	@include border-radius($borderRadius);
+	&:hover {
+		background-color: transparent;
+		color: #F14349;
+		cursor: pointer;
+		@include box-shadow(0px 0px 0px rgba(0,0,0,0));
+	}
+	.icon {
+		text-align: center;
+		&:hover {
+			@include transition(all 0.07s linear);
+			-webkit-transform: scale(1.2);
+			-moz-transform: scale(1.2);
+			-o-transform: scale(1.2);
+		}
+    }
+}
+.btnActionTitle {
+	@extend .btnIcon;
+	width: 24px;
+	height: 24px;
+    line-height: 24px;
+    vertical-align: middle;
+	background-color: transparent;
+	color: $colorWhite;
+	@include border-radius($borderRadius);
+	&:hover {
+		background-color: $colorWhite;
+		color: $colorGrayDark;
+		cursor: pointer;
+		/*@include box-shadow(0px 0px 0px rgba(0,0,0,0));*/
+		@include transition(all 0.07s linear);
+		-webkit-transform: scale(1.2);
+		-moz-transform: scale(1.2);
+		-o-transform: scale(1.2);
+	}
+	.icon {
+		text-align: center;
+		&:hover {
+		}
+    }
+}
+
+
+
+
+.btnUploadPic {
+    @extend .btnDefault;
+	font: 0.85em/1em $fontYekan;
+    font-weight: 600;
+    text-align: center;
+	background-color: $colorWhite;
+	color: $colorGrayDark;
+	padding-top: 4px;
+	&:hover {
+		background-color: darken($color1, 8);
+		color: darken($color1Bk, 8);
+		cursor: pointer;
+	}
+}
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+.btnDefaultFile {
+    @extend .btnUploadPic;
+}
+form input[type="file"].btnDefaultFile,
+input[type="file"].btnDefaultFile {
+    @extend .btnUploadPic;
+    /* font: $fontSize*0.6 $fontDefault;
+	padding: rem-calc(6);
+	padding-top: rem-calc(12); */
+    cursor: pointer;
+}
+form .labelFormCheck {
+	color: $colorGrayDark;
+	font: 0.9em/1em $fontApp;
+	text-align: right;
+	font-weight: 400;
+}
+
+
+
+
+
+.modalMicropointSelect {
+	width: 170px;
+    height: 29px;
+    line-height: 25px;
+    vertical-align: middle;
+    background-color: $colorWhite;
+	color: $colorGrayDark;
+    font: 0.85em/1em $fontYekan;
+    font-weight: 600;
+	text-align: right;
+	direction: rtl;
+    border: none;
+    outline: none;
+	margin: 0px auto;
+	border-radius: $borderRadius 0 0 $borderRadius;
+	-webkit-border-radius: $borderRadius 0 0 $borderRadius;
+	-moz-border-radius: $borderRadius 0 0 $borderRadius;
+    box-shadow: inset 2px 2px 2px #ddd;
+    -webkit-box-shadow: inset 2px 2px 2px #ddd;
+    -moz-box-shadow: inset 2px 2px 2px #ddd;
+	&:hover {
+		background-color: darken($color1, 8);
+		color: darken($color1Bk, 8);
+		cursor: pointer;
+	}
+}
+select.modalMicropointSelect {
+	@extend .modalMicropointSelect;
+}
+.modalIncredibleSelect {
+	@extend .modalMicropointSelect;
+}
+select.modalIncredibleSelect {
+	@extend .modalIncredibleSelect;
+}
+
+
+
+/* Close button */
+.remodal-close {
+	@extend .btnIcon;
+	position: absolute;
+	top: 7px;
+    left: 7px;
+	width: 24px;
+	height: 24px;
+    line-height: 24px;
+    vertical-align: middle;
+	text-decoration: none;
+	background-color: $colorWhite;
+	color: $colorGrayDark;
+	@include border-radius($borderRadius);
+	@include transition(all 0.15s ease-out);
+	&:hover {
+		background-color: darken($colorWarning, 8);
+		color: lighten($colorWarning, 25);
+		cursor: pointer;
+	}
+	.icon {
+		text-align: center;
+    }
+}
+.remodal-close:after {
+	display: block;
+	width: 24px;
+	height: 24px;
+    line-height: 24px;
+	text-align: center;
+    vertical-align: middle;
+	text-decoration: none;
+	background-color: $colorWhite;
+	color: $colorGrayDark;
+    content: "×";
+    cursor: pointer;
+	@include border-radius($borderRadius);
+    @include transition(all 0.15s ease-out);
+}
+.remodal-close:hover,
+.remodal-close:active {
+    background-color: darken($colorWarning, 8);
+	color: lighten($colorWarning, 25);
+}
+.remodal-close:hover.remodal-close:after,
+.remodal-close:active.remodal-close:after {
+	background-color: darken($colorWarning, 8);
+	color: lighten($colorWarning, 25);
+}
+
+
+
+
+
+.rangeSlider {
+	width: 170px;
+	direction: ltr;
+	margin: 8px auto;
+}
+input[type="range"] {
+	-webkit-appearance: none !important; /*Needed to reset default slider styles */
+	width: 100%;
+	height: 10px;
+	background-color: $colorWhite;
+	border: 1px solid darken($colorWhite, 10);
+	border-radius: 10px;
+	margin: auto;
+	transition: all 0.3s ease;
+	&:hover {
+		background-color: darken($colorWhite, 10);
+	}
+	&:active + #rangevalue { /*Here to do something to the value while moving the slider */
+	}
+}
+input[type="range"]::-webkit-slider-thumb {
+	-webkit-appearance: none !important  ;
+	width: 20px;
+	height: 20px;
+	background-color: $color1;
+	border-radius: 30px;
+	box-shadow: 2px 2px 2px darken($colorWhite, 10);
+	transition: all 0.35s ease;
+	&:hover {
+		background-color: darken($color1, 10);
+		cursor: pointer;
+	}
+	&:active {
+	}
+}
+#rangevalue {
+	text-align: center;
+	font-family: 'Quantico', sans-serif;
+	size: 14px;
+	display: block;
+	margin: auto;
+	padding: 8px 0px;
+	width: 100%;
+	color: $color1;
+}
+ 
+
+
+
+
+
+
+.formInputDefault {
+    display: block;
+	position: relative;
+	width: 100%;
+    height: 27px;
+    line-height: 27px;
+    vertical-align: middle;
+    background-color: $colorWhite;
+    color: #444;
+    font: 0.9em/1em $fontApp;
+    font-weight: 400;
+    border: none;
+    outline: none;
+    @include border-radius($borderRadius);
+	@include box-shadow(inset 2px 2px 2px #ddd);
+	padding: 4px 4px 0 4px;
+}
+.formInputDefaultDate {
+	@extend .formInputDefault;
+	text-align: left;
+	direction: ltr;
+	padding: 4px 4px 0 4px;
+}
+.formInputDefault::-webkit-input-placeholder {
+    color: #C4C4C4;
+}
+.formInputDefault::-moz-placeholder {
+    color: #C4C4C4;
+}
+.formInputDefault::-ms-input-placeholder {
+    color: #C4C4C4;
+}
+textarea.formTextareaDefault {
+	display: block;
+	position: relative;
+	width: 100%;
+    height: auto;
+    line-height: 27px;
+    vertical-align: middle;
+	text-align: right;
+	direction: rtl;
+    background-color: $colorWhite;
+    color: #444;
+    font: 0.9em/1em $fontApp;
+    font-weight: 400;
+    border: none;
+    outline: none;
+    @include border-radius($borderRadius);
+	@include box-shadow(inset 2px 2px 2px #ddd);
+	padding: 4px 4px 0 0;
+	resize: none;
+}
+textarea.formTextareaDefault::-webkit-input-placeholder {
+    color: #C4C4C4;
+}
+textarea.formTextareaDefault::-moz-placeholder {
+    color: #C4C4C4;
+}
+textarea.formTextareaDefault::-ms-input-placeholder {
+    color: #C4C4C4;
+}
+textarea.formTextareaNote {
+	@extend .formTextareaDefault;
+	height: 60px;
+	max-height: 60px;
+	overflow: hidden;
+}
+
+
+
+.labelDefault {
+	height: 31px;
+	line-height: 31px;
+	vertical-align: middle;
+	color: $colorGrayDark;
+	font: 0.85em/1em $fontApp;
+	font-weight: 600;
+	text-align: right;
+	padding-top: 6px;
+}
+.labelDefaultNo {
+	height: 31px;
+	line-height: 31px;
+	vertical-align: middle;
+	background-color: #E6E9ED;
+	color: $fontColor1;
+	font: 0.85em/1em $fontApp;
+	font-weight: 600;
+	text-align: right;
+	padding-top: 6px;
+}
+.labelDefaultDesc {
+	height: auto;
+	line-height: 31px;
+	vertical-align: middle;
+	color: $fontColor1;
+	background-color: #E6E9ED;
+	font: 0.85em/1em $fontApp;
+	font-weight: 600;
+	text-align: right;
+	padding-top: 6px;
+}
+
+
+
+
+
+.userPageBK {
+	background-color: #F7F7F7;
+	color: $fontColorApp;
+	padding: 8px;
+	form {
+		color: $fontColorApp;
+	}
+}
+.userPageBK2 {
+	background-color: #FFFFFF;
+	color: $fontColorApp;
+	padding: 8px;
+	form {
+		color: $fontColorApp;
+	}
+}
+.userPageFormLinkSide {
+	background-color: transparent;
+	color: rgba(255,255,255,0.35);
+	font: 0.85em/1em $fontApp;
+	text-align: left;
+	float: left;
+	margin: 0;
+	padding: 0;
+	a, a:visited {
+		background-color: transparent;
+		color: rgba(255,255,255,0.35);
+		text-align: left;
+		padding: 4px;
+		float: left;
+		@include transition(all 0.15s ease);
+		@include border-radius($borderRadius);
+		&:hover {
+			background-color: $colorWhite;
+			color: $colorGrayDark;
+			cursor: pointer;
+			@include transition(all 0.15s ease);
+		}
+	}
+}
+.userPageFormAlarmSide {
+	background-color: transparent;
+	color: $colorAlert;
+	font: 0.85em/1em $fontApp;
+	a, a:visited {
+		background-color: transparent;
+		color: $colorAlert;
+		&:hover {
+			background-color: transparent;
+			color: $colorAlert;
+			cursor: pointer;
+		}
+	}
+}
+.userPageFormAlarm {
+	color: $colorWarning;
+	font: 0.85em/1em $fontApp;
+}
+.userPageFormLabel {
+	height: 31px;
+	line-height: 31px;
+	vertical-align: middle;
+	color: $colorGrayDark;
+	font: 0.85em/1em $fontApp;
+	font-weight: 600;
+	padding-top: 6px;
+}
+.userPicProfile {
+	width: 130px;
+	height: 190px;
+	background-image: url(../images/userProfilePic.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	text-align: left;
+	border: 1px $colorWhite solid;
+	float: left;
+	@include border-radius(0);
+}
+
+
+
+
+
+.userPagePrizePlace {
+	ul {
+		display: block;
+		list-style: none;
+		li {
+			display: block;
+			position: relative;
+		}
+	}
+}
+.userPagePrizeTitle {
+	color: $fontColorApp;
+	font: 1em/1em $fontApp;
+	font-weight: 600;
+}
+.userPagePrizeSection {
+	color: $fontColor1;
+	font: 1em/1em $fontApp;
+	font-weight: 600;
+	text-align: right;
+	direction: rtl;
+	margin: 12px 0px;
+	.icon {
+		float: right;
+		padding: 0px 0px 0px 4px;
+	}
+}
+.userPagePrizeDesc {
+	line-height: 1.75 !important;
+	color: lighten($fontColor1, 8);
+	font: 0.9em/1em $fontApp;
+	font-weight: 400;
+	margin: 12px 0px;
+}
+.userPagePrizeRow {
+	display: block;
+	height: 72px;
+	line-height: 72px;
+	vertical-align: middle;
+	color: $fontColorApp;
+	border-bottom: 1px $colorGrayLight dotted;
+	margin: 2px 0;
+	padding: 6px 0;
+	overflow: hidden;
+	.picPlace {
+		width: 64px;
+		min-width: 64px;
+	}
+	.pic {
+		@extend .userPic;
+		/*width: 60px;
+		height: 60px;
+		background-image: url(../images/userProfilePic.jpg);
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		border: 1px $colorWhite solid;
+		@include border-radius(30px);*/
+	}
+	.name {
+		display: inline-block;
+		color: $fontColor1;
+		font: 1.15em/1em $fontAppTitle;
+		padding-top: 23px;
+	}
+	.nom {
+		display: inline-block;
+		font: 1em/1em $fontAppTitle;
+		padding-top: 25px;
+		.txt {
+			display: inline-block;
+			color: $colorGrayDark;
+			font: 1em/1em $fontAppTitle;
+			padding: 0;
+		}
+	}
+	.icon {
+		display: inline-block;
+		font: 1em/1em $fontIcon;
+		padding-top: 25px;
+	}
+	.txt {
+		display: inline-block;
+		font: 1em/1em $fontAppTitle;
+		padding-top: 25px;
+	}
+	.desc {
+		display: inline-block;
+		line-height: 1.75 !important;
+		vertical-align: middle;
+		font: 0.85em/1em $fontApp;
+		padding-top: 23px;
+	}
+	
+}
+
+
+
+
+
+
+.userPic {
+	width: 60px;
+	height: 60px;
+	background-image: url(../images/userProfilePic.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border: 1px $colorWhite solid;
+	@include border-radius(30px);
+}
+.userFullName {
+	color: $colorWhite;
+	font: 1.2em/1em $fontAppTitle;
+	font-weight: 600;
+	line-height: 1.85;
+}
+.userDesc {
+	color: rgba(255,255,255,0.68);
+	font: 0.85em/1em $fontApp;
+}
+.userPoint {
+	color: $color8;
+	/*color: darken($color8, 8);*/
+	font-size: 1.7em;
+	font-weight: 600;
+	line-height: 1.45;
+	@include text-shadow(1px 1px 2px rgba(0, 0, 0, 0.15));
+}
+.userPosition {
+	color: $colorSuccess;
+	/*color: darken($colorSuccess, 8);*/
+	font-size: 1.7em;
+	font-weight: 600;
+	line-height: 1.45;
+	padding-top: 6px;
+	/*@include text-shadow(2px 2px 2px darken($colorSuccess, 15));*/
+	/*@include text-shadow(inset 2px 2px 2px rgba(0, 0, 0, 0.65), 2px 2px 3px rgba(255, 255, 255, 0.65));*/
+	@include text-shadow(1px 1px 2px rgba(0, 0, 0, 0.15));
+}
+
+
+
+
+
+.techtalkPlace {
+	height: 340px;
+	color: $colorGrayDark;
+	overflow: hidden;
+	margin: 0;
+	ul {
+		display: block;
+		position: relative;
+		list-style: none;
+		font: 0.95em/1em $fontApp;
+	}
+	li {
+		height: 110px;
+		max-height: 110px;
+		color: $colorGrayDark;
+		border: 1px rgba(215,215,215,0.84) solid;
+		margin: 4px 0;
+		overflow: hidden;
+		@include transition(all 0.15s ease);
+		&:nth-child(odd) {
+            background-color: #F7F7F7;
+            @include transition(all 0.01s ease-in);
+			.selectRow {
+				/*@extend .selectRow;*/
+			}
+        }
+        &:nth-child(even) {
+            background-color: #FFF;
+            @include transition(all 0.01s ease-in);
+			.selectRow {
+				/*@extend .selectRow;*/
+			}
+        }
+		&:hover {
+			@include box-shadow(2px 2px 2px 0px rgba(0, 0, 0, 0.45));
+			@include transition(all 0.15s ease);
+			cursor: pointer;
+		}
+		.picCover {
+			width: 235px;
+			height: 108px;
+			max-height: 108px;
+			background-image: url(../images/userProfilePic.jpg);
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			float: right;
+			overflow: hidden;
+		}
+		.techtalkContent {
+			display: block;
+			position: relative;
+			width: 340px;
+			height: 105px;
+			float: right;
+			overflow: hidden;
+		}
+		.techtalkSub {
+			display: inline-block;
+			position: relative;
+			float: right;
+		}
+		.techtalkTitle {
+			color: $color1;
+			font: 1.1em/1em $fontAppTitle;
+			font-weight: 600;
+			line-height: 1.85;
+			margin: 4px;
+		}
+		.techtalkUser {
+			color: $fontColorApp;
+			font: 0.9em/1em $fontApp;
+			font-weight: 600;
+			line-height: 1.55;
+			margin: 4px;
+		}
+		.techtalkDesc {
+			color: $colorGrayDark;
+			font: 0.8em/1em $fontApp;
+			font-weight: 400;
+			line-height: 1.55;
+			margin: 4px;
+		}
+		.techtalkDateTime {
+			display: inline-block;
+			position: absolute;
+			top: 2px;
+			left: 2px;
+			width: 140px;
+			text-align: left;
+			padding-top: 2px;
+			float: left;
+		}
+		.techtalkDate {
+			color: $colorGrayDark;
+			font: 0.95em/1em $fontApp;
+			font-weight: 600;
+			margin: 4px;
+		}
+		.techtalkTime {
+			color: $colorGrayDark;
+			font: 0.95em/1em $fontApp;
+			font-weight: 600;
+			margin: 4px;
+		}
+		.techtalkCountdownPlace {
+			display: inline-block;
+			position: relative;
+			width: 140px;
+			height: 35px;
+			max-height: 35px;
+			padding-top: 2px;
+			top: 2px;
+			z-index: 93;
+		}
+		.techtalkCountdown {
+			color: $colorGray;
+			font: 0.9em/1em $fontApp;
+			font-weight: 400;
+			margin: 1px;
+		}
+		.techtalkBlockBtn {
+			width: 135px;
+			height: 108px;
+			max-height: 108px;
+			margin: 0;
+			padding: 0;
+			float: left;
+			overflow: hidden;
+		}
+	}
+}
+.techtalkPlaceIn {
+	@extend .techtalkPlace;
+	height: 100%;
+}
+
+
+
+
+
+.footer {
+	height: 56px;
+	max-height: 56px;
+	color: $colorGrayDark;
+	font: 1em/1em $fontApp;
+	font-weight: 400;
+	margin: 8px auto;
+	padding-top: 8px;
+	padding-bottom: 16px;
+}
+.copyRight {
+	line-height: 1.75 !important;
+	vertical-align: middle;
+	text-align: left;
+	padding-bottom: 16px;
+	&:hover {
+		color: $colorWhite;
+		cursor: pointer;
+	}
+}
+
+
+
+
+.detailsBoard {
+	height: auto;
+	color: $colorGrayDark;
+	overflow: hidden;
+	margin: 0;
+	ul {
+		display: block;
+		position: relative;
+		list-style: none;
+		font: 0.85em/1em $fontApp;
+	}
+	li {
+		height: 23px;
+		line-height: 23px;
+		vertical-align: middle;
+		overflow: hidden;
+		.logBoardTitle {
+			color: $fontColorApp;
+			font-weight: 600;
+		}
+		.logBoardTime {
+		}
+		&:nth-child(odd) {
+            background-color: #F7F7F7;
+            @include transition(all 0.01s ease-in);
+			.selectRow {
+				@extend .selectRow;
+			}
+        }
+        &:nth-child(even) {
+            background-color: #FFF;
+            @include transition(all 0.01s ease-in);
+			.selectRow {
+				@extend .selectRow;
+			}
+        }
+        &:hover {
+            background-color: #E6E9ED;
+            cursor: pointer;
+            a {
+                background-color: transparent;
+                &:hover,
+                &:focus {
+                    background-color: $color1;
+                    cursor: pointer;
+                }
+            }
+			.selectRow {
+				@extend .selectRow;
+			}
+        }
+	}
+	.selectRow {
+		width: 100%;
+		height: 100%;
+		background-color: $color1;
+		color: $colorWhite;
+		cursor: pointer;
+		&:nth-child(odd),
+        &:nth-child(even) {
+			background-color: $color1;
+			color: $colorWhite;
+		}
+		a,
+		a:hover,
+		a:visited,
+		a:focus {
+			background-color: $color1;
+			color: $colorWhite;
+		}
+	}
+}
+
+
+
+
+.scoreBoard {
+	height: auto;
+	color: $colorGrayDark;
+	overflow: hidden;
+	margin: 0;
+	ul {
+		display: block;
+		position: relative;
+		list-style: none;
+		font: 0.95em/1em $fontApp;
+	}
+	li {
+		height: 23px;
+		line-height: 23px;
+		vertical-align: middle;
+		overflow: hidden;
+		.scoreBoardTitle {
+			color: $fontColorApp;
+			font-weight: 600;
+		}
+		&:nth-child(odd) {
+            background-color: #F7F7F7;
+            @include transition(all 0.01s ease-in);
+			.selectRow {
+				@extend .selectRow;
+			}
+        }
+        &:nth-child(even) {
+            background-color: #FFF;
+            @include transition(all 0.01s ease-in);
+			.selectRow {
+				@extend .selectRow;
+			}
+        }
+        &:hover {
+            background-color: #E6E9ED;
+            cursor: pointer;
+            a {
+                background-color: transparent;
+                &:hover,
+                &:focus {
+                    background-color: $color1;
+                    cursor: pointer;
+                }
+            }
+			.selectRow {
+				@extend .selectRow;
+			}
+        }
+	}
+	.selectRow {
+		width: 100%;
+		height: 100%;
+		background-color: $color1;
+		color: $colorWhite;
+		cursor: pointer;
+		.scoreBoardTitle,
+		&:nth-child(odd),
+        &:nth-child(even) {
+			background-color: $color1;
+			color: $colorWhite;
+		}
+		a,
+		a:hover,
+		a:visited,
+		a:focus {
+			background-color: $color1;
+			color: $colorWhite;
+		}
+	}
+}
+
+
+
+
+
+
+.micropointBoard {
+	height: 162px;
+	color: $colorGrayDark;
+	overflow: hidden;
+	margin: 0;
+	ul {
+		display: block;
+		position: relative;
+		list-style: none;
+		font: 0.85em/1em $fontApp;
+	}
+	li {
+		height: 23px;
+		line-height: 23px;
+		vertical-align: middle;
+		overflow: hidden;
+		.logBoardTitle {
+			color: $fontColorApp;
+			font-weight: 600;
+		}
+		.logBoardTime {
+		}
+		&:nth-child(odd) {
+            background-color: #F7F7F7;
+            @include transition(all 0.01s ease-in);
+			.selectRow {
+				@extend .selectRow;
+			}
+        }
+        &:nth-child(even) {
+            background-color: #FFF;
+            @include transition(all 0.01s ease-in);
+			.selectRow {
+				@extend .selectRow;
+			}
+        }
+        &:hover {
+            background-color: #E6E9ED;
+            cursor: pointer;
+            a {
+                background-color: transparent;
+                &:hover,
+                &:focus {
+                    background-color: $color1;
+                    cursor: pointer;
+                }
+            }
+			.selectRow {
+				@extend .selectRow;
+			}
+        }
+	}
+	.selectRow {
+		width: 100%;
+		height: 100%;
+		background-color: $color1;
+		color: $colorWhite;
+		cursor: pointer;
+		&:nth-child(odd),
+        &:nth-child(even) {
+			background-color: $color1;
+			color: $colorWhite;
+		}
+		a,
+		a:hover,
+		a:visited,
+		a:focus {
+			background-color: $color1;
+			color: $colorWhite;
+		}
+	}
+}
+
+
+
+
+
+
+.logBoard {
+	height: 115px;
+	color: $colorGrayDark;
+	overflow: hidden;
+	margin: 0;
+	ul {
+		display: block;
+		position: relative;
+		list-style: none;
+		font: 0.85em/1em $fontApp;
+	}
+	li {
+		height: 23px;
+		line-height: 23px;
+		vertical-align: middle;
+		overflow: hidden;
+		.logBoardTitle {
+			color: $fontColorApp;
+			font-weight: 600;
+		}
+		.logBoardTime {
+		}
+		&:nth-child(odd) {
+            background-color: #F7F7F7;
+            @include transition(all 0.01s ease-in);
+			.selectRow {
+				@extend .selectRow;
+			}
+        }
+        &:nth-child(even) {
+            background-color: #FFF;
+            @include transition(all 0.01s ease-in);
+			.selectRow {
+				@extend .selectRow;
+			}
+        }
+        &:hover {
+            background-color: #E6E9ED;
+            cursor: pointer;
+            a {
+                background-color: transparent;
+                &:hover,
+                &:focus {
+                    background-color: $color1;
+                    cursor: pointer;
+                }
+            }
+			.selectRow {
+				@extend .selectRow;
+			}
+        }
+	}
+	.selectRow {
+		width: 100%;
+		height: 100%;
+		background-color: $color1;
+		color: $colorWhite;
+		cursor: pointer;
+		&:nth-child(odd),
+        &:nth-child(even) {
+			background-color: $color1;
+			color: $colorWhite;
+		}
+		a,
+		a:hover,
+		a:visited,
+		a:focus {
+			background-color: $color1;
+			color: $colorWhite;
+		}
+	}
+}
+
+
+
+
+
+.bahrevariBoard {
+	height: auto;
+	color: $colorGrayDark;
+	overflow: hidden;
+	margin: 0;
+	ul {
+		display: block;
+		position: relative;
+		list-style: none;
+		font: 0.85em/1em $fontApp;
+	}
+	li {
+		height: 23px;
+		line-height: 23px;
+		vertical-align: middle;
+		overflow: hidden;
+		.logBoardTitle {
+			color: $fontColorApp;
+			font-weight: 600;
+		}
+		.logBoardTime {
+		}
+		&:nth-child(odd) {
+            background-color: #F7F7F7;
+            @include transition(all 0.01s ease-in);
+			.selectRow {
+				@extend .selectRow;
+			}
+        }
+        &:nth-child(even) {
+            background-color: #FFF;
+            @include transition(all 0.01s ease-in);
+			.selectRow {
+				@extend .selectRow;
+			}
+        }
+        &:hover {
+            background-color: #E6E9ED;
+            cursor: pointer;
+            a {
+                background-color: transparent;
+                &:hover,
+                &:focus {
+                    background-color: $color1;
+                    cursor: pointer;
+                }
+            }
+			.selectRow {
+				@extend .selectRow;
+			}
+        }
+	}
+	.selectRow {
+		width: 100%;
+		height: 100%;
+		background-color: $color1;
+		color: $colorWhite;
+		cursor: pointer;
+		&:nth-child(odd),
+        &:nth-child(even) {
+			background-color: $color1;
+			color: $colorWhite;
+		}
+		a,
+		a:hover,
+		a:visited,
+		a:focus {
+			background-color: $color1;
+			color: $colorWhite;
+		}
+	}
+}
+
+
+
+
+.khasBoard {
+	height: 315px;
+	max-height: 315px;
+	color: $colorGrayDark;
+	overflow: hidden;
+	margin: 0;
+	ul {
+		display: block;
+		position: relative;
+		height: 315px;
+		max-height: 315px;
+		/*height: 100px;
+		max-height: 100px;*/
+		list-style: none;
+		font: 0.85em/1em $fontApp;
+		overflow: hidden;
+		/*overflow-x: hidden;
+		overflow-y: scroll;*/
+	}
+	li {
+		height: 23px;
+		line-height: 23px;
+		vertical-align: middle;
+		overflow: hidden;
+		.logBoardTitle {
+			color: $fontColorApp;
+			font-weight: 600;
+		}
+		.logBoardTime {
+		}
+		&:nth-child(odd) {
+            background-color: #F7F7F7;
+            @include transition(all 0.01s ease-in);
+			.selectRow {
+				@extend .selectRow;
+			}
+        }
+        &:nth-child(even) {
+            background-color: #FFF;
+            @include transition(all 0.01s ease-in);
+			.selectRow {
+				@extend .selectRow;
+			}
+        }
+        &:hover {
+            background-color: #E6E9ED;
+            cursor: pointer;
+            a {
+                background-color: transparent;
+                &:hover,
+                &:focus {
+                    background-color: $color1;
+                    cursor: pointer;
+                }
+            }
+			.selectRow {
+				@extend .selectRow;
+			}
+        }
+	}
+	.selectRow {
+		width: 100%;
+		height: 100%;
+		background-color: $color1;
+		color: $colorWhite;
+		cursor: pointer;
+		&:nth-child(odd),
+        &:nth-child(even) {
+			background-color: $color1;
+			color: $colorWhite;
+		}
+		a,
+		a:hover,
+		a:visited,
+		a:focus {
+			background-color: $color1;
+			color: $colorWhite;
+		}
+	}
+}
+
+
+
+
+
+.microPointBoardIn {
+	height: auto;
+	color: $colorGrayDark;
+	overflow: hidden;
+	margin: 0;
+	ul {
+		display: block;
+		position: relative;
+		list-style: none;
+		font: 0.85em/1em $fontApp;
+	}
+	li {
+		height: 23px;
+		line-height: 23px;
+		vertical-align: middle;
+		overflow: hidden;
+		.logBoardTitle {
+			color: $fontColorApp;
+			font-weight: 600;
+		}
+		.logBoardTime {
+		}
+		&:nth-child(odd) {
+            background-color: #F7F7F7;
+            @include transition(all 0.01s ease-in);
+			.selectRow {
+				@extend .selectRow;
+			}
+        }
+        &:nth-child(even) {
+            background-color: #FFF;
+            @include transition(all 0.01s ease-in);
+			.selectRow {
+				@extend .selectRow;
+			}
+        }
+        &:hover {
+            background-color: #E6E9ED;
+            cursor: pointer;
+            a {
+                background-color: transparent;
+                &:hover,
+                &:focus {
+                    background-color: $color1;
+                    cursor: pointer;
+                }
+            }
+			.selectRow {
+				@extend .selectRow;
+			}
+        }
+	}
+	.selectRow {
+		width: 100%;
+		height: 100%;
+		background-color: $color1;
+		color: $colorWhite;
+		cursor: pointer;
+		&:nth-child(odd),
+        &:nth-child(even) {
+			background-color: $color1;
+			color: $colorWhite;
+		}
+		a,
+		a:hover,
+		a:visited,
+		a:focus {
+			background-color: $color1;
+			color: $colorWhite;
+		}
+	}
+}
+
+
+
+
+.slider {
+	display: block;
+	position: relative;
+	height: 260px;
+	/*background-color: rgba(0,0,0,0.19);*/
+	color: $colorGrayDark;
+	margin-top: 20px;
+}
+.slider ul {
+	display: block;
+	position: absolute;
+	list-style: none;
+	list-style-type: none;
+	width: 100%;
+	left: 0;
+	bottom: 40;
+	overflow: hidden;
+	text-align: center;
+	pointer-events: none;
+}
+.no-js .slider ul {
+	position: relative;
+	left: auto;
+	bottom: auto;
+	margin: 0;
+	overflow: visible;
+}
+.slider ul.mi-current {
+	pointer-events: auto;
+}
+.slider ul li {
+	display: inline-block;
+	margin: 4px;
+	padding: 0;
+	/*width: 25%;*/
+	width: 130px;
+	max-width: 130px;
+	height: auto;
+	-webkit-transform: translateX(600%);
+	transform: translateX(600%);
+	-webkit-transition: opacity 0.2s linear;
+	transition: opacity 0.2s linear;
+}
+.no-js .slider ul li {
+	-webkit-transform: translateX(0);
+	transform: translateX(0);
+}
+.slider ul li a,
+.slider ul li img {
+	width: 100%;
+	display: block;
+	margin: 0 auto;
+}
+.slider ul li a {
+	outline: none;
+	cursor: pointer;
+}
+.slider ul li img {
+	width: 100%;
+	max-width: 100%;
+	border: none;
+}
+.slider ul li h4 {
+	display: inline-block;
+	font: 0.85em/1em $fontApp;
+	font-weight: 600;
+	padding: 5px;
+}
+.slider ul li:hover {
+	/*opacity: 0.7;*/
+	@include box-shadow(2px 2px 2px 0px rgba(0, 0, 0, 0.35));
+	@include transition(all 0.15s ease);
+	cursor: pointer;
+} 
+.slider nav {
+	display: block;
+	position: relative;
+	top: 225px;
+	text-align: center;
+	max-width: 100%;
+	margin: 0 auto;
+	/*border-top: 2px solid lighten($colorGray, 10);*/
+	border-top: 2px solid rgba(0,0,0,0.25);
+	/*border-top: 2px solid $color1;*/
+}
+.no-js nav {
+	display: none;
+}
+.slider nav a {
+	display: inline-block;
+	position: relative;
+	width: 120px;
+	max-width: 120px;
+	height: 25px;
+	max-height: 25px;
+	line-height: 20px;
+	vertical-align: middle;
+	/*background-color: lighten($colorGray, 10);*/
+	background-color: rgba(0,0,0,0.19);
+	/*color: $colorGrayDark;*/
+	color: $colorWhite;
+	font: 0.9em/1em $fontYekan;
+	text-align: center;
+	padding: 8px 4px;
+	outline: none;
+	-webkit-transition: color 0.2s linear;
+	transition: color 0.2s linear;
+}
+.slider nav a:hover,
+.slider nav a.mi-selected {
+	/*background-color: lighten($colorGray, 3);*/
+	/*background-color: rgba(0,0,0,0.19);*/
+	background-color: transparent;
+	color: $colorWhite;
+	border-bottom: 2px rgba(0,0,0,0.25) solid;
+	border-left: 2px rgba(0,0,0,0.25) solid;
+	border-right: 2px rgba(0,0,0,0.25) solid;
+}
+.slider nav a.mi-selected:after,
+.slider nav a.mi-selected:before {
+	content: '';
+	position: absolute;
+	top: 0px;
+	border: solid transparent;
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+.slider nav a.mi-selected:after {
+	border-color: transparent;
+	border-top-color: rgba(0,0,0,0.25);
+	border-width: 0;
+	left: 50px;
+	margin: 0px auto;
+}
+.slider nav a.mi-selected:before {
+	border-color: transparent;
+	border-top-color: rgba(0,0,0,0.25);
+	border-width: 6px;
+	left: 50px;
+	margin: 0px auto;
+}
+/* Move classes and animations */
+.slider ul:first-child li,
+.no-js .slider ul li {
+	-webkit-animation: scaleUp 350ms ease-in-out both;
+	animation: scaleUp 350ms ease-in-out both;
+}
+@-webkit-keyframes scaleUp {
+	0% { -webkit-transform: translateX(0) scale(0); }
+	100% { -webkit-transform: translateX(0) scale(1); }
+}
+@keyframes scaleUp {
+	0% { -webkit-transform: translateX(0) scale(0); transform: translateX(0) scale(0); }
+	100% { -webkit-transform: translateX(0) scale(1); transform: translateX(0) scale(1); }
+}
+.slider ul:first-child li:first-child {
+	-webkit-animation-delay: 90ms;
+	animation-delay: 90ms;
+}
+.slider ul:first-child li:nth-child(2) {
+	-webkit-animation-delay: 180ms;
+	animation-delay: 180ms;
+}
+.slider ul:first-child li:nth-child(3) {
+	-webkit-animation-delay: 270ms;
+	animation-delay: 270ms;
+}
+.slider ul:first-child li:nth-child(4) {
+	-webkit-animation-delay: 360ms;
+	animation-delay: 360ms;
+}
+/* moveFromRight */
+.slider ul.mi-moveFromRight li {
+	-webkit-animation: moveFromRight 350ms ease-in-out both;
+	animation: moveFromRight 350ms ease-in-out both;
+}
+/* moveFromLeft */
+.slider ul.mi-moveFromLeft li {
+	-webkit-animation: moveFromLeft 350ms ease-in-out both;
+	animation: moveFromLeft 350ms ease-in-out both;
+}
+/* moveToRight */
+.slider ul.mi-moveToRight li {
+	-webkit-animation: moveToRight 350ms ease-in-out both;
+	animation: moveToRight 350ms ease-in-out both;
+}
+/* moveToLeft */
+.slider ul.mi-moveToLeft li {
+	-webkit-animation: moveToLeft 350ms ease-in-out both;
+	animation: moveToLeft 350ms ease-in-out both;
+}
+/* Animation Delays */
+.slider ul.mi-moveToLeft li:first-child,
+.slider ul.mi-moveFromRight li:first-child,
+.slider ul.mi-moveToRight li:nth-child(4),
+.slider ul.mi-moveFromLeft li:nth-child(4) {
+	-webkit-animation-delay: 0ms;
+	animation-delay: 0ms;
+}
+.slider ul.mi-moveToLeft li:nth-child(2),
+.slider ul.mi-moveFromRight li:nth-child(2),
+.slider ul.mi-moveToRight li:nth-child(3),
+.slider ul.mi-moveFromLeft li:nth-child(3) {
+	-webkit-animation-delay: 90ms;
+	animation-delay: 90ms;
+}
+.slider ul.mi-moveToLeft li:nth-child(3),
+.slider ul.mi-moveFromRight li:nth-child(3),
+.slider ul.mi-moveToRight li:nth-child(2),
+.slider ul.mi-moveFromLeft li:nth-child(2) {
+	-webkit-animation-delay: 180ms;
+	animation-delay: 180ms;
+}
+.slider ul.mi-moveToLeft li:nth-child(4),
+.slider ul.mi-moveFromRight li:nth-child(4),
+.slider ul.mi-moveToRight li:first-child,
+.slider ul.mi-moveFromLeft li:first-child  {
+	-webkit-animation-delay: 270ms;
+	animation-delay: 270ms;
+}
+/* Animations */
+@-webkit-keyframes moveFromRight {
+	0% { -webkit-transform: translateX(600%); }
+	100% { -webkit-transform: translateX(0%); }
+}
+@-webkit-keyframes moveFromLeft {
+	0% { -webkit-transform: translateX(-600%); }
+	100% { -webkit-transform: translateX(0%); }
+}
+@-webkit-keyframes moveToRight {
+	0% { -webkit-transform: translateX(0%); }
+	100% { -webkit-transform: translateX(600%); }
+}
+@-webkit-keyframes moveToLeft {
+	0% { -webkit-transform: translateX(0%); }
+	100% { -webkit-transform: translateX(-600%); }
+}
+@keyframes moveFromRight {
+	0% { -webkit-transform: translateX(600%); transform: translateX(600%); }
+	100% { -webkit-transform: translateX(0); transform: translateX(0); }
+}
+@keyframes moveFromLeft {
+	0% { -webkit-transform: translateX(-600%); transform: translateX(-600%); }
+	100% { -webkit-transform: translateX(0); transform: translateX(0); }
+}
+@keyframes moveToRight {
+	0% { -webkit-transform: translateX(0%); transform: translateX(0%); }
+	100% { -webkit-transform: translateX(600%); transform: translateX(600%); }
+}
+@keyframes moveToLeft {
+	0% { -webkit-transform: translateX(0%); transform: translateX(0%); }
+	100% { -webkit-transform: translateX(-600%); transform: translateX(-600%); }
+}
+.slider {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+/* Media Queries */
+@media screen and (max-width: 910px){
+	.slider nav {
+		max-width: 90%;
+	}
+	.slider nav a {
+		font-size: 12px;
+		padding: 40px 10px 30px 14px;
+	}
+}
+@media screen and (max-width: 740px){
+	.slider {
+		height: 300px;
+	}
+	.slider nav {
+		top: 220px;
+	}
+}
+@media screen and (max-width: 490px){ 
+	.slider {
+		text-align: center;
+		height: auto;
+	}
+	.slider ul {
+		position: relative;
+		display: inline;
+		bottom: auto;
+		pointer-events: auto;
+	}
+	.slider ul li {
+		-webkit-animation: none !important;
+		animation: none !important;
+		-webkit-transform: translateX(0) !important;
+		transform: translateX(0) !important;
+		padding: 10px 3px;
+		min-width: 140px;
+	}
+	.slider nav {
+		display: none;
+	}
+}
+
+
+
+
+
+.shareBoard {
+}
+ul.shareBoard, li {
+	list-style: none;
+}
+ul.shareBoard {
+	width: 640px;
+	max-width: 640px;
+	margin: 0px auto;
+	padding: 10px;
+	overflow: hidden;
+}
+ul.shareBoard li {
+	display: block;
+	position: relative;
+	height: 135px;
+	width: 135px;
+	background: #FFFFCC;
+	color: #888;
+	font: 0.85em/1em $fontApp;
+	font-weight: 400;
+	text-decoration: none;
+	line-height: 1.45;
+	margin: 8px;
+	padding: 4px;
+	float: right;
+	overflow: hidden !important;
+	@include box-shadow(1px 1px 2px rgba(33,33,33,0.55));
+	@include transition(all 0.15s linear);
+	-webkit-transform: rotate(-3deg);
+	-o-transform: rotate(-3deg);
+	-moz-transform: rotate(-3deg);
+	z-index: 3;
+	.placeContent {
+		display: inline-block;
+		position: relative;
+		height: 88px;
+		max-height: 88px;
+		overflow: hidden;
+		h2 {
+			color: #444;
+			font: 1.1em/1em $fontApp;
+			line-height: 1.55;
+			font-weight: 600 !important;
+			padding: 4px 0;
+		}
+		p {
+			color: #888;
+			font: 1em/1em $fontApp;
+			line-height: 1.45;
+		}
+	}
+	.placeDetails {
+		display: inline-block;
+		position: relative;
+		height: 41px;
+		line-height: 24px;
+		vertical-align: middle;
+		font: 0.7em/1em $fontApp;
+		z-index: 11;
+		overflow: hidden;
+		.placeName {
+			display: inline-block;
+			position: relative;
+			height: 17px;
+			color: rgba(40,40,40,0.45);
+			line-height: 17px;
+			font-weight: 600;
+			vertical-align: middle;
+			z-index: 12;
+		}
+		.placeBtn {
+			display: inline-block;
+			position: relative;
+			height: 24px;
+			line-height: 24px;
+			vertical-align: middle;
+			z-index: 12;
+		}
+		.placeNo {
+			display: inline-block;
+			position: relative;
+			height: 24px;
+			color: rgba(40,40,40,0.45);
+			line-height: 24px;
+			vertical-align: middle;
+			padding: 0 12px 0 2px;
+			z-index: 12;
+		}
+		.placeDate {
+			display: inline-block;
+			position: relative;
+			height: 24px;
+			color: rgba(40,40,40,0.45);
+			line-height: 24px;
+			vertical-align: middle;
+			z-index: 12;
+		}
+	}
+	&:nth-child(even) {
+		-o-transform: rotate(2deg);
+		-webkit-transform: rotate(2deg);
+		-moz-transform: rotate(2deg);
+		position: relative;
+		top: 5px;
+	}
+	&:nth-child(3n) {
+		-o-transform: rotate(-1deg);
+		-webkit-transform: rotate(-1deg);
+		-moz-transform: rotate(-1deg);
+		position: relative;
+		top: -5px;
+	}
+	&:nth-child(5n) {
+		-o-transform: rotate(4deg);
+		-webkit-transform: rotate(4deg);
+		-moz-transform: rotate(4deg);
+		position: relative;
+		top: -10px;
+	}
+	&:hover, &:focus {
+		@include box-shadow(6px 6px 6px rgba(0,0,0,0.15));
+		@include transition(all 0.15s ease);
+		
+		-webkit-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		
+		-webkit-transform: scale(1.15);
+		-moz-transform: scale(1.15);
+		-o-transform: scale(1.15);
+		position: relative;
+		z-index: 5;
+	}
+}
+ul.shareBoard li.shareBoardNewNote {
+	text-decoration: none;
+	color: #888;
+	background: #F7F7F7;
+	font: 0.9em/1em $fontApp;
+	line-height: 1.45;
+	display: block;
+	height: 135px;
+	width: 135px;
+	padding: 4px;
+	overflow: hidden;
+	@include box-shadow(1px 1px 2px rgba(33,33,33,0.55));
+	@include transition(all 0.15s linear);
+	-webkit-transform: rotate(0deg);
+	-o-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+	a, a:visited {
+		-webkit-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		&:hover {
+			@include box-shadow(inset 1px 1px 1px rgba(255, 255, 255, 0.3), 0 2px 2px rgba(0, 0, 0, 0.15), 0 1px 2px -2px rgba(0, 0, 0, 0.2));
+			-webkit-transform: scale(1);
+			-moz-transform: scale(1);
+			-o-transform: scale(1);
+		}
+	}
+}
+ul.shareBoard li.shareBoardTasliat {
+	text-decoration: none;
+	color: #8C8C8C !important;
+	background: #DDDDDD !important;
+	font: 0.9em/1em $fontApp;
+	line-height: 1.45;
+	display: block;
+	height: 135px;
+	width: 135px;
+	padding: 4px;
+	overflow: hidden;
+	@include box-shadow(1px 1px 2px rgba(33,33,33,0.55));
+	@include transition(all 0.15s linear);
+	@extend .placeContent;
+	.placeContent {
+		height: 105px;
+		max-height: 105px;
+	}
+	@extend .placeDetails;
+	.placeDetails {
+		position: relative;
+		height: 35px;
+		line-height: 35px;
+		vertical-align: middle;
+	}
+	h2, p, .placeNo, .placeDate {
+		color: #8C8C8C !important;
+		background: #DDDDDD !important;
+	}
+}
+ul.shareBoard li.shareBoardTabrik {
+	text-decoration: none;
+	color: #559CDD !important;
+	background: #CDEBFF !important;
+	font: 0.9em/1em $fontApp;
+	line-height: 1.45;
+	display: block;
+	height: 135px;
+	width: 135px;
+	padding: 4px;
+	overflow: hidden;
+	@include box-shadow(1px 1px 2px rgba(33,33,33,0.55));
+	@include transition(all 0.15s linear);
+	@extend .placeContent;
+	.placeContent {
+		height: 105px;
+		max-height: 105px;
+	}
+	@extend .placeDetails;
+	.placeDetails {
+		position: relative;
+		height: 35px;
+		line-height: 35px;
+		vertical-align: middle;
+	}
+	h2, p, .placeNo, .placeDate {
+		color: #559CDD !important;
+		background: #CDEBFF !important;
+	}
+}
+ul.shareBoard li.shareBoardTavalod {
+	text-decoration: none;
+	color: $color2 !important;
+	background: #FFE4FC !important;
+	font: 0.9em/1em $fontApp;
+	line-height: 1.45;
+	display: block;
+	height: 135px;
+	width: 135px;
+	padding: 4px;
+	overflow: hidden;
+	@include box-shadow(1px 1px 2px rgba(33,33,33,0.55));
+	@include transition(all 0.15s linear);
+	@extend .placeContent;
+	.placeContent {
+		height: 105px;
+		max-height: 105px;
+	}
+	@extend .placeDetails;
+	.placeDetails {
+		position: relative;
+		height: 35px;
+		line-height: 35px;
+		vertical-align: middle;
+	}
+	h2, p, .placeNo, .placeDate {
+		color: $color2 !important;
+		background: #FFE4FC !important;
+	}
+}
+
+
+
+
+
+
+.techtalkTab {
+	section {
+	  display: none;
+	  padding: 10px 0 0;
+	  border-top: 1px solid #ddd;
+	}
+	input {
+	  display: none;
+	}
+	label {
+	  display: inline-block;
+	  background-color: rgba(255,255,255,0.45);
+	  color: rgba(0,0,0,0.35);
+	  font: 0.9em/1em $fontApp;
+	  font-weight: 600;
+	  text-align: center;
+	  margin: 0 0 -1px;
+	  padding: 6px 12px;
+	  border: 1px transparent solid;
+	  border-top: 3px transparent solid;
+	  @include transition(all 0.15s ease);
+	}
+	label:before {
+	}
+	label[for*='1']:before { content: ''; }
+	label[for*='2']:before { content: ''; }
+	label[for*='3']:before { content: ''; }
+	label[for*='4']:before { content: ''; }
+	label[for*='5']:before { content: ''; }
+	label[for*='6']:before { content: ''; }
+	label[for*='7']:before { content: ''; }
+	label[for*='8']:before { content: ''; }
+	label:hover {
+	  background-color: rgba(255,255,255,0.85);
+	  color: rgba(0,0,0,0.65);
+	  cursor: pointer;
+	  @include transition(all 0.15s ease);
+	}
+	input:checked + label {
+	  background-color: #DDDDDD;
+	  color: rgba(0,0,0,0.75);
+	  border: 1px #DDDDDD solid;
+	  border-top: 3px $colorAlert solid;
+	  border-bottom: 1px #DDDDDD solid;
+	  @include transition(all 0.15s ease);
+	}
+	#tab1:checked ~ #content1,
+	#tab2:checked ~ #content2,
+	#tab3:checked ~ #content3,
+	#tab4:checked ~ #content4,
+	#tab5:checked ~ #content5,
+	#tab6:checked ~ #content6,
+	#tab7:checked ~ #content7,
+	#tab8:checked ~ #content8 {
+	  display: block;
+	}
+}
+@media screen and (max-width: 650px) {
+.techtalkTab {
+	label {
+		font-size: 0;
+	}
+	label:before {
+		margin: 0;
+		font-size: 18px;
+	}
+}
+}
+@media screen and (max-width: 400px) {
+.techtalkTab {
+	label {
+		padding: 15px;
+	}
+}
+}
+
+
+.incredibleTab {
+	@extend .techtalkTab;
+}
+
+
+
+#scoreBoardSliderTitle {
+	background-color: rgba(204,96,98,1.00);
+	color: $colorWhite;
+	position: absolute;
+	width: 130px;
+	height: 20px;
+	padding: 2px;
+	margin-top: -2px;
+	left: 0px;
+	z-index: 91;
+	overflow: hidden;
+	.scoreBoardSliderTitleContent {
+		position: relative;
+		width: 400px;
+		height: 20px;
+		padding: 0px;
+		float: right;
+		z-index: 91;
+	}
+	.scoreBoardSliderTitleTxt {
+		position: relative;
+		width: 130px;
+		height: 20px;
+		padding: 0px;
+		float: right;
+		z-index: 91;
+	}
+	.scoreBoardSliderTitleTxt1 {
+		@extend .scoreBoardSliderTitleTxt;
+	}
+	.scoreBoardSliderTitleTxt2 {
+		@extend .scoreBoardSliderTitleTxt;
+	}
+	.scoreBoardSliderTitleTxt3 {
+		@extend .scoreBoardSliderTitleTxt;
+	}
+}
+
+
+
+ul.bullets {
+	position: absolute;
+	width: 220px;
+	height: 20px;
+	line-height: 20px;
+	vertical-align: middle;
+	padding: 0px;
+	top: 8px;
+	right: -20px;
+	float: right;
+	z-index: 91;
+	li {
+		display: block;
+		position: relative;
+		width: 40px;
+		height: 20px;
+		padding: 0px;
+		float: right;
+		a, a:link, a:visited, a:active {
+			background-color: transparent;
+			color: $colorWhite;
+		}
+	}
+	.bullet {
+		display: block;
+		position: relative;
+		font: 0.6em/1em $fontYekan;
+		font-weight: 400;
+	}
+	.bullet.active {
+		display: block;
+		position: relative;
+		font: 0.9em/1em $fontYekan;
+		font-weight: 600;
+		margin-right: -6px;
+		margin-top: -2px;
+	}
+}
+
+
+/* Tiny Carousel */
+#scoreBoardSlider {
+	height: 1%;
+	overflow: hidden;
+	padding: 0 0 10px;
+}
+#scoreBoardSlider .viewport {
+	float: left;
+	width: 240px;
+	height: 520px;
+	overflow: hidden;
+	position: relative;
+}
+#scoreBoardSlider .buttons {
+	@extend .btnDefault;
+	width: 25px;
+	height: 25px;
+	line-height: 25px;
+	background-color: transparent;
+	color: $colorWhite;
+	font: 1.1em/1em $fontIcon;
+	font-weight: 600;
+	vertical-align: middle;
+	@include border-radius($borderRadius);
+	&:hover {
+		background-color: $colorWhite;
+		color: $colorGrayDark;
+		cursor: pointer;
+	}
+	.icon {
+		font: 1em/1em $fontIcon;
+		font-weight: 600;
+		padding-top: 3px;
+	}
+}
+#scoreBoardSlider .buttons.prev {
+	width: 25px;
+	height: 25px;
+	line-height: 25px;
+	float: left;
+	text-align: left;
+	z-index: 93;
+}
+#scoreBoardSlider .buttons.next {
+	width: 25px;
+	height: 25px;
+	line-height: 25px;
+	float: right;
+	text-align: right;
+	z-index: 93;
+}
+#scoreBoardSlider .buttons:hover {
+}
+#scoreBoardSlider .disable {
+	visibility: hidden;
+}
+#scoreBoardSlider .overview {
+	list-style: none;
+	position: absolute;
+	padding: 0;
+	margin: 0;
+	width: 240px;
+	left: 0;
+	top: 0;
+}
+#scoreBoardSlider .overview > li {
+	display: block;
+	width: 236px;
+	height: 520px;
+	border: none;
+	margin: 0px;
+	padding: 1px;
+	float: left;
+}
+
+
+
+
+ul#countdown {
+	display: block;
+	list-style: none;
+	background-color: darken($colorAlert, 8);
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	direction: ltr;
+}
+ul#countdown li {
+	display: inline-block;
+	max-height: 30px;
+	overflow: hidden;
+	/*height: 45px;
+	line-height: 45px;*/
+	vertical-align: middle;
+	border: none;
+	background-color: transparent;
+	&:hover {
+		@include box-shadow(0px 0px 0px 0px rgba(0,0,0,0));
+		@include transition(all 0.15s ease);
+		cursor: pointer;
+	}
+}
+ul#countdown li span {
+	height: 15px;
+	line-height: 15px;
+	vertical-align: middle;
+	/* color: $fontColorApp; */
+	/* color: darken($colorAlert, 16); */
+	color: rgba(0,0,0,0.45);
+	font-weight: 600;
+}
+ul#countdown li.seperator {
+	max-height: 30px;
+	height: 30px;
+	line-height: 30px;
+	vertical-align: middle;
+	font-weight: 400;
+}
+ul#countdown li span.icon {
+	position: relative;
+	max-height: 30px;
+	height: 30px;
+	line-height: 30px;
+	vertical-align: middle;
+	font: 2.2em/1em $fontApp;
+	font-weight: 400;
+	top: 3px;
+}
+ul#countdown li p {
+	height: 15px;
+	line-height: 15px;
+	vertical-align: middle;
+	color: rgba(0,0,0,0.25);
+	font-weight: 400;
+}
+
+
+
+
+/** initial setup **/
+.nano, .nano2 {
+  position : relative;
+  width    : 100%;
+  height   : 100%;
+  overflow : hidden;
+}
+.nano > .nano-content, .nano2 > .nano-content {
+  position      : absolute;
+  overflow      : scroll;
+  overflow-x    : hidden;
+  top           : 0;
+  right         : 0;
+  bottom        : 0;
+  left          : 0;
+}
+.nano > .nano-content:focus, .nano2 > .nano-content:focus {
+  outline: thin dotted;
+}
+.nano > .nano-content::-webkit-scrollbar, .nano2 > .nano-content::-webkit-scrollbar {
+  display: none;
+}
+.has-scrollbar > .nano-content::-webkit-scrollbar {
+  display: block;
+}
+.nano > .nano-pane, .nano2 > .nano-pane {
+  background : rgba(0,0,0,.25);
+  position   : absolute;
+  width      : 10px;
+  right      : 0;
+  top        : 0;
+  bottom     : 0;
+  visibility : hidden\9; /* Target only IE7 and IE8 with this hack */
+  opacity    : .01;
+  -webkit-transition    : .2s;
+  -moz-transition       : .2s;
+  -o-transition         : .2s;
+  transition            : .2s;
+  -moz-border-radius    : 5px;
+  -webkit-border-radius : 5px;
+  border-radius         : 5px;
+}
+.nano > .nano-pane > .nano-slider, .nano2 > .nano-pane > .nano-slider {
+  background: #444;
+  background: rgba(0,0,0,.5);
+  position              : relative;
+  margin                : 0 1px;
+  -moz-border-radius    : 3px;
+  -webkit-border-radius : 3px;
+  border-radius         : 3px;
+}
+.nano:hover > .nano-pane, .nano2:hover > .nano-pane, .nano-pane.active, .nano-pane.flashed {
+  visibility : visible\9; /* Target only IE7 and IE8 with this hack */
+  opacity    : 0.99;
+}
+
+
+
+.nano { height: 315px; padding: 4px; }
+.nano .nano-content { padding: 0; }
+.nano .nano-pane   { background: rgba(0,0,0,0.15); z-index: 99; float: left; }
+.nano .nano-slider { background: rgba(0,0,0,0.35); z-index: 99; }
+
+
+
+
+.nano2 { height: 225px; padding: 4px; }
+.nano2 .nano-content { padding: 0; }
+.nano2 .nano-pane   { background: rgba(0,0,0,0.15); z-index: 99; float: left; }
+.nano2 .nano-slider { background: rgba(0,0,0,0.35); z-index: 99; }
+
+
+
+
+.ribbon {
+	display: block;
+	position: fixed;
+	
+	top: -40;
+	
+	font-size: 13px !important;
+
+	width: 115px;
+	background: #ba89b6;
+	color: #fff;
+	text-align: center;
+	padding: 5px;
+	margin: 5px;
+}
+.ribbon:before, .ribbon:after {
+ content: "";
+ position: absolute;
+ display: block;
+ bottom: -1em;
+ border: 1.5em solid #986794;
+ z-index: -1;
+}
+.ribbon:before {
+ left: -2em;
+ border-right-width: 1.5em;
+ border-left-color: transparent;
+}
+.ribbon:after {
+ right: -2em;
+ border-left-width: 1.5em;
+ border-right-color: transparent;
+}
+.ribbon .ribbon-content:before, .ribbon .ribbon-content:after {
+ content: "";
+ position: absolute;
+ display: block;
+ border-style: solid;
+ border-color: #804f7c transparent transparent transparent;
+ bottom: -1em;
+}
+.ribbon .ribbon-content:before {
+ left: 0;
+ border-width: 1em 0 0 1em;
+}
+.ribbon .ribbon-content:after {
+ right: 0;
+ border-width: 1em 1em 0 0;
+}
+
+
+
+

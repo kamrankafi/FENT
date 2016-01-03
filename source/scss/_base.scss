@@ -1,0 +1,123 @@
+/* UI/UX: RohanIT.ir */
+/* طراحی رابط و تجربه کاربری فن آوری اطلاعات روهان */
+@charset "utf-8";
+@import "compass/reset";
+@import "compass/utilities";
+@import "fonts";
+@import "colors";
+/* Grid Setup */
+/* Define Some Variables */
+$limitTol : 978px;
+$columnWidth : 8;
+$column : 12;
+$columnGutter : (100 - ($columnWidth * $column)) / ($column - 1);
+/* Flexible Image */
+img {
+	max-width: 100%;
+	height: auto;
+}
+.full {
+	position: relative;
+	width: 100%;
+}
+.limit {
+	padding: 0 .5em;
+	position: relative;
+	@include pie-clearfix;
+}
+.row {
+	width: 100%;
+	margin: 0 auto;
+	position: relative;
+	max-width: $limitTol;
+	@include pie-clearfix;
+}
+/* Select all element that contains class 'col' */
+// Select all element that contains class 'col'
+[class*="col"] {
+	float: right;
+	display: inline;
+	min-height: 1px;
+	position: relative;
+	margin-right: 1% * $columnGutter;
+	&:first-child {
+		margin-right: 0;
+	}
+}
+@for $i from 1 through $column {
+	.col#{$i} {
+		$colWidth: 1% * ($columnWidth * $i) + ($columnGutter *($i - 1));
+		width: $colWidth;
+	}
+}
+@media only screen and (max-width: 767px) {
+.row {
+	max-width: 767px;
+		[class*="col"] {
+			width: 100%;
+			margin-left: 0;
+		}
+	}
+}
+/* Base */
+/* Clear Fix */
+.clear:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; overflow: hidden; }
+.clear { display: block; position: relative; }
+html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {
+    -webkit-text-size-adjust: none;
+}
+/* Checkbox Fix For Android */
+body {
+	-webkit-animation: bugfix infinite 1s;
+}
+* {
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+@-webkit-keyframes bugfix {
+	from {
+		padding: 0;
+	}
+	to {
+		padding: 0;
+	}
+}
+.RohanIT, .Designed {
+	display: block;
+	visibility: visible;
+	/* UI/UX: RohanIT.ir */
+	/* طراحی رابط و تجربه کاربری فن آوری اطلاعات روهان */
+}
+html {
+	font-size: $fontSize;
+	direction: rtl;
+}
+body {
+	width: 100%;
+	height: auto;
+	color: $fontColor1;
+	background-color: $backgroundColor;
+	background-image: url(../images/bk.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	font: 0.625em/1em $fontApp;
+	font-weight: normal;
+	line-height: 1.75 !important;
+	letter-spacing: 0;
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+/* Breakpoint Wide */
+$breakpoint-wide: rem-calc(1440);
+@media (min-width: $breakpoint-wide) {
+body {
+}
+}

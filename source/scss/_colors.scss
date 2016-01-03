@@ -1,0 +1,35 @@
+/* UI/UX: RohanIT.ir */
+/* طراحی رابط و تجربه کاربری فن آوری اطلاعات روهان */
+@charset "utf-8";
+$fontColorApp: #555555;
+$fontColor1: #616C9B;
+$backgroundColor: #F3F4F8;
+$borderRadius: 4px;
+/* Application Colors */
+$color1: #5774AD;
+$color1Bk: #D3DBF1;
+$color2: #AC4D81;
+$color2Bk: lighten(#E27D9C, 15);
+$color3: #BA4980;
+$color3Bk: lighten(#E7839A, 20);
+$color4: #EB5D47;
+$color5: #AEB46D;
+$color6: #268E8B;
+$color7: #3CB19B;
+$color8: #FCCF4D;
+$color9: #F9B02C;
+$colorAlert: #FFCE54;
+$colorInfo: #4FC0E9;
+$colorSuccess: #A0D368;
+$colorSuccessFont: #DCFFA9;
+$colorWarning: #EB5367;
+$colorDark: #656D78;
+$colorGray: #CCD1D9;
+$colorGrayDark: #AAB2BE; /* darken($gray, 8) */
+$colorGrayLight: #E6E9ED; /* lighten($gray, 8) */
+$colorWhite: #FFFFFF;
+$colorBrown: #9F611D;
+$colorBrownDark: #E3C583;
+$colorBrownLight: lighten($colorBrown, 10);
+
+
