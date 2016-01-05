@@ -14,8 +14,9 @@
     <!--[if lt IE 8]>
       <link href="stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <![endif]-->
-    <!--<script src="../bower_components/modernizr/src/Modernizr.js"></script>-->
-    <script src="scripts/modernizr.custom.63321.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/modernizr/src/Modernizr.js"></script>
+    <!--<script src="scripts/modernizr.custom.63321.js"></script>-->
     <script src="scripts/jquery.js"></script>
     <script src="scripts/jquery.catslider.js"></script>
     <script src="scripts/jquery.tinycarousel.js"></script>
@@ -969,7 +970,9 @@
                             	<div class="techtalkSub">
                                     <div class="techtalkTitle">نام و یا عنوان بحث</div>
                                     <div class="techtalkUser">نام کاربر</div>
-                                    <div class="techtalkDesc">توضیحات تکمیلی و اطلاعات بحث وارد شده</div>
+                                    <div class="techtalkDesc">
+                                    	لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+                                    </div>
                                 </div>
                                 <div class="techtalkDateTime">
                                 	<div class="techtalkCountdownPlace">
@@ -1445,6 +1448,20 @@
 		$('#techtalkPlace').scrollbox({
 			delay: 7,
 		});
+	});
+</script>
+
+<script>
+	/* $(".techtalkDesc").click(function() {
+		$(".techtalkPlaceIn li").css({height: 'auto'});
+		$(".techtalkPlaceIn li").animate({height: $(".techtalkDesc").height()+60}, 170);
+	}); */
+	$(".techtalkDesc").click(function() {
+		if ( $(".techtalkPlaceIn li").height() <= 110 ) {
+		  $(".techtalkPlaceIn li").animate({height: $(".techtalkDesc").height()+60}, 650, "swing")
+		} else if ( $(".techtalkPlaceIn li").height() >= 110 ) {
+		  $(".techtalkPlaceIn li").animate({height: $(".techtalkDesc").height()==110}, 650, "swing")
+		}
 	});
 </script>
 

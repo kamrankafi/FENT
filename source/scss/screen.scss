@@ -1494,7 +1494,7 @@ textarea.formTextareaNote {
 	}
 	li {
 		height: 110px;
-		max-height: 110px;
+		min-height: 110px;
 		color: $colorGrayDark;
 		border: 1px rgba(215,215,215,0.84) solid;
 		margin: 4px 0;
@@ -1534,7 +1534,8 @@ textarea.formTextareaNote {
 			display: block;
 			position: relative;
 			width: 340px;
-			height: 105px;
+			/*height: 105px;*/
+			height: auto;
 			float: right;
 			overflow: hidden;
 		}
@@ -1558,10 +1559,13 @@ textarea.formTextareaNote {
 			margin: 4px;
 		}
 		.techtalkDesc {
+			/*height: 45px;*/
+			height: auto;
 			color: $colorGrayDark;
 			font: 0.8em/1em $fontApp;
 			font-weight: 400;
 			line-height: 1.55;
+			overflow: hidden;
 			margin: 4px;
 		}
 		.techtalkDateTime {
@@ -1570,6 +1574,8 @@ textarea.formTextareaNote {
 			top: 2px;
 			left: 2px;
 			width: 140px;
+			height: 35px;
+			max-height: 35px;
 			text-align: left;
 			padding-top: 2px;
 			float: left;
@@ -1597,6 +1603,8 @@ textarea.formTextareaNote {
 			z-index: 93;
 		}
 		.techtalkCountdown {
+			height: 40px;
+			max-height: 40px;
 			color: $colorGray;
 			font: 0.9em/1em $fontApp;
 			font-weight: 400;
@@ -3003,6 +3011,8 @@ ul.bullets {
 ul#countdown {
 	display: block;
 	list-style: none;
+	height: 37px;
+	max-height: 37px;
 	background-color: darken($colorAlert, 8);
 	margin: 0;
 	padding: 0;

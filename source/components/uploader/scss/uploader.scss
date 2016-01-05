@@ -6,6 +6,8 @@
 @import "compass/utilities";
 @import "../../../../source/scss/fonts";
 @import "../../../../source/scss/colors";
+@import "../../../../source/scss/checkbox";
+@import "../../../../source/scss/progressbar";
 @import "compass/css3";
 html {
 	font-size: $fontSize;
@@ -33,6 +35,14 @@ body {
 	overflow-x: hidden;
 	overflow-y: auto;
 }
+
+
+
+
+
+
+
+
 .uploaderComp {
 	width: 100%;
 	background-color: $colorWhite;
@@ -80,7 +90,7 @@ body {
 
 
 
-.btnFileBrowse {
+.btnDefault {
     display: block;
 	position: relative;
 	width: 100%;
@@ -89,6 +99,125 @@ body {
     vertical-align: middle;
 	background-color: $colorGrayLight;
 	color: $fontColorApp;
+	font: 1em/1em $fontYekan;
+    font-weight: 600;
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+	@include border-radius($borderRadius);
+    margin: 0;
+    padding: 0;
+	padding-top: 6px;
+	cursor: pointer;
+    .icon {
+        display: inline-block;
+        font: 1.35em/1em $fontIcon;
+        height: 15px;
+        line-height: 15px;
+        vertical-align: middle;
+        margin: 0;
+        margin-top: -4px;
+        padding: 0;
+		padding-right: 4px;
+        float: right;
+    }
+	&:hover {
+		background-color: $color1;
+		color: lighten($color1, 35);
+		cursor: pointer;
+	}
+}
+.btnUploadDelete {
+	@extend .btnDefault;
+	width: 17px;
+	height: 17px;
+    line-height: 17px;
+	vertical-align: middle;
+	background-color: lighten($colorWarning, 5);
+	color: $colorWhite;
+	margin: 0;
+	padding: 0;
+	@include border-radius($borderRadiusBtn);
+	.icon {
+        display: inline-block;
+        font: 1.15em/1em $fontIcon;
+        height: 15px;
+        line-height: 15px;
+        vertical-align: middle;
+        margin: 0;
+        margin-top: 0px;
+        padding: 0;
+		padding-right: 2px;
+        float: right;
+    }
+	&:hover {
+		background-color: darken($colorWarning, 5);
+		color: $colorWhite;
+		cursor: pointer;
+	}
+}
+a.btnUploadDelete, a.btnUploadDelete:visited {
+	@extend .btnUploadDelete;
+	&:hover {
+		background-color: darken($colorWarning, 5);
+		color: $colorWhite;
+		cursor: pointer;
+	}
+}
+.btnUploadStart {
+	@extend .btnDefault;
+	width: 70px;
+	height: 17px;
+    line-height: 17px;
+	vertical-align: middle;
+	background-color: lighten($colorSuccess, 5);
+	color: $colorWhite;
+	margin: 0;
+	padding: 0;
+	@include border-radius($borderRadiusBtn);
+	.icon {
+        display: inline-block;
+        font: 1.15em/1em $fontIcon;
+        height: 15px;
+        line-height: 15px;
+        vertical-align: middle;
+        margin: 0;
+        margin-top: 0px;
+        padding: 0;
+		padding-right: 2px;
+        float: right;
+    }
+	&:hover {
+		background-color: darken($colorSuccess, 5);
+		color: $colorWhite;
+		cursor: pointer;
+	}
+}
+a.btnUploadStart, a.btnUploadStart:visited {
+	@extend .btnUploadStart;
+	&:hover {
+		background-color: darken($colorSuccess, 5);
+		color: $colorWhite;
+		cursor: pointer;
+	}
+}
+
+
+
+
+
+
+.btnFileBrowse {
+    display: block;
+	position: relative;
+	width: 100%;
+    height: 17px;
+    line-height: 17px;
+    vertical-align: middle;
+	background-color: lighten($colorInfo, 5);
+	color: $colorWhite;
 	font: 1em/1em $fontYekan;
     font-weight: 600;
     text-align: center;
@@ -114,8 +243,8 @@ body {
         float: right;
     }
 	&:hover {
-		background-color: $color1;
-		color: lighten($color1, 35);
+		background-color: darken($colorInfo, 5);
+		color: $colorWhite;
 		cursor: pointer;
 	}
 }
@@ -151,6 +280,8 @@ input[type="file"].btnFileBrowse {
 
 
 
+
+
 .uploaderCompHotspot {
 	display: block;
 	position: relative;
@@ -164,7 +295,19 @@ input[type="file"].btnFileBrowse {
 	li > div {
 		display: block;
 		position: relative;
+		height: 23px;
+		line-height: 23px;
+		vertical-align: middle;
+		border-bottom: 1px $colorGrayLight solid;
 		float: right;
+		margin: 0;
+		padding: 0;
+		a {
+			display: block;
+			position: relative;
+			float: right;
+			margin-left: 2px;
+		}
 	}
 	li {
 		display: block;
@@ -174,6 +317,9 @@ input[type="file"].btnFileBrowse {
 		.title {
 			display: block;
 			position: relative;
+			height: 23px;
+			line-height: 23px;
+			vertical-align: middle;
 			background-color: $colorGrayLight;
 			color: $colorGrayDark;
 			font: 1.15em/1em $fontAppTitle;
@@ -187,7 +333,7 @@ input[type="file"].btnFileBrowse {
 			width: 100%;
 			height: 100%;
 			border: 1px $colorWhite solid;
-			padding: 3px;
+			padding: 3px 4px 0 0;
 		}
 		.checkBox {
 			width: 4%;
