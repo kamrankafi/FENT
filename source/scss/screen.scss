@@ -2,6 +2,7 @@
 /* طراحی رابط و تجربه کاربری فن آوری اطلاعات روهان */
 @charset "utf-8";
 @import "base";
+@import "notify";
 @import "compass/css3";
 a {
 	background-color: $color1;
@@ -43,7 +44,8 @@ a {
 			height: 55px;
 			line-height: 55px;
 			vertical-align: middle;
-		}.ver {
+		}
+		.ver {
 			width: auto;
 			height: 55px;
 			line-height: 55px;
@@ -83,6 +85,41 @@ a {
 			margin: 0 4px 0 0;
 			float: left;
 		}
+		.txtCustom {
+			text-align: center;
+			margin: 6px 4px 0 0;
+			padding: 0px 8px;
+			float: left;
+		}
+		.btnActionPlaceDesc {
+			display: inline-block;
+			position: relative;
+			width: 125px;
+			text-align: center;
+			margin: 0 4px 0 0;
+			float: left;
+			a {
+				.icon {
+					padding-right: 3px;
+				}
+				.txtDesc {
+					display: inline-block;
+					position: relative;
+					width: 105px;
+					top: -4px;
+					font: 0.6em/1em $fontApp;
+					text-align: right;
+					margin-top: -6px;
+					padding: 0px 12px;
+				}
+				&:hover {
+					.txtDesc {
+						color: $colorWhite;
+					}
+				}
+			}
+		}
+		
 	}
 	.desctitleCustomFooter {
 		@extend .desc;
@@ -90,6 +127,12 @@ a {
 		margin: 3px 0 0 0;
 		.btnActionPlace {
 			margin: 0 4px 0 0;
+		}
+		.txtCustomFooter {
+			text-align: center;
+			margin: 6px 4px 0 0;
+			padding: 0px 8px 0px;
+			float: right;
 		}
 	}
 }
@@ -140,7 +183,12 @@ a {
 	/*color: $colorGrayDark;*/
 	color: $colorWhite;
 }
-
+.blockTypeF {
+	@extend .blockType;
+	background-color: rgba(0,0,0,0.19);
+	color: $colorWhite;
+	margin: 6px 0px;
+}
 
 
 
@@ -322,6 +370,74 @@ body.remodal-is-active .remodal {
 
 
 
+.remodalListTitle {
+	display: block;
+	position: relative;
+	list-style: none;
+	background-color: transparent !important;
+	color: $colorGrayDark;
+	font: 1em/1em $fontApp !important;
+	font-weight: 600 !important;
+	text-align: right;
+	li {
+		height: 24px;
+		line-height: 24px;
+		vertical-align: middle;
+		background-color: transparent !important;
+		color: $colorGrayDark;
+		font: 0.85em/1em $fontApp !important;
+		font-weight: 600 !important;
+		text-align: right;
+	}
+}
+.remodalList {
+	display: block;
+	position: relative;
+	list-style: none;
+	width: 100%;
+	height: 160px;
+	margin: 0px;
+	padding: 0px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	li {
+		width: 100%;
+		margin: 0px;
+		padding: 0px;
+		.labelDefaultDesc {
+			color: $fontColor1;
+			background-color: transparent !important;
+			font: 0.85em/1em $fontApp;
+			font-weight: 600;
+			text-align: right;
+		}
+		&:nth-child(odd) {
+            background-color: #F7F7F7;
+            @include transition(all 0.01s ease-in);
+			.selectRow {
+				/*@extend .selectRow;*/
+			}
+        }
+        &:nth-child(even) {
+            background-color: #FFF;
+            @include transition(all 0.01s ease-in);
+			.selectRow {
+				/*@extend .selectRow;*/
+			}
+        }
+		&:hover {
+			@include box-shadow(0px 0px 0px 0px rgba(0, 0, 0, 0));
+			@include transition(all 0.15s ease);
+			cursor: pointer;
+		}
+	}
+}
+
+
+
+
+
+
 
 .blockTitle {
 	display: block;
@@ -378,10 +494,30 @@ body.remodal-is-active .remodal {
 
 
 .blockGridTitleIcon {
-	color: rgba(255,255,255,0.45)
+	color: rgba(255,255,255,0.45);
 }
-
-
+.blockGridTitle {
+	.txt {
+		display: inline-block;
+		position: relative;
+		top: -3px;
+		color: rgba(255,255,255,0.75);
+		font: 0.75em/1em $fontAppTitle;
+		padding-right: 3px;
+	}
+}
+.colFixNo {
+	display: block;
+	position: relative;
+	width: 26px;
+	min-width: 26px;
+	max-width: 26px;
+}
+.colFlex {
+	display: block;
+	position: relative;
+	width: 100%;
+}
 
 
 .blockSmall {
@@ -799,6 +935,25 @@ body.remodal-is-active .remodal {
 	}
 	.icon {
 		text-align: center;
+    }
+}
+.btnNotify {
+	@extend .btnIcon;
+	height: 24px;
+    line-height: 24px;
+    vertical-align: middle;
+	background-color: rgba(255,255,255,0.35);
+	color: $colorWhite;
+	@include border-radius($borderRadius);
+	&:hover {
+		background-color: $colorWhite;
+		color: $fontColorApp;
+		cursor: pointer;
+	}
+	.icon {
+        font: 1.35em/1em $fontIcon;
+		text-align: center;
+		margin-top: 2px;
     }
 }
 .btnRef {
@@ -1801,7 +1956,24 @@ textarea.formTextareaNote {
 		}
 	}
 }
-
+.scoreBoardExtend {
+	@extend .scoreBoard;
+	li {
+		.blockGridNo {
+			text-align: center;
+			direction: ltr;
+		}
+		a, a:link, a:visited, a:hover {
+			.icon {
+				font: 0.9em/1em $fontIcon;
+				margin-top: -3px;
+			}
+			.txt {
+				font: 1.25em/1em $fontApp;
+			}
+		}
+	}
+}
 
 
 
@@ -2526,6 +2698,11 @@ ul.shareBoard li {
 	height: 135px;
 	width: 135px;
 	background: #FFFFCC;
+	background-clip: padding-box;
+	background-image: url(../images/shareboardBk.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
 	color: #888;
 	font: 0.85em/1em $fontApp;
 	font-weight: 400;
@@ -2647,6 +2824,11 @@ ul.shareBoard li.shareBoardNewNote {
 	text-decoration: none;
 	color: #888;
 	background: #F7F7F7;
+	background-clip: padding-box;
+	background-image: url(../images/shareboardNewBk.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
 	font: 0.9em/1em $fontApp;
 	line-height: 1.45;
 	display: block;
