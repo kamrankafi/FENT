@@ -1,0 +1,800 @@
+/* UI/UX: RohanIT.ir */
+/* طراحی رابط و تجربه کاربری فن آوری اطلاعات روهان */
+/* Grid Component */
+@charset "utf-8";
+@import "compass/reset";
+@import "compass/utilities";
+@import "../../../../source/scss/fonts";
+@import "../../../../source/scss/colors";
+@import "../../../../source/scss/checkbox";
+@import "compass/css3";
+html {
+	font-size: $fontSize;
+	direction: rtl;
+}
+body {
+	width: 100%;
+	height: auto;
+	color: $fontColor1;
+	background-color: transparent;
+	background-image: inherit;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	font: 0.625em/1em $fontApp;
+	font-weight: normal;
+	line-height: 1.75 !important;
+	letter-spacing: 0;
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+
+
+
+
+
+
+
+.gridComp {
+	width: 100%;
+	background-color: $colorWhite;
+	color: $fontColorApp;
+	a {
+		background-color: transparent;
+		color: $color1;
+		text-decoration: none;
+		@include transition(all 0.15s ease);
+		&:hover {
+			background-color: transparent;
+			color: darken($color1, 15);
+			cursor: pointer;
+		}
+	}
+}
+.gridCompHeader {
+	width: 100%;
+	background-color: transparent;
+	color: $fontColorApp;
+	.txt {
+		font: 1.5em/1em $fontAppTitle;
+		font-weight: 600;
+		line-height: 1.85;
+	}
+	.ver {
+		font: 1em/1em $fontApp;
+		font-weight: 400;
+		line-height: 1.55;
+	}
+}
+.gridCompBlock {
+	background-color: transparent;
+	color: $fontColorApp;
+	line-height: 1.55;
+	.uploaderCompTitle {
+		font: 1.35em/1em $fontAppTitle;
+		font-weight: 600;
+		line-height: 1.85;
+	}
+}
+
+
+
+
+
+.btnDefault {
+    display: block;
+	position: relative;
+	width: 100%;
+    height: 17px;
+    line-height: 17px;
+    vertical-align: middle;
+	background-color: $colorGrayLight;
+	color: $fontColorApp;
+	font: 1em/1em $fontYekan;
+    font-weight: 600;
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+	@include border-radius($borderRadius);
+    margin: 0;
+    padding: 0;
+	padding-top: 6px;
+	cursor: pointer;
+    .icon {
+        display: inline-block;
+        font: 1.35em/1em $fontIcon;
+        height: 15px;
+        line-height: 15px;
+        vertical-align: middle;
+        margin: 0;
+        margin-top: -4px;
+        padding: 0;
+		padding-right: 4px;
+        float: right;
+    }
+	&:hover {
+		background-color: $color1;
+		color: lighten($color1, 35);
+		cursor: pointer;
+	}
+}
+.btnToggleTop {
+    @extend .btnDefault;
+    width: 120px;
+    background-color: transparent !important;
+	color: $color1;
+    &:hover {
+		background-color: $color1 !important;
+		color: lighten($color1, 35);
+		cursor: pointer;
+	}
+}
+.btnUploadDelete {
+	@extend .btnDefault;
+	width: 17px;
+	height: 17px;
+    line-height: 17px;
+	vertical-align: middle;
+	background-color: lighten($colorWarning, 5);
+	color: $colorWhite;
+	margin: 0;
+	padding: 0;
+	@include border-radius($borderRadiusBtn);
+	.icon {
+        display: inline-block;
+        font: 1.15em/1em $fontIcon;
+        height: 15px;
+        line-height: 15px;
+        vertical-align: middle;
+        margin: 0;
+        margin-top: 0px;
+        padding: 0;
+		padding-right: 2px;
+        float: right;
+    }
+	&:hover {
+		background-color: darken($colorWarning, 5);
+		color: $colorWhite;
+		cursor: pointer;
+	}
+}
+a.btnUploadDelete, a.btnUploadDelete:visited {
+	@extend .btnUploadDelete;
+	&:hover {
+		background-color: darken($colorWarning, 5);
+		color: $colorWhite;
+		cursor: pointer;
+	}
+}
+.btnUploadStart {
+	@extend .btnDefault;
+	width: 70px;
+	height: 17px;
+    line-height: 17px;
+	vertical-align: middle;
+	background-color: lighten($colorSuccess, 5);
+	color: $colorWhite;
+	margin: 0;
+	padding: 0;
+	@include border-radius($borderRadiusBtn);
+	.icon {
+        display: inline-block;
+        font: 1.15em/1em $fontIcon;
+        height: 15px;
+        line-height: 15px;
+        vertical-align: middle;
+        margin: 0;
+        margin-top: 0px;
+        padding: 0;
+		padding-right: 2px;
+        float: right;
+    }
+	&:hover {
+		background-color: darken($colorSuccess, 5);
+		color: $colorWhite;
+		cursor: pointer;
+	}
+}
+a.btnUploadStart, a.btnUploadStart:visited {
+	@extend .btnUploadStart;
+	&:hover {
+		background-color: darken($colorSuccess, 5);
+		color: $colorWhite;
+		cursor: pointer;
+	}
+}
+.btnFileBrowse {
+    display: block;
+	position: relative;
+	width: 100%;
+    height: 17px;
+    line-height: 17px;
+    vertical-align: middle;
+	background-color: lighten($colorInfo, 5);
+	color: $colorWhite;
+	font: 1em/1em $fontYekan;
+    font-weight: 600;
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+	@include border-radius($borderRadius);
+    margin: 0;
+    padding: 0;
+	padding-top: 6px;
+	cursor: pointer;
+    .icon {
+        display: inline-block;
+        font: 1.75em/1em $fontIcon;
+        height: 15px;
+        line-height: 15px;
+        vertical-align: middle;
+        margin: 0;
+        margin-top: -4px;
+        padding: 0;
+		padding-right: 4px;
+        float: right;
+    }
+	&:hover {
+		background-color: darken($colorInfo, 5);
+		color: $colorWhite;
+		cursor: pointer;
+	}
+}
+.fileBrowsePlace {
+    position: relative;
+	width: 130px;
+	height: 23px;
+	line-height: 23px;
+	vertical-align: middle;
+    overflow: hidden;
+	cursor: pointer;
+}
+.fileBrowsePlace input.fileBrowseSelect {
+    position: absolute;
+	height: 23px;
+	line-height: 23px;
+	vertical-align: middle;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+form input[type="file"].btnFileBrowse,
+input[type="file"].btnFileBrowse {
+    @extend .btnFileBrowse;
+    cursor: pointer;
+}
+
+
+
+
+
+.inputDefault {
+    display: block;
+	position: relative;
+	width: 100%;
+    height: 19px;
+    line-height: 19px;
+    vertical-align: middle;
+    background-color: lighten($colorGrayLight, 6);
+    color: #444;
+    font: 0.95em/1em $fontApp;
+    font-weight: 600;
+    border: 1px #F1F1F1 solid;
+    outline: none;
+    @include border-radius($borderRadiusBtn);
+//	@include box-shadow(inset 2px 2px 4px #ddd);
+    
+    -webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.3), 0px 1px 0px rgba(255,255,255,.6);
+	-moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.3), 0px 1px 0px rgba(255,255,255,.6);
+	box-shadow: inset 0px 1px 1px rgba(0,0,0,0.3), 0px 1px 0px rgba(255,255,255,.6);
+
+	background: -webkit-linear-gradient(top, $colorGrayLight 0%, $colorWhite 100%);
+	background: -moz-linear-gradient(top, $colorGrayLight 0%, $colorWhite 100%);
+	background: -o-linear-gradient(top, $colorGrayLight 0%, $colorWhite 100%);
+	background: -ms-linear-gradient(top, $colorGrayLight 0%, $colorWhite 100%);
+	background: linear-gradient(top, $colorGrayLight 0%, $colorWhite 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$colorGrayLight', endColorstr='$colorWhite',GradientType=0 );
+    
+    margin: 2px;
+	padding: 2px 2px 0 2px;
+}
+.inputDefault::-webkit-input-placeholder {
+    color: #C4C4C4;
+    font-weight: 400;
+}
+.inputDefault::-moz-placeholder {
+    color: #C4C4C4;
+    font-weight: 400;
+}
+.inputDefault::-ms-input-placeholder {
+    color: #C4C4C4;
+    font-weight: 400;
+}
+
+
+
+
+
+.inputDefaultSearch {
+    @extend .inputDefault;
+    background-color: lighten($color1Bk, 6);
+    color: $color1;
+    
+    border: 1px lighten($color1Bk, 6) solid;
+    
+    -webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.3), 0px 1px 0px rgba(255,255,255,.6);
+	-moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.3), 0px 1px 0px rgba(255,255,255,.6);
+	box-shadow: inset 0px 1px 1px rgba(0,0,0,0.3), 0px 1px 0px rgba(255,255,255,.6);
+
+	background: -webkit-linear-gradient(top, $color1Bk 0%, $colorWhite 100%);
+	background: -moz-linear-gradient(top, $color1Bk 0%, $colorWhite 100%);
+	background: -o-linear-gradient(top, $color1Bk 0%, $colorWhite 100%);
+	background: -ms-linear-gradient(top, $color1Bk 0%, $colorWhite 100%);
+	background: linear-gradient(top, $color1Bk 0%, $colorWhite 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color1Bk', endColorstr='$colorWhite',GradientType=0 );
+}
+.inputDefaultSearch::-webkit-input-placeholder {
+    color: lighten($color1, 8);
+    font-weight: 400;
+}
+.inputDefaultSearch::-moz-placeholder {
+    color: lighten($color1, 8);
+    font-weight: 400;
+}
+.inputDefaultSearch::-ms-input-placeholder {
+    color: lighten($color1, 8);
+    font-weight: 400;
+}
+
+
+
+
+.gridCompFilter {
+    display: block;
+    position: relative;
+    height: auto;
+    vertical-align: middle;
+    background-color: lighten($color1Bk, 6);
+    color: $color1;
+    font: 1em/1em $fontApp;
+    font-weight: 600;
+    margin: 1px 0;
+    padding: 4px;
+    overflow: hidden;
+    @include border-radius($borderRadius);
+    .filterTitle {
+        height: 23px;
+        max-height: 23px;
+        line-height: 23px;
+        vertical-align: middle;
+        font: 1.05em/1em $fontAppTitle;
+        font-weight: 600;
+        padding: 4px;
+    }
+    .filterPlace {
+        height: auto;
+        padding: 6px 4px;
+    }
+    a, a:visited, a:link {
+        @extend .btnToggleTop;
+        &:hover {
+            background-color: $color1;
+            color: lighten($color1, 35);
+            cursor: pointer;
+        }
+    }
+    a.btnToggleTop > span {
+    }
+}
+ul.gridCompList {
+	display: table;
+	position: relative;
+    list-style: none;
+	width: 100%;
+    height: auto;
+    font: 1em/1em $fontApp;
+    margin: 0;
+    padding: 0;
+    li.row {
+        display: table-row;
+		position: relative;
+		width: 100%;
+        height: 23px !important;
+        line-height: 23px !important;
+        vertical-align: middle;
+        background-color: $colorWhite;
+        color: $fontColorApp;
+        font: 1.05em/1em $fontApp;
+        font-weight: 600;
+        line-height: 1.55;
+        clear: both;
+        margin: 0;
+        padding: 0;
+        .cell {
+            margin: 1px;
+            padding: 4px 2px 0 0;
+            overflow: hidden;
+        }
+        .colCheck {
+            height: 21px !important;
+            line-height: 21px !important;
+            vertical-align: middle;
+            padding-top: 6px;
+            padding-right: 6px;
+        }
+        &:nth-child(odd) {
+            .cell {
+                background-color: darken($colorGrayLight, 2);
+            }
+        }
+        &:nth-child(even) {
+            .cell {
+                background-color: lighten($colorGrayLight, 6);
+            }
+        }
+        &:hover {
+            cursor: pointer;
+            @include transition(all 0.15s ease);
+            a {
+                @include transition(all 0.15s ease);
+                &:hover,
+                &:focus {
+                    @include transition(all 0.15s ease);
+                }
+            }
+            .cell {
+                background-color: lighten($color2Bk, 4);
+                color: $color2;
+                @include transition(all 0.15s ease);
+            }
+        }
+        &:focus {
+            cursor: pointer;
+            @include transition(all 0.15s ease);
+            a {
+                @include transition(all 0.15s ease);
+                &:hover,
+                &:focus {
+                    @include transition(all 0.15s ease);
+                }
+            }
+            .cell {
+                background-color: $color2;
+                color: lighten($color2Bk, 4);
+                @include transition(all 0.15s ease);
+            }
+        }
+    }
+    li.row.select {
+        cursor: pointer;
+        @include transition(all 0.15s ease);
+        a {
+            @include transition(all 0.15s ease);
+            &:hover,
+            &:focus {
+                @include transition(all 0.15s ease);
+            }
+        }
+        .cell {
+            background-color: $color2;
+            color: $color2Bk;
+            @include transition(all 0.15s ease);
+        }
+    }
+    li.search {
+        display: table-row;
+		position: relative;
+		width: 100%;
+        height: 27px !important;
+        line-height: 27px !important;
+        vertical-align: middle;
+        background-color: $colorWhite;
+        color: $color1;
+        font: 1.15em/1em $fontAppTitle;
+        font-weight: 600;
+        line-height: 1.75;
+        clear: both;
+        margin: 0;
+        padding: 0;
+        @include border-radius($borderRadius $borderRadius 0 0);
+        .cell {
+            background-color: transparent;
+            color: $color1;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .colSearchClear {
+            height: 21px !important;
+            line-height: 21px !important;
+            vertical-align: middle;
+            padding: 6px 6px 0 0;
+            .icon {
+                font: 1.35em/1em $fontIcon;
+                font-weight: 600;
+            }
+        }
+    }
+    li.header {
+        display: table-row;
+		position: relative;
+		width: 100%;
+        height: 37px !important;
+        line-height: 37px !important;
+        vertical-align: middle;
+        background-color: $colorWhite;
+        color: $color1Bk;
+        font: 1.15em/1em $fontAppTitle;
+        font-weight: 600;
+        line-height: 1.75;
+        clear: both;
+        margin: 0;
+        padding: 0;
+        @include border-radius($borderRadius $borderRadius 0 0);
+        .cell {
+            background-color: $color1;
+            margin: 1px;
+            padding: 4px 2px 0 0;
+            overflow: hidden;
+        }
+        .colCheck {
+            height: 27px !important;
+            line-height: 27px !important;
+            vertical-align: middle;
+            padding-top: 14px;
+            padding-right: 6px;
+        }
+        a.sortIcon {
+            color: $color1Bk;
+            font: 1.25em/1em $fontIcon;
+            float: left;
+            padding-top: 10px;
+            padding-left: 3px;
+            
+            @include transition(all 0.15s ease);
+            &:hover,
+            &:focus {
+                color: $color1Bk;
+                @include transition(all 0.15s ease);
+            }
+        }
+    }
+    li.header > div:first-child div.cell {
+        @include border-radius(0 $borderRadius 0 0);
+    }
+    li.header > div:last-child div.cell {
+        @include border-radius($borderRadius 0 0 0);
+    }
+    li.row:last-child > div:first-child div.cell {
+        @include border-radius(0 0 $borderRadius 0);
+    }
+    li.row:last-child > div:last-child div.cell {
+        @include border-radius(0 0 0 $borderRadius);
+    }
+    li > div {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        float: right;
+        overflow: hidden;
+    }
+    .colCheck {
+        white-space: normal;
+    }
+    .colNo {
+        white-space: normal;
+    }
+    .col5 {
+        width: 5%;
+        max-width: 5%;
+    }
+    .col10 {
+        width: 10%;
+        max-width: 10%;
+    }
+    .col15 {
+        width: 15%;
+        max-width: 15%;
+    }
+    .col20 {
+        width: 20%;
+        max-width: 20%;
+    }
+    .col25 {
+        width: 25%;
+        max-width: 25%;
+    }
+    .col30 {
+        width: 30%;
+        max-width: 30%;
+    }
+	.col35 {
+        width: 35%;
+        max-width: 35%;
+    }
+    .col40 {
+        width: 40%;
+        max-width: 40%;
+    }
+    .col45 {
+        width: 45%;
+        max-width: 45%;
+    }
+    .col50 {
+        width: 50%;
+        max-width: 50%;
+    }
+    .col55 {
+        width: 55%;
+        max-width: 55%;
+    }
+    .col60 {
+        width: 60%;
+        max-width: 60%;
+    }
+    .col65 {
+        width: 65%;
+        max-width: 65%;
+    }
+	.col70 {
+        width: 70%;
+        max-width: 70%;
+    }
+    .col75 {
+        width: 75%;
+        max-width: 75%;
+    }
+	.col80 {
+        width: 80%;
+        max-width: 80%;
+    }
+	.col85 {
+        width: 85%;
+        max-width: 85%;
+    }
+	.col90 {
+        width: 90%;
+        max-width: 90%;
+    }
+    .col95 {
+        width: 95%;
+        max-width: 95%;
+    }
+    .col100 {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+.gridCompFooter > div {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    float: right;
+    overflow: hidden;
+}
+.gridCompFooter {
+    display: block;
+    position: relative;
+    height: 23px;
+    max-height: 23px;
+    line-height: 23px;
+    vertical-align: middle;
+    background-color: lighten($colorGrayLight, 6);
+    font: 1em/1em $fontApp;
+    margin: 2px 0;
+    padding: 4px;
+    overflow: hidden;
+    @include border-radius($borderRadius);
+    .pagingPagesPlace {
+        display: inline-block;
+        position: relative;
+        width: 60%;
+        max-width: 60%;
+        ul.paging {
+            display: table;
+            position: relative;
+            list-style: none;
+            width: 100%;
+            height: auto;
+            font: 1.1em/1em $fontApp;
+            margin: 0;
+            padding: 0;
+            li {
+                height: 19px;
+                line-height: 19px;
+                vertical-align: middle;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                float: right;
+                overflow: hidden;
+                margin: 1px;
+                padding: 1px;
+                a {
+                    color: $fontColorApp;
+                    padding: 8px;
+                    @include transition(all 0.15s ease);
+                    &:hover,
+                    &:focus {
+                        background-color: lighten($color2Bk, 4);
+                        color: $color2;
+                        @include transition(all 0.15s ease);
+                    }
+                }
+            }
+            li.select {
+                a {
+                    background-color: $color2;
+                    color: $color2Bk;
+                    padding: 8px;
+                    @include transition(all 0.15s ease);
+                    &:hover,
+                    &:focus {
+                        background-color: $color2;
+                        color: $color2Bk;
+                        @include transition(all 0.15s ease);
+                    }
+                }
+            }
+        }
+    }
+    .pagingNoPlace {
+        display: inline-block;
+        position: relative;
+        width: 25%;
+        max-width: 25%;
+        font-weight: 600;
+        .noAll {
+            padding: 7px 0 0 2px;
+        }
+        .noSep {
+            padding: 7px 0 0 2px;
+        }
+        .no {
+            width: 55px;
+            height: 17px;
+            line-height: 17px;
+            vertical-align: middle;
+            padding-top: -4px;
+        }
+    }
+    .pagingNoPlace > span {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        float: right;
+        overflow: hidden;
+    }
+    .pagingRowNoPlace {
+        display: inline-block;
+        position: relative;
+        width: 15%;
+        max-width: 15%;
+        .rowNo {
+            width: 55px;
+            height: 21px;
+            line-height: 21px;
+            vertical-align: middle;
+            padding-top: -4px;
+        }
+    }
+}
+
+
+
+
+
+
+

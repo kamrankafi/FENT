@@ -1013,6 +1013,26 @@ body.remodal-is-active .remodal {
 		text-align: center;
     }
 }
+.btnSearch {
+	@extend .btnFree;
+	height: 27px;
+    line-height: 27px;
+    vertical-align: middle;
+	background-color: $colorGrayLight;
+	color: $colorGrayDark;
+	@include border-radius($borderRadius);
+	&:hover {
+		background-color: darken($colorSuccess, 8);
+		color: darken($colorSuccessFont, 25);
+		cursor: pointer;
+	}
+	.icon {
+		margin: 0px 4px;
+    }
+	.txt {
+		text-align: center;
+	}
+}
 .btnOk {
 	@extend .btnIcon;
 	width: 24px;

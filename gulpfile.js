@@ -30,6 +30,10 @@ var paths = {
         './source/components/uploader/**/*.*',
         '!./source/components/uploader/{scss,javascripts}/**/*.*'
     ],
+    grid: [
+        './source/components/grid/**/*.*',
+        '!./source/components/grid/{scss,javascripts}/**/*.*'
+    ],
     sass: [
         'source/scss',
         'source/components/uploader/scss',
@@ -94,6 +98,32 @@ gulp.task('uploader', function() {
 gulp.task('watchuploader', function() {
     livereload.listen();
     gulp.watch('source/components/uploader/scss/*.scss', ['uploader']);
+});
+
+// Compile grid component sass with compass
+gulp.task('grid', function() {
+  gulp.src('source/components/grid/scss/*.scss')
+    .pipe(plumber({
+      errorHandler: function (error) {
+        console.log(error.message);
+        this.emit('end');
+    }}))
+    .pipe(compass({
+      css: 'source/components/grid/stylesheets',
+      sass: 'source/components/grid/scss',
+      image: 'source/components/grid/images'
+    }))
+    .on('error', function(err) {
+      // Would like to catch the error here 
+    })
+    .pipe(minifyCSS())
+    .pipe(gulp.dest('source/components/grid/stylesheets/min'))
+    .pipe(livereload());
+});
+// Watch files for grid changes
+gulp.task('watchgrid', function() {
+    livereload.listen();
+    gulp.watch('source/components/grid/scss/*.scss', ['grid']);
 });
 
 // Compile sass with sass

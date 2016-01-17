@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="fa">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>کامپوننت لیست شبکه ای</title>
+    
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="logo.png" rel="icon" type="image/png">
+
+    <link href="stylesheets/uicon.css" rel="stylesheet" type="text/css">
+    <link href="stylesheets/grid.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    
+    <script src="../../../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../../scripts/jquery.keynavigator.js"></script>
+    
+    <style>
+		.wrap {
+			width: 70%;
+			margin: 0px auto;
+		}
+	</style>
+</head>
+<body>
+
+<div class="wrap"> <!-- wrap -->
+
+<div class="gridComp"> <!-- gridComp -->
+<div class="gridCompHeader"> <!-- gridCompHeader -->
+    <a href="#" class="" title="کامپوننت لیست شبکه ای">
+        <div class="txt">کامپوننت لیست شبکه ای</div>
+        <div class="ver">Grid Component ver. 1.0</div>
+    </a>
+</div> <!-- /gridCompHeader -->
+<div class="gridCompBlock">  <!-- gridCompBlock -->
+    
+    <div class="gridCompFilter"> <!-- gridCompFilter -->
+        
+        <div class="filterTitle">
+            <a class="btnToggleTop" href="#" id="btnToggleTop">
+                <span class="icon" data-icon="&#xe215;"></span>
+                <span>تنظیمات فیلترینگ لیست</span>
+            </a>
+        </div>
+        <div class="filterPlace" id="panelToggle" style="display: none;">
+            تنظیمات اختصاصی
+        </div>
+        
+        <script>
+            $(document).ready(function(){
+                $("#btnToggleTop").click(function(){
+                    $("#panelToggle").slideToggle("fast");
+                });
+             });
+        </script>
+        
+    </div> <!-- /gridCompFilter -->
+    <ul id="gridSearch" class="gridCompList"> <!-- gridCompList search -->
+        <li class="search">
+            <div class="col5"><div class="cell colSearchClear">
+                <a class="" href="#"><span class="icon" data-icon="&#xe20d;"></span></a>
+            </div></div>
+            <div class="col5"><div class="cell">
+                <input class="inputDefaultSearch" type="search" placeholder="">
+            </div></div>
+            <div class="col20"><div class="cell">
+                <input class="inputDefaultSearch" type="search" placeholder="">
+            </div></div>
+            <div class="col20"><div class="cell">
+                <input class="inputDefaultSearch" type="search" placeholder="">
+            </div></div>
+            <div class="col10"><div class="cell">
+                <input class="inputDefaultSearch" type="search" placeholder="">
+            </div></div>
+            <div class="col20"><div class="cell">
+                <input class="inputDefaultSearch" type="search" placeholder="">
+            </div></div>
+            <div class="col20"><div class="cell">
+                <input class="inputDefaultSearch" type="search" placeholder="">
+            </div></div>
+        </li>
+    </ul> <!-- /gridCompList search -->
+	<ul id="gridComponent" class="gridCompList"> <!-- gridCompList -->
+        <li class="header">
+            <div class="col5">
+                <div class="cell colCheck">
+                    <div class="checkDefault">
+                        <input type="checkbox" value="None" id="checkAll" name="checkAll" />
+                        <label for="checkAll"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="col5"><div class="cell colNo">&nbsp;</div></div>
+            <div class="col20"><div class="cell">
+                <span>نام فایل</span>
+                <a class="sortIcon" href="#"><span class="icon" data-icon="&#xe256;"></span></a>
+            </div></div>
+            <div class="col20"><div class="cell">
+                <span>سایز</span>
+                <a class="sortIcon" href="#"><span class="icon" data-icon="&#xe12b;"></span></a>
+            </div></div>
+            <div class="col10"><div class="cell">
+                <span>کنترل</span>
+                <a class="sortIcon" href="#"><span class="icon" data-icon="&#xe12a;"></span></a>
+            </div></div>
+            <div class="col20"><div class="cell">
+                <span>پیشرفت</span>
+                <a class="sortIcon" href="#"><span class="icon" data-icon="&#xe256;"></span></a>
+            </div></div>
+            <div class="col20"><div class="cell">
+                <span>توضیحات</span>
+                <a class="sortIcon" href="#"><span class="icon" data-icon="&#xe256;"></span></a>
+            </div></div>
+        </li>
+        <li class="row">
+            <div class="col5">
+                <div class="cell colCheck">
+                    <div class="checkDefault">
+                        <input type="checkbox" value="None" id="check1" name="check1" />
+                        <label for="check1"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="col5"><div class="cell colNo">۱</div></div>
+            <div class="col20"><div class="cell">نام فایل</div></div>
+            <div class="col20"><div class="cell">سایز</div></div>
+            <div class="col10"><div class="cell">کنترل</div></div>
+            <div class="col20"><div class="cell">پیشرفت</div></div>
+            <div class="col20"><div class="cell">توضیحات</div></div>
+        </li>
+        <li class="row">
+            <div class="col5">
+                <div class="cell colCheck">
+                    <div class="checkDefault">
+                        <input type="checkbox" value="None" id="check2" name="check2" />
+                        <label for="check2"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="col5"><div class="cell colNo">۲</div></div>
+            <div class="col20"><div class="cell">نام فایل نام فایل نام فایل نام فایل نام فایل نام فایل</div></div>
+            <div class="col20"><div class="cell">سایز</div></div>
+            <div class="col10"><div class="cell">کنترل</div></div>
+            <div class="col20"><div class="cell">پیشرفت</div></div>
+            <div class="col20"><div class="cell">توضیحات</div></div>
+        </li>
+        <li class="row">
+            <div class="col5">
+                <div class="cell colCheck">
+                    <div class="checkDefault">
+                        <input type="checkbox" value="None" id="check3" name="check3" />
+                        <label for="check3"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="col5"><div class="cell colNo">۳</div></div>
+            <div class="col20"><div class="cell">نام فایل</div></div>
+            <div class="col20"><div class="cell">سایز</div></div>
+            <div class="col10"><div class="cell">کنترل</div></div>
+            <div class="col20"><div class="cell">پیشرفت</div></div>
+            <div class="col20"><div class="cell">توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات</div></div>
+        </li>
+        <li class="row">
+            <div class="col5">
+                <div class="cell colCheck">
+                    <div class="checkDefault">
+                        <input type="checkbox" value="None" id="check4" name="check4" />
+                        <label for="check4"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="col5"><div class="cell colNo">۴</div></div>
+            <div class="col20"><div class="cell">نام فایل نام فایل نام فایل نام فایل نام فایل نام فایل</div></div>
+            <div class="col20"><div class="cell">سایز</div></div>
+            <div class="col10"><div class="cell">کنترل</div></div>
+            <div class="col20"><div class="cell">پیشرفت</div></div>
+            <div class="col20"><div class="cell">توضیحات</div></div>
+        </li>
+        <li class="row">
+            <div class="col5">
+                <div class="cell colCheck">
+                    <div class="checkDefault">
+                        <input type="checkbox" value="None" id="check5" name="check5" />
+                        <label for="check5"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="col5"><div class="cell colNo">۵</div></div>
+            <div class="col20"><div class="cell">نام فایل</div></div>
+            <div class="col20"><div class="cell">سایز</div></div>
+            <div class="col10"><div class="cell">کنترل</div></div>
+            <div class="col20"><div class="cell">پیشرفت</div></div>
+            <div class="col20"><div class="cell">توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات</div></div>
+        </li>
+	</ul> <!-- /gridCompList -->
+    <div class="gridCompFooter"> <!-- gridCompFooter -->
+        <div class="pagingPagesPlace">
+            <ul class="paging">
+                <li class="arrowRight">
+                    <a href=""><span class="icon" data-icon="&#xe128;"></span></a>
+                </li>
+                <li class="select"><a href="">۱</a></li>
+                <li><a href="">۲</a></li>
+                <li><a href="">۳</a></li>
+                <li><a href="">۴</a></li>
+                <li class="more">
+                    <a href=""><span class="icon" data-icon="&#xe094;"></span></a>
+                </li>
+                <li><a href="">۸</a></li>
+                <li><a href="">۹</a></li>
+                <li class="arrowLeft">
+                    <a href=""><span class="icon" data-icon="&#xe129;"></span></a>
+                </li>
+            </ul>
+        </div>
+        <div class="pagingNoPlace">
+            <span class="noAll">۲۰</span>
+            <span class="noSep">/</span>
+            <span><input class="inputDefault no" type="text" placeholder="شماره صفحه"></span>
+        </div>
+        <div class="pagingRowNoPlace">
+            <select class="inputDefault rowNo">
+                <option>۱۰</option>
+                <option>۲۰</option>
+                <option>۳۰</option>
+                <option>۵۰</option>
+            </select>
+        </div>
+    </div> <!-- /gridCompFooter -->
+    
+    <script>
+    $(document).ready(function() {
+        $('ul#gridComponent > li.row').keynavigator({
+            activeClass: 'select',
+            keys: {
+                13: function($el, cellIndex, e) {    
+                  console.log('pressed "enter"', arguments);
+                }
+              }
+        });
+    });
+    </script>
+    
+        
+                                        
+</div> <!-- /gridCompBlock -->
+</div> <!-- /gridComp -->
+
+</div> <!-- /wrap -->
+
+</body>
+</html>
