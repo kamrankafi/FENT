@@ -129,12 +129,12 @@ body {
 }
 .btnToggleTop {
     @extend .btnDefault;
-    width: 120px;
+    width: 230px;
     background-color: transparent !important;
 	color: $color1;
     &:hover {
-		background-color: $color1 !important;
-		color: lighten($color1, 35);
+		background-color: $colorInfo !important;
+		color: $colorWhite !important;
 		cursor: pointer;
 	}
 }
@@ -369,7 +369,22 @@ input[type="file"].btnFileBrowse {
     color: #C4C4C4;
     font-weight: 400;
 }
+.selectInDragBox {
+    @extend .inputDefault;
+    background-color: lighten($color2Bk, 6);
+    color: $color2;
+    
+    -webkit-box-shadow: inset 0px 0px 0px rgba(0,0,0,0);
+	-moz-box-shadow: inset 0px 0px 0px rgba(0,0,0,0);
+	box-shadow: inset 0px 0px 0px rgba(0,0,0,0);
 
+	background: -webkit-linear-gradient(top, $colorWhite 0%, $color2Bk 100%);
+	background: -moz-linear-gradient(top, $colorWhite 0%, $color2Bk 100%);
+	background: -o-linear-gradient(top, $colorWhite 0%, $color2Bk 100%);
+	background: -ms-linear-gradient(top, $colorWhite 0%, $color2Bk 100%);
+	background: linear-gradient(top, $colorWhite 0%, $color2Bk 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$colorWhite', endColorstr='$color2Bk',GradientType=0 );
+}
 
 
 
@@ -498,6 +513,12 @@ input[type="text"].inputTag {
     .filterPlace {
         height: auto;
         padding: 6px 4px;
+        .filterPlaceTitle {
+            width: 100%;
+            color: $color2;
+            text-align: center;
+            padding: 6px;
+        }
     }
     a, a:visited, a:link {
         @extend .btnToggleTop;
@@ -716,6 +737,76 @@ ul.gridCompList {
     }
     li.header > div:last-child div.cell {
         @include border-radius($borderRadius 0 0 0);
+    }
+    li.dragHeader {
+        display: table-row;
+		position: relative;
+		width: 100%;
+        height: 96px !important;
+//        line-height: 37px !important;
+//        vertical-align: middle;
+        background-color: $colorWhite;
+        color: $color2Bk;
+        font: 1.15em/1em $fontApp;
+        font-weight: 600;
+        line-height: 1.75;
+        clear: both;
+        margin: 0;
+        padding: 0;
+        @include border-radius($borderRadius $borderRadius 0 0);
+        .cell {
+            background-color: $color2;
+            height: 96px !important;
+//            line-height: 57px !important;
+//            vertical-align: middle;
+            margin: 1px;
+            padding: 4px;
+            overflow: hidden;
+            cursor: move;
+            .title {
+                font: 1.05em/1em $fontAppTitle;
+                font-weight: 600;
+                padding: 2px 0;
+            }
+            .titleSmall {
+                font: 0.85em/1em $fontApp;
+                font-weight: 400;
+                padding: 2px 0;
+            }
+            .titleRadio {
+                font: 0.85em/1em $fontApp;
+                font-weight: 400;
+            }
+            .titleSelect {
+                font: 0.85em/1em $fontApp;
+                font-weight: 400;
+            }
+            .selectInDragBoxPlace {
+                width: 100%;
+                padding: 2px 0;
+                margin: 2px 0;
+            }
+            .selectInDragBox {
+                background-color: $color2Bk;
+                color: $color2;
+                width: 100%;
+                font: 0.85em/1em $fontApp;
+                font-weight: 400;
+                margin: 0;
+                padding: 0;
+                cursor: pointer;
+            }
+        }
+        .cell > span {
+            float: right;
+            clear: both;
+        }
+    }
+    li.dragHeader > div:first-child div.cell {
+        @include border-radius(0 $borderRadius $borderRadius 0);
+    }
+    li.dragHeader > div:last-child div.cell {
+        @include border-radius($borderRadius 0 0 $borderRadius);
     }
     li.row:last-child > div:first-child div.cell {
         @include border-radius(0 0 $borderRadius 0);
@@ -1002,6 +1093,19 @@ ul.gridCompList {
             padding-top: -4px;
         }
     }
+}
+
+
+
+
+
+.dragdrop {
+}
+.ui-state-hover {
+    background: lightyellow;   
+}
+.ui-state-active {
+    background: lightgray   
 }
 
 

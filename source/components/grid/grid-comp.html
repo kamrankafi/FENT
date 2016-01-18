@@ -39,11 +39,169 @@
         <div class="filterTitle">
             <a class="btnToggleTop" href="#" id="btnToggleTop">
                 <span class="icon" data-icon="&#xe215;"></span>
-                <span>تنظیمات فیلترینگ لیست</span>
+                <span>باز شدن تنظیمات فیلترینگ و نمایش لیست شبکه ای</span>
             </a>
         </div>
         <div class="filterPlace" id="panelToggle" style="display: none;">
-            تنظیمات اختصاصی
+            
+            <div class="filterPlaceTitle">
+                ترتیب نمایش و همچنین چگونگی مرتب سازی را تنظیم نمایید
+            </div>
+            
+            <ul id="" class="gridCompList">
+                <li class="dragHeader">
+                    <div class="col4" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <div class="cell" id="drag1" draggable="true" ondragstart="drag(event)">
+                            <span class="title">1 نام ویا عنوان بلاک</span>
+                        </div>
+                    </div>
+                    <div class="col5" id="div2" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <div class="cell" id="drag2" draggable="true" ondragstart="drag(event)">
+                            <span class="title">2 نام ویا عنوان بلاک</span>
+                        </div>
+                    </div>
+                    <div class="col20" id="div3" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <div class="cell" id="drag3" draggable="true" ondragstart="drag(event)">
+                            <span class="title">3 نام ویا عنوان بلاک</span>
+                            <span class="titleSmall"></span>
+                            <span class="titleSelect">مرتب سازی بر اساس</span>
+                            <span class="selectInDragBoxPlace">
+                                <select class="inputDefault selectInDragBox">
+                                    <option>صعودی</option>
+                                    <option>نزولی</option>
+                                    <option>مرتب نشده</option>
+                                </select>
+                            </span>
+                            <span class="titleSelect">تعیین نحوه جستجو</span>
+                            <span class="selectInDragBoxPlace">
+                                <select class="inputDefault selectInDragBox">
+                                    <option>اول</option>
+                                    <option>آخر</option>
+                                    <option>دقیق</option>
+                                    <option>دارای</option>
+                                </select>
+                            </span>
+<!--
+                            <span class="titleRadio">
+                                <label for="radio1">صعودی</label>
+                                <input type="radio" name="1" id="radio1" value="radio1">
+                            </span>
+                            <span class="titleRadio">
+                                <label for="radio2">نزولی</label>
+                                <input type="radio" name="1" id="radio2" value="radio2">
+                            </span>
+                            <span class="titleRadio">
+                                <label for="radio3">مرتب نشده</label>
+                                <input type="radio" name="1" id="radio3" value="radio3">
+                            </span>
+-->
+                        </div>
+                    </div>
+                    <div class="col20" id="div4" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <div class="cell" id="drag4" draggable="true" ondragstart="drag(event)">
+                            <span class="title">4 نام ویا عنوان بلاک</span>
+                            <span class="titleSmall"></span>
+                            <span class="titleSelect">مرتب سازی بر اساس</span>
+                            <span class="selectInDragBoxPlace">
+                                <select class="inputDefault selectInDragBox">
+                                    <option>صعودی</option>
+                                    <option>نزولی</option>
+                                    <option>مرتب نشده</option>
+                                </select>
+                            </span>
+                            <span class="titleSelect">تعیین نحوه جستجو</span>
+                            <span class="selectInDragBoxPlace">
+                                <select class="inputDefault selectInDragBox">
+                                    <option>اول</option>
+                                    <option>آخر</option>
+                                    <option>دقیق</option>
+                                    <option>دارای</option>
+                                </select>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col10" id="div5" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <div class="cell" id="drag5" draggable="true" ondragstart="drag(event)">
+                            <span class="title">5 نام ویا عنوان بلاک</span>
+                            <span class="titleSmall"></span>
+                            <span class="titleSelect">مرتب سازی بر اساس</span>
+                            <span class="selectInDragBoxPlace">
+                                <select class="inputDefault selectInDragBox">
+                                    <option>صعودی</option>
+                                    <option>نزولی</option>
+                                    <option>مرتب نشده</option>
+                                </select>
+                            </span>
+                            <span class="titleSelect">تعیین نحوه جستجو</span>
+                            <span class="selectInDragBoxPlace">
+                                <select class="inputDefault selectInDragBox">
+                                    <option>اول</option>
+                                    <option>آخر</option>
+                                    <option>دقیق</option>
+                                    <option>دارای</option>
+                                </select>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col15" id="div6" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <div class="cell" id="drag6" draggable="true" ondragstart="drag(event)">
+                            <span class="title">6 نام ویا عنوان بلاک</span>
+                            <span class="titleSmall"></span>
+                            <span class="titleSelect">مرتب سازی بر اساس</span>
+                            <span class="selectInDragBoxPlace">
+                                <select class="inputDefault selectInDragBox">
+                                    <option>صعودی</option>
+                                    <option>نزولی</option>
+                                    <option>مرتب نشده</option>
+                                </select>
+                            </span>
+                            <span class="titleSelect">تعیین نحوه جستجو</span>
+                            <span class="selectInDragBoxPlace">
+                                <select class="inputDefault selectInDragBox">
+                                    <option>اول</option>
+                                    <option>آخر</option>
+                                    <option>دقیق</option>
+                                    <option>دارای</option>
+                                </select>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col20" id="div7" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <div class="cell" id="drag7" draggable="true" ondragstart="drag(event)">
+                            <span class="title">7 نام ویا عنوان بلاک</span>
+                            <span class="titleSmall"></span>
+                            <span class="titleSelect">مرتب سازی بر اساس</span>
+                            <span class="selectInDragBoxPlace">
+                                <select class="inputDefault selectInDragBox">
+                                    <option>صعودی</option>
+                                    <option>نزولی</option>
+                                    <option>مرتب نشده</option>
+                                </select>
+                            </span>
+                            <span class="titleSelect">تعیین نحوه جستجو</span>
+                            <span class="selectInDragBoxPlace">
+                                <select class="inputDefault selectInDragBox">
+                                    <option>اول</option>
+                                    <option>آخر</option>
+                                    <option>دقیق</option>
+                                    <option>دارای</option>
+                                </select>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col3" id="div8" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <div class="cell" id="drag8" draggable="true" ondragstart="drag(event)">
+                            <span class="title">8 نام ویا عنوان بلاک</span>
+                        </div>
+                    </div>
+                    <div class="col3" id="div9" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <div class="cell" id="drag9" draggable="true" ondragstart="drag(event)">
+                            <span class="title">9 نام ویا عنوان بلاک</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            
         </div>
         
         <script>
@@ -52,6 +210,23 @@
                     $("#panelToggle").slideToggle("fast");
                 });
              });
+            
+            function allowDrop(ev) {
+                ev.preventDefault();
+            }
+            function drag(ev) {
+                ev.dataTransfer.setData("src", ev.target.id);
+            }
+            function drop(ev) {
+                ev.preventDefault();
+                var src = document.getElementById(ev.dataTransfer.getData("src"));
+                var srcParent = src.parentNode;
+                var tgt = ev.currentTarget.firstElementChild;
+
+                ev.currentTarget.replaceChild(src, tgt);
+                srcParent.appendChild(tgt);
+            }
+            
         </script>
         
     </div> <!-- /gridCompFilter -->
@@ -266,7 +441,6 @@
                 </li>
             </ul>
         </div>
-        
         <div class="pagingBlockLeftPlace">
             <div class="pagingNoPlace">
                 <span class="noAll">۲۰</span>
@@ -282,7 +456,6 @@
                 </select>
             </div>
         </div>
-        
     </div> <!-- /gridCompFooter -->
     
     <script>
@@ -295,19 +468,14 @@
                 }
               }
         });
-        
         $('input[type="checkbox"].checkBoxDetect').on('change', function() {
             $(this).closest('div.checkAndTag').find('.checkTag').toggle(this.checked);
 //            $('#gridComponent').blur();
             $(this).closest('div.checkAndTag').find('input[type="text"].inputTag').focus();
 
         });
-        
     });
-        
     </script>
-    
-        
                                         
 </div> <!-- /gridCompBlock -->
 </div> <!-- /gridComp -->
