@@ -138,6 +138,26 @@ body {
 		cursor: pointer;
 	}
 }
+.btnSave {
+    @extend .btnDefault;
+    width: 130px;
+    background-color: $colorSuccess !important;
+	color: $colorWhite;
+    margin: 0px auto;
+    &:hover {
+		background-color: darken($colorSuccess, 5) !important;
+		color: $colorWhite !important;
+		cursor: pointer;
+	}
+}
+a.btnSave, a.btnSave:visited {
+	@extend .btnSave;
+	&:hover {
+		background-color: darken($colorSuccess, 5);
+		color: $colorWhite;
+		cursor: pointer;
+	}
+}
 .btnActionDetails {
 	@extend .btnDefault;
 	width: 19px;
@@ -152,7 +172,8 @@ body {
 	@include border-radius($borderRadiusBtn);
 	.icon {
         display: inline-block;
-        font: 1.25em/1em $fontIcon;
+        font: 1.15em/1em $fontIcon;
+        font-weight: 400;
         height: 15px;
         line-height: 15px;
         vertical-align: middle;
@@ -190,7 +211,8 @@ a.btnActionDetails, a.btnActionDetails:visited {
 	@include border-radius($borderRadiusBtn);
 	.icon {
         display: inline-block;
-        font: 1.25em/1em $fontIcon;
+        font: 1.15em/1em $fontIcon;
+        font-weight: 400;
         height: 15px;
         line-height: 15px;
         vertical-align: middle;
@@ -336,7 +358,7 @@ input[type="file"].btnFileBrowse {
     vertical-align: middle;
     background-color: lighten($colorGrayLight, 6);
     color: #444;
-    font: 0.95em/1em $fontApp;
+    font: 1em/1em $fontApp;
     font-weight: 600;
     border: 1px #F1F1F1 solid;
     outline: none;
@@ -465,7 +487,7 @@ input[type="file"].btnFileBrowse {
 	height: 18px;
 	line-height: 18px;
 	vertical-align: middle;
-	font: $fontSize*1.1 $fontApp;
+	font: $fontSize*1.15 $fontApp;
 	font-weight: 600;
 	background-color: #EBEBEB;
 	padding: 0;
@@ -495,7 +517,7 @@ input[type="text"].inputTag {
     vertical-align: middle;
     background-color: lighten($color1Bk, 6);
     color: $color1;
-    font: 1em/1em $fontApp;
+    font: 1.05em/1em $fontApp;
     font-weight: 600;
     margin: 1px 0;
     padding: 4px;
@@ -516,15 +538,29 @@ input[type="text"].inputTag {
         .filterPlaceTitle {
             width: 100%;
             color: $color2;
+            font: 1.15em/1em $fontApp;
+            text-align: center;
+            padding: 6px;
+        }
+        .filterPlaceBtn {
+            width: 100%;
             text-align: center;
             padding: 6px;
         }
     }
-    a, a:visited, a:link {
+    a.btnToggleTop, a.btnToggleTop:visited, a.btnToggleTop:link {
         @extend .btnToggleTop;
         &:hover {
             background-color: $color1;
             color: lighten($color1, 35);
+            cursor: pointer;
+        }
+    }
+    a.btnSave, a.btnSave:visited, a.btnSave:link {
+        @extend .btnSave;
+        &:hover {
+            background-color: $colorSuccess;
+            color: $colorWhite;
             cursor: pointer;
         }
     }
@@ -549,9 +585,9 @@ ul.gridCompList {
         vertical-align: middle;
         background-color: $colorWhite;
         color: $fontColorApp;
-        font: 1.05em/1em $fontApp;
+        font: 1.25em/1em $fontApp;
         font-weight: 600;
-        line-height: 1.55;
+        line-height: 1.65;
         clear: both;
         margin: 0;
         padding: 0;
@@ -769,16 +805,16 @@ ul.gridCompList {
                 padding: 2px 0;
             }
             .titleSmall {
-                font: 0.85em/1em $fontApp;
+                font: 0.9em/1em $fontApp;
                 font-weight: 400;
                 padding: 2px 0;
             }
             .titleRadio {
-                font: 0.85em/1em $fontApp;
+                font: 0.9em/1em $fontApp;
                 font-weight: 400;
             }
             .titleSelect {
-                font: 0.85em/1em $fontApp;
+                font: 0.9em/1em $fontApp;
                 font-weight: 400;
             }
             .selectInDragBoxPlace {
@@ -790,7 +826,7 @@ ul.gridCompList {
                 background-color: $color2Bk;
                 color: $color2;
                 width: 100%;
-                font: 0.85em/1em $fontApp;
+                font: 0.9em/1em $fontApp;
                 font-weight: 400;
                 margin: 0;
                 padding: 0;

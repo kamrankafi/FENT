@@ -84,6 +84,10 @@ body {
 	}
 }
 
+
+
+
+
 .btnDefault {
     display: block;
 	position: relative;
@@ -123,20 +127,52 @@ body {
 		cursor: pointer;
 	}
 }
-.btnUploadDelete {
-	@extend .btnDefault;
-	width: 17px;
-	height: 17px;
-    line-height: 17px;
-	vertical-align: middle;
-	background-color: lighten($colorWarning, 5);
+.btnToggleTop {
+    @extend .btnDefault;
+    width: 230px;
+    background-color: transparent !important;
+	color: $color1;
+    &:hover {
+		background-color: $colorInfo !important;
+		color: $colorWhite !important;
+		cursor: pointer;
+	}
+}
+.btnSave {
+    @extend .btnDefault;
+    width: 130px;
+    background-color: $colorSuccess !important;
 	color: $colorWhite;
-	margin: 0;
+    margin: 0px auto;
+    &:hover {
+		background-color: darken($colorSuccess, 5) !important;
+		color: $colorWhite !important;
+		cursor: pointer;
+	}
+}
+a.btnSave, a.btnSave:visited {
+	@extend .btnSave;
+	&:hover {
+		background-color: darken($colorSuccess, 5);
+		color: $colorWhite;
+		cursor: pointer;
+	}
+}
+.btnActionDetails {
+	@extend .btnDefault;
+	width: 19px;
+	height: 19px;
+    line-height: 19px;
+	vertical-align: middle;
+	background-color: lighten($colorGrayDark, 5);
+	color: $colorWhite;
+    text-align: center;
+	margin: 0px auto;
 	padding: 0;
 	@include border-radius($borderRadiusBtn);
 	.icon {
         display: inline-block;
-        font: 1.15em/1em $fontIcon;
+        font: 1.25em/1em $fontIcon;
         height: 15px;
         line-height: 15px;
         vertical-align: middle;
@@ -144,7 +180,45 @@ body {
         margin-top: 0px;
         padding: 0;
 		padding-right: 2px;
-        float: right;
+        padding-top: 1px;
+    }
+	&:hover {
+		background-color: darken($colorInfo, 5);
+		color: $colorWhite;
+		cursor: pointer;
+	}
+}
+a.btnActionDetails, a.btnActionDetails:visited {
+	@extend .btnActionDetails;
+	&:hover {
+		background-color: darken($colorInfo, 5);
+		color: $colorWhite;
+		cursor: pointer;
+	}
+}
+.btnActionDelete {
+	@extend .btnDefault;
+	width: 19px;
+	height: 19px;
+    line-height: 19px;
+	vertical-align: middle;
+	background-color: lighten($colorGrayDark, 5);
+	color: $colorWhite;
+    text-align: center;
+	margin: 0px auto;
+	padding: 0;
+	@include border-radius($borderRadiusBtn);
+	.icon {
+        display: inline-block;
+        font: 1.25em/1em $fontIcon;
+        height: 15px;
+        line-height: 15px;
+        vertical-align: middle;
+        margin: 0;
+        margin-top: 0px;
+        padding: 0;
+		padding-right: 2px;
+        padding-top: 1px;
     }
 	&:hover {
 		background-color: darken($colorWarning, 5);
@@ -152,14 +226,18 @@ body {
 		cursor: pointer;
 	}
 }
-a.btnUploadDelete, a.btnUploadDelete:visited {
-	@extend .btnUploadDelete;
+a.btnActionDelete, a.btnActionDelete:visited {
+	@extend .btnActionDelete;
 	&:hover {
 		background-color: darken($colorWarning, 5);
 		color: $colorWhite;
 		cursor: pointer;
 	}
 }
+
+
+
+
 .btnUploadStart {
 	@extend .btnDefault;
 	width: 70px;
@@ -197,7 +275,6 @@ a.btnUploadStart, a.btnUploadStart:visited {
 		cursor: pointer;
 	}
 }
-
 .btnFileBrowse {
     display: block;
 	position: relative;
@@ -268,6 +345,8 @@ input[type="file"].btnFileBrowse {
 
 
 
+
+
 .inputDefault {
     display: block;
 	position: relative;
@@ -310,11 +389,181 @@ input[type="file"].btnFileBrowse {
     color: #C4C4C4;
     font-weight: 400;
 }
+.selectInDragBox {
+    @extend .inputDefault;
+    background-color: lighten($color2Bk, 6);
+    color: $color2;
+    
+    -webkit-box-shadow: inset 0px 0px 0px rgba(0,0,0,0);
+	-moz-box-shadow: inset 0px 0px 0px rgba(0,0,0,0);
+	box-shadow: inset 0px 0px 0px rgba(0,0,0,0);
+
+	background: -webkit-linear-gradient(top, $colorWhite 0%, $color2Bk 100%);
+	background: -moz-linear-gradient(top, $colorWhite 0%, $color2Bk 100%);
+	background: -o-linear-gradient(top, $colorWhite 0%, $color2Bk 100%);
+	background: -ms-linear-gradient(top, $colorWhite 0%, $color2Bk 100%);
+	background: linear-gradient(top, $colorWhite 0%, $color2Bk 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$colorWhite', endColorstr='$color2Bk',GradientType=0 );
+}
+
+
+
+
+.inputDefaultSearch {
+    @extend .inputDefault;
+    background-color: lighten($color1Bk, 6);
+    color: $color1;
+    
+    border: 1px lighten($color1Bk, 6) solid;
+    
+    -webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.3), 0px 1px 0px rgba(255,255,255,.6);
+	-moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.3), 0px 1px 0px rgba(255,255,255,.6);
+	box-shadow: inset 0px 1px 1px rgba(0,0,0,0.3), 0px 1px 0px rgba(255,255,255,.6);
+
+	background: -webkit-linear-gradient(top, $color1Bk 0%, $colorWhite 100%);
+	background: -moz-linear-gradient(top, $color1Bk 0%, $colorWhite 100%);
+	background: -o-linear-gradient(top, $color1Bk 0%, $colorWhite 100%);
+	background: -ms-linear-gradient(top, $color1Bk 0%, $colorWhite 100%);
+	background: linear-gradient(top, $color1Bk 0%, $colorWhite 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color1Bk', endColorstr='$colorWhite',GradientType=0 );
+    &:focus {
+        background-color: lighten($color2Bk, 6);
+        color: $color2;
+
+        border: 1px lighten($color2Bk, 6) solid;
+        
+        background: -webkit-linear-gradient(top, $color2Bk 0%, $colorWhite 100%);
+        background: -moz-linear-gradient(top, $color2Bk 0%, $colorWhite 100%);
+        background: -o-linear-gradient(top, $color2Bk 0%, $colorWhite 100%);
+        background: -ms-linear-gradient(top, $color2Bk 0%, $colorWhite 100%);
+        background: linear-gradient(top, $color2Bk 0%, $colorWhite 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color2Bk', endColorstr='$colorWhite',GradientType=0 );
+    }
+}
+.inputDefaultSearch::-webkit-input-placeholder {
+    color: lighten($color1, 8);
+    font-weight: 400;
+}
+.inputDefaultSearch::-moz-placeholder {
+    color: lighten($color1, 8);
+    font-weight: 400;
+}
+.inputDefaultSearch::-ms-input-placeholder {
+    color: lighten($color1, 8);
+    font-weight: 400;
+}
+
+
+
+
+.checkTagPlace {
+	display: none;
+	position: absolute;
+	width: 140px;
+	height: 29px;
+	line-height: 29px;
+	vertical-align: middle;
+	background-color: transparent;
+	background-image: url(../images/tagBk.png);
+	background-position: center top;
+	background-repeat: no-repeat;
+	text-align: center;
+	margin: -29px -145px 0 0;
+	padding: 0 4px;
+}
+.checkTag {
+	@extend .checkTagPlace;
+	display: none;
+}
+.inputTag {
+	height: 18px;
+	line-height: 18px;
+	vertical-align: middle;
+}
+.inputTagDefault {
+	width: 100px;
+	height: 18px;
+	line-height: 18px;
+	vertical-align: middle;
+	font: $fontSize*1.1 $fontApp;
+	font-weight: 600;
+	background-color: #EBEBEB;
+	padding: 0;
+	margin: 5px auto;
+	border: none;
+	background-color: #FFD33D;
+	color: #555;
+	&:focus{
+		outline: none;
+		box-shadow: none;
+		border-color: transparent;
+	}
+}
+input[type="text"].inputTag {
+	@extend .inputTagDefault;
+}
 
 
 
 
 
+
+.gridCompFilter {
+    display: block;
+    position: relative;
+    height: auto;
+    vertical-align: middle;
+    background-color: lighten($color1Bk, 6);
+    color: $color1;
+    font: 1em/1em $fontApp;
+    font-weight: 600;
+    margin: 1px 0;
+    padding: 4px;
+    overflow: hidden;
+    @include border-radius($borderRadius);
+    .filterTitle {
+        height: 23px;
+        max-height: 23px;
+        line-height: 23px;
+        vertical-align: middle;
+        font: 1.05em/1em $fontAppTitle;
+        font-weight: 600;
+        padding: 4px;
+    }
+    .filterPlace {
+        height: auto;
+        padding: 6px 4px;
+        .filterPlaceTitle {
+            width: 100%;
+            color: $color2;
+            text-align: center;
+            padding: 6px;
+        }
+        .filterPlaceBtn {
+            width: 100%;
+            text-align: center;
+            padding: 6px;
+        }
+    }
+    a.btnToggleTop, a.btnToggleTop:visited, a.btnToggleTop:link {
+        @extend .btnToggleTop;
+        &:hover {
+            background-color: $color1;
+            color: lighten($color1, 35);
+            cursor: pointer;
+        }
+    }
+    a.btnSave, a.btnSave:visited, a.btnSave:link {
+        @extend .btnSave;
+        &:hover {
+            background-color: $colorSuccess;
+            color: $colorWhite;
+            cursor: pointer;
+        }
+    }
+    a.btnToggleTop > span {
+    }
+}
 ul.gridCompList {
 	display: table;
 	position: relative;
@@ -376,6 +625,20 @@ ul.gridCompList {
                 color: $color2;
                 @include transition(all 0.15s ease);
             }
+            .btnActionDetails, a.btnActionDetails {
+                background-color: $color2;
+                color: $color2Bk;
+                &:hover {
+                    @extend a.btnActionDetails:hover;
+                }
+            }
+            .btnActionDelete, a.btnActionDelete {
+                background-color: $color2;
+                color: $color2Bk;
+                &:hover {
+                    @extend a.btnActionDelete:hover;
+                }
+            }
         }
         &:focus {
             cursor: pointer;
@@ -408,6 +671,54 @@ ul.gridCompList {
             background-color: $color2;
             color: $color2Bk;
             @include transition(all 0.15s ease);
+        }
+        .btnActionDetails, a.btnActionDetails {
+            background-color: $color2Bk;
+            color: $color2;
+            &:hover {
+                @extend a.btnActionDetails:hover;
+            }
+        }
+        .btnActionDelete, a.btnActionDelete {
+            background-color: $color2Bk;
+            color: $color2;
+            &:hover {
+                @extend a.btnActionDelete:hover;
+            }
+        }
+    }
+    li.search {
+        display: table-row;
+		position: relative;
+		width: 100%;
+        height: 27px !important;
+        line-height: 27px !important;
+        vertical-align: middle;
+        background-color: $colorWhite;
+        color: $color1;
+        font: 1.15em/1em $fontAppTitle;
+        font-weight: 600;
+        line-height: 1.75;
+        clear: both;
+        margin: 0;
+        padding: 0;
+        @include border-radius($borderRadius $borderRadius 0 0);
+        .cell {
+            background-color: transparent;
+            color: $color1;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .colSearchClear {
+            height: 21px !important;
+            line-height: 21px !important;
+            vertical-align: middle;
+            padding: 6px 8px 0 0;
+            .icon {
+                font: 1.45em/1em $fontIcon;
+                font-weight: 600;
+            }
         }
     }
     li.header {
@@ -460,6 +771,76 @@ ul.gridCompList {
     li.header > div:last-child div.cell {
         @include border-radius($borderRadius 0 0 0);
     }
+    li.dragHeader {
+        display: table-row;
+		position: relative;
+		width: 100%;
+        height: 96px !important;
+//        line-height: 37px !important;
+//        vertical-align: middle;
+        background-color: $colorWhite;
+        color: $color2Bk;
+        font: 1.15em/1em $fontApp;
+        font-weight: 600;
+        line-height: 1.75;
+        clear: both;
+        margin: 0;
+        padding: 0;
+        @include border-radius($borderRadius $borderRadius 0 0);
+        .cell {
+            background-color: $color2;
+            height: 96px !important;
+//            line-height: 57px !important;
+//            vertical-align: middle;
+            margin: 1px;
+            padding: 4px;
+            overflow: hidden;
+            cursor: move;
+            .title {
+                font: 1.05em/1em $fontAppTitle;
+                font-weight: 600;
+                padding: 2px 0;
+            }
+            .titleSmall {
+                font: 0.85em/1em $fontApp;
+                font-weight: 400;
+                padding: 2px 0;
+            }
+            .titleRadio {
+                font: 0.85em/1em $fontApp;
+                font-weight: 400;
+            }
+            .titleSelect {
+                font: 0.85em/1em $fontApp;
+                font-weight: 400;
+            }
+            .selectInDragBoxPlace {
+                width: 100%;
+                padding: 2px 0;
+                margin: 2px 0;
+            }
+            .selectInDragBox {
+                background-color: $color2Bk;
+                color: $color2;
+                width: 100%;
+                font: 0.85em/1em $fontApp;
+                font-weight: 400;
+                margin: 0;
+                padding: 0;
+                cursor: pointer;
+            }
+        }
+        .cell > span {
+            float: right;
+            clear: both;
+        }
+    }
+    li.dragHeader > div:first-child div.cell {
+        @include border-radius(0 $borderRadius $borderRadius 0);
+    }
+    li.dragHeader > div:last-child div.cell {
+        @include border-radius($borderRadius 0 0 $borderRadius);
+    }
     li.row:last-child > div:first-child div.cell {
         @include border-radius(0 0 $borderRadius 0);
     }
@@ -478,9 +859,48 @@ ul.gridCompList {
     .colNo {
         white-space: normal;
     }
+    .btnAction {
+        height: 23px;
+        line-height: 23px;
+        vertical-align: middle;
+        text-align: center;
+        margin: 0px auto;
+    }
+    .col1 {
+        width: 1%;
+        max-width: 1%;
+    }
+    .col2 {
+        width: 2%;
+        max-width: 2%;
+    }
+    .col3 {
+        width: 3%;
+        max-width: 3%;
+    }
+    .col4 {
+        width: 4%;
+        max-width: 4%;
+    }
     .col5 {
         width: 5%;
         max-width: 5%;
+    }
+    .col6 {
+        width: 6%;
+        max-width: 6%;
+    }
+    .col7 {
+        width: 7%;
+        max-width: 7%;
+    }
+    .col8 {
+        width: 8%;
+        max-width: 8%;
+    }
+    .col9 {
+        width: 9%;
+        max-width: 9%;
     }
     .col10 {
         width: 10%;
@@ -558,6 +978,11 @@ ul.gridCompList {
         width: 100%;
         max-width: 100%;
     }
+    .colBtnFix {
+        width: 25px;
+        max-width: 25px;
+        min-width: 25px;
+    }
 }
 .gridCompFooter > div {
     white-space: nowrap;
@@ -566,12 +991,41 @@ ul.gridCompList {
     overflow: hidden;
 }
 .gridCompFooter {
+    display: block;
+    position: relative;
+    height: 23px;
+    max-height: 23px;
+    line-height: 23px;
+    vertical-align: middle;
+    background-color: lighten($colorGrayLight, 6);
     font: 1em/1em $fontApp;
-    margin: 4px;
+    margin: 2px 0;
     padding: 4px;
+    overflow: hidden;
+    @include border-radius($borderRadius);
+    .pagingNoRecPlace {
+        display: inline-block;
+        position: relative;
+        width: 10%;
+        max-width: 10%;
+        font: 1.1em/1em $fontApp;
+        font-weight: 600;
+        padding: 4px 0 0 0;
+        .noRecTxt {
+            color: $colorGrayDark;
+            margin: 0;
+            padding: 0;
+        }
+        .noRecAll {
+            margin: 0;
+            padding: 0;
+        }
+    }
     .pagingPagesPlace {
-        width: 60%;
-        max-width: 60%;
+        display: inline-block;
+        position: relative;
+        width: 50%;
+        max-width: 50%;
         ul.paging {
             display: table;
             position: relative;
@@ -619,9 +1073,22 @@ ul.gridCompList {
             }
         }
     }
+    .pagingBlockLeftPlace {
+        display: inline-block;
+        position: relative;
+        width: 40%;
+        max-width: 40%;
+//        height: 35px;
+//        line-height: 35px;
+//        vertical-align: middle;
+        text-align: left;
+        float: left;
+    }
     .pagingNoPlace {
-        width: 25%;
-        max-width: 25%;
+        display: inline-block;
+        position: relative;
+//        width: 25%;
+//        max-width: 25%;
         font-weight: 600;
         .noAll {
             padding: 7px 0 0 2px;
@@ -643,10 +1110,35 @@ ul.gridCompList {
         float: right;
         overflow: hidden;
     }
-    .selectRow {
-        width: 15%;
-        max-width: 15%;
+    .pagingRowNoPlace {
+        display: inline-block;
+        position: relative;
+//        width: 15%;
+//        max-width: 15%;
+        margin: 0;
+        padding: 0;
+        top: -10px;
+        .rowNo {
+            width: 55px;
+            height: 21px;
+            line-height: 21px;
+            vertical-align: middle;
+            padding-top: -4px;
+        }
     }
+}
+
+
+
+
+
+.dragdrop {
+}
+.ui-state-hover {
+    background: lightyellow;   
+}
+.ui-state-active {
+    background: lightgray   
 }
 
 
