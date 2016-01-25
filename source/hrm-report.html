@@ -15,6 +15,7 @@
       <link href="stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <![endif]-->
     <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <!-- <script src="../bower_components/modernizr/src/Modernizr.js"></script> -->
     <script src="scripts/modernizr.custom.63321.js"></script>
     <script src="scripts/jquery.js"></script>
     <script src="scripts/jquery.tinycarousel.js"></script>
@@ -114,15 +115,15 @@
                         	<span class="icon blockTitleIcon" data-icon="&#xe040;"></span>
                         	<span class="blockTitleTxt">مشاهده گزارشات</span>
                         </div>
-                        <div class="col1">از</div>
+                        <div class="col">از</div>
                         <div class="col1">
                             <input id="date01" class="formInputDefaultDate" type="text" placeholder="yyyy/mm/dd">
                         </div>
-                        <div class="col1">تا</div>
+                        <div class="col">تا</div>
                         <div class="col1">
                             <input id="date02" class="formInputDefaultDate" type="text" placeholder="yyyy/mm/dd">
                         </div>
-                        <div class="col1">
+                        <div class="col2">
                         	<a href="#" class="btnFree btnSearch">
                                 <span class="icon" data-icon="&#xe0b7;"></span>
                                 <span class="txt">مشاهده</span>
@@ -140,19 +141,77 @@
                     
                     </form>
                     
+                
+                    <div class="rowBlank"></div>    
+                
+                
                     <div class="row itemSpace blockGridTitleIcon"> <!-- score -->
                         <div class="row itemSpace">
-                            <div class="col colFixNo blockGridTitle"><span class="icon" data-icon="&#xe256;"></span></div>
-                            <div class="col2 blockGridTitle"><span class="icon" data-icon="&#xe251;"></span><span class="txt">نام افراد</span></div>
-                            <div class="col1 blockGridTitle"><span class="icon" data-icon="&#xe27d;"></span><span class="txt">بهره وری</span></div>
-                            <div class="col1 blockGridTitle"><span class="icon" data-icon="&#xe20c;"></span><span class="txt">انتقادو پیشنهاد</span></div>
-                            <div class="col1 blockGridTitle"><span class="icon" data-icon="&#xe20f;"></span><span class="txt">Tech Talk</span></div>
-                            <div class="col1 blockGridTitle"><span class="icon" data-icon="&#xe228;"></span><span class="txt">شگفت انگیز</span></div>
-                            <div class="col1 blockGridTitle"><span class="icon" data-icon="&#xe2cb;"></span><span class="txt">MicroPoint</span></div>
-                            <div class="col1 blockGridTitle"><span class="icon" data-icon="&#xe322;"></span><span class="txt">آخرین ورود</span></div>
-                            <div class="col1 blockGridTitle"><span class="icon" data-icon="&#xe322;"></span><span class="txt">امتیاز اول</span></div>
-                            <div class="col1 blockGridTitle"><span class="icon" data-icon="&#xe322;"></span><span class="txt">امتیاز آخر</span></div>
-                            <div class="col1 blockGridTitle"><span class="icon" data-icon="&#xe322;"></span><span class="txt">امتیاز کل</span></div>
+                            <div class="col colFixNo blockGridTitle">
+                                <a href="#">
+                                <span class="icon" data-icon="&#xe256;"></span>
+                                </a>
+                            </div>
+                            <div class="col2 blockGridTitle">
+                                <a href="#">
+                                <span class="icon" data-icon="&#xe251;"></span><span class="txt">نام افراد</span>
+                                <span class="iconSort icon" data-icon="&#xe256;"></span>
+                                </a>
+                            </div>
+                            <div class="col1 blockGridTitle">
+                                <a href="#">
+                                <span class="icon" data-icon="&#xe27d;"></span><span class="txt">بهره وری</span>
+                                <span class="iconSort icon" data-icon="&#xe246;"></span>
+                                </a>
+                            </div>
+                            <div class="col1 blockGridTitle">
+                                <a href="#">
+                                <span class="icon" data-icon="&#xe20c;"></span><span class="txt">پیشنهادات</span>
+                                    <span class="icon" data-icon="&#xe249;"></span>
+                                </a>
+                            </div>
+                            <div class="col1 blockGridTitle">
+                                <a href="#">
+                                <span class="icon" data-icon="&#xe20f;"></span><span class="txt">Tech Talk</span>
+                                    <span class="icon" data-icon="&#xe256;"></span>
+                                </a>
+                            </div>
+                            <div class="col1 blockGridTitle">
+                                <a href="#">
+                                <span class="icon" data-icon="&#xe228;"></span><span class="txt">شگفت انگیز</span>
+                                    <span class="icon" data-icon="&#xe256;"></span>
+                                </a>
+                            </div>
+                            <div class="col1 blockGridTitle">
+                                <a href="#">
+                                <span class="icon" data-icon="&#xe2cb;"></span><span class="txt">MicroPoint</span>
+                                    <span class="icon" data-icon="&#xe256;"></span>
+                                </a>
+                            </div>
+                            <div class="col1 blockGridTitle">
+                                <a href="#">
+                                <span class="icon" data-icon="&#xe322;"></span><span class="txt">آخرین ورود</span>
+                                    <span class="icon" data-icon="&#xe256;"></span>
+                                </a>
+                            </div>
+                            <div class="col1 blockGridTitle">
+                                <a href="#">
+                                <span class="icon" data-icon="&#xe322;"></span><span class="txt">امتیاز اول</span>
+                                    <span class="icon" data-icon="&#xe256;"></span>
+                                </a>
+                            </div>
+                            <div class="col1 blockGridTitle">
+                                <a href="#">
+                                <span class="icon" data-icon="&#xe322;"></span><span class="txt">امتیاز آخر</span>
+                                    <span class="icon" data-icon="&#xe256;"></span>
+                                    </a>
+                            </div>
+                            <div class="col1 blockGridTitle">
+                                <a href="#">
+                                <span class="icon" data-icon="&#xe322;"></span><span class="txt">امتیاز کل</span>
+                                    <span class="icon" data-icon="&#xe256;"></span>
+                                </a>
+                            </div>
                         </div>
                         <div class="row">
                         <div id="scoreBoardExtend" class="scoreBoardExtend">

@@ -34,9 +34,19 @@ var paths = {
         './source/components/grid/**/*.*',
         '!./source/components/grid/{scss,javascripts}/**/*.*'
     ],
+    blankPage: [
+        './source/components/blankPage/**/*.*',
+        '!./source/components/blankPage/{scss,javascripts}/**/*.*'
+    ],
+    blankPage2: [
+        './source/components/blankPage2/**/*.*',
+        '!./source/components/blankPage2/{scss,javascripts}/**/*.*'
+    ],
     sass: [
         'source/scss',
         'source/components/uploader/scss',
+        'source/components/grid/scss',
+        'source/components/blankPage/scss',
     ],
     js: [
         'bower_components/modernizr/src/modernizr.js',
@@ -95,7 +105,7 @@ gulp.task('uploader', function() {
     .pipe(livereload());
 });
 // Watch files for uploader changes
-gulp.task('watchuploader', function() {
+gulp.task('watchUploader', function() {
     livereload.listen();
     gulp.watch('source/components/uploader/scss/*.scss', ['uploader']);
 });
@@ -121,9 +131,61 @@ gulp.task('grid', function() {
     .pipe(livereload());
 });
 // Watch files for grid changes
-gulp.task('watchgrid', function() {
+gulp.task('watchGrid', function() {
     livereload.listen();
     gulp.watch('source/components/grid/scss/*.scss', ['grid']);
+});
+
+// Compile blankPage component sass with compass
+gulp.task('blankPage', function() {
+  gulp.src('source/components/blankPage/scss/*.scss')
+    .pipe(plumber({
+      errorHandler: function (error) {
+        console.log(error.message);
+        this.emit('end');
+    }}))
+    .pipe(compass({
+      css: 'source/components/blankPage/stylesheets',
+      sass: 'source/components/blankPage/scss',
+      image: 'source/components/blankPage/images'
+    }))
+    .on('error', function(err) {
+      // Would like to catch the error here 
+    })
+    .pipe(minifyCSS())
+    .pipe(gulp.dest('source/components/blankPage/stylesheets/min'))
+    .pipe(livereload());
+});
+// Watch files for blankPage changes
+gulp.task('watchBlankPage', function() {
+    livereload.listen();
+    gulp.watch('source/components/blankPage/scss/*.scss', ['blankPage']);
+});
+
+// Compile blankPage2 component sass with compass
+gulp.task('blankPage2', function() {
+  gulp.src('source/components/blankPage2/scss/*.scss')
+    .pipe(plumber({
+      errorHandler: function (error) {
+        console.log(error.message);
+        this.emit('end');
+    }}))
+    .pipe(compass({
+      css: 'source/components/blankPage2/stylesheets',
+      sass: 'source/components/blankPage2/scss',
+      image: 'source/components/blankPage2/images'
+    }))
+    .on('error', function(err) {
+      // Would like to catch the error here 
+    })
+    .pipe(minifyCSS())
+    .pipe(gulp.dest('source/components/blankPage2/stylesheets/min'))
+    .pipe(livereload());
+});
+// Watch files for blankPage2 changes
+gulp.task('watchBlankPage2', function() {
+    livereload.listen();
+    gulp.watch('source/components/blankPage2/scss/*.scss', ['blankPage2']);
 });
 
 // Compile sass with sass

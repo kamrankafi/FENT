@@ -10,9 +10,12 @@
 
     <link href="stylesheets/uicon.css" rel="stylesheet" type="text/css">
     <link href="stylesheets/grid.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/structure.css" media="screen, projection" rel="stylesheet" type="text/css" />
     
     <script src="../../../bower_components/jquery/dist/jquery.js"></script>
     <script src="../../scripts/jquery.keynavigator.js"></script>
+    
+    <script src="scripts/grid.js"></script>
     
     <style>
 		.wrap {
@@ -65,36 +68,35 @@
                             <span class="title">3 نام ویا عنوان بلاک</span>
                             <span class="titleSmall"></span>
                             <span class="titleSelect">مرتب سازی بر اساس</span>
-                            <span class="selectInDragBoxPlace">
-                                <select class="inputDefault selectInDragBox">
+                            <span class="gridSelectDragBoxPlace">
+                                <select class="gridSelectDragBox">
                                     <option>صعودی</option>
                                     <option>نزولی</option>
                                     <option>مرتب نشده</option>
                                 </select>
                             </span>
                             <span class="titleSelect">تعیین نحوه جستجو</span>
-                            <span class="selectInDragBoxPlace">
-                                <select class="inputDefault selectInDragBox">
+                            <span class="gridSelectDragBoxPlace">
+                                <select class="gridSelectDragBox">
                                     <option>اول</option>
                                     <option>آخر</option>
                                     <option>دقیق</option>
                                     <option>دارای</option>
                                 </select>
                             </span>
-<!--
-                            <span class="titleRadio">
-                                <label for="radio1">صعودی</label>
-                                <input type="radio" name="1" id="radio1" value="radio1">
+                            <span class="titleSelect">نسبت اندازه ها به درصد</span>
+                            <span class="gridSelectDragBoxPlace">
+                                <select class="gridSelectDragBox">
+                                    <option>۵</option>
+                                    <option>۱۰</option>
+                                    <option>۱۵</option>
+                                    <option>۲۰</option>
+                                    <option>۲۵</option>
+                                    <option>۳۰</option>
+                                    <option>۳۵</option>
+                                    <option>۴۰</option>
+                                </select>
                             </span>
-                            <span class="titleRadio">
-                                <label for="radio2">نزولی</label>
-                                <input type="radio" name="1" id="radio2" value="radio2">
-                            </span>
-                            <span class="titleRadio">
-                                <label for="radio3">مرتب نشده</label>
-                                <input type="radio" name="1" id="radio3" value="radio3">
-                            </span>
--->
                         </div>
                     </div>
                     <div class="col20" id="div4" ondrop="drop(event)" ondragover="allowDrop(event)">
@@ -102,20 +104,33 @@
                             <span class="title">4 نام ویا عنوان بلاک</span>
                             <span class="titleSmall"></span>
                             <span class="titleSelect">مرتب سازی بر اساس</span>
-                            <span class="selectInDragBoxPlace">
-                                <select class="inputDefault selectInDragBox">
+                            <span class="gridSelectDragBoxPlace">
+                                <select class="gridSelectDragBox">
                                     <option>صعودی</option>
                                     <option>نزولی</option>
                                     <option>مرتب نشده</option>
                                 </select>
                             </span>
                             <span class="titleSelect">تعیین نحوه جستجو</span>
-                            <span class="selectInDragBoxPlace">
-                                <select class="inputDefault selectInDragBox">
+                            <span class="gridSelectDragBoxPlace">
+                                <select class="gridSelectDragBox">
                                     <option>اول</option>
                                     <option>آخر</option>
                                     <option>دقیق</option>
                                     <option>دارای</option>
+                                </select>
+                            </span>
+                            <span class="titleSelect">نسبت اندازه ها به درصد</span>
+                            <span class="gridSelectDragBoxPlace">
+                                <select class="gridSelectDragBox">
+                                    <option>۵</option>
+                                    <option>۱۰</option>
+                                    <option>۱۵</option>
+                                    <option>۲۰</option>
+                                    <option>۲۵</option>
+                                    <option>۳۰</option>
+                                    <option>۳۵</option>
+                                    <option>۴۰</option>
                                 </select>
                             </span>
                         </div>
@@ -125,20 +140,33 @@
                             <span class="title">5 نام ویا عنوان بلاک</span>
                             <span class="titleSmall"></span>
                             <span class="titleSelect">مرتب سازی بر اساس</span>
-                            <span class="selectInDragBoxPlace">
-                                <select class="inputDefault selectInDragBox">
+                            <span class="gridSelectDragBoxPlace">
+                                <select class="gridSelectDragBox">
                                     <option>صعودی</option>
                                     <option>نزولی</option>
                                     <option>مرتب نشده</option>
                                 </select>
                             </span>
                             <span class="titleSelect">تعیین نحوه جستجو</span>
-                            <span class="selectInDragBoxPlace">
-                                <select class="inputDefault selectInDragBox">
+                            <span class="gridSelectDragBoxPlace">
+                                <select class="gridSelectDragBox">
                                     <option>اول</option>
                                     <option>آخر</option>
                                     <option>دقیق</option>
                                     <option>دارای</option>
+                                </select>
+                            </span>
+                            <span class="titleSelect">نسبت اندازه ها به درصد</span>
+                            <span class="gridSelectDragBoxPlace">
+                                <select class="gridSelectDragBox">
+                                    <option>۵</option>
+                                    <option>۱۰</option>
+                                    <option>۱۵</option>
+                                    <option>۲۰</option>
+                                    <option>۲۵</option>
+                                    <option>۳۰</option>
+                                    <option>۳۵</option>
+                                    <option>۴۰</option>
                                 </select>
                             </span>
                         </div>
@@ -148,20 +176,33 @@
                             <span class="title">6 نام ویا عنوان بلاک</span>
                             <span class="titleSmall"></span>
                             <span class="titleSelect">مرتب سازی بر اساس</span>
-                            <span class="selectInDragBoxPlace">
-                                <select class="inputDefault selectInDragBox">
+                            <span class="gridSelectDragBoxPlace">
+                                <select class="gridSelectDragBox">
                                     <option>صعودی</option>
                                     <option>نزولی</option>
                                     <option>مرتب نشده</option>
                                 </select>
                             </span>
                             <span class="titleSelect">تعیین نحوه جستجو</span>
-                            <span class="selectInDragBoxPlace">
-                                <select class="inputDefault selectInDragBox">
+                            <span class="gridSelectDragBoxPlace">
+                                <select class="gridSelectDragBox">
                                     <option>اول</option>
                                     <option>آخر</option>
                                     <option>دقیق</option>
                                     <option>دارای</option>
+                                </select>
+                            </span>
+                            <span class="titleSelect">نسبت اندازه ها به درصد</span>
+                            <span class="gridSelectDragBoxPlace">
+                                <select class="gridSelectDragBox">
+                                    <option>۵</option>
+                                    <option>۱۰</option>
+                                    <option>۱۵</option>
+                                    <option>۲۰</option>
+                                    <option>۲۵</option>
+                                    <option>۳۰</option>
+                                    <option>۳۵</option>
+                                    <option>۴۰</option>
                                 </select>
                             </span>
                         </div>
@@ -171,20 +212,33 @@
                             <span class="title">7 نام ویا عنوان بلاک</span>
                             <span class="titleSmall"></span>
                             <span class="titleSelect">مرتب سازی بر اساس</span>
-                            <span class="selectInDragBoxPlace">
-                                <select class="inputDefault selectInDragBox">
+                            <span class="gridSelectDragBoxPlace">
+                                <select class="gridSelectDragBox">
                                     <option>صعودی</option>
                                     <option>نزولی</option>
                                     <option>مرتب نشده</option>
                                 </select>
                             </span>
                             <span class="titleSelect">تعیین نحوه جستجو</span>
-                            <span class="selectInDragBoxPlace">
-                                <select class="inputDefault selectInDragBox">
+                            <span class="gridSelectDragBoxPlace">
+                                <select class="gridSelectDragBox">
                                     <option>اول</option>
                                     <option>آخر</option>
                                     <option>دقیق</option>
                                     <option>دارای</option>
+                                </select>
+                            </span>
+                            <span class="titleSelect">نسبت اندازه ها به درصد</span>
+                            <span class="gridSelectDragBoxPlace">
+                                <select class="gridSelectDragBox">
+                                    <option>۵</option>
+                                    <option>۱۰</option>
+                                    <option>۱۵</option>
+                                    <option>۲۰</option>
+                                    <option>۲۵</option>
+                                    <option>۳۰</option>
+                                    <option>۳۵</option>
+                                    <option>۴۰</option>
                                 </select>
                             </span>
                         </div>
@@ -211,31 +265,6 @@
             
         </div>
         
-        <script>
-            $(document).ready(function(){
-                $("#btnToggleTop").click(function(){
-                    $("#panelToggle").slideToggle("fast");
-                });
-             });
-            
-            function allowDrop(ev) {
-                ev.preventDefault();
-            }
-            function drag(ev) {
-                ev.dataTransfer.setData("src", ev.target.id);
-            }
-            function drop(ev) {
-                ev.preventDefault();
-                var src = document.getElementById(ev.dataTransfer.getData("src"));
-                var srcParent = src.parentNode;
-                var tgt = ev.currentTarget.firstElementChild;
-
-                ev.currentTarget.replaceChild(src, tgt);
-                srcParent.appendChild(tgt);
-            }
-            
-        </script>
-        
     </div> <!-- /gridCompFilter -->
     <ul id="gridSearch" class="gridCompList"> <!-- gridCompList search -->
         <li class="search">
@@ -243,22 +272,22 @@
                 <a class="" href="#"><span class="icon" data-icon="&#xe20d;"></span></a>
             </div></div>
             <div class="col5"><div class="cell">
-                <input class="inputDefaultSearch" type="search" placeholder="">
+                <input class="gridInputDefaultSearch" type="search" placeholder="">
             </div></div>
             <div class="col20"><div class="cell">
-                <input class="inputDefaultSearch" type="search" placeholder="">
+                <input class="gridInputDefaultSearch" type="search" placeholder="">
             </div></div>
             <div class="col20"><div class="cell">
-                <input class="inputDefaultSearch" type="search" placeholder="">
+                <input class="gridInputDefaultSearch" type="search" placeholder="">
             </div></div>
             <div class="col10"><div class="cell">
-                <input class="inputDefaultSearch" type="search" placeholder="">
+                <input class="gridInputDefaultSearch" type="search" placeholder="">
             </div></div>
             <div class="col15"><div class="cell">
-                <input class="inputDefaultSearch" type="search" placeholder="">
+                <input class="gridInputDefaultSearch" type="search" placeholder="">
             </div></div>
             <div class="col20"><div class="cell">
-                <input class="inputDefaultSearch" type="search" placeholder="">
+                <input class="gridInputDefaultSearch" type="search" placeholder="">
             </div></div>
             <div class="col3"><div class="cell">&nbsp;</div></div>
             <div class="col3"><div class="cell">&nbsp;</div></div>
@@ -306,8 +335,8 @@
                         <label for="check1"></label>
                     </div>
                 </div>
-                <div class="checkTag">
-                    <input id="" tabindex="" class="inputTag" type="text" placeholder="" autofocus>
+                <div class="gridInputTagPlace">
+                    <input id="" tabindex="" class="gridInputTag" type="text" placeholder="" autofocus>
                 </div>
             </div>
             <div class="col5"><div class="cell colNo">۱</div></div>
@@ -316,10 +345,10 @@
             <div class="col10"><div class="cell">کنترل</div></div>
             <div class="col15"><div class="cell">پیشرفت</div></div>
             <div class="col20"><div class="cell">توضیحات</div></div>
-            <div class="col3"><div class="cell btnAction">
+            <div class="col3"><div class="cell cellBtnAction">
                 <a class="btnActionDelete"><span class="icon" data-icon="&#xe0da;"></span></a>    
             </div></div>
-            <div class="col3"><div class="cell btnAction">
+            <div class="col3"><div class="cell cellBtnAction">
                 <a class="btnActionDetails"><span class="icon" data-icon="&#xe0b7;"></span></a>    
             </div></div>
         </li>
@@ -331,8 +360,8 @@
                         <label for="check2"></label>
                     </div>
                 </div>
-                <div class="checkTag">
-                    <input id="" tabindex="" class="inputTag" type="text" placeholder="" autofocus>
+                <div class="gridInputTagPlace">
+                    <input id="" tabindex="" class="gridInputTag" type="text" placeholder="" autofocus>
                 </div>
             </div>
             <div class="col5"><div class="cell colNo">۲</div></div>
@@ -341,10 +370,10 @@
             <div class="col10"><div class="cell">کنترل</div></div>
             <div class="col15"><div class="cell">پیشرفت</div></div>
             <div class="col20"><div class="cell">توضیحات</div></div>
-            <div class="col3"><div class="cell btnAction">
+            <div class="col3"><div class="cell cellBtnAction">
                 <a class="btnActionDelete"><span class="icon" data-icon="&#xe0da;"></span></a>    
             </div></div>
-            <div class="col3"><div class="cell btnAction">
+            <div class="col3"><div class="cell cellBtnAction">
                 <a class="btnActionDetails"><span class="icon" data-icon="&#xe0b7;"></span></a>    
             </div></div>
         </li>
@@ -356,8 +385,8 @@
                         <label for="check3"></label>
                     </div>
                 </div>
-                <div class="checkTag">
-                    <input id="" tabindex="" class="inputTag" type="text" placeholder="" autofocus>
+                <div class="gridInputTagPlace">
+                    <input id="" tabindex="" class="gridInputTag" type="text" placeholder="" autofocus>
                 </div>
             </div>
             <div class="col5"><div class="cell colNo">۳</div></div>
@@ -366,10 +395,10 @@
             <div class="col10"><div class="cell">کنترل</div></div>
             <div class="col15"><div class="cell">پیشرفت</div></div>
             <div class="col20"><div class="cell">توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات</div></div>
-            <div class="col3"><div class="cell btnAction">
+            <div class="col3"><div class="cell cellBtnAction">
                 <a class="btnActionDelete"><span class="icon" data-icon="&#xe0da;"></span></a>    
             </div></div>
-            <div class="col3"><div class="cell btnAction">
+            <div class="col3"><div class="cell cellBtnAction">
                 <a class="btnActionDetails"><span class="icon" data-icon="&#xe0b7;"></span></a>    
             </div></div>
         </li>
@@ -381,8 +410,8 @@
                         <label for="check4"></label>
                     </div>
                 </div>
-                <div class="checkTag">
-                    <input id="" tabindex="" class="inputTag" type="text" placeholder="" autofocus>
+                <div class="gridInputTagPlace">
+                    <input id="" tabindex="" class="gridInputTag" type="text" placeholder="" autofocus>
                 </div>
             </div>
             <div class="col5"><div class="cell colNo">۴</div></div>
@@ -391,10 +420,10 @@
             <div class="col10"><div class="cell">کنترل</div></div>
             <div class="col15"><div class="cell">پیشرفت</div></div>
             <div class="col20"><div class="cell">توضیحات</div></div>
-            <div class="col3"><div class="cell btnAction">
+            <div class="col3"><div class="cell cellBtnAction">
                 <a class="btnActionDelete"><span class="icon" data-icon="&#xe0da;"></span></a>    
             </div></div>
-            <div class="col3"><div class="cell btnAction">
+            <div class="col3"><div class="cell cellBtnAction">
                 <a class="btnActionDetails"><span class="icon" data-icon="&#xe0b7;"></span></a>    
             </div></div>
         </li>
@@ -406,8 +435,8 @@
                         <label for="check5"></label>
                     </div>
                 </div>
-                <div class="checkTag">
-                    <input id="" tabindex="" class="inputTag" type="text" placeholder="" autofocus>
+                <div class="gridInputTagPlace">
+                    <input id="" tabindex="" class="gridInputTag" type="text" placeholder="" autofocus>
                 </div>
             </div>
             <div class="col5"><div class="cell colNo">۵</div></div>
@@ -416,10 +445,10 @@
             <div class="col10"><div class="cell">کنترل</div></div>
             <div class="col15"><div class="cell">پیشرفت</div></div>
             <div class="col20"><div class="cell">توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات</div></div>
-            <div class="col3"><div class="cell btnAction">
+            <div class="col3"><div class="cell cellBtnAction">
                 <a class="btnActionDelete"><span class="icon" data-icon="&#xe0da;"></span></a>    
             </div></div>
-            <div class="col3"><div class="cell btnAction">
+            <div class="col3"><div class="cell cellBtnAction">
                 <a class="btnActionDetails"><span class="icon" data-icon="&#xe0b7;"></span></a>    
             </div></div>
         </li>
@@ -452,10 +481,10 @@
             <div class="pagingNoPlace">
                 <span class="noAll">۲۰</span>
                 <span class="noSep">/</span>
-                <span><input class="inputDefault no" type="text" placeholder="شماره صفحه"></span>
+                <span><input class="gridInputDefault no" type="text" placeholder="شماره صفحه"></span>
             </div>
             <div class="pagingRowNoPlace">
-                <select class="inputDefault rowNo">
+                <select class="gridInputDefault rowNo">
                     <option>۱۰</option>
                     <option>۲۰</option>
                     <option>۳۰</option>
@@ -464,25 +493,6 @@
             </div>
         </div>
     </div> <!-- /gridCompFooter -->
-    
-    <script>
-    $(document).ready(function() {
-        $('ul#gridComponent > li.row').keynavigator({
-            activeClass: 'select',
-            keys: {
-                13: function($el, cellIndex, e) {    
-                  console.log('pressed "enter"', arguments);
-                }
-              }
-        });
-        $('input[type="checkbox"].checkBoxDetect').on('change', function() {
-            $(this).closest('div.checkAndTag').find('.checkTag').toggle(this.checked);
-//            $('#gridComponent').blur();
-            $(this).closest('div.checkAndTag').find('input[type="text"].inputTag').focus();
-
-        });
-    });
-    </script>
                                         
 </div> <!-- /gridCompBlock -->
 </div> <!-- /gridComp -->

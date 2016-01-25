@@ -2,42 +2,12 @@
 /* طراحی رابط و تجربه کاربری فن آوری اطلاعات روهان */
 /* Grid Component */
 @charset "utf-8";
-@import "compass/reset";
-@import "compass/utilities";
+//@import "compass/reset";
+//@import "compass/utilities";
 @import "../../../../source/scss/fonts";
 @import "../../../../source/scss/colors";
 @import "../../../../source/scss/checkbox";
 @import "compass/css3";
-html {
-	font-size: $fontSize;
-	direction: rtl;
-}
-body {
-	width: 100%;
-	height: auto;
-	color: $fontColor1;
-	background-color: transparent;
-	background-image: inherit;
-	background-repeat: no-repeat;
-	background-position: center;
-	background-attachment: fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-	font: 0.625em/1em $fontApp;
-	font-weight: normal;
-	line-height: 1.75 !important;
-	letter-spacing: 0;
-	margin: 0;
-	padding: 0;
-	overflow-x: hidden;
-	overflow-y: auto;
-}
-
-
-
-
 
 
 
@@ -46,6 +16,18 @@ body {
 	width: 100%;
 	background-color: $colorWhite;
 	color: $fontColorApp;
+    
+    font-size: $fontSize;
+    font: 0.625em/1em $fontApp;
+	font-weight: normal;
+	line-height: 1.75 !important;
+	letter-spacing: 0;
+    direction: rtl;
+	margin: 0;
+	padding: 0;
+//	overflow-x: hidden;
+//	overflow-y: auto;
+    
 	a {
 		background-color: transparent;
 		color: $color1;
@@ -77,18 +59,15 @@ body {
 	background-color: transparent;
 	color: $fontColorApp;
 	line-height: 1.55;
-	.uploaderCompTitle {
-		font: 1.35em/1em $fontAppTitle;
-		font-weight: 600;
-		line-height: 1.85;
-	}
 }
 
 
 
 
 
-.btnDefault {
+
+
+.gridBtnDefault {
     display: block;
 	position: relative;
 	width: 100%;
@@ -128,8 +107,8 @@ body {
 	}
 }
 .btnToggleTop {
-    @extend .btnDefault;
-    width: 230px;
+    @extend .gridBtnDefault;
+    width: 240px;
     background-color: transparent !important;
 	color: $color1;
     &:hover {
@@ -139,7 +118,7 @@ body {
 	}
 }
 .btnSave {
-    @extend .btnDefault;
+    @extend .gridBtnDefault;
     width: 130px;
     background-color: $colorSuccess !important;
 	color: $colorWhite;
@@ -159,7 +138,7 @@ a.btnSave, a.btnSave:visited {
 	}
 }
 .btnActionDetails {
-	@extend .btnDefault;
+	@extend .gridBtnDefault;
 	width: 19px;
 	height: 19px;
     line-height: 19px;
@@ -172,7 +151,8 @@ a.btnSave, a.btnSave:visited {
 	@include border-radius($borderRadiusBtn);
 	.icon {
         display: inline-block;
-        font: 1.25em/1em $fontIcon;
+        font: 1.15em/1em $fontIcon;
+        font-weight: 400;
         height: 15px;
         line-height: 15px;
         vertical-align: middle;
@@ -197,7 +177,7 @@ a.btnActionDetails, a.btnActionDetails:visited {
 	}
 }
 .btnActionDelete {
-	@extend .btnDefault;
+	@extend .gridBtnDefault;
 	width: 19px;
 	height: 19px;
     line-height: 19px;
@@ -210,7 +190,8 @@ a.btnActionDetails, a.btnActionDetails:visited {
 	@include border-radius($borderRadiusBtn);
 	.icon {
         display: inline-block;
-        font: 1.25em/1em $fontIcon;
+        font: 1.15em/1em $fontIcon;
+        font-weight: 400;
         height: 15px;
         line-height: 15px;
         vertical-align: middle;
@@ -238,116 +219,11 @@ a.btnActionDelete, a.btnActionDelete:visited {
 
 
 
-.btnUploadStart {
-	@extend .btnDefault;
-	width: 70px;
-	height: 17px;
-    line-height: 17px;
-	vertical-align: middle;
-	background-color: lighten($colorSuccess, 5);
-	color: $colorWhite;
-	margin: 0;
-	padding: 0;
-	@include border-radius($borderRadiusBtn);
-	.icon {
-        display: inline-block;
-        font: 1.15em/1em $fontIcon;
-        height: 15px;
-        line-height: 15px;
-        vertical-align: middle;
-        margin: 0;
-        margin-top: 0px;
-        padding: 0;
-		padding-right: 2px;
-        float: right;
-    }
-	&:hover {
-		background-color: darken($colorSuccess, 5);
-		color: $colorWhite;
-		cursor: pointer;
-	}
-}
-a.btnUploadStart, a.btnUploadStart:visited {
-	@extend .btnUploadStart;
-	&:hover {
-		background-color: darken($colorSuccess, 5);
-		color: $colorWhite;
-		cursor: pointer;
-	}
-}
-.btnFileBrowse {
-    display: block;
-	position: relative;
-	width: 100%;
-    height: 17px;
-    line-height: 17px;
-    vertical-align: middle;
-	background-color: lighten($colorInfo, 5);
-	color: $colorWhite;
-	font: 1em/1em $fontYekan;
-    font-weight: 600;
-    text-align: center;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border: none;
-	@include border-radius($borderRadius);
-    margin: 0;
-    padding: 0;
-	padding-top: 6px;
-	cursor: pointer;
-    .icon {
-        display: inline-block;
-        font: 1.75em/1em $fontIcon;
-        height: 15px;
-        line-height: 15px;
-        vertical-align: middle;
-        margin: 0;
-        margin-top: -4px;
-        padding: 0;
-		padding-right: 4px;
-        float: right;
-    }
-	&:hover {
-		background-color: darken($colorInfo, 5);
-		color: $colorWhite;
-		cursor: pointer;
-	}
-}
-.fileBrowsePlace {
-    position: relative;
-	width: 130px;
-	height: 23px;
-	line-height: 23px;
-	vertical-align: middle;
-    overflow: hidden;
-	cursor: pointer;
-}
-.fileBrowsePlace input.fileBrowseSelect {
-    position: absolute;
-	height: 23px;
-	line-height: 23px;
-	vertical-align: middle;
-    top: 0;
-    right: 0;
-    margin: 0;
-    padding: 0;
-    font-size: 20px;
-    cursor: pointer;
-    opacity: 0;
-    filter: alpha(opacity=0);
-}
-form input[type="file"].btnFileBrowse,
-input[type="file"].btnFileBrowse {
-    @extend .btnFileBrowse;
-    cursor: pointer;
-}
 
 
 
 
-
-.inputDefault {
+.gridInputDefault {
     display: block;
 	position: relative;
 	width: 100%;
@@ -356,7 +232,7 @@ input[type="file"].btnFileBrowse {
     vertical-align: middle;
     background-color: lighten($colorGrayLight, 6);
     color: #444;
-    font: 0.95em/1em $fontApp;
+    font: 1em/1em $fontApp;
     font-weight: 600;
     border: 1px #F1F1F1 solid;
     outline: none;
@@ -377,20 +253,23 @@ input[type="file"].btnFileBrowse {
     margin: 2px;
 	padding: 2px 2px 0 2px;
 }
-.inputDefault::-webkit-input-placeholder {
+.gridInputDefault::-webkit-input-placeholder {
     color: #C4C4C4;
     font-weight: 400;
 }
-.inputDefault::-moz-placeholder {
+.gridInputDefault::-moz-placeholder {
     color: #C4C4C4;
     font-weight: 400;
 }
-.inputDefault::-ms-input-placeholder {
+.gridInputDefault::-ms-input-placeholder {
     color: #C4C4C4;
     font-weight: 400;
 }
-.selectInDragBox {
-    @extend .inputDefault;
+input[type="text"].gridInputDefault {
+	@extend .gridInputDefault;
+}
+.gridSelectDragBox {
+    @extend .gridInputDefault;
     background-color: lighten($color2Bk, 6);
     color: $color2;
     
@@ -409,8 +288,8 @@ input[type="file"].btnFileBrowse {
 
 
 
-.inputDefaultSearch {
-    @extend .inputDefault;
+.gridInputDefaultSearch {
+    @extend .gridInputDefault;
     background-color: lighten($color1Bk, 6);
     color: $color1;
     
@@ -440,24 +319,27 @@ input[type="file"].btnFileBrowse {
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color2Bk', endColorstr='$colorWhite',GradientType=0 );
     }
 }
-.inputDefaultSearch::-webkit-input-placeholder {
+.gridInputDefaultSearch::-webkit-input-placeholder {
     color: lighten($color1, 8);
     font-weight: 400;
 }
-.inputDefaultSearch::-moz-placeholder {
+.gridInputDefaultSearch::-moz-placeholder {
     color: lighten($color1, 8);
     font-weight: 400;
 }
-.inputDefaultSearch::-ms-input-placeholder {
+.gridInputDefaultSearch::-ms-input-placeholder {
     color: lighten($color1, 8);
     font-weight: 400;
+}
+input[type="search"].gridInputDefaultSearch {
+	@extend .gridInputDefaultSearch;
 }
 
 
 
 
-.checkTagPlace {
-	display: none;
+.gridCheckTagPlace {
+//	display: none;
 	position: absolute;
 	width: 140px;
 	height: 29px;
@@ -471,21 +353,21 @@ input[type="file"].btnFileBrowse {
 	margin: -29px -145px 0 0;
 	padding: 0 4px;
 }
-.checkTag {
-	@extend .checkTagPlace;
-	display: none;
+.gridInputTagPlace {
+	@extend .gridCheckTagPlace;
+    z-index: 99;
 }
-.inputTag {
+.gridInputTag {
 	height: 18px;
 	line-height: 18px;
 	vertical-align: middle;
 }
-.inputTagDefault {
+.gridInputTagDefault {
 	width: 100px;
 	height: 18px;
 	line-height: 18px;
 	vertical-align: middle;
-	font: $fontSize*1.1 $fontApp;
+	font: $fontSize*1.15 $fontApp;
 	font-weight: 600;
 	background-color: #EBEBEB;
 	padding: 0;
@@ -499,8 +381,8 @@ input[type="file"].btnFileBrowse {
 		border-color: transparent;
 	}
 }
-input[type="text"].inputTag {
-	@extend .inputTagDefault;
+input[type="text"].gridInputTag {
+	@extend .gridInputTagDefault;
 }
 
 
@@ -515,7 +397,7 @@ input[type="text"].inputTag {
     vertical-align: middle;
     background-color: lighten($color1Bk, 6);
     color: $color1;
-    font: 1em/1em $fontApp;
+    font: 1.05em/1em $fontApp;
     font-weight: 600;
     margin: 1px 0;
     padding: 4px;
@@ -536,6 +418,7 @@ input[type="text"].inputTag {
         .filterPlaceTitle {
             width: 100%;
             color: $color2;
+            font: 1.15em/1em $fontApp;
             text-align: center;
             padding: 6px;
         }
@@ -573,32 +456,60 @@ ul.gridCompList {
     font: 1em/1em $fontApp;
     margin: 0;
     padding: 0;
+    z-index: 9;
+    li {
+        display: table-row;
+		position: relative;
+		width: 100%;
+        height: 25px !important;
+        line-height: 25px !important;
+        vertical-align: middle;
+    }
     li.row {
         display: table-row;
 		position: relative;
 		width: 100%;
-        height: 23px !important;
-        line-height: 23px !important;
+        height: 25px !important;
+        line-height: 25px !important;
         vertical-align: middle;
         background-color: $colorWhite;
         color: $fontColorApp;
-        font: 1.05em/1em $fontApp;
+        font: 1.25em/1em $fontApp;
         font-weight: 600;
-        line-height: 1.55;
+        line-height: 1.65;
         clear: both;
+        overflow: hidden;
         margin: 0;
         padding: 0;
         .cell {
+            height: 25px !important;
+            line-height: 25px !important;
+            vertical-align: middle;
             margin: 1px;
             padding: 4px 2px 0 0;
             overflow: hidden;
         }
         .colCheck {
-            height: 21px !important;
-            line-height: 21px !important;
+            height: 25px !important;
+            min-height: 25px !important;
+            line-height: 25px !important;
             vertical-align: middle;
-            padding-top: 6px;
-            padding-right: 6px;
+            text-align: center;
+            margin: 1px auto 0px;
+            padding-top: 4px;
+            padding-right: 2px;
+            overflow: hidden;
+            > * {
+                margin: 0;
+                padding: 0;
+            }
+            input[type="checkbox"] {
+            }
+            label {
+                width: 15px;
+                height: 15px;
+                margin-right: 0px !important;
+            }
         }
         &:nth-child(odd) {
             .cell {
@@ -658,6 +569,9 @@ ul.gridCompList {
         }
     }
     li.row.select {
+        height: 25px !important;
+        line-height: 25px !important;
+        vertical-align: middle;
         cursor: pointer;
         @include transition(all 0.15s ease);
         a {
@@ -738,17 +652,35 @@ ul.gridCompList {
         padding: 0;
         @include border-radius($borderRadius $borderRadius 0 0);
         .cell {
+            height: 37px !important;
+            line-height: 37px !important;
+            vertical-align: middle;
             background-color: $color1;
             margin: 1px;
             padding: 4px 2px 0 0;
             overflow: hidden;
         }
         .colCheck {
-            height: 27px !important;
-            line-height: 27px !important;
+            height: 37px !important;
+            min-height: 37px !important;
+            line-height: 37px !important;
             vertical-align: middle;
+            text-align: center;
+            margin: 1px auto 0px;
             padding-top: 14px;
-            padding-right: 6px;
+            padding-right: 2px;
+            overflow: hidden;
+            > * {
+                margin: 0;
+                padding: 0;
+            }
+            input[type="checkbox"] {
+            }
+            label {
+                width: 15px;
+                height: 15px;
+                margin-right: 0px !important;
+            }
         }
         a.sortIcon {
             color: $color1Bk;
@@ -775,7 +707,7 @@ ul.gridCompList {
         display: table-row;
 		position: relative;
 		width: 100%;
-        height: 96px !important;
+        height: 136px !important;
 //        line-height: 37px !important;
 //        vertical-align: middle;
         background-color: $colorWhite;
@@ -789,7 +721,7 @@ ul.gridCompList {
         @include border-radius($borderRadius $borderRadius 0 0);
         .cell {
             background-color: $color2;
-            height: 96px !important;
+            height: 136px !important;
 //            line-height: 57px !important;
 //            vertical-align: middle;
             margin: 1px;
@@ -802,31 +734,32 @@ ul.gridCompList {
                 padding: 2px 0;
             }
             .titleSmall {
-                font: 0.85em/1em $fontApp;
+                font: 0.9em/1em $fontApp;
                 font-weight: 400;
                 padding: 2px 0;
             }
             .titleRadio {
-                font: 0.85em/1em $fontApp;
+                font: 0.9em/1em $fontApp;
                 font-weight: 400;
             }
             .titleSelect {
-                font: 0.85em/1em $fontApp;
+                font: 0.9em/1em $fontApp;
                 font-weight: 400;
             }
-            .selectInDragBoxPlace {
+            .gridSelectDragBoxPlace {
                 width: 100%;
                 padding: 2px 0;
                 margin: 2px 0;
             }
-            .selectInDragBox {
+            .gridSelectDragBox {
                 background-color: $color2Bk;
                 color: $color2;
                 width: 100%;
-                font: 0.85em/1em $fontApp;
+                font: 0.9em/1em $fontApp;
                 font-weight: 400;
                 margin: 0;
                 padding: 0;
+                padding-right: 3px;
                 cursor: pointer;
             }
         }
@@ -854,14 +787,14 @@ ul.gridCompList {
         overflow: hidden;
     }
     .colCheck {
-        white-space: normal;
+        white-space: normal !important;
     }
     .colNo {
         white-space: normal;
     }
-    .btnAction {
-        height: 23px;
-        line-height: 23px;
+    .cellBtnAction {
+        height: 27px;
+        line-height: 27px;
         vertical-align: middle;
         text-align: center;
         margin: 0px auto;
@@ -993,9 +926,9 @@ ul.gridCompList {
 .gridCompFooter {
     display: block;
     position: relative;
-    height: 23px;
-    max-height: 23px;
-    line-height: 23px;
+    height: 25px;
+//    max-height: 25px;
+    line-height: 25px;
     vertical-align: middle;
     background-color: lighten($colorGrayLight, 6);
     font: 1em/1em $fontApp;
@@ -1126,19 +1059,6 @@ ul.gridCompList {
             padding-top: -4px;
         }
     }
-}
-
-
-
-
-
-.dragdrop {
-}
-.ui-state-hover {
-    background: lightyellow;   
-}
-.ui-state-active {
-    background: lightgray   
 }
 
 

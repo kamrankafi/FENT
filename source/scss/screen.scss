@@ -4,6 +4,9 @@
 @import "base";
 @import "notify";
 @import "compass/css3";
+
+$fontApp : $fontMirza;
+
 a {
 	background-color: $color1;
 	color: lighten($color1, 45);
@@ -497,14 +500,60 @@ body.remodal-is-active .remodal {
 	color: rgba(255,255,255,0.45);
 }
 .blockGridTitle {
+    height: 27px;
+    line-height: 27px;
+    vertical-align: middle;
+    padding: 2px 0px;
+    overflow: hidden;
+    @include border-radius($borderRadiusBtn);
+    .icon {
+        display: inline-block;
+		position: relative;
+        padding-right: 2px;
+        float: right;
+    }
 	.txt {
 		display: inline-block;
 		position: relative;
-		top: -3px;
+        height: 27px;
+        line-height: 27px;
+        vertical-align: middle;
+        background-color: transparent !important;
 		color: rgba(255,255,255,0.75);
-		font: 0.75em/1em $fontAppTitle;
-		padding-right: 3px;
+		font: 0.7em/1em $fontAppTitle;
+		padding-right: 2px;
+        padding-top: 9px;
+        float: right;
 	}
+    .iconSort {
+        display: inline-block;
+		position: relative;
+        float: left;
+    }
+    a, a:link, a:visited {
+        display: inline-block;
+		position: relative;
+        width: 100%;
+        height: 100%;
+        background-color: transparent !important;
+        color: inherit;
+        .iconSort {
+            float: left;
+        }
+        &:hover {
+            background-color: $colorWhite !important;
+            color: $colorGrayDark;
+            cursor: pointer;
+        }
+    }
+    &:hover {
+        background-color: $colorWhite !important;
+        color: $colorGrayDark;
+        cursor: pointer;
+        .txt {
+            color: $colorGrayDark !important;
+        }
+    }
 }
 .colFixNo {
 	display: block;
@@ -630,6 +679,7 @@ body.remodal-is-active .remodal {
         margin: 0;
         margin-top: 0;
         padding: 0;
+        padding-right: 4px;
         float: right;
     }
 	.txt {
@@ -653,7 +703,16 @@ body.remodal-is-active .remodal {
     margin: 0;
     padding: 0;
     padding-top: 8px;
+    padding-right: 4px;
     float: right;
+}
+.btnMenuAdmin {
+	@extend .btnDefault;
+    border-bottom: 2px $colorAlert solid;
+	&:hover {
+        border-bottom: 2px $color2Bk solid;
+		cursor: pointer;
+	}
 }
 .btnEnter {
 	@extend .btnDefault;
