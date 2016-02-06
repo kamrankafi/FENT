@@ -22,10 +22,11 @@ body.ui {
         background-color: $color8;
         color: darken($color8, 32);
         text-decoration: none;
+        padding: 0px 4px;
         @include transition(all 0.15s ease);
         &:hover {
-            background-color: $colorWhite;
-            color: $color8TxtDark;
+            background-color: #444444;
+            color: $color8;
             cursor: pointer;
         }
     }
@@ -102,6 +103,7 @@ body.ui {
     @extend .uiBtnAction;
     float: left !important;
     margin-top: 14px;
+    margin-right: 8px;
 }
 .uiBtnActionFooter {
     @extend .uiBtnAction;
@@ -113,6 +115,21 @@ body.ui {
 	vertical-align: middle;
 	background-color: rgba(0,0,0,0.45);
 	overflow: hidden;
+}
+.uiHeaderLink {
+    color: $colorWhite;
+    font: 0.75em/1em $fontApp;
+    text-align: left;
+    margin-top: 8px;
+    a, a:visited {
+        background-color: transparent;
+        color: $colorWhite;
+        &:hover {
+            background-color: $color8;
+            color: $color8TxtDark;
+            cursor: pointer;
+        }
+    }
 }
 .uiBlock {
 	color: $fontColor1;
@@ -132,18 +149,29 @@ body.ui {
 		}
 		.titleTxt {
 			width: auto;
-			height: 55px;
-			line-height: 55px;
+			height: 17px;
+			line-height: 17px;
 			vertical-align: middle;
+            margin: 19px 0 0 0;
 		}
 		.ver {
 			width: auto;
-			height: 55px;
-			line-height: 55px;
+			height: 17px;
+			line-height: 17px;
 			vertical-align: middle;
 			color: rgba(255,255,255,0.25);
 			font: 0.55em/1em $fontApp;
 			margin: 25px 15px 0 0;
+            padding: 0;
+		}
+        .desc {
+			width: auto;
+			height: 17px;
+			line-height: 17px;
+			vertical-align: middle;
+			color: rgba(255,255,255,0.65);
+			font: 0.55em/1em $fontApp;
+			margin: 4px 0;
 		}
 		.txtSpace {
 			margin: 2px 4px;
@@ -228,9 +256,70 @@ body.ui {
 	}
 }
 .uiBlockContent {
-	background-color: rgba(0,0,0,0.25);
+	background-color: rgba(0, 0, 0, 0.45);
 	color: $colorWhite;
+    font: 0.95em/1em $fontApp;
+    line-height: 1.55;
 	margin: 6px 0px;
+    margin-bottom: 62px;
+    h1 {
+        font: 1.25em/1em $fontYekan;
+        line-height: 1.65;
+    }
+    h2 {
+        font: 1.15em/1em $fontYekan;
+        line-height: 1.55;
+    }
+    h3 {
+        font: 1.05em/1em $fontYekan;
+        line-height: 1.45;
+    }
+    .line {
+        height: 2px;
+        border-color: rgba(0, 0, 0, 0.15);
+        border-top: 1px rgba(0, 0, 0, 0.15) solid;
+        border-bottom: 1px rgba(255, 255, 255, 0.25) solid;;
+        margin: 6px 0;
+    }
+    .uiModel {
+        background-color: transparent;
+        color: $colorWhite;
+        padding: 6px;
+        .title {
+            color: $colorWhite;
+            font: 1.35em/1em $fontYekan;
+            font-weight: 600;
+            line-height: 1.75;
+        }
+        hr {
+            border-color: rgba(255, 255, 255, 0.35);
+        }
+    }
+    .uiModel1 {
+        background-color: rgba(255, 255, 255, 0.85);
+        color: $fontColorApp;
+        padding: 6px;
+        .title {
+            color: $fontColorApp;
+            font: 1.35em/1em $fontYekan;
+            font-weight: 600;
+            line-height: 1.75;
+        }
+    }
+    .uiModel2 {
+        background-color: rgba(0, 0, 0, 0.45);
+        color: $colorWhite;
+        padding: 6px;
+        .title {
+            color: $colorWhite;
+            font: 1.35em/1em $fontYekan;
+            font-weight: 600;
+            line-height: 1.75;
+        }
+        hr {
+            border-color: rgba(255, 255, 255, 0.35);
+        }
+    }
 }
 .uiBlockContent.full {
     height: 100vh;
@@ -240,32 +329,40 @@ body.ui {
     display: block;
     position: relative;
     list-style: none;
+    width: 976px;
 	height: 56px;
 	line-height: 56px;
 	vertical-align: middle;
     background-color: $bkColorDark;
 	color: $colorWhite;
-    @include transition(all 0.43s ease);
-    margin: 0;
+    text-align: center;
+    @include transition(all 0.23s ease);
+    margin: 0px auto;
     padding: 0;
     z-index: 999;
     li {
-        display: inline-block;
+        display: block;
         position: relative;
-        width: auto;
-        height: 100%;
+        width: 122px;
+        height: 56px;
+        line-height: 56px;
+        vertical-align: middle;
+        font: 0.9em/1em $fontYekan;
+        text-align: center;
         margin: 0;
         padding: 0;
+        float: right;
         a, a:link, a:visited {
-            display: inline-block;
+            display: block;
             position: relative;
-            width: auto;
+            width: 122px;
             height: 100%;
+            vertical-align: middle;
             background-color: transparent;
             color: rgba(255, 255, 255, 0.85);
+            text-align: center;
             padding: 0 8px;
             &:hover {
-                width: auto;
                 height: 100%;
                 background-color: $color8;
                 color: $color8TxtDark;
@@ -281,6 +378,98 @@ body.ui {
     top: 0;
 	height: 32px;
 	line-height: 32px;
+    margin: 0px auto;
+}
+.uiBlockMenuPlace {
+    background-color: $bkColorDark;
+    width: 100%;
+    margin: 0px auto;
+}
+.uiBlockMenuWrap {
+    display: block;
+    position: relative;
+    list-style: none;
+    width: 100%;
+	height: 56px;
+	line-height: 56px;
+	vertical-align: middle;
+    background-color: $bkColorDark;
+	color: $colorWhite;
+    border-bottom: 2px $color8 solid;
+    @include transition(all 0.23s ease);
+    margin: 0;
+    padding: 0;
+    z-index: 999;
+    .uiBlockMenu {
+        height: 56px;
+        line-height: 56px;
+        border-bottom: 2px $color8 solid;
+        li {
+            display: block;
+            position: relative;
+            width: 122px;
+            height: 56px;
+            line-height: 56px;
+        }
+    }
+}
+.uiBlockMenuWrap.sticky {
+    display: block;
+    position: fixed;
+    width: 100%;
+    top: 0;
+	height: 32px;
+	line-height: 32px;
+    border-bottom: 2px $color8 solid;
+    margin: 0px auto;
+    .uiBlockMenu {
+        height: 32px;
+        line-height: 32px;
+        border-bottom: 2px $color8 solid;
+        li {
+            display: block;
+            position: relative;
+            width: 122px;
+            height: 32px;
+            line-height: 32px;
+        }
+    }
+}
+
+
+
+
+blockquote {
+    width: auto;
+    margin: 0.25em 0;
+    padding: 0.25em 40px;
+    line-height: 1.45;
+    position: relative;
+}
+blockquote:before {
+    display: block;
+    content: "\201C";
+    font: 3em/1em $fontApp;
+    position: absolute;
+    right: 15px;
+    top: 5;
+}
+blockquote cite {
+    display: block;
+    font: 0.65em/1em $fontApp;
+    margin-top: 5px;
+}
+blockquote cite:before {
+    content: "\2014 \2009";
+}
+
+
+blockquote.custom {
+    @extend blockquote;
+    background-color: $color8;
+}
+blockquote.custom cite {
+    @extend cite;
 }
 
 

@@ -7,8 +7,8 @@
 @import "colors";
 /* Grid Setup */
 /* Define Some Variables */
-$limitTol : 978px;
-$columnWidth : 8;
+$limitTol : 976px;
+$columnWidth : 4;
 $column : 12;
 $columnGutter : (100 - ($columnWidth * $column)) / ($column - 1);
 /* Flexible Image */
