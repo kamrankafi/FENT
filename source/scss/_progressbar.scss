@@ -8,7 +8,7 @@ progress:not(value) {
 }
 /* Styling the determinate progress element */
 progress[value] {
-	display: block;
+	display: inline-block;
 	position: relative;
     /* Get rid of the default appearance */
     appearance: none;
@@ -36,7 +36,7 @@ progress[value] {
     /* Of all IE, only IE10 supports progress element that too partially. It only allows to change the background-color of the progress value using the 'color' attribute. */
     color: royalblue;
     position: relative;
-    margin: 0 0 1.5em; 
+    margin: 0 0 4px; 
 }
 /*
 Webkit browsers provide two pseudo classes that can be use to style HTML5 progress element.
@@ -74,8 +74,8 @@ progress[value]::-webkit-progress-value:after {
     position: absolute;
     width: 5px;
 	height: 5px;
-    top: 7px;
-	left: 7px;
+    top: 5px;
+	left: 5px;
     background-color: white;
     border-radius: 100%;
 }
@@ -114,7 +114,7 @@ p[data-value] {
 p[data-value]:after {
     content: attr(data-value) '%';
     position: absolute;
-	left: 0;
+	right: 0;
 }
 .html5::-webkit-progress-value,
 .python::-webkit-progress-value  {

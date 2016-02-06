@@ -9,6 +9,7 @@ var compass     = require('gulp-compass');
 var plumber     = require('gulp-plumber');
 var minifyCSS   = require('gulp-minify-css');
 var notify      = require('gulp-notify');
+var gulpIgnore  = require('gulp-ignore');
 // var sass     = require('gulp-sass');
 var concat      = require('gulp-concat');
 var uglify      = require('gulp-uglify');
@@ -37,43 +38,43 @@ var paths = {
     grid: basePaths.comp + 'grid/',
     singlePage: basePaths.comp + 'singlePage/',
     sass: [
-        basePaths.src + 'scss',
-        basePaths.comp + 'uploader/scss',
-        basePaths.comp + 'grid/scss',
-        basePaths.comp + 'singlePage/scss',
+        basePaths.src + 'scss/',
+        basePaths.comp + 'uploader/scss/',
+        basePaths.comp + 'grid/scss/',
+        basePaths.comp + 'singlePage/scss/'
     ],
     css: [
-        basePaths.src + 'css',
-        basePaths.comp + 'uploader/css',
-        basePaths.comp + 'grid/css',
-        basePaths.comp + 'singlePage/css',
+        basePaths.src + 'css/',
+        basePaths.comp + 'uploader/css/',
+        basePaths.comp + 'grid/css/',
+        basePaths.comp + 'singlePage/css/'
     ],
     js: [
         basePaths.bower + 'modernizr/src/modernizr.js',
-        basePaths.bower + 'jquery/dist/jquery.js',
+        basePaths.bower + 'jquery/dist/jquery.js'
     ],
     scripts: [
-        basePaths.src + 'scripts',
-        basePaths.comp + 'uploader/scripts',
-        basePaths.comp + 'grid/scripts',
-        basePaths.comp + 'singlePage/scripts',
+        basePaths.src + 'scripts/',
+        basePaths.comp + 'uploader/scripts/',
+        basePaths.comp + 'grid/scripts/',
+        basePaths.comp + 'singlePage/scripts/'
     ]
-}
+};
 
 // TASKS
 
 // Plumber error handler
-var onError = function(err) {
+var onError = function (err) {
 	console.log(err);
-}
+};
 
 // Connect task with livereload
-gulp.task('connect', function() {
-    connect.server({livereload: true, root: ['.', basePaths.src]});
+gulp.task('connect', function () {
+    connect.server({livereload: true, root: '.'});
 });
 
 // Livereload task
-gulp.task('livereload', function() {
+gulp.task('livereload', function () {
     gulp.src([basePaths.src + '*.html',
               basePaths.src + 'stylesheets/*.css',
               basePaths.src + 'css/*.css',
@@ -95,25 +96,21 @@ gulp.task('html', function () {
 });
 
 // Lint task
-gulp.task('lint', function() {
+gulp.task('lint', function () {
     return gulp.src(basePaths.src + 'js/*.js')
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
 });
 
-// Compile sass with compass base app
-gulp.task('compile', function() {
+// Compile base app sass with compass
+gulp.task('compile', function () {
   gulp.src(basePaths.src + 'scss/*.scss')
-    .pipe(plumber({
-      errorHandler: function (error) {
-        console.log(error.message);
-        this.emit('end');
-    }}))
+    .pipe(plumber({errorHandler: onError}))
     .pipe(compass({
       css: basePaths.src + 'css',
       sass: basePaths.src + 'scss'
     }))
-    .on('error', function(err) {
+    .on('error', function (err) {
       // Would like to catch the error here 
     })
     .pipe(minifyCSS())
@@ -122,25 +119,21 @@ gulp.task('compile', function() {
     .pipe(connect.reload());
 });
 // Watch files for base app changes
-gulp.task('watchBase', function() {
+gulp.task('watchBase', function () {
     gulp.watch([basePaths.src + 'scss/*.scss'], ['compile']);
     gulp.watch([basePaths.src + '*.html'], ['html']);
 });
 gulp.task('base', ['connect', 'watchBase']);
 
 // Compile uploader component sass with compass
-gulp.task('compileUploader', function() {
+gulp.task('compileUploader', function () {
   gulp.src(paths.uploader + 'scss/*.scss')
-    .pipe(plumber({
-      errorHandler: function (error) {
-        console.log(error.message);
-        this.emit('end');
-    }}))
+    .pipe(plumber({errorHandler: onError}))
     .pipe(compass({
       css: paths.uploader + 'css',
       sass: paths.uploader + 'scss'
     }))
-    .on('error', function(err) {
+    .on('error', function (err) {
       // Would like to catch the error here 
     })
     .pipe(minifyCSS())
@@ -149,20 +142,16 @@ gulp.task('compileUploader', function() {
     .pipe(connect.reload());
 });
 // Watch files for uploader changes
-gulp.task('watchUploader', function() {
+gulp.task('watchUploader', function () {
     gulp.watch([paths.uploader + 'scss/*.scss'], ['compileUploader']);
     gulp.watch([paths.uploader + '*.html'], ['html']);
 });
 gulp.task('uploader', ['connect', 'watchUploader']);
 
 // Compile grid component sass with compass
-gulp.task('compileGrid', function() {
-  gulp.src(paths.grid+'scss/*.scss')
-    .pipe(plumber({
-      errorHandler: function (error) {
-        console.log(error.message);
-        this.emit('end');
-    }}))
+gulp.task('compileGrid', function () {
+  gulp.src(paths.grid + 'scss/*.scss')
+    .pipe(plumber({errorHandler: onError}))
     .pipe(compass({
       css: paths.grid + 'css',
       sass: paths.grid + 'scss'
@@ -176,25 +165,21 @@ gulp.task('compileGrid', function() {
     .pipe(connect.reload());
 });
 // Watch files for grid changes
-gulp.task('watchGrid', function() {
+gulp.task('watchGrid', function () {
     gulp.watch([paths.grid + 'scss/*.scss'], ['compileGrid']);
     gulp.watch([paths.grid + '*.html'], ['html']);
 });
 gulp.task('grid', ['connect', 'watchGrid']);
 
 // Compile singlePage component sass with compass
-gulp.task('compileSinglePage', function() {
+gulp.task('compileSinglePage', function () {
   gulp.src(paths.singlePage + 'scss/*.scss')
-    .pipe(plumber({
-      errorHandler: function (error) {
-        console.log(error.message);
-        this.emit('end');
-    }}))
+    .pipe(plumber({errorHandler: onError}))
     .pipe(compass({
       css: paths.singlePage + 'css',
       sass: paths.singlePage + 'scss'
     }))
-    .on('error', function(err) {
+    .on('error', function (err) {
       // Would like to catch the error here 
     })
     .pipe(minifyCSS())
@@ -203,7 +188,7 @@ gulp.task('compileSinglePage', function() {
     .pipe(connect.reload());
 });
 // Watch files for singlePage changes
-gulp.task('watchSinglePage', function() {
+gulp.task('watchSinglePage', function () {
     gulp.watch([paths.singlePage + 'scss/*.scss'], ['compileSinglePage']);
     gulp.watch([paths.singlePage + '*.html'], ['html']);
 });
@@ -218,7 +203,7 @@ gulp.task('singlePage', ['connect', 'watchSinglePage']);
 }); */
 
 // Concatenate & minify js
-gulp.task('scripts', function() {
+gulp.task('scripts', function () {
     return gulp.src('source/javascripts/*.js')
         .pipe(concat('source/script/all.js'))
         .pipe(gulp.dest('source/script'))
@@ -228,7 +213,7 @@ gulp.task('scripts', function() {
 });
 
 // Watch files for changes
-gulp.task('watch', function() {
+gulp.task('watch', function () {
     gulp.watch(basePaths.src + 'js/*.js', ['lint', 'scripts']);
     gulp.watch(basePaths.src + 'scripts/*.js', ['lint', 'scripts']);
     gulp.watch(basePaths.src + 'scss/*.scss', ['compile']);
@@ -236,17 +221,17 @@ gulp.task('watch', function() {
 });
 
 // Cleans the build directory
-gulp.task('clean', function(cb) {
+gulp.task('clean', function (cb) {
     rimraf('./dest', cb);
 });
 
+var a = basePaths.src + 'scss';
+
 // Copies everything in the source folder except scss
-gulp.task('copy', function() {
-    return gulp.src(paths.assets, {
-        base: './source/'
-    })
-        .pipe(gulp.dest('./dest'))
-    ;
+gulp.task('copy', function () {
+        gulp.src(basePaths.src + '**/*')
+        .pipe(gulpIgnore.exclude(a))
+        .pipe(gulp.dest(basePaths.dest));
 });
 
 // DEFAULT TASK
@@ -254,7 +239,7 @@ gulp.task('copy', function() {
 // gulp.task('default', ['lint', 'sass', 'scripts', 'watch']);
 gulp.task('default', ['lint', 'compass', 'scripts', 'watch']);
 
-gulp.task('build', function(cb) {
+gulp.task('build', function (cb) {
     runSequence('clean', ['copy', 'compass'], cb);
 });
 

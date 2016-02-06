@@ -7,6 +7,353 @@
 
 $fontApp : $fontMirza;
 
+body.hrm {
+	background-image: url(../images/bk.jpg);
+}
+
+
+
+
+body.ui {
+	background-image: url(../images/bkUI.jpg);
+}
+.ui {
+    a {
+        background-color: $color8;
+        color: darken($color8, 32);
+        text-decoration: none;
+        @include transition(all 0.15s ease);
+        &:hover {
+            background-color: $colorWhite;
+            color: $color8TxtDark;
+            cursor: pointer;
+        }
+    }
+}
+.uiBtnIcon {
+	display: block;
+	position: relative;
+	width: 100%;
+    height: auto;
+    line-height: auto;
+    vertical-align: middle;
+    background-color: transparent !important;
+	color: $colorWhite !important;
+	font: 1em/1em $fontYekan;
+    font-weight: 600;
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    .icon {
+        display: inline-block;
+        font: 1.5em/1em $fontIcon;
+		text-align: center;
+        height: auto;
+        line-height: auto;
+        vertical-align: middle;
+        margin: 0;
+        padding: 0;
+    }
+	&:hover {
+        background-color: $colorWhite !important;
+        color: $color8TxtDark !important;
+		@include box-shadow(inset 1px 1px 1px rgba(255, 255, 255, 0.3), 0 2px 2px rgba(0, 0, 0, 0.15), 0 1px 2px -2px rgba(0, 0, 0, 0.2));
+		cursor: pointer;
+	}
+}
+.uiBtnIcon.icon {
+    display: inline-block;
+    font: 1.5em/1em $fontIcon;
+	text-align: center;
+    height: auto;
+    line-height: auto;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+}
+.uiBtnAction {
+	@extend .uiBtnIcon;
+	width: 24px;
+	height: 24px;
+    line-height: 24px;
+    vertical-align: middle;
+	@include border-radius($borderRadiusBtn);
+	&:hover {
+		background-color: $color8 !important;
+		color: $color8TxtDark !important;
+		cursor: pointer;
+		/*@include box-shadow(0px 0px 0px rgba(0,0,0,0));*/
+		@include transition(all 0.07s linear);
+		-webkit-transform: scale(1.2);
+		-moz-transform: scale(1.2);
+		-o-transform: scale(1.2);
+	}
+	.icon {
+		text-align: center;
+		&:hover {
+		}
+    }
+}
+.uiBtnActionHeader {
+    @extend .uiBtnAction;
+    float: left !important;
+    margin-top: 14px;
+}
+.uiBtnActionFooter {
+    @extend .uiBtnAction;
+}
+.uiHeader {
+    display: block;
+    position: relative;
+    height: auto;
+	vertical-align: middle;
+	background-color: rgba(0,0,0,0.45);
+	overflow: hidden;
+}
+.uiBlock {
+	color: $fontColor1;
+	font: 1.3em/1em $fontApp;
+	line-height: 1.45;
+	.title {
+		color: $colorWhite;
+		font: 1.5em/1em $fontAppTitle;
+		font-weight: 600;
+		line-height: 1.85;
+		.titleLogo {
+			width: 55px;
+			height: 55px;
+			line-height: 55px;
+			vertical-align: middle;
+			margin: 5px 0 0 25px;
+		}
+		.titleTxt {
+			width: auto;
+			height: 55px;
+			line-height: 55px;
+			vertical-align: middle;
+		}
+		.ver {
+			width: auto;
+			height: 55px;
+			line-height: 55px;
+			vertical-align: middle;
+			color: rgba(255,255,255,0.25);
+			font: 0.55em/1em $fontApp;
+			margin: 25px 15px 0 0;
+		}
+		.txtSpace {
+			margin: 2px 4px;
+			padding: 2px 4px;
+		}
+		a, a:visited {
+			background-color: transparent;
+			color: $colorWhite;
+			&:hover {
+				background-color: transparent;
+				color: $colorWhite;
+				cursor: pointer;
+			}
+		}
+		&:hover {
+		}
+	}
+	.desc {
+		color: $colorGrayDark;
+		font: 1.1em/1em $fontApp;
+	}
+	.desctitleCustom {
+		@extend .desc;
+		font: 0.9em/1em $fontApp;
+		text-align: left;
+		margin: 14px 0 0 0;
+		float: left;
+		.btnActionPlace {
+			text-align: left;
+			margin: 0 4px 0 0;
+			float: left;
+		}
+		.txtCustom {
+			text-align: center;
+			margin: 6px 4px 0 0;
+			padding: 0px 8px;
+			float: left;
+		}
+		.btnActionPlaceDesc {
+			display: inline-block;
+			position: relative;
+			width: 125px;
+			text-align: center;
+			margin: 0 4px 0 0;
+			float: left;
+			a {
+				.icon {
+					padding-right: 3px;
+				}
+				.txtDesc {
+					display: inline-block;
+					position: relative;
+					width: 105px;
+					top: -4px;
+					font: 0.6em/1em $fontApp;
+					text-align: right;
+					margin-top: -6px;
+					padding: 0px 12px;
+				}
+				&:hover {
+					.txtDesc {
+						color: $colorWhite;
+					}
+				}
+			}
+		}
+		
+	}
+	.desctitleCustomFooter {
+		@extend .desc;
+		font: 0.9em/1em $fontApp;
+		margin: 3px 0 0 0;
+		.btnActionPlace {
+			margin: 0 4px 0 0;
+		}
+		.txtCustomFooter {
+			text-align: center;
+			margin: 6px 4px 0 0;
+			padding: 0px 8px 0px;
+			float: right;
+		}
+	}
+}
+.uiBlockContent {
+	background-color: rgba(0,0,0,0.25);
+	color: $colorWhite;
+	margin: 6px 0px;
+}
+.uiBlockContent.full {
+    height: 100vh;
+    margin-bottom: 62px;
+}
+.uiBlockMenu {
+    display: block;
+    position: relative;
+    list-style: none;
+	height: 56px;
+	line-height: 56px;
+	vertical-align: middle;
+    background-color: $bkColorDark;
+	color: $colorWhite;
+    @include transition(all 0.43s ease);
+    margin: 0;
+    padding: 0;
+    z-index: 999;
+    li {
+        display: inline-block;
+        position: relative;
+        width: auto;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        a, a:link, a:visited {
+            display: inline-block;
+            position: relative;
+            width: auto;
+            height: 100%;
+            background-color: transparent;
+            color: rgba(255, 255, 255, 0.85);
+            padding: 0 8px;
+            &:hover {
+                width: auto;
+                height: 100%;
+                background-color: $color8;
+                color: $color8TxtDark;
+                cursor: pointer;
+            }
+        }
+    }
+}
+.uiBlockMenu.sticky {
+    display: block;
+    position: fixed;
+    width: 100%;
+    top: 0;
+	height: 32px;
+	line-height: 32px;
+}
+
+
+
+
+.uiFooter {
+    display: block;
+    position: relative;
+    height: auto;
+    background-color: rgba(0,0,0,0.45);
+	color: $colorGrayDark;
+	font: 1em/1em $fontApp;
+	font-weight: 400;
+	margin: 8px auto 0px;
+	padding: 8px;
+    .uiCopyRightTxt,
+    .uiCopyRightTxt a,
+    .uiCopyRightTxt a:link,
+    .uiCopyRightTxt a:visited {
+        background-color: transparent;
+        color: $colorWhite;
+        font: 0.7em/1em $fontApp;
+        font-weight: 400;
+        line-height: 1.75 !important;
+        vertical-align: middle;
+        text-align: right;
+        text-indent: none;
+        padding: 4px;
+        a:hover {
+            background-color: $color8;
+            color: $color8TxtDark;
+            font-weight: 600;
+            cursor: pointer;
+        }
+    }
+    .uiBtnPlaceHeader {
+        font: 0.85em/1em $fontIcon;
+        text-align: left;
+        margin: 12px 4px 0 0;
+        padding: 12px 0 0 0;
+        float: left;
+    }
+    .uiBtnActionPlaceHeader {
+        text-align: center;
+        margin: 0 4px 0 0;
+        float: left;
+    }
+    .uiBtnPlaceFooter {
+        font: 0.7em/1em $fontIcon;
+        text-align: right;
+        margin: 0 4px 0 0;
+        float: right;
+    }
+    .uiBtnActionPlaceFooter {
+        text-align: center;
+        margin: 0 4px 0 0;
+        float: right;
+    }
+}
+.uiFooter.fix {
+    display: block;
+    position: fixed;
+    height: auto;
+    bottom: 0;
+    margin-top: 4px;
+}
+
+
+
+
+
+
+
 a {
 	background-color: $color1;
 	color: lighten($color1, 45);
@@ -188,7 +535,7 @@ a {
 }
 .blockTypeF {
 	@extend .blockType;
-	background-color: rgba(0,0,0,0.19);
+	background-color: rgba(0,0,0,0.25);
 	color: $colorWhite;
 	margin: 6px 0px;
 }
@@ -1184,6 +1531,11 @@ body.remodal-is-active .remodal {
 
 
 
+
+
+
+
+
 .btnUploadPic {
     @extend .btnDefault;
 	font: 0.85em/1em $fontYekan;
@@ -1884,6 +2236,9 @@ textarea.formTextareaNote {
 		cursor: pointer;
 	}
 }
+
+
+
 
 
 

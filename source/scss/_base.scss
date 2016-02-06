@@ -98,7 +98,7 @@ body {
 	height: auto;
 	color: $fontColor1;
 	background-color: $backgroundColor;
-	background-image: url(../images/bk.jpg);
+//	background-image: url();
 	background-repeat: no-repeat;
 	background-position: center;
 	background-attachment: fixed;
@@ -115,8 +115,9 @@ body {
 	overflow-x: hidden;
 	overflow-y: auto;
 }
+$breakpoint-mobile: 480px;
 /* Breakpoint Wide */
-$breakpoint-wide: rem-calc(1440);
+$breakpoint-wide: 1440px;
 @media (min-width: $breakpoint-wide) {
 body {
 }
