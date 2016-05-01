@@ -11,12 +11,69 @@ body.hrm {
 	background-image: url(../images/bk.jpg);
 }
 
-
-
+body.tvc {
+//	background-image: url(../images/bkDefaultBlack.jpg);
+}
 
 body.ui {
 	background-image: url(../images/bkUI.jpg);
 }
+
+$bkUrlTVC : '../images/bkDefaultBlack.jpg';
+body.tvc:before {
+	width: 100%;
+    height: 100%;
+	content: "";
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	display: block;
+	
+	background-image: url($bkUrlTVC);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	
+	-webkit-filter: blur(1px) grayscale(5%);
+	-moz-filter: blur(1px) grayscale(5%);
+	-o-filter: blur(1px) grayscale(5%);
+	-ms-filter: blur(1px) grayscale(5%);
+	filter: blur(1px) grayscale(5%);
+	
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";
+	filter: alpha(opacity=75);
+	-moz-opacity: 0.75;
+	-khtml-opacity: 0.75;
+	opacity: 0.75;
+	z-index: -1;
+}
+
+
+
+
+
+a {
+    background-color: $color1;
+    color: $color1Bk;
+    text-decoration: none;
+    padding: 0px 4px;
+    @include transition(all 0.15s ease);
+    &:hover {
+        background-color: $color1Bk;
+        color: $color1;
+        cursor: pointer;
+    }
+}
+a[disabled] {
+    pointer-events: none;
+}
+
+
+
+
+
+
 .ui {
     a {
         background-color: $color8;
@@ -262,6 +319,7 @@ body.ui {
     line-height: 1.55;
 	margin: 6px 0px;
     margin-bottom: 62px;
+    @include border-radius($borderRadius);
     h1 {
         font: 1.25em/1em $fontYekan;
         line-height: 1.65;
@@ -280,6 +338,23 @@ body.ui {
         border-top: 1px rgba(0, 0, 0, 0.15) solid;
         border-bottom: 1px rgba(255, 255, 255, 0.25) solid;;
         margin: 6px 0;
+    }
+    .uiModelLogin {
+        background-color: transparent;
+        color: $colorWhite;
+        padding: 6px;
+        .title {
+            background-color: $color1;
+            color: $colorWhite;
+            font: 1.35em/1em $fontYekan;
+            font-weight: 600;
+            line-height: 1.75;
+            padding: 4px;
+            @include border-radius($borderRadius);
+        }
+        hr {
+            border-color: rgba(255, 255, 255, 0.35);
+        }
     }
     .uiModel {
         background-color: transparent;
@@ -324,6 +399,45 @@ body.ui {
 .uiBlockContent.full {
     height: 100vh;
     margin-bottom: 62px;
+}
+.uiBlockMenuBlank {
+    display: block;
+    position: relative;
+    list-style: none;
+    width: 976px;
+	height: 3px;
+	line-height: 3px;
+	vertical-align: middle;
+    background-color: $bkColorDark;
+	color: $colorWhite;
+}
+.uiBlockMenuWrapBlank {
+    display: block;
+    position: relative;
+    list-style: none;
+    width: 100%;
+	height: 3px;
+	line-height: 3px;
+	vertical-align: middle;
+    background-color: $bkColorDark;
+	color: $colorWhite;
+    border-bottom: 2px $color8 solid;
+    @include transition(all 0.23s ease);
+    margin: 0;
+    padding: 0;
+    z-index: 999;
+    .uiBlockMenu {
+        height: 3px;
+        line-height: 3px;
+        border-bottom: 2px $color8 solid;
+        li {
+            display: block;
+            position: relative;
+            width: 122px;
+            height: 3px;
+            line-height: 3px;
+        }
+    }
 }
 .uiBlockMenu {
     display: block;
@@ -376,8 +490,8 @@ body.ui {
     position: fixed;
     width: 100%;
     top: 0;
-	height: 32px;
-	line-height: 32px;
+	height: 22px;
+	line-height: 22px;
     margin: 0px auto;
 }
 .uiBlockMenuPlace {
@@ -732,6 +846,733 @@ a {
 
 
 
+
+.blockLloginType {
+	@extend .blockType;
+	/*background-color: $colorGrayLight;*/
+	background-color: transparent;
+	/*-webkit-filter: blur(10px);
+	filter: url('/media/blur.svg#blur');
+	filter: blur(10px);*/
+	/*color: $colorGrayDark;*/
+	color: $fontColorApp1;
+    font: 1em/1em $fontYekan;
+    margin-top: 12px;
+}
+.blockLoginPlace {
+    /*font-size: 16px;*/
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 100%;
+    background: rgba(0, 0, 0, 0.35);
+    background-image: url(../images/remodalBk.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: $fontColorApp1;
+    @include border-radius($borderRadiusBtn);
+    padding: 15px;
+    opacity: 1;
+}
+.blockLoginTitle {
+	color: $fontColorApp;
+	font: 1em/1em $fontYekan;
+    font-weight: 600;
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+	margin: 0px 0px 4px 0px;
+}
+
+
+
+
+
+.blockHeaderType {
+	@extend .blockType;
+	/*background-color: $colorGrayLight;*/
+	background-color: transparent;
+	/*-webkit-filter: blur(10px);
+	filter: url('/media/blur.svg#blur');
+	filter: blur(10px);*/
+	/*color: $colorGrayDark;*/
+	color: $colorWhite1;
+    font: 1em/1em $fontYekan;
+    margin-top: 12px;
+}
+.blockHeaderPlace {
+    /*font-size: 16px;*/
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 100%;
+    background: rgba(0, 0, 0, 0.35);
+    background-image: url(../images/remodalBk.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: $fontColorApp1;
+    @include border-radius($borderRadiusBtn);
+    padding: 15px;
+    opacity: 1;
+}
+.blockHeaderTitle {
+	color: $fontColorApp;
+	font: 1em/1em $fontYekan;
+    font-weight: 600;
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+	margin: 0px 0px 4px 0px;
+}
+.blockHeaderDesc {
+	color: $fontColor;
+	font: 1em/1em $fontYekan;
+    font-weight: 600;
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+	margin: 0px 0px 4px 0px;
+    padding: 4px 0px;
+}
+
+
+
+
+
+.blockContentType {
+	@extend .blockType;
+	/*background-color: $colorGrayLight;*/
+	background-color: transparent;
+	/*-webkit-filter: blur(10px);
+	filter: url('/media/blur.svg#blur');
+	filter: blur(10px);*/
+	/*color: $colorGrayDark;*/
+	color: $colorWhite1;
+    font: 1em/1em $fontYekan;
+    margin-top: 4px;
+}
+.blockContentPlace {
+    /*font-size: 16px;*/
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 100%;
+    background: #D0D0D0;
+    color: $fontColorApp1;
+    @include border-radius($borderRadiusBtn);
+    padding: 15px;
+    opacity: 1;
+}
+
+
+
+
+
+
+.blockLFooterType {
+	@extend .blockType;
+	/*background-color: $colorGrayLight;*/
+	background-color: transparent;
+	/*-webkit-filter: blur(10px);
+	filter: url('/media/blur.svg#blur');
+	filter: blur(10px);*/
+	/*color: $colorGrayDark;*/
+	color: $colorGrayCoatedCool8C;
+    font: 0.75em/1em $fontYekan;
+    text-align: left;
+    margin-top: 12px;
+}
+
+
+
+
+
+
+
+.packageItem {
+    display: inline-block;
+    width: 200px;
+    height: 156px;
+    @include border-radius($borderRadius);
+    margin: 2px;
+    padding: 0px;
+    white-space: normal;
+    overflow: hidden;
+    .packageItemPreview {
+        display: block;
+        position: relative;
+        width: 200px;
+        height: 118px;
+        background-color: #FFFFFF;
+        margin: 0px;
+        padding: 0px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        > img {
+            width: 50px;
+            height: auto;
+            float: right;
+        }
+    }
+    .packageItemDivider {
+        display: block;
+        position: relative;
+        background-color: #F1F1F1;
+        font: $fontSize*1 $fontYekan;
+        border-top: 1px solid #CCCCCC;
+        padding: 3px;
+        &:hover {
+            cursor: grab;
+        }
+        &:active {
+            cursor: grabbing;
+        }
+        a {
+            float: right;
+            margin-right: 4px !important;
+        }
+        .packageItemBtnAdd {
+            @extend .btnDefault;
+            width: 28px !important;
+            min-width: 28px !important;
+            height: 28px !important;
+            min-height: 28px !important;
+            line-height: 28px !important;
+            margin: 0px 4px;
+            padding: 4px;
+            padding-top: 6px;
+            overflow: hidden;
+            .icon {
+                font: $fontSize*1.55 $fontIcon;
+            }
+            display: inline-block;
+            position: relative;
+            top: -18px;
+            right: 0px;
+            z-index: 99;
+            &:hover {
+                background-color: $colorSuccess !important;
+                color: #FFFFFF !important;
+            }
+        }
+        .packageItemBtnSetting {
+            @extend .packageItemBtnAdd;
+            &:hover {
+                background-color: $colorInfo !important;
+                color: #FFFFFF !important;
+            }
+        }
+        .packageItemBtnDelete {
+            @extend .packageItemBtnAdd;
+            .icon {
+                font: $fontSize*1.25 $fontIcon;
+                margin: 1px;
+            }
+            &:hover {
+                background-color: $colorWarning !important;
+                color: #FFFFFF !important;
+            }
+        }
+        .packageItemTitle {
+            display: block;
+            position: relative;
+            width: 90px;
+            height: 32px;
+            line-height: 32px;
+            vertical-align: middle;
+            color: $fontColorApp1;
+            font: $fontSize*0.65 $fontYekan;
+            font-weight: 600;
+            text-align: right;
+            top: -12px;
+            z-index: 9;
+            .icon {
+                display: block;
+                position: relative;
+                font: $fontSize*1.25 $fontIcon;
+                float: right;
+                margin-top: -2px;
+                padding-right: 6px;
+            }
+        }
+        .packageItemTime {
+            display: block;
+            position: relative;
+            width: 90px;
+            height: 32px;
+            line-height: 32px;
+            vertical-align: middle;
+            color: $fontColorApp1;
+            font: $fontSize*0.65 $fontYekan;
+            font-weight: 600;
+            text-align: right;
+            top: -43px;
+            right: 90px;
+            z-index: 9;
+            .icon {
+                display: block;
+                position: relative;
+                font: $fontSize*1.3 $fontIcon;
+                float: right;
+                margin-top: -2px;
+                padding-right: 6px;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+.btnSmallOk {
+    @extend .btnDefault;
+    width: 28px !important;
+    min-width: 28px !important;
+    height: 28px !important;
+    min-height: 28px !important;
+    line-height: 28px !important;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+    .icon {
+        font: $fontSize*1.55 $fontIcon;
+    }
+    &:hover {
+        background-color: $colorSuccess !important;
+        color: $colorSuccessTxt !important;
+    }
+}
+.btnSmallNOk {
+    @extend .btnSmallOk;
+    &:hover {
+        background-color: $colorWarning !important;
+        color: $colorWarningTxt !important;
+    }
+}
+
+
+
+
+
+
+
+
+.editPackagePage {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+
+    .editPackageBtnSmall {
+        @extend .btnDefault;
+        width: 24px;
+        min-width: 24px;
+        height: 24px;
+        min-height: 24px;
+        line-height: 24px;
+        margin: 0px 4px;
+        padding: 4px;
+        padding-top: 8px;
+        overflow: hidden;
+        .icon {
+            font: $fontSize*1.25 $fontIcon;
+        }
+    }
+    .editPackageBtnSmallNok {
+        @extend .editPackageBtnSmall;
+    }
+    
+    .editPackageContent {
+        display: block;
+        position: relative;
+        width: 960px;
+        min-width: 960px;
+        height: auto;
+        text-align: center;
+        margin: 6px auto;
+        padding: 6px;
+        .editPackageTitle {
+            display: block;
+            position: relative;
+            color: $color1 !important;
+            height: 32px;
+            line-height: 32px;
+            vertical-align: middle;
+            font: $fontSize*0.95 $fontYekan;
+            font-weight: 600;
+            text-align: right;
+            margin: 0px;
+            padding: 0px;
+            padding-top: 5px;
+            float: right;
+        }
+        .editPackageName {
+            display: block;
+            position: relative;
+            color: $fontColorApp;
+            height: 32px;
+            line-height: 32px;
+            vertical-align: middle;
+            font: $fontSize*0.95 $fontYekan;
+            font-weight: 600;
+            text-align: right;
+            margin: 0px;
+            padding: 0px;
+            padding-top: 5px;
+            padding-right: 5px;
+            float: right;
+        }
+        .editPackageDesc {
+            display: block;
+            position: relative;
+            color: $colorSuccess;
+            height: 32px;
+            line-height: 32px;
+            vertical-align: middle;
+            font: $fontSize*0.95 $fontYekan;
+            font-weight: 600;
+            text-align: right;
+            margin: 0px;
+            margin-right: 15px;
+            padding: 0px;
+            float: right;
+        }
+        .editPackageBtnPlaceSmall {
+            display: block;
+            position: relative;
+            color: $colorSuccess;
+            height: 32px;
+            line-height: 32px;
+            vertical-align: middle;
+            font: $fontSize*0.95 $fontYekan;
+            font-weight: 600;
+            text-align: right;
+            margin: 0px;
+            padding: 0px;
+            float: right;
+            > a {
+                float: right;
+                margin: 0px;
+                margin-right: 4px;
+                padding: 0px;
+                .icon {
+//                    margin: 4px;
+                }
+            }
+        }
+        .editPackageSearchPlace {
+            display: block;
+            position: relative;
+            width: 285px;
+            min-width: 285px;
+            height: 32px;
+            min-height: 32px;
+            margin: 0px auto;
+            padding: 0px;
+            float: left;
+            > * {
+                float: right;
+            }
+            .inputSearch {
+                @extend .formInputDefault;
+                background-color: rgba(255, 255, 255, 0.25);
+                color: #F1F1F1;
+                box-shadow: none;
+                -webkit-box-shadow: none;
+                -moz-box-shadow: none;
+            }
+            .editPackageBtnSearch {
+                @extend .btnDefault;
+                width: 24px;
+                min-width: 24px;
+                height: 24px;
+                min-height: 24px;
+                line-height: 24px;
+                margin: 0px 4px;
+                padding: 4px;
+                padding-top: 8px;
+                overflow: hidden;
+                .icon {
+                    font: $fontSize*1.25 $fontIcon;
+                }
+            }
+            
+        }
+        
+        .inputTxt {
+            background-color: rgba(255, 255, 255, 0.25);
+            color: #F1F1F1;
+            box-shadow: none;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+        }
+        .inputTxt {
+            @extend .formInputDefault;
+        }
+        
+        .modalSelect01 {
+            display: block;
+            position: relative;
+            width: 400px;
+            min-width: 400px;
+            height: 168px;
+            background-color: #FFFFFF;
+            margin: 0px auto;
+            padding: 4px;
+
+            border-radius: 3px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+
+            .modalSelectItem {
+                display: block;
+                position: relative;
+                width: 100%;
+                height: 42px;
+                line-height: 42px;
+                vertical-align: middle;
+                border-bottom: 1px dotted #F1F1F1;
+                padding: 2px;
+                float: right;
+                a {
+                    float: right;
+                }
+                span.btnTVCAEditSmallTxt {
+                    display: block;
+                    height: 40px;
+                    line-height: 40px;
+                    vertical-align: middle;
+                    color: $colorGrayCoatedCool7C;
+                    font: $fontSize*0.85 $fontYekan;
+                    font-weight: 400;
+                    padding-top: 12px;
+                    padding-right: 10px;
+                    float: right;
+                }
+                &:hover {
+                    background-color: #F1F1F1;
+                    border-bottom: 1px dotted #F1F1F1;
+                    cursor: pointer;
+
+                    border-radius: 3px;
+                    -webkit-border-radius: 3px;
+                    -moz-border-radius: 3px;
+
+                    span.btnTVCAEditSmallTxt {
+                        color: #444444; 
+                    }
+                }
+            }
+            .modalSelectItem.select {
+                background-color: #ECF6E0;
+                border-bottom: 1px solid #ECF6E0;
+                span.btnTVCAEditSmallTxt {
+                    color: #8AB953; 
+                }
+            }
+
+        }
+        
+        .rowSelectHeader {
+            display: block;
+            position: relative;
+            width: 910px;
+            min-width: 910px;
+            max-width: 910px;
+            height: 42px;
+            line-height: 42px;
+            vertical-align: middle;
+            background-color: transparent;
+            margin: 0px auto;
+            padding: 6px 0px;
+        }
+
+        .rowSelectDefault {
+            display: block;
+            position: relative;
+            width: 910px;
+            min-width: 910px;
+            max-width: 910px;
+            height: auto;
+            background-color: rgba(0, 0, 0, 0.05);
+            @include border-radius($borderRadius);
+            margin: 0px auto;
+            padding: 6px;
+
+            border-radius: $borderRadius;
+            -webkit-border-radius: $borderRadius;
+            -moz-border-radius: $borderRadius;
+            
+        }
+        
+        .rowContentDefault {
+            display: block;
+            position: relative;
+            width: 100%;
+            height: auto;
+            background-color: rgba(0, 0, 0, 0.05);
+            text-align: right;
+            @include border-radius($borderRadius);
+            margin: 0px auto;
+            padding: 6px;
+
+            border-radius: $borderRadius;
+            -webkit-border-radius: $borderRadius;
+            -moz-border-radius: $borderRadius;
+            
+        }
+        
+        .rowContentForm {
+            display: block;
+            position: relative;
+            width: 910px;
+            min-width: 910px;
+            max-width: 910px;
+            height: auto;
+            background-color: transparent;
+            text-align: right;
+            @include border-radius($borderRadius);
+            margin: 0px auto;
+            padding: 6px;
+
+            border-radius: $borderRadius;
+            -webkit-border-radius: $borderRadius;
+            -moz-border-radius: $borderRadius;
+            
+        }
+        
+        .rowSelectA {
+            display: block;
+            position: relative;
+            width: 910px;
+            min-width: 910px;
+            max-width: 910px;
+            height: 168px;
+            background-color: rgba(0, 0, 0, 0.05);
+            @include border-radius($borderRadius);
+            margin: 0px auto;
+            padding: 6px;
+
+            border-radius: $borderRadius;
+            -webkit-border-radius: $borderRadius;
+            -moz-border-radius: $borderRadius;
+
+            overflow-x: auto;
+            overflow-y: hidden;
+
+            #itemList {
+                min-width: 898px;
+                min-height: 156px;
+                
+                overflow-x: auto;
+                overflow-y: hidden;
+            }
+            #itemSelect {
+                min-width: 898px;
+                min-height: 156px;
+                
+                overflow-x: auto;
+                overflow-y: hidden;
+            }
+
+            .rowSelectContent {
+
+                overflow-x: scroll;
+                white-space: nowrap;
+                div {
+                }
+            }
+
+            .modalSelectItem {
+                display: block;
+                position: relative;
+                width: 100%;
+                height: 42px;
+                line-height: 42px;
+                vertical-align: middle;
+                border-bottom: 1px dotted #F1F1F1;
+                padding: 2px;
+                float: right;
+                a {
+                    float: right;
+                }
+                span.btnTVCAEditSmallTxt {
+                    display: block;
+                    height: 40px;
+                    line-height: 40px;
+                    vertical-align: middle;
+                    color: $colorGrayCoatedCool7C;
+                    font: $fontSize*0.85 $fontYekan;
+                    font-weight: 400;
+                    padding-top: 12px;
+                    padding-right: 10px;
+                    float: right;
+                }
+                &:hover {
+                    background-color: #F1F1F1;
+                    border-bottom: 1px dotted #F1F1F1;
+                    cursor: pointer;
+
+                    border-radius: $borderRadius;
+                    -webkit-border-radius: $borderRadius;
+                    -moz-border-radius: $borderRadius;
+
+                    span.btnTVCAEditSmallTxt {
+                        color: #444444; 
+                    }
+                }
+            }
+
+            .modalSelectItem.select {
+                background-color: #ECF6E0;
+                border-bottom: 1px solid #ECF6E0;
+                span.btnTVCAEditSmallTxt {
+                    color: #8AB953; 
+                }
+            }
+
+        }
+
+        .rowSelectB {
+            @extend .rowSelectA;
+        }
+        
+        
+        
+        
+        
+        
+
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
 /* ==========================================================================
    Remodal necessary styles
    ========================================================================== */
@@ -858,6 +1699,32 @@ body.remodal-is-active .remodal-overlay {
     appearance: none;
 	margin: 8px 0px;
 	
+}
+.remodalContent {
+	color: $fontColorApp;
+	font: 1em/1em $fontApp;
+    font-weight: 400;
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+	margin: 8px 0px;
+    .remodalLabel {
+        height: 21px;
+        line-height: 21px;
+        vertical-align: middle;
+        margin: 0px;
+        padding: 0px;
+        .icon {
+            height: 21px;
+            line-height: 21px;
+            vertical-align: middle;
+            font: 1.35em/1em $fontIcon;
+            margin: 0px;
+            padding: 0px;
+        }
+    }
+    
 }
 body.remodal-is-active .remodal {
     -webkit-transform: scale(1);
@@ -1193,8 +2060,8 @@ body.remodal-is-active .remodal {
 	display: block;
 	position: relative;
 	width: 100%;
-    height: 27px;
-    line-height: 27px;
+    height: 28px;
+    line-height: 28px;
     vertical-align: middle;
 	font: 1em/1em $fontYekan;
     font-weight: 600;
@@ -1203,14 +2070,14 @@ body.remodal-is-active .remodal {
     -moz-appearance: none;
     appearance: none;
     border: none;
-	@include border-radius($borderRadius);
+	@include border-radius($borderRadiusBtn);
     margin: 0;
     padding: 0;
     .icon {
         display: inline-block;
         font: 1.5em/1em $fontIcon;
-        height: 27px;
-        line-height: 27px;
+        height: 28px;
+        line-height: 28px;
         vertical-align: middle;
         margin: 0;
         margin-top: 0;
@@ -1222,7 +2089,7 @@ body.remodal-is-active .remodal {
 		display: inline-block;
 		font: 0.9em/1em $fontYekan;
 		font-weight: 600;
-		padding-top: 8px;
+		padding-top: 10px;
 		margin-right: -24px;
 	}
 	&:hover {
@@ -1233,8 +2100,8 @@ body.remodal-is-active .remodal {
 .btnDefault.icon {
     display: inline-block;
     font: 1.5em/1em $fontIcon;
-    height: 27px;
-    line-height: 27px;
+    height: 28px;
+    line-height: 28px;
     vertical-align: middle;
     margin: 0;
     padding: 0;
@@ -1315,8 +2182,8 @@ body.remodal-is-active .remodal {
     .icon {
         display: inline-block;
         font: 1.3em/1em $fontIcon;
-        height: 27px;
-        line-height: 27px;
+        height: 28px;
+        line-height: 28px;
         vertical-align: middle;
         margin: 0;
         margin-top: 0;
@@ -1423,6 +2290,212 @@ body.remodal-is-active .remodal {
 		margin-right: 4px;
     }
 }
+
+
+
+.btnMenuMode {
+	@extend .btnDefault;
+	background-color: $color1Bk;
+	color: $color1;
+	&:hover {
+		background-color: $color1;
+		color: $color1Bk;
+	}
+}
+.btnMenuMode.select {
+	@extend .btnMenuMode;
+    background-color: $color1;
+    color: $color1Bk;
+	&:hover {
+		background-color: $color1;
+		color: $color1Bk;
+	}
+}
+.btnPageOk {
+	@extend .btnDefault;
+	background-color: $color1Bk;
+	color: $color1;
+	&:hover {
+		background-color: $colorSuccess;
+		color: $colorSuccessTxt;
+	}
+}
+.btnPageNOk {
+	@extend .btnDefault;
+	background-color: $color1Bk;
+	color: $color1;
+	&:hover {
+		background-color: $colorWarning;
+		color: $colorWarningTxt;
+	}
+}
+
+
+
+
+
+
+
+
+
+.btnTVCAEdit {
+    @extend .btnDefault;
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    margin: 2px;
+    padding: 2px 1px;
+    overflow: hidden;
+    &:hover {
+        background-color: #94C65A !important;
+        color: #FFFFFF !important;
+    }
+    .icon {
+        font: $fontSize*1.4 $fontIcon;
+    }
+}
+.btnTVCAEdit.icon {
+    margin: 0;
+    padding: 0;
+}
+.btnTVCAEditSmall {
+    @extend .btnDefault;
+    width: 22px;
+    min-width: 22px;
+    height: 22px;
+    min-height: 22px;
+    line-height: 22px;
+    margin: 2px;
+    padding: 4px;
+    padding-top: 6px;
+    overflow: hidden;
+    .icon {
+        font: $fontSize*1.75 $fontIcon;
+    }
+}
+.btnTVCAEditSmall.icon {
+    margin: 0;
+    padding: 0;
+}
+.btnTVCAEditSmall.select {
+    @extend .btnDefault;
+    width: 22px;
+    min-width: 22px;
+    height: 22px;
+    min-height: 22px;
+    line-height: 22px;
+    margin: 2px;
+    padding: 4px;
+    padding-top: 6px;
+    overflow: hidden;
+    .icon {
+        font: $fontSize*1.75 $fontIcon;
+    }
+}
+.btnTVCAEditSmall.select.icon {
+    margin: 0;
+    padding: 0;
+}
+.btnTVCAAction {
+    @extend .btnDefault;
+    width: 24px;
+    min-width: 24px;
+    height: 24px;
+    min-height: 24px;
+    line-height: 24px;
+    margin: 0px 4px;
+    padding: 4px;
+    padding-top: 8px;
+    overflow: hidden;
+    .icon {
+        font: $fontSize*1.25 $fontIcon;
+    }
+}
+.btnTVCAAction.icon {
+    margin: 0;
+    padding: 0;
+}
+.btnTVCAEditOk {
+    @extend .btnDefault;
+    width: 22px;
+    min-width: 22px;
+    height: 22px;
+    min-height: 22px;
+    line-height: 22px;
+    margin: 2px;
+    padding: 4px;
+    padding-top: 6px;
+    overflow: hidden;
+    &:hover {
+        background-color: #94C65A !important;
+        color: #FFF !important;
+    }
+    .icon {
+        font: $fontSize*1.75 $fontIcon;
+    }
+}
+.btnTVCAEditOk.icon {
+    margin: 0;
+    padding: 0;
+}
+.btnTVCAEditCancel {
+    @extend .btnDefault;
+    width: 22px;
+    min-width: 22px;
+    height: 22px;
+    min-height: 22px;
+    line-height: 22px;
+    margin: 2px;
+    padding: 4px;
+    padding-top: 6px;
+    overflow: hidden;
+    &:hover {
+        background-color: $colorWarning !important;
+        color: #FFF !important;
+    }
+    .icon {
+        font: $fontSize*1.75 $fontIcon;
+    }
+}
+.btnTVCAEditCancel.icon {
+    margin: 0;
+    padding: 0;
+}
+.btnTVCAEditDis {
+    @extend .btnDefault;
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    margin: 2px;
+    padding: 2px 1px;
+    overflow: hidden;
+    
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=35)";
+    filter: alpha(opacity=35);
+    -moz-opacity: 0.35;
+    -khtml-opacity: 0.35;
+    opacity: 0.35;
+    
+    &:hover {
+        background-color: #444444 !important;
+        color: $colorGrayCoatedCool9C !important;
+    }
+    .icon {
+        font: $fontSize*1.4 $fontIcon;
+    }
+}
+.btnTVCAEditDis.icon {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+
+
+
+
 .btnLike {
 	@extend .btnFree;
 	height: 36px;
@@ -1517,8 +2590,8 @@ body.remodal-is-active .remodal {
 }
 .btnAdd {
 	@extend .btnIcon;
-	height: 24px;
-    line-height: 24px;
+	height: 28px;
+    line-height: 28px;
     vertical-align: middle;
 	background-color: $colorSuccess;
 	color: $colorSuccessFont;
@@ -1534,8 +2607,8 @@ body.remodal-is-active .remodal {
 }
 .btnNotify {
 	@extend .btnIcon;
-	height: 24px;
-    line-height: 24px;
+	height: 28px;
+    line-height: 28px;
     vertical-align: middle;
 	background-color: rgba(255,255,255,0.35);
 	color: $colorWhite;
@@ -1553,8 +2626,8 @@ body.remodal-is-active .remodal {
 }
 .btnRef {
 	@extend .btnIcon;
-	height: 24px;
-    line-height: 24px;
+	height: 28px;
+    line-height: 28px;
     vertical-align: middle;
 	background-color: $color1;
 	color: $color1Bk;
@@ -1610,8 +2683,8 @@ body.remodal-is-active .remodal {
 }
 .btnSearch {
 	@extend .btnFree;
-	height: 27px;
-    line-height: 27px;
+	height: 28px;
+    line-height: 28px;
     vertical-align: middle;
 	background-color: $colorGrayLight;
 	color: $colorGrayDark;
@@ -1630,9 +2703,9 @@ body.remodal-is-active .remodal {
 }
 .btnOk {
 	@extend .btnIcon;
-	width: 24px;
-	height: 24px;
-    line-height: 24px;
+	width: 28px;
+	height: 28px;
+    line-height: 28px;
     vertical-align: middle;
 	background-color: $colorSuccess;
 	color: $colorSuccessFont;
@@ -1648,9 +2721,9 @@ body.remodal-is-active .remodal {
 }
 .btnNok {
 	@extend .btnIcon;
-	width: 24px;
-	height: 24px;
-    line-height: 24px;
+	width: 28px;
+	height: 28px;
+    line-height: 28px;
     vertical-align: middle;
 	/*background-color: $colorWarning;
 	color: lighten($colorWarning, 20);*/
@@ -1739,6 +2812,22 @@ body.remodal-is-active .remodal {
 		cursor: pointer;
 	}
 }
+.btnUploadFile {
+    @extend .btnUploadPic;
+    background-color: $color1 !important;
+    color: $color1Bk !important;
+    cursor: pointer;
+	padding-top: 4px;
+	&:hover {
+		background-color: $color1 !important;
+		color: $color1Bk !important;
+		cursor: pointer;
+	}
+    span {
+        color: $color1Bk !important;
+        padding-top: 4px;
+    }
+}
 .fileUpload {
     position: relative;
     overflow: hidden;
@@ -1755,18 +2844,20 @@ body.remodal-is-active .remodal {
     filter: alpha(opacity=0);
 }
 .btnDefaultFile {
-    @extend .btnUploadPic;
+//    @extend .btnUploadPic;
+    @extend .btnUploadFile;
 }
 form input[type="file"].btnDefaultFile,
 input[type="file"].btnDefaultFile {
-    @extend .btnUploadPic;
+//    @extend .btnUploadPic;
+    @extend .btnUploadFile;
     /* font: $fontSize*0.6 $fontDefault;
-	padding: rem-calc(6);
-	padding-top: rem-calc(12); */
+	padding: 6px;
+	padding-top: 12px; */
     cursor: pointer;
 }
 form .labelFormCheck {
-	color: $colorGrayDark;
+	color: $color1Bk !important;
 	font: 0.9em/1em $fontApp;
 	text-align: right;
 	font-weight: 400;
@@ -2251,6 +3342,893 @@ textarea.formTextareaNote {
 	/*@include text-shadow(inset 2px 2px 2px rgba(0, 0, 0, 0.65), 2px 2px 3px rgba(255, 255, 255, 0.65));*/
 	@include text-shadow(1px 1px 2px rgba(0, 0, 0, 0.15));
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.fullContent {
+    width: 100%;
+    height: auto;
+    overflow: scroll;
+    margin: 5px;
+    padding: 5px;
+}
+
+
+.fullHD {
+    display: table;
+    position: relative;
+    width: 1920px !important;
+    min-width: 1920px !important;
+    max-width: 1920px !important;
+    height: 1080px !important;
+    min-height: 1080px !important;
+    max-height: 1080px !important;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0px auto;
+    padding: 0px;
+    overflow: hidden;
+    .rowA {
+        display: table-row;
+        position: relative;
+        width: 100%;
+        min-width: 100%;
+        height: 900px;
+        min-height: 900px;
+        max-height: 900px;
+        margin: 0px;
+        padding: 0px;
+        clear: both;
+        overflow: hidden;
+    }
+    .rowB {
+        display: table-row;
+        position: relative;
+        width: 100%;
+        min-width: 100%;
+        height: 180px;
+        min-height: 180px;
+        max-height: 180px;
+        background-color: #000000;
+        background-image: url(../images/bkText.png);
+        background-size: auto;
+        background-position: center center;
+        background-repeat: no-repeat;
+        margin: 0px;
+        padding: 0px;
+        clear: both;
+        overflow: hidden;
+        .rowBEdit {
+            width: 100%;
+            height: 100%;
+            background-image: url();
+            background: #000000;
+            border: 1px dotted $colorGrayCoatedCool9C;
+            padding-top: 5px;
+            .menuTitle {
+                display: block;
+                color: $colorGrayCoatedCool9C;
+                font: $fontSize*1.2 $fontYekan;
+                font-weight: 600;
+            }
+            .menuEdit {
+                display: none;
+                width: 300px;
+                text-align: center;
+                margin: 0px auto;
+                right: -15px;
+                > a {
+                    float: right;
+                }
+            }
+            &:hover {
+                background-color: #1A1A1A;
+                border: 1px solid $colorSuccess;
+                cursor: pointer;
+                
+                transition: all 0.35s ease;
+                -webkit-transition: all 0.35s ease;
+                -moz-transition: all 0.35s ease;
+                -o-transition: all 0.35s ease;
+                
+                .menuTitle {
+                    color: $colorSuccess;
+                }
+                .menuEdit {
+                    display: block;
+                    right: 0;
+                }
+            }
+        }
+    }
+    .colAA {
+        display: table-column;
+        position: relative;
+        width: 320px;
+        min-width: 320px;
+        max-width: 320px;
+        height: 900px;
+        min-height: 900px;
+        max-height: 900px;
+        margin: 0px;
+        padding: 0px;
+        float: right;
+        overflow: hidden;
+    }
+    .colAB {
+        display: table-column;
+        position: relative;
+        width: 1600px;
+        min-width: 1600px;
+        max-width: 1600px;
+        height: 900px;
+        min-height: 900px;
+        max-height: 900px;
+        margin: 0px;
+        padding: 0px;
+        float: left;
+        overflow: hidden;
+        .colABEdit {
+            width: 100%;
+            height: 100%;
+            border: 1px dotted $colorGrayCoatedCool9C;
+            padding-top: 5px;
+            .menuTitle {
+                display: block;
+                color: $colorGrayCoatedCool9C;
+                font: $fontSize*1.2 $fontYekan;
+                font-weight: 600;
+            }
+            .menuEdit {
+                display: none;
+                width: 300px;
+                text-align: center;
+                margin: 0px auto;
+                right: -15px;
+                > a {
+                    float: right;
+                }
+            }
+            &:hover {
+                background-color: #1A1A1A;
+                border: 1px solid $colorSuccess;
+                cursor: pointer;
+                
+                transition: all 0.35s ease;
+                -webkit-transition: all 0.35s ease;
+                -moz-transition: all 0.35s ease;
+                -o-transition: all 0.35s ease;
+                
+                .menuTitle {
+                    color: $colorSuccess;
+                }
+                .menuEdit {
+                    display: block;
+                    right: 0;
+                }
+            }
+        }
+    }
+    .colAArowA {
+        display: block;
+        position: relative;
+        width: 320px;
+        min-width: 320px;
+        max-width: 320px;
+        height: 300px;
+        min-height: 300px;
+        max-height: 300px;
+        margin: 0px;
+        padding: 0px;
+        clear: both;
+        overflow: hidden;
+        .colAArowAEdit {
+            width: 100%;
+            height: 100%;
+            border: 1px dotted $colorGrayCoatedCool9C;
+            padding-top: 5px;
+            .menuTitle {
+                display: block;
+                color: $colorGrayCoatedCool9C;
+                font: $fontSize*1.2 $fontYekan;
+                font-weight: 600;
+            }
+            .menuEdit {
+                display: none;
+                width: 300px;
+                text-align: center;
+                margin: 0px auto;
+                right: -15px;
+                > a {
+                    float: right;
+                }
+            }
+            &:hover {
+                background-color: #1A1A1A;
+                border: 1px solid $colorSuccess;
+                cursor: pointer;
+                
+                transition: all 0.35s ease;
+                -webkit-transition: all 0.35s ease;
+                -moz-transition: all 0.35s ease;
+                -o-transition: all 0.35s ease;
+                
+                .menuTitle {
+                    color: $colorSuccess;
+                }
+                .menuEdit {
+                    display: block;
+                    right: 0;
+                }
+            }
+        }
+    }
+    .colAArowB {
+        display: block;
+        position: relative;
+        width: 320px;
+        min-width: 320px;
+        max-width: 320px;
+        height: 300px;
+        min-height: 300px;
+        max-height: 300px;
+        margin: 0px;
+        padding: 0px;
+        clear: both;
+        overflow: hidden;
+        .colAArowBEdit {
+            width: 100%;
+            height: 100%;
+            border: 1px dotted $colorGrayCoatedCool9C;
+            padding-top: 5px;
+            .menuTitle {
+                display: block;
+                color: $colorGrayCoatedCool9C;
+                font: $fontSize*1.2 $fontYekan;
+                font-weight: 600;
+            }
+            .menuEdit {
+                display: none;
+                width: 300px;
+                text-align: center;
+                margin: 0px auto;
+                right: -15px;
+                > a {
+                    float: right;
+                }
+            }
+            &:hover {
+                background-color: #1A1A1A;
+                border: 1px solid $colorSuccess;
+                cursor: pointer;
+                
+                transition: all 0.35s ease;
+                -webkit-transition: all 0.35s ease;
+                -moz-transition: all 0.35s ease;
+                -o-transition: all 0.35s ease;
+                
+                .menuTitle {
+                    color: $colorSuccess;
+                }
+                .menuEdit {
+                    display: block;
+                    right: 0;
+                }
+            }
+        }
+    }
+    .colAArowC {
+        display: block;
+        position: relative;
+        width: 320px;
+        min-width: 320px;
+        max-width: 320px;
+        height: 300px;
+        min-height: 300px;
+        max-height: 300px;
+        text-align: center;
+        margin: 0px;
+        padding: 0px;
+        clear: both;
+        overflow: hidden;
+        .colAArowCEdit {
+            width: 100%;
+            height: 100%;
+            border: 1px dotted $colorGrayCoatedCool9C;
+            padding-top: 5px;
+            
+            .menuTitle {
+                display: block;
+                color: $colorGrayCoatedCool9C;
+                font: $fontSize*1.2 $fontYekan;
+                font-weight: 600;
+            }
+            .menuEdit {
+                display: none;
+                position: relative;
+                width: 300px;
+                text-align: center;
+                margin: 0px auto;
+                padding: 0px;
+                padding-top: -35px;
+                
+                > a {
+                    float: right;
+                }
+            }
+            &:hover {
+                background-color: #1A1A1A;
+                border: 1px solid $colorSuccess;
+                cursor: pointer;
+                
+                transition: all 0.35s ease;
+                -webkit-transition: all 0.35s ease;
+                -moz-transition: all 0.35s ease;
+                -o-transition: all 0.35s ease;
+                
+                .menuTitle {
+                    color: $colorSuccess;
+                }
+                .menuEdit {
+                    display: block;
+                    padding-top: 5px;
+                    
+                    transition: all 0.25s ease;
+                    -webkit-transition: all 0.25s ease;
+                    -moz-transition: all 0.25s ease;
+                    -o-transition: all 0.25s ease;
+                    
+                }
+            }
+        }
+    }
+}
+
+
+.fullHD.editMode {
+//    resize: both;
+    
+    @include transform(scale(0.5));
+//    @include transform(translate(0.5));
+    
+//    @include transform(translate(-100%) scale(0.5));
+    
+}
+
+
+.fullHDeditMode {
+    display: table;
+    position: relative;
+    width: 940px !important;
+    min-width: 940px !important;
+    max-width: 940px !important;
+    height: 529px !important;
+    min-height: 529px !important;
+    max-height: 529px !important;
+    background-color: #000000;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0px auto;
+    padding: 0px;
+    overflow: hidden;
+    .rowA {
+        display: table-row;
+        position: relative;
+        width: 100%;
+        min-width: 100%;
+        height: 440px;
+        min-height: 440px;
+        max-height: 440px;
+        margin: 0px;
+        padding: 0px;
+        clear: both;
+        overflow: hidden;
+    }
+    .rowB {
+        display: table-row;
+        position: relative;
+        width: 100%;
+        min-width: 100%;
+        height: 89px;
+        min-height: 89px;
+        max-height: 89px;
+        background-color: #000000;
+        background-image: url(../images/bkText.png);
+        background-size: auto;
+        background-position: center center;
+        background-repeat: no-repeat;
+        margin: 0px;
+        padding: 0px;
+        clear: both;
+        overflow: hidden;
+        .rowBEdit {
+            width: 100%;
+            height: 100%;
+            background-image: url();
+            background: #000000;
+            border: 1px dotted $colorGrayCoatedCool9C;
+            padding-top: 5px;
+            .menuTitle {
+                display: block;
+                color: $colorGrayCoatedCool9C;
+                font: $fontSize*1.2 $fontYekan;
+                font-weight: 600;
+            }
+            .menuEdit {
+                display: none;
+                width: 128px;
+                text-align: center;
+                margin: 0px auto;
+                right: -15px;
+                > a {
+                    float: right;
+                }
+            }
+            &:hover {
+                background-color: #1A1A1A;
+                border: 1px solid $color1;
+                cursor: pointer;
+                
+                transition: all 0.35s ease;
+                -webkit-transition: all 0.35s ease;
+                -moz-transition: all 0.35s ease;
+                -o-transition: all 0.35s ease;
+                
+                .menuTitle {
+                    color: $color1;
+                }
+                .menuEdit {
+                    display: block;
+                    right: 0;
+                }
+            }
+        }
+    }
+    .colAA {
+        display: table-column;
+        position: relative;
+        width: 156px;
+        min-width: 156px;
+        max-width: 156px;
+        height: 440px;
+        min-height: 440px;
+        max-height: 440px;
+        margin: 0px;
+        padding: 0px;
+        float: right;
+        overflow: hidden;
+    }
+    .colAB {
+        display: table-column;
+        position: relative;
+        width: 784px;
+        min-width: 784px;
+        max-width: 784px;
+        height: 440px;
+        min-height: 440px;
+        max-height: 440px;
+        margin: 0px;
+        padding: 0px;
+        float: left;
+        overflow: hidden;
+        .colABEdit {
+            width: 100%;
+            height: 100%;
+            border: 1px dotted $colorGrayCoatedCool9C;
+            padding-top: 5px;
+            .menuTitle {
+                display: block;
+                color: $colorGrayCoatedCool9C;
+                font: $fontSize*1.2 $fontYekan;
+                font-weight: 600;
+            }
+            .menuEdit {
+                display: none;
+                width: 128px;
+                text-align: center;
+                margin: 0px auto;
+                right: -15px;
+                > a {
+                    float: right;
+                }
+            }
+            &:hover {
+                background-color: #1A1A1A;
+                border: 1px solid $color1;
+                cursor: pointer;
+                
+                transition: all 0.35s ease;
+                -webkit-transition: all 0.35s ease;
+                -moz-transition: all 0.35s ease;
+                -o-transition: all 0.35s ease;
+                
+                .menuTitle {
+                    color: $color1;
+                }
+                .menuEdit {
+                    display: block;
+                    right: 0;
+                }
+            }
+        }
+    }
+    .colAArowA {
+        display: block;
+        position: relative;
+        width: 156px;
+        min-width: 156px;
+        max-width: 156px;
+        height: 147px;
+        min-height: 147px;
+        max-height: 147px;
+        margin: 0px;
+        padding: 0px;
+        clear: both;
+        overflow: hidden;
+        .colAArowAEdit {
+            width: 100%;
+            height: 100%;
+            border: 1px dotted $colorGrayCoatedCool9C;
+            padding-top: 5px;
+            .menuTitle {
+                display: block;
+                color: $colorGrayCoatedCool9C;
+                font: $fontSize*1.2 $fontYekan;
+                font-weight: 600;
+            }
+            .menuEdit {
+                display: none;
+                width: 128px;
+                text-align: center;
+                margin: 0px auto;
+                right: -15px;
+                > a {
+                    float: right;
+                }
+            }
+            &:hover {
+                background-color: #1A1A1A;
+                border: 1px solid $color1;
+                cursor: pointer;
+                
+                transition: all 0.35s ease;
+                -webkit-transition: all 0.35s ease;
+                -moz-transition: all 0.35s ease;
+                -o-transition: all 0.35s ease;
+                
+                .menuTitle {
+                    color: $color1;
+                }
+                .menuEdit {
+                    display: block;
+                    right: 0;
+                }
+            }
+        }
+    }
+    .colAArowB {
+        display: block;
+        position: relative;
+        width: 156px;
+        min-width: 156px;
+        max-width: 156px;
+        height: 147px;
+        min-height: 147px;
+        max-height: 147px;
+        margin: 0px;
+        padding: 0px;
+        clear: both;
+        overflow: hidden;
+        .colAArowBEdit {
+            width: 100%;
+            height: 100%;
+            border: 1px dotted $colorGrayCoatedCool9C;
+            padding-top: 5px;
+            .menuTitle {
+                display: block;
+                color: $colorGrayCoatedCool9C;
+                font: $fontSize*1.2 $fontYekan;
+                font-weight: 600;
+            }
+            .menuEdit {
+                display: none;
+                width: 128px;
+                text-align: center;
+                margin: 0px auto;
+                right: -15px;
+                > a {
+                    float: right;
+                }
+            }
+            &:hover {
+                background-color: #1A1A1A;
+                border: 1px solid $color1;
+                cursor: pointer;
+                
+                transition: all 0.35s ease;
+                -webkit-transition: all 0.35s ease;
+                -moz-transition: all 0.35s ease;
+                -o-transition: all 0.35s ease;
+                
+                .menuTitle {
+                    color: $color1;
+                }
+                .menuEdit {
+                    display: block;
+                    right: 0;
+                }
+            }
+        }
+    }
+    .colAArowC {
+        display: block;
+        position: relative;
+        width: 156px;
+        min-width: 156px;
+        max-width: 156px;
+        height: 147px;
+        min-height: 147px;
+        max-height: 147px;
+        text-align: center;
+        margin: 0px;
+        padding: 0px;
+        clear: both;
+        overflow: hidden;
+        .colAArowCEdit {
+            width: 100%;
+            height: 100%;
+            border: 1px dotted $colorGrayCoatedCool9C;
+            padding-top: 5px;
+            
+            .menuTitle {
+                display: block;
+                color: $colorGrayCoatedCool9C;
+                font: $fontSize*1.2 $fontYekan;
+                font-weight: 600;
+            }
+            .menuEdit {
+                display: none;
+                position: relative;
+                width: 128px;
+                text-align: center;
+                margin: 0px auto;
+                padding: 0px;
+                padding-top: -35px;
+                
+                > a {
+                    float: right;
+                }
+            }
+            &:hover {
+                background-color: #1A1A1A;
+                border: 1px solid $color1;
+                cursor: pointer;
+                
+                transition: all 0.35s ease;
+                -webkit-transition: all 0.35s ease;
+                -moz-transition: all 0.35s ease;
+                -o-transition: all 0.35s ease;
+                
+                .menuTitle {
+                    color: $color1;
+                }
+                .menuEdit {
+                    display: block;
+                    padding-top: 5px;
+                    
+                    transition: all 0.25s ease;
+                    -webkit-transition: all 0.25s ease;
+                    -moz-transition: all 0.25s ease;
+                    -o-transition: all 0.25s ease;
+                    
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+.widgetTimeDate {
+    display: block;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    height: 100%;
+    min-height: 100%;
+    max-height: 100%;
+    text-align: center;
+    
+    background-image: url(../images/borderStyleDate.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    
+    margin: 0px;
+    padding: 0px;
+    
+    .txtTime {
+        height: 170px;
+        min-height: 170px;
+        color: #FFFFFF;
+        font: $fontSize*5.8 $fontRoya;
+        font-weight: 600;
+        margin: 0px;
+        padding: 0px;
+        padding-top: 85px;
+    }
+    .txtDate {
+        color: #FFFFFF;
+        font: $fontSize*1.8 $fontRoya;
+        font-weight: 600;
+        margin: 0px;
+        padding: 0px;
+        padding-top: 5px;
+    }
+}
+
+.widgetWeather {
+    display: block;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    height: 100%;
+    min-height: 100%;
+    max-height: 100%;
+    text-align: center;
+    
+    background-image: url(../images/borderStyleWeather.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    
+    margin: 0px;
+    padding: 0px;
+}
+
+.widgetSlider {
+    display: block;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    height: 100%;
+    min-height: 100%;
+    max-height: 100%;
+    text-align: center;
+    
+    background-image: url();
+    background-position: center center;
+    background-repeat: no-repeat;
+    
+    margin: 0px;
+    padding: 0px;
+    
+    .coin-slider {
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+        height: 100%;
+        min-height: 100%;
+        max-height: 100%;
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    > img {
+        display: block;
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+        height: 100%;
+        min-height: 100%;
+        max-height: 100%;
+        margin: 0px;
+        padding: 0px;
+        overflow: hidden;
+    }
+}
+
+.widgetVideo {
+    > video {
+        width: 100%;
+        min-width: 100%;
+        height: 100%;
+        min-height: 100%;
+        margin: 0px;
+        padding: 0px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#tooltip
+{
+    color: #F1F1F1;
+    background: rgba(0, 0, 0, 0.85);
+    
+    font: $fontSize*1.15 $fontYekan;
+    font-weight: 400;
+    text-align: center;
+    
+    position: absolute;
+    z-index: 100;
+    padding: 8px;
+}
+#tooltip:after /* triangle decoration */
+{
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid rgba(0, 0, 0, 0.85);
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    margin-left: -10px;
+}
+#tooltip.top:after
+{
+    border-top-color: transparent;
+    border-bottom: 10px solid rgba(0, 0, 0, 0.85);
+    top: -20px;
+    bottom: auto;
+}
+#tooltip.left:after
+{
+    left: 10px;
+    margin: 0;
+}
+#tooltip.right:after
+{
+    right: 10px;
+    left: auto;
+    margin: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
