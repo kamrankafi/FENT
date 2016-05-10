@@ -11,7 +11,7 @@ $fontColorApp5: #E5E5E5;
 $fontColor: #905F8B;
 $fontColor1: #4F94CD;
 $bkColorDark: #444444;
-$backgroundColor: #000000;
+$backgroundColor: #FFFFFF;
 $topBar: #F8F8F8;
 $topBarTxt: #888888;
 $pageHeaderBk: #E7E7E7;
@@ -20,10 +20,15 @@ $borderRadius: 4px;
 $borderRadiusBtn: 3px;
 
 /* Application Colors */
-$color1: #905F8B;
-$color1Bk: lighten($color1, 40);
-//$color1: #5774AD;
-//$color1Bk: #D3DBF1;
+$color1: #666666;
+$color1Bk: lighten($color1, 45);
+
+// $color1: #905F8B;
+// $color1Bk: lighten($color1, 40);
+
+// $color1: #5774AD;
+// $color1Bk: #D3DBF1;
+
 $color2: #AC4D81;
 $color2Bk: lighten(#E27D9C, 15);
 $color3: #BA4980;
@@ -68,6 +73,9 @@ $primary-color: $color1;
 $colorBarTop: $topBar;
 
 $colorAlert: #FFCE54;
+$colorAlertLight: lighten($colorAlert, 20);
+$colorAlertDark: darken($colorAlert, 20);
+$colorAlertTxt: darken($colorAlert, 35);
 $colorInfo: #4FC0E9;
 $colorSuccess: #A0D368;
 $colorSuccessTxt: lighten($colorSuccess, 25);
@@ -92,3 +100,9 @@ $colorWhite1: #F1F1F1;
 $colorBrown: #9F611D;
 $colorBrownDark: #E3C583;
 $colorBrownLight: lighten($colorBrown, 10);
+
+$folderBk: #F4EDD8;
+$folderTxt: #C79500;
+$folderTxtDark: darken($folderBk, 15);
+$folderTxtLight: lighten($folderTxt, 15);
+

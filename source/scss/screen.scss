@@ -30,7 +30,8 @@ body.tvc:before {
 	right: 0;
 	display: block;
 	
-	background-image: url($bkUrlTVC);
+    background-color: transparent;
+	background-image: url();
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
@@ -47,6 +48,11 @@ body.tvc:before {
 	-khtml-opacity: 0.75;
 	opacity: 0.75;
 	z-index: -1;
+}
+body.tvc {
+	width: 100%;
+    height: 100%;
+    background-color: $colorWhite;
 }
 
 $bkUrlTVCPreview : '';
@@ -948,6 +954,8 @@ a {
     margin-top: 12px;
 }
 .blockHeaderPlace {
+    display: block;
+    position: relative;
     /*font-size: 16px;*/
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -963,6 +971,7 @@ a {
     @include border-radius($borderRadiusBtn);
     padding: 15px;
     opacity: 1;
+    z-index: 9;
 }
 .blockHeaderTitle {
 	color: $fontColorApp;
@@ -973,6 +982,14 @@ a {
     -moz-appearance: none;
     appearance: none;
 	margin: 0px 0px 4px 0px;
+}
+.blockHeaderBtnLogout {
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    float: left;
+    z-index: 99;
 }
 .blockHeaderDesc {
 	color: $fontColor;
@@ -1009,7 +1026,7 @@ a {
     box-sizing: border-box;
     width: 100%;
     min-height: 100%;
-    background: #D0D0D0;
+    background: rgba(0 , 0, 0, 0.05);
     color: $fontColorApp1;
     @include border-radius($borderRadiusBtn);
     padding: 15px;
@@ -1029,7 +1046,7 @@ a {
 	filter: url('/media/blur.svg#blur');
 	filter: blur(10px);*/
 	/*color: $colorGrayDark;*/
-	color: $colorGrayCoatedCool8C;
+	color: rgba(0, 0, 0, 0.15);
     font: 0.75em/1em $fontYekan;
     text-align: left;
     margin-top: 12px;
@@ -1041,11 +1058,840 @@ a {
 
 
 
+
+.btnDefault {
+	display: block;
+	position: relative;
+	width: 100%;
+    height: 28px;
+    line-height: 28px;
+    vertical-align: middle;
+	font: 1em/1em $fontYekan;
+    font-weight: 600;
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+	@include border-radius($borderRadiusBtn);
+    margin: 0;
+    padding: 0;
+    .icon {
+        display: inline-block;
+        font: 1.15em/1em $fontIcon;
+        height: 28px;
+        line-height: 28px;
+        vertical-align: middle;
+        margin: 0;
+        margin-top: 0;
+        padding: 0;
+        padding-right: 2px;
+        float: right;
+    }
+	.txt {
+		display: inline-block;
+		font: 0.9em/1em $fontYekan;
+		font-weight: 600;
+		padding-top: 10px;
+		margin-right: -24px;
+	}
+	&:hover {
+		@include box-shadow(inset 1px 1px 1px rgba(255, 255, 255, 0.3), 0 2px 2px rgba(0, 0, 0, 0.15), 0 1px 2px -2px rgba(0, 0, 0, 0.2));
+		cursor: pointer;
+	}
+}
+.btnDefault.icon {
+    display: inline-block;
+    font: 1.15em/1em $fontIcon;
+    height: 28px;
+    line-height: 28px;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    padding-top: 6px;
+    padding-right: 2px;
+    float: right;
+}
+.btnMenuAdmin {
+	@extend .btnDefault;
+    border-bottom: 2px $colorAlert solid;
+	&:hover {
+        border-bottom: 2px $color2Bk solid;
+		cursor: pointer;
+	}
+}
+.btnEnter {
+	@extend .btnDefault;
+	background-color: $colorSuccess;
+	color: $colorSuccessFont;
+	&:hover {
+		background-color: darken($colorSuccess, 8);
+		color: darken($colorSuccessFont, 8);
+		cursor: pointer;
+	}
+}
+.btnCancel {
+	@extend .btnDefault;
+	background-color: $colorWarning;
+	color: lighten($colorWarning, 15);
+	&:hover {
+		background-color: darken($colorWarning, 8);
+		color: lighten($colorWarning, 25);
+		cursor: pointer;
+	}
+}
+.btnProfilePic {
+	@extend .btnDefault;
+	background-color: rgba(0,0,0,0.55) !important;
+	color: rgba(255,255,255,0.75) !important;
+	font: 0.85em/1em $fontYekan;
+    font-weight: 600;
+    text-align: center;
+	@include box-shadow(0 0 0 0 rgba(0,0,0,0));
+	padding: 4px;
+	&:hover {
+		background-color: $colorWhite !important;
+		color: darken($color1Bk, 8) !important;
+		@include box-shadow(0 0 0 0 rgba(0,0,0,0));
+		cursor: pointer;
+	}
+	.icon {
+        display: inline-block;
+        font: 1.3em/1em $fontIcon;
+        height: 27px;
+        line-height: 27px;
+        vertical-align: middle;
+        margin: 0;
+        padding: 0;
+        float: right;
+    }
+}
+.btnFree {
+	display: block;
+	position: relative;
+	width: 100%;
+    height: auto;
+    line-height: auto;
+    vertical-align: middle;
+	font: 1em/1em $fontYekan;
+    font-weight: 600;
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    .icon {
+        display: inline-block;
+        font: 1.3em/1em $fontIcon;
+        height: 28px;
+        line-height: 28px;
+        vertical-align: middle;
+        margin: 0;
+        margin-top: 0;
+        padding: 0;
+        float: right;
+    }
+	.txt {
+		display: inline-block;
+		font: 0.9em/1em $fontYekan;
+		font-weight: 600;
+		padding-top: 8px;
+		margin-right: -24px;
+	}
+	.txtNo {
+		text-align: left;
+		margin-left: 4px;
+		float: left;
+	}
+	&:hover {
+		@include box-shadow(inset 1px 1px 1px rgba(255, 255, 255, 0.3), 0 2px 2px rgba(0, 0, 0, 0.15), 0 1px 2px -2px rgba(0, 0, 0, 0.2));
+		cursor: pointer;
+	}
+}
+.btnFree.icon {
+    display: inline-block;
+    font: 1.3em/1em $fontIcon;
+    height: auto;
+    line-height: auto;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    padding-top: 8px;
+    float: right;
+}
+.btnGreen {
+	@extend .btnFree;
+	height: 36px;
+    line-height: 36px;
+    vertical-align: middle;
+	background-color: $colorSuccess;
+	color: $colorSuccessFont;
+	&:hover {
+		background-color: $colorSuccess;
+		color: $colorSuccessFont;
+		@include box-shadow(0 0 0 0 rgba(0,0,0,0));
+		cursor: pointer;
+	}
+	.icon {
+        margin-top: 4px;
+		margin-right: 4px;
+    }
+}
+.btnOrange {
+	@extend .btnFree;
+	height: 36px;
+    line-height: 36px;
+    vertical-align: middle;
+	background-color: darken($colorAlert, 8);
+	color: lighten($colorAlert, 20);
+	&:hover {
+		background-color: darken($colorAlert, 8);
+		color: lighten($colorAlert, 35);
+		@include box-shadow(0 0 0 0 rgba(0,0,0,0));
+		cursor: pointer;
+	}
+	.icon {
+        margin-top: 4px;
+		margin-right: 4px;
+    }
+}
+.btnGrayLight {
+	@extend .btnFree;
+	height: 36px;
+    line-height: 36px;
+    vertical-align: middle;
+	background-color: $colorGrayLight;
+	color: $colorGrayDark;
+	&:hover {
+		background-color: $colorGrayLight;
+		color: $colorGrayDark;
+		@include box-shadow(0 0 0 0 rgba(0,0,0,0));
+		cursor: pointer;
+	}
+	.icon {
+        margin-top: 4px;
+		margin-right: 4px;
+    }
+}
+.btnWB {
+	@extend .btnFree;
+	height: 36px;
+    line-height: 36px;
+    vertical-align: middle;
+	background-color: $colorWhite;
+	color: $colorGrayDark;
+	&:hover {
+		background-color: $colorGrayLight;
+		color: $colorGrayDark;
+		/* @include box-shadow(0 0 0 0 rgba(0,0,0,0)); */
+		cursor: pointer;
+	}
+	.icon {
+        margin-top: 4px;
+		margin-right: 4px;
+    }
+}
+
+
+
+.btnMenuMode {
+	@extend .btnDefault;
+	background-color: $color1Bk;
+	color: $color1;
+    .icon {
+        padding-right: 6px;
+    }
+	&:hover {
+		background-color: $color1;
+		color: $color1Bk;
+	}
+}
+.btnMenuMode.select {
+	@extend .btnMenuMode;
+    background-color: $color1;
+    color: $color1Bk;
+	&:hover {
+		background-color: $color1;
+		color: $color1Bk;
+	}
+}
+.btnMenuModeSmall {
+	@extend .btnMenuMode;
+    width: 28px;
+    min-width: 28px;
+    max-width: 28px;
+    height: 28px;
+    min-height: 28px;
+    max-height: 28px;
+    &:hover {
+        width: 100%;
+        height: 100%;
+	}
+}
+.btnMenuModeSmall.select {
+	@extend .btnMenuModeSmall;
+    background-color: $color1;
+    color: $color1Bk;
+	&:hover {
+		background-color: $color1;
+		color: $color1Bk;
+	}
+}
+.btnMenuModeSmallLogout {
+	@extend .btnMenuModeSmall;
+    background-color: transparent;
+    color: $fontColorApp;
+	&:hover {
+		background-color: $colorWarning;
+		color: $colorWarningTxt;
+	}
+}
+.btnMenuModeSmallLogout.select {
+	@extend .btnMenuModeSmallLogout;
+    background-color: $color1;
+    color: $color1Bk;
+	&:hover {
+		background-color: $color1;
+		color: $color1Bk;
+	}
+}
+.btnPagePre {
+	@extend .btnDefault;
+	background-color: $color1Bk;
+	color: $color1;
+	&:hover {
+		background-color: $color10;
+		color: $color10Bk;
+	}
+}
+.btnPageOk {
+	@extend .btnDefault;
+	background-color: $color1Bk;
+	color: $color1;
+	&:hover {
+		background-color: $colorSuccess;
+		color: $colorSuccessTxt;
+	}
+}
+.btnPageNOk {
+	@extend .btnDefault;
+	background-color: $color1Bk;
+	color: $color1;
+	&:hover {
+		background-color: $colorWarning;
+		color: $colorWarningTxt;
+	}
+}
+
+
+
+
+
+
+
+
+
+.btnTVCAEdit {
+    @extend .btnDefault;
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    margin: 2px;
+    padding: 2px 1px;
+    overflow: hidden;
+    &:hover {
+        background-color: #94C65A !important;
+        color: #FFFFFF !important;
+    }
+    .icon {
+        font: $fontSize*1.25 $fontIcon;
+    }
+}
+.btnTVCAEdit.icon {
+    margin: 0;
+    padding: 0;
+}
+.btnTVCAEditSmall {
+    @extend .btnDefault;
+    width: 22px;
+    min-width: 22px;
+    height: 22px;
+    min-height: 22px;
+    line-height: 22px;
+    margin: 2px;
+    padding: 4px;
+    padding-top: 6px;
+    overflow: hidden;
+    .icon {
+        font: $fontSize*1.35 $fontIcon;
+    }
+}
+.btnTVCAEditSmall.icon {
+    margin: 0;
+    padding: 0;
+}
+.btnTVCAEditSmall.select {
+    @extend .btnDefault;
+    width: 22px;
+    min-width: 22px;
+    height: 22px;
+    min-height: 22px;
+    line-height: 22px;
+    margin: 2px;
+    padding: 4px;
+    padding-top: 6px;
+    overflow: hidden;
+    .icon {
+        font: $fontSize*1.35 $fontIcon;
+    }
+}
+.btnTVCAEditSmall.select.icon {
+    margin: 0;
+    padding: 0;
+}
+.btnTVCAAction {
+    @extend .btnDefault;
+    width: 24px;
+    min-width: 24px;
+    height: 24px;
+    min-height: 24px;
+    line-height: 24px;
+    margin: 0px 4px;
+    padding: 4px;
+    padding-top: 8px;
+    overflow: hidden;
+    .icon {
+        font: $fontSize*1.15 $fontIcon;
+    }
+}
+.btnTVCAAction.icon {
+    margin: 0;
+    padding: 0;
+}
+.btnTVCAEditOk {
+    @extend .btnDefault;
+    width: 22px;
+    min-width: 22px;
+    height: 22px;
+    min-height: 22px;
+    line-height: 22px;
+    padding-top: 2px;
+    overflow: hidden;
+    &:hover {
+        background-color: #94C65A !important;
+        color: #FFF !important;
+    }
+    .icon {
+        font: $fontSize*1.25 $fontIcon;
+    }
+}
+.btnTVCAEditOk.icon {
+    margin: 0;
+    padding: 0;
+}
+.btnTVCAEditCancel {
+    @extend .btnDefault;
+    width: 22px;
+    min-width: 22px;
+    height: 22px;
+    min-height: 22px;
+    line-height: 22px;
+    padding-top: 2px;
+    overflow: hidden;
+    &:hover {
+        background-color: $colorWarning !important;
+        color: #FFF !important;
+    }
+    .icon {
+        font: $fontSize*1.25 $fontIcon;
+    }
+}
+.btnTVCAEditCancel.icon {
+    margin: 0;
+    padding: 0;
+}
+.btnTVCAEditDis {
+    @extend .btnDefault;
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    margin: 2px;
+    padding: 2px 1px;
+    overflow: hidden;
+    
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=35)";
+    filter: alpha(opacity=35);
+    -moz-opacity: 0.35;
+    -khtml-opacity: 0.35;
+    opacity: 0.35;
+    
+    &:hover {
+        background-color: #444444 !important;
+        color: $colorGrayCoatedCool9C !important;
+    }
+    .icon {
+        font: $fontSize*1.4 $fontIcon;
+    }
+}
+.btnTVCAEditDis.icon {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+
+
+
+
+.btnLike {
+	@extend .btnFree;
+	height: 36px;
+    line-height: 36px;
+    vertical-align: middle;
+	background-color: $colorGrayLight;
+	color: $colorGrayDark;
+	&:hover {
+		background-color: darken($colorSuccess, 8);
+		color: darken($colorSuccessFont, 25);
+		cursor: pointer;
+	}
+	.icon {
+        margin-top: 4px;
+		margin-right: 4px;
+    }
+}
+.btnMaybe {
+	@extend .btnFree;
+	height: 36px;
+    line-height: 36px;
+    vertical-align: middle;
+	background-color: $colorGrayLight;
+	color: $colorGrayDark;
+	&:hover {
+		background-color: darken($colorInfo, 8);
+		color: lighten($colorInfo, 25);
+		cursor: pointer;
+	}
+	.icon {
+        margin-top: 4px;
+		margin-right: 4px;
+    }
+}
+.btnDislike {
+	@extend .btnFree;
+	height: 36px;
+    line-height: 36px;
+    vertical-align: middle;
+	background-color: $colorGrayLight;
+	color: $colorGrayDark;
+	&:hover {
+		background-color: darken($colorWarning, 8);
+		color: lighten($colorWarning, 25);
+		cursor: pointer;
+	}
+	.icon {
+        margin-top: 4px;
+		margin-right: 4px;
+    }
+}
+.btnIcon {
+	display: block;
+	position: relative;
+	width: 100%;
+    height: auto;
+    line-height: auto;
+    vertical-align: middle;
+	font: 1em/1em $fontYekan;
+    font-weight: 600;
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    .icon {
+        display: inline-block;
+        font: 1.5em/1em $fontIcon;
+		text-align: center;
+        height: auto;
+        line-height: auto;
+        vertical-align: middle;
+        margin: 0;
+        padding: 0;
+    }
+	&:hover {
+		@include box-shadow(inset 1px 1px 1px rgba(255, 255, 255, 0.3), 0 2px 2px rgba(0, 0, 0, 0.15), 0 1px 2px -2px rgba(0, 0, 0, 0.2));
+		cursor: pointer;
+	}
+}
+.btnIcon.icon {
+    display: inline-block;
+    font: 1.5em/1em $fontIcon;
+	text-align: center;
+    height: auto;
+    line-height: auto;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+}
+.btnAdd {
+	@extend .btnIcon;
+	height: 28px;
+    line-height: 28px;
+    vertical-align: middle;
+	background-color: $colorSuccess;
+	color: $colorSuccessFont;
+	@include border-radius($borderRadius);
+	&:hover {
+		background-color: darken($colorSuccess, 8);
+		color: darken($colorSuccessFont, 8);
+		cursor: pointer;
+	}
+	.icon {
+		text-align: center;
+    }
+}
+.btnNotify {
+	@extend .btnIcon;
+	height: 28px;
+    line-height: 28px;
+    vertical-align: middle;
+	background-color: rgba(255,255,255,0.35);
+	color: $colorWhite;
+	@include border-radius($borderRadius);
+	&:hover {
+		background-color: $colorWhite;
+		color: $fontColorApp;
+		cursor: pointer;
+	}
+	.icon {
+        font: 1.35em/1em $fontIcon;
+		text-align: center;
+		margin-top: 2px;
+    }
+}
+.btnRef {
+	@extend .btnIcon;
+	height: 28px;
+    line-height: 28px;
+    vertical-align: middle;
+	background-color: $color1;
+	color: $color1Bk;
+	@include border-radius($borderRadius);
+	&:hover {
+		background-color: darken($color1, 8);
+		color: darken($color1Bk, 8);
+		cursor: pointer;
+	}
+	.icon {
+		text-align: center;
+    }
+}
+.btnRefGrid {
+	@extend .btnIcon;
+	height: 17px;
+    line-height: 17px;
+    vertical-align: middle;
+	background-color: $colorGrayLight;
+	color: $colorGrayDark;
+	font: 0.85em/1em $fontYekan;
+	margin-top: 1px;
+	padding-top: 2px;
+	@include border-radius(0);
+	&:hover {
+		background-color: $color1;
+		color: $color1Bk;
+		cursor: pointer;
+	}
+	.icon {
+		text-align: center;
+    }
+}
+.btnRefRsult {
+	@extend .btnIcon;
+	height: 17px;
+    line-height: 17px;
+    vertical-align: middle;
+	background-color: $color7;
+	color: darken($color7, 12);
+	font: 0.85em/1em $fontYekan;
+	margin-top: 6px;
+	padding-top: 0px;
+	@include border-radius(0);
+	&:hover {
+		background-color: #FFCE54;
+		color: darken(#FFCE54, 25);
+		cursor: pointer;
+	}
+	.icon {
+		text-align: center;
+    }
+}
+.btnSearch {
+	@extend .btnFree;
+	height: 28px;
+    line-height: 28px;
+    vertical-align: middle;
+	background-color: $colorGrayLight;
+	color: $colorGrayDark;
+	@include border-radius($borderRadius);
+	&:hover {
+		background-color: darken($colorSuccess, 8);
+		color: darken($colorSuccessFont, 25);
+		cursor: pointer;
+	}
+	.icon {
+		margin: 0px 4px;
+    }
+	.txt {
+		text-align: center;
+	}
+}
+.btnOk {
+	@extend .btnIcon;
+	width: 28px;
+	height: 28px;
+    line-height: 28px;
+    vertical-align: middle;
+	background-color: $colorSuccess;
+	color: $colorSuccessFont;
+	@include border-radius($borderRadius);
+	&:hover {
+		background-color: darken($colorSuccess, 8);
+		color: darken($colorSuccessFont, 8);
+		cursor: pointer;
+	}
+	.icon {
+		text-align: center;
+    }
+}
+.btnNok {
+	@extend .btnIcon;
+	width: 28px;
+	height: 28px;
+    line-height: 28px;
+    vertical-align: middle;
+	/*background-color: $colorWarning;
+	color: lighten($colorWarning, 20);*/
+	background-color: $colorWhite;
+	color: $colorGrayDark;
+	@include border-radius($borderRadius);
+	&:hover {
+		background-color: darken($colorWarning, 8);
+		color: lighten($colorWarning, 25);
+		cursor: pointer;
+	}
+	.icon {
+		text-align: center;
+    }
+}
+.btnActionShareboard {
+	@extend .btnIcon;
+	width: 24px;
+	height: 24px;
+    line-height: 24px;
+    vertical-align: middle;
+	background-color: transparent;
+	color: rgba(40,40,40,0.35);
+	@include border-radius($borderRadius);
+	&:hover {
+		background-color: transparent;
+		color: #F14349;
+		cursor: pointer;
+		@include box-shadow(0px 0px 0px rgba(0,0,0,0));
+	}
+	.icon {
+		text-align: center;
+		&:hover {
+			@include transition(all 0.07s linear);
+			-webkit-transform: scale(1.2);
+			-moz-transform: scale(1.2);
+			-o-transform: scale(1.2);
+		}
+    }
+}
+.btnActionTitle {
+	@extend .btnIcon;
+	width: 24px;
+	height: 24px;
+    line-height: 24px;
+    vertical-align: middle;
+	background-color: transparent;
+	color: $colorWhite;
+	@include border-radius($borderRadius);
+	&:hover {
+		background-color: $colorWhite;
+		color: $colorGrayDark;
+		cursor: pointer;
+		/*@include box-shadow(0px 0px 0px rgba(0,0,0,0));*/
+		@include transition(all 0.07s linear);
+		-webkit-transform: scale(1.2);
+		-moz-transform: scale(1.2);
+		-o-transform: scale(1.2);
+	}
+	.icon {
+		text-align: center;
+		&:hover {
+		}
+    }
+}
+
+
+
+
+
+
+
+
+.itemPreviewPlace {
+    .itemPreviewThumb {
+        display: block;
+        position: relative;
+        width: 100px;
+        height: 80px;
+        @include border-radius($borderRadius);
+        white-space: normal;
+        overflow: hidden;
+        margin-left: 4px;
+        margin-bottom:4px;
+        float: right;
+        .itemPreviewThumbBtn {
+            display: inline-block;
+            position: absolute;
+            width: 100%;
+            height: 1%;
+            background-color: transparent;
+            border: none;
+            @include transition(all 0.35s ease);
+            padding-top: 5px;
+            z-index: 9999;
+            > a {
+                margin-right: 4px;
+                float: right;
+            }
+        }
+        * > img {
+            width: 100px;
+            height: auto;
+        }
+    }
+   
+}
+
+
+
+
 .packageItem {
     display: inline-block;
     width: 200px;
     height: 156px;
     @include border-radius($borderRadius);
+    border: none;
     margin: 2px;
     padding: 0px;
     white-space: normal;
@@ -1066,9 +1912,59 @@ a {
             float: right;
         }
     }
+    .templateItemDivider {
+        display: block;
+        position: relative;
+        width: 200px;
+        height: 38px;
+        max-height: 38px;
+        background-color: #F1F1F1;
+        font: $fontSize*1 $fontYekan;
+        text-align: center;
+        border-top: 1px solid #CCCCCC;
+        padding: 3px;
+        &:hover {
+            cursor: grab;
+        }
+        &:active {
+            cursor: grabbing;
+        }
+        a {
+            text-align: center;
+            margin-right: 2px !important;
+            float: none;
+        }
+        .templateItemTitle {
+            display: block;
+            position: relative;
+            width: 100%;
+            height: 32px;
+            line-height: 32px;
+            vertical-align: middle;
+            color: $fontColorApp;
+            font: $fontSize*1 $fontYekan;
+            font-weight: 600;
+            text-align: center;
+            top: 0;
+            padding-top: 10px;
+            z-index: 9;
+            overflow: hidden;
+            .icon {
+                display: block;
+                position: relative;
+                font: $fontSize*1.25 $fontIcon;
+                float: right;
+                margin-top: 0;
+                padding-right: 6px;
+            }
+        }
+    }
     .packageItemDivider {
         display: block;
         position: relative;
+        width: 200px;
+        height: 38px;
+        max-height: 38px;
         background-color: #F1F1F1;
         font: $fontSize*1 $fontYekan;
         border-top: 1px solid #CCCCCC;
@@ -1081,7 +1977,7 @@ a {
         }
         a {
             float: right;
-            margin-right: 4px !important;
+            margin-right: 2px !important;
         }
         .packageItemBtnAdd {
             @extend .btnDefault;
@@ -1090,12 +1986,14 @@ a {
             height: 28px !important;
             min-height: 28px !important;
             line-height: 28px !important;
-            margin: 0px 4px;
+            background-color: rgba(102, 102, 102, 1);
+            border: 1px $colorWhite1 solid;
+            margin: 0px 2px;
             padding: 4px;
             padding-top: 6px;
             overflow: hidden;
             .icon {
-                font: $fontSize*1.55 $fontIcon;
+                font: $fontSize*1 $fontIcon;
             }
             display: inline-block;
             position: relative;
@@ -1109,6 +2007,10 @@ a {
         }
         .packageItemBtnSetting {
             @extend .packageItemBtnAdd;
+            .icon {
+                font: $fontSize*1 $fontIcon;
+                margin: 1px;
+            }
             &:hover {
                 background-color: $colorInfo !important;
                 color: #FFFFFF !important;
@@ -1117,7 +2019,7 @@ a {
         .packageItemBtnDelete {
             @extend .packageItemBtnAdd;
             .icon {
-                font: $fontSize*1.25 $fontIcon;
+                font: $fontSize*1 $fontIcon;
                 margin: 1px;
             }
             &:hover {
@@ -1133,10 +2035,10 @@ a {
             line-height: 32px;
             vertical-align: middle;
             color: $fontColorApp1;
-            font: $fontSize*0.65 $fontYekan;
+            font: $fontSize*0.75 $fontYekan;
             font-weight: 600;
             text-align: right;
-            top: -12px;
+            top: -10px;
             z-index: 9;
             .icon {
                 display: block;
@@ -1216,9 +2118,235 @@ a {
         }
     }
 }
+.packageItemModel {
+    @extend .packageItem;
+    @include border-radius($borderRadius);
+    &:hover {
+        cursor: pointer;
+    }
+    .packageItemPreview {
+        display: block;
+        position: relative;
+        width: 200px;
+        height: 118px;
+        background-color: #FFFFFF;
+        margin: 0px;
+        padding: 0px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        > p {
+            width: 200px;
+            height: auto;
+            background-color: $color1Bk;
+            color: $color1;
+            font: $fontSize*0.75 $fontApp;
+            word-wrap: normal;
+            border-bottom: 1px $color1 solid;
+            margin: 0px;
+            padding: 4px;
+            float: right;
+            overflow: hidden;
+        }
+    }
+    .packageItemPreview02 {
+        display: block;
+        position: relative;
+        width: 200px;
+        height: 118px;
+        background-color: $color1;
+        margin: 0px;
+        padding: 0px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        .packageItemPreviewTemplate {
+            width: 100px;
+            height: auto;
+            background-color: $color1;
+            color: rgba(255, 255, 255, 0.2);
+            font: $fontSize*0.95 $fontYekan;
+            float: right;
+        }
+        .templateItemPreviewTemplate {
+            width: 170px;
+            height: auto;
+            background-color: $color1;
+            color: rgba(255, 255, 255, 0.2);
+            text-align: center;
+            font: $fontSize*0.95 $fontYekan;
+            margin: 0px auto;
+            float: none;
+            overflow: hidden;
+        }
+        .packageItemPreviewDest {
+            width: 100px;
+            height: auto;
+            float: left;
+            > p {
+                width: 100%;
+                height: auto;
+                background-color: $color1Bk;
+                color: $color1;
+                font: $fontSize*0.65 $fontApp;
+                text-align: right;
+                word-wrap: normal;
+                border-bottom: 1px rgba(0, 0, 0, 0.15) solid;
+                margin: 0px;
+                padding: 4px;
+                float: right;
+                overflow: hidden;
+            }
+            > a {
+                width: 100%;
+                height: auto;
+                background-color: $color1;
+                color: $color1Bk;
+                font: $fontSize*0.65 $fontApp;
+                text-align: right;
+                word-wrap: normal;
+                border-bottom: 1px $color1 solid;
+                margin: 0px;
+                padding: 4px;
+                float: right;
+                overflow: hidden;
+            }
+        }
+        
+    }
+}
 
 
 
+
+
+.folderItem {
+    display: inline-block;
+    position: relative;
+    width: 100px;
+    height: 78px;
+    border: none;
+    margin: 2px;
+    padding: 0px;
+    white-space: normal;
+    overflow: hidden;
+    z-index: 99;
+    @include border-radius($borderRadius);
+    .folderItemOver {
+        display: none;
+        position: absolute;
+        width: 0%;
+        height: 0%;
+        top: 0;
+        right: 0;
+        background-color: rgba(255, 255, 255, 0);
+        color: $folderTxt;
+        font: $fontSize*0.75 $fontApp;
+        padding: 4px;
+        z-index: 999;
+    }
+    &:hover {
+        .folderItemOver {
+            display: block;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.85);
+            @include transition(all 0.2s ease-out, opacity 0.2s ease-out);
+        }
+        cursor: pointer;
+    }
+    .folderItemmIcon {
+        display: block;
+        position: relative;
+        width: 100px;
+        height: 50px;
+        max-height: 50px;
+        background-color: $folderTxt;
+        .icon {
+            color: $colorWhite1;
+            font: $fontSize*3.15 $fontIcon;
+        }
+    }
+    .folderItemmDivider {
+        display: block;
+        position: relative;
+        width: 100px;
+        height: 28px;
+        max-height: 28px;
+        vertical-align: middle;
+        background-color: $colorWhite1;
+        color: $folderTxt;
+        font: $fontSize*1 $fontYekan;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 3px;
+        &:hover {
+            cursor: grab;
+        }
+        &:active {
+            cursor: grabbing;
+        }
+        a {
+            float: right;
+            margin-right: 2px !important;
+        }
+    }
+}
+.folderItem.select {
+    display: inline-block;
+    position: relative;
+    width: 100px;
+    height: 78px;
+    border: none;
+    margin: 2px;
+    padding: 0px;
+    white-space: normal;
+    overflow: hidden;
+    z-index: 99;
+    border: 2px $folderTxt solid;
+    @include border-radius($borderRadius);
+    .folderItemOver {
+        display: none;
+        position: absolute;
+    }
+    &:hover {
+        cursor: pointer;
+    }
+    .folderItemmIcon {
+        display: block;
+        position: relative;
+        width: 100px;
+        height: 50px;
+        max-height: 50px;
+        background-color: $color1;
+        .icon {
+            color: $colorWhite1;
+            font: $fontSize*3.15 $fontIcon;
+        }
+    }
+    .folderItemmDivider {
+        display: block;
+        position: relative;
+        width: 100px;
+        height: 28px;
+        max-height: 28px;
+        vertical-align: middle;
+        background-color: $color1;
+        color: $colorWhite1;
+        font: $fontSize*1 $fontYekan;
+        border-top: none;
+        padding: 3px;
+        &:hover {
+            cursor: grab;
+        }
+        &:active {
+            cursor: grabbing;
+        }
+        a {
+            float: right;
+            margin-right: 2px !important;
+        }
+    }
+}
 
 
 
@@ -1237,7 +2365,7 @@ a {
     display: inline-block;
     position: relative;
     .icon {
-        font: $fontSize*1.55 $fontIcon;
+        font: $fontSize*1 $fontIcon;
     }
     &:hover {
         background-color: $colorSuccess !important;
@@ -1278,7 +2406,8 @@ a {
         padding-top: 8px;
         overflow: hidden;
         .icon {
-            font: $fontSize*1.25 $fontIcon;
+            font: $fontSize*1 $fontIcon;
+            margin: 1px;
         }
     }
     .editPackageBtnSmallNok {
@@ -1294,6 +2423,20 @@ a {
         text-align: center;
         margin: 6px auto;
         padding: 6px;
+        .editPackageBtnPlace {
+            display: block;
+            position: relative;
+            color: $color1 !important;
+            height: auto;
+            line-height: auto;
+            vertical-align: middle;
+            font: $fontSize*0.95 $fontYekan;
+            font-weight: 600;
+            text-align: right;
+            margin: 0px;
+            padding: 0px;
+            float: right;
+        }
         .editPackageTitle {
             display: block;
             position: relative;
@@ -1376,30 +2519,29 @@ a {
             > * {
                 float: right;
             }
-            .inputSearch {
-                @extend .formInputDefault;
-                background-color: rgba(255, 255, 255, 0.25);
-                color: #F1F1F1;
-                box-shadow: none;
-                -webkit-box-shadow: none;
-                -moz-box-shadow: none;
+        }
+        .inputSearch {
+            @extend .formInputDefault;
+            background-color: rgba(255, 255, 255, 0.25);
+            color: #F1F1F1;
+            box-shadow: none;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+        }
+        .editPackageBtnSearch {
+            @extend .btnDefault;
+            width: 24px;
+            min-width: 24px;
+            height: 24px;
+            min-height: 24px;
+            line-height: 24px;
+            margin: 0px 4px;
+            padding: 4px;
+            padding-top: 8px;
+            overflow: hidden;
+            .icon {
+                font: $fontSize*1.25 $fontIcon;
             }
-            .editPackageBtnSearch {
-                @extend .btnDefault;
-                width: 24px;
-                min-width: 24px;
-                height: 24px;
-                min-height: 24px;
-                line-height: 24px;
-                margin: 0px 4px;
-                padding: 4px;
-                padding-top: 8px;
-                overflow: hidden;
-                .icon {
-                    font: $fontSize*1.25 $fontIcon;
-                }
-            }
-            
         }
         
         .inputTxt {
@@ -1422,10 +2564,7 @@ a {
             background-color: #FFFFFF;
             margin: 0px auto;
             padding: 4px;
-
-            border-radius: 3px;
-            -webkit-border-radius: 3px;
-            -moz-border-radius: 3px;
+            @include border-radius($borderRadius);
 
             .modalSelectItem {
                 display: block;
@@ -1482,8 +2621,8 @@ a {
             width: 910px;
             min-width: 910px;
             max-width: 910px;
-            height: 42px;
-            line-height: 42px;
+            height: auto;
+            line-height: auto;
             vertical-align: middle;
             background-color: transparent;
             margin: 0px auto;
@@ -1501,11 +2640,56 @@ a {
             @include border-radius($borderRadius);
             margin: 0px auto;
             padding: 6px;
-
-            border-radius: $borderRadius;
-            -webkit-border-radius: $borderRadius;
-            -moz-border-radius: $borderRadius;
-            
+            :first-child {
+                .packageItem {
+                }
+            }
+            :only-child {
+                
+            }
+        }
+        .rowSelectDefault > div:only-child {
+            @include border-radius($borderRadius);
+        }
+        .rowSelectTemplate {
+            display: block;
+            position: relative;
+            width: 910px;
+            min-width: 910px;
+            max-width: 910px;
+            height: auto;
+            background-color: rgba(0, 0, 0, 0.05);
+            @include border-radius($borderRadius $borderRadius 0 0);
+            margin: 0px auto;
+            padding: 6px;
+            :first-child {
+                .packageItem {
+                }
+            }
+            :only-child {
+                
+            }
+        }
+        .rowSelectTemplate > div:only-child {
+            @include border-radius($borderRadius $borderRadius 0 0);
+        }
+        .rowSelectTemplateStatus {
+            display: block;
+            position: relative;
+            width: 910px;
+            min-width: 910px;
+            max-width: 910px;
+            height: 43px;
+            background-color: rgba(0, 0, 0, 0.05);
+            color: $fontColorApp;
+            font: $fontSize*0.75 $fontApp;
+            font-weight: 400;
+            text-align: right;
+            border-top: 1px rgba(0, 0, 0, 0.05) solid;
+            margin: 0px auto;
+            padding: 6px;
+            bottom: 0px;
+            @include border-radius(0 0 $borderRadius $borderRadius);
         }
         
         .rowContentDefault {
@@ -1518,11 +2702,6 @@ a {
             @include border-radius($borderRadius);
             margin: 0px auto;
             padding: 6px;
-
-            border-radius: $borderRadius;
-            -webkit-border-radius: $borderRadius;
-            -moz-border-radius: $borderRadius;
-            
         }
         
         .rowContentForm {
@@ -1537,11 +2716,6 @@ a {
             @include border-radius($borderRadius);
             margin: 0px auto;
             padding: 6px;
-
-            border-radius: $borderRadius;
-            -webkit-border-radius: $borderRadius;
-            -moz-border-radius: $borderRadius;
-            
         }
         
         .rowSelectA {
@@ -1555,10 +2729,6 @@ a {
             @include border-radius($borderRadius);
             margin: 0px auto;
             padding: 6px;
-
-            border-radius: $borderRadius;
-            -webkit-border-radius: $borderRadius;
-            -moz-border-radius: $borderRadius;
 
             overflow-x: auto;
             overflow-y: hidden;
@@ -1615,10 +2785,7 @@ a {
                     background-color: #F1F1F1;
                     border-bottom: 1px dotted #F1F1F1;
                     cursor: pointer;
-
-                    border-radius: $borderRadius;
-                    -webkit-border-radius: $borderRadius;
-                    -moz-border-radius: $borderRadius;
+                    @include border-radius($borderRadius);
 
                     span.btnTVCAEditSmallTxt {
                         color: #444444; 
@@ -2141,745 +3308,6 @@ body.remodal-is-active .remodal {
 
 
 
-
-.btnDefault {
-	display: block;
-	position: relative;
-	width: 100%;
-    height: 28px;
-    line-height: 28px;
-    vertical-align: middle;
-	font: 1em/1em $fontYekan;
-    font-weight: 600;
-    text-align: center;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border: none;
-	@include border-radius($borderRadiusBtn);
-    margin: 0;
-    padding: 0;
-    .icon {
-        display: inline-block;
-        font: 1.5em/1em $fontIcon;
-        height: 28px;
-        line-height: 28px;
-        vertical-align: middle;
-        margin: 0;
-        margin-top: 0;
-        padding: 0;
-        padding-right: 4px;
-        float: right;
-    }
-	.txt {
-		display: inline-block;
-		font: 0.9em/1em $fontYekan;
-		font-weight: 600;
-		padding-top: 10px;
-		margin-right: -24px;
-	}
-	&:hover {
-		@include box-shadow(inset 1px 1px 1px rgba(255, 255, 255, 0.3), 0 2px 2px rgba(0, 0, 0, 0.15), 0 1px 2px -2px rgba(0, 0, 0, 0.2));
-		cursor: pointer;
-	}
-}
-.btnDefault.icon {
-    display: inline-block;
-    font: 1.5em/1em $fontIcon;
-    height: 28px;
-    line-height: 28px;
-    vertical-align: middle;
-    margin: 0;
-    padding: 0;
-    padding-top: 8px;
-    padding-right: 4px;
-    float: right;
-}
-.btnMenuAdmin {
-	@extend .btnDefault;
-    border-bottom: 2px $colorAlert solid;
-	&:hover {
-        border-bottom: 2px $color2Bk solid;
-		cursor: pointer;
-	}
-}
-.btnEnter {
-	@extend .btnDefault;
-	background-color: $colorSuccess;
-	color: $colorSuccessFont;
-	&:hover {
-		background-color: darken($colorSuccess, 8);
-		color: darken($colorSuccessFont, 8);
-		cursor: pointer;
-	}
-}
-.btnCancel {
-	@extend .btnDefault;
-	background-color: $colorWarning;
-	color: lighten($colorWarning, 15);
-	&:hover {
-		background-color: darken($colorWarning, 8);
-		color: lighten($colorWarning, 25);
-		cursor: pointer;
-	}
-}
-.btnProfilePic {
-	@extend .btnDefault;
-	background-color: rgba(0,0,0,0.55) !important;
-	color: rgba(255,255,255,0.75) !important;
-	font: 0.85em/1em $fontYekan;
-    font-weight: 600;
-    text-align: center;
-	@include box-shadow(0 0 0 0 rgba(0,0,0,0));
-	padding: 4px;
-	&:hover {
-		background-color: $colorWhite !important;
-		color: darken($color1Bk, 8) !important;
-		@include box-shadow(0 0 0 0 rgba(0,0,0,0));
-		cursor: pointer;
-	}
-	.icon {
-        display: inline-block;
-        font: 1.3em/1em $fontIcon;
-        height: 27px;
-        line-height: 27px;
-        vertical-align: middle;
-        margin: 0;
-        padding: 0;
-        float: right;
-    }
-}
-.btnFree {
-	display: block;
-	position: relative;
-	width: 100%;
-    height: auto;
-    line-height: auto;
-    vertical-align: middle;
-	font: 1em/1em $fontYekan;
-    font-weight: 600;
-    text-align: center;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border: none;
-    margin: 0;
-    padding: 0;
-    .icon {
-        display: inline-block;
-        font: 1.3em/1em $fontIcon;
-        height: 28px;
-        line-height: 28px;
-        vertical-align: middle;
-        margin: 0;
-        margin-top: 0;
-        padding: 0;
-        float: right;
-    }
-	.txt {
-		display: inline-block;
-		font: 0.9em/1em $fontYekan;
-		font-weight: 600;
-		padding-top: 8px;
-		margin-right: -24px;
-	}
-	.txtNo {
-		text-align: left;
-		margin-left: 4px;
-		float: left;
-	}
-	&:hover {
-		@include box-shadow(inset 1px 1px 1px rgba(255, 255, 255, 0.3), 0 2px 2px rgba(0, 0, 0, 0.15), 0 1px 2px -2px rgba(0, 0, 0, 0.2));
-		cursor: pointer;
-	}
-}
-.btnFree.icon {
-    display: inline-block;
-    font: 1.3em/1em $fontIcon;
-    height: auto;
-    line-height: auto;
-    vertical-align: middle;
-    margin: 0;
-    padding: 0;
-    padding-top: 8px;
-    float: right;
-}
-.btnGreen {
-	@extend .btnFree;
-	height: 36px;
-    line-height: 36px;
-    vertical-align: middle;
-	background-color: $colorSuccess;
-	color: $colorSuccessFont;
-	&:hover {
-		background-color: $colorSuccess;
-		color: $colorSuccessFont;
-		@include box-shadow(0 0 0 0 rgba(0,0,0,0));
-		cursor: pointer;
-	}
-	.icon {
-        margin-top: 4px;
-		margin-right: 4px;
-    }
-}
-.btnOrange {
-	@extend .btnFree;
-	height: 36px;
-    line-height: 36px;
-    vertical-align: middle;
-	background-color: darken($colorAlert, 8);
-	color: lighten($colorAlert, 20);
-	&:hover {
-		background-color: darken($colorAlert, 8);
-		color: lighten($colorAlert, 35);
-		@include box-shadow(0 0 0 0 rgba(0,0,0,0));
-		cursor: pointer;
-	}
-	.icon {
-        margin-top: 4px;
-		margin-right: 4px;
-    }
-}
-.btnGrayLight {
-	@extend .btnFree;
-	height: 36px;
-    line-height: 36px;
-    vertical-align: middle;
-	background-color: $colorGrayLight;
-	color: $colorGrayDark;
-	&:hover {
-		background-color: $colorGrayLight;
-		color: $colorGrayDark;
-		@include box-shadow(0 0 0 0 rgba(0,0,0,0));
-		cursor: pointer;
-	}
-	.icon {
-        margin-top: 4px;
-		margin-right: 4px;
-    }
-}
-.btnWB {
-	@extend .btnFree;
-	height: 36px;
-    line-height: 36px;
-    vertical-align: middle;
-	background-color: $colorWhite;
-	color: $colorGrayDark;
-	&:hover {
-		background-color: $colorGrayLight;
-		color: $colorGrayDark;
-		/* @include box-shadow(0 0 0 0 rgba(0,0,0,0)); */
-		cursor: pointer;
-	}
-	.icon {
-        margin-top: 4px;
-		margin-right: 4px;
-    }
-}
-
-
-
-.btnMenuMode {
-	@extend .btnDefault;
-	background-color: $color1Bk;
-	color: $color1;
-	&:hover {
-		background-color: $color1;
-		color: $color1Bk;
-	}
-}
-.btnMenuMode.select {
-	@extend .btnMenuMode;
-    background-color: $color1;
-    color: $color1Bk;
-	&:hover {
-		background-color: $color1;
-		color: $color1Bk;
-	}
-}
-.btnPagePre {
-	@extend .btnDefault;
-	background-color: $color1Bk;
-	color: $color1;
-	&:hover {
-		background-color: $color10;
-		color: $color10Bk;
-	}
-}
-.btnPageOk {
-	@extend .btnDefault;
-	background-color: $color1Bk;
-	color: $color1;
-	&:hover {
-		background-color: $colorSuccess;
-		color: $colorSuccessTxt;
-	}
-}
-.btnPageNOk {
-	@extend .btnDefault;
-	background-color: $color1Bk;
-	color: $color1;
-	&:hover {
-		background-color: $colorWarning;
-		color: $colorWarningTxt;
-	}
-}
-
-
-
-
-
-
-
-
-
-.btnTVCAEdit {
-    @extend .btnDefault;
-    width: 26px;
-    height: 26px;
-    line-height: 26px;
-    margin: 2px;
-    padding: 2px 1px;
-    overflow: hidden;
-    &:hover {
-        background-color: #94C65A !important;
-        color: #FFFFFF !important;
-    }
-    .icon {
-        font: $fontSize*1.4 $fontIcon;
-    }
-}
-.btnTVCAEdit.icon {
-    margin: 0;
-    padding: 0;
-}
-.btnTVCAEditSmall {
-    @extend .btnDefault;
-    width: 22px;
-    min-width: 22px;
-    height: 22px;
-    min-height: 22px;
-    line-height: 22px;
-    margin: 2px;
-    padding: 4px;
-    padding-top: 6px;
-    overflow: hidden;
-    .icon {
-        font: $fontSize*1.75 $fontIcon;
-    }
-}
-.btnTVCAEditSmall.icon {
-    margin: 0;
-    padding: 0;
-}
-.btnTVCAEditSmall.select {
-    @extend .btnDefault;
-    width: 22px;
-    min-width: 22px;
-    height: 22px;
-    min-height: 22px;
-    line-height: 22px;
-    margin: 2px;
-    padding: 4px;
-    padding-top: 6px;
-    overflow: hidden;
-    .icon {
-        font: $fontSize*1.75 $fontIcon;
-    }
-}
-.btnTVCAEditSmall.select.icon {
-    margin: 0;
-    padding: 0;
-}
-.btnTVCAAction {
-    @extend .btnDefault;
-    width: 24px;
-    min-width: 24px;
-    height: 24px;
-    min-height: 24px;
-    line-height: 24px;
-    margin: 0px 4px;
-    padding: 4px;
-    padding-top: 8px;
-    overflow: hidden;
-    .icon {
-        font: $fontSize*1.25 $fontIcon;
-    }
-}
-.btnTVCAAction.icon {
-    margin: 0;
-    padding: 0;
-}
-.btnTVCAEditOk {
-    @extend .btnDefault;
-    width: 22px;
-    min-width: 22px;
-    height: 22px;
-    min-height: 22px;
-    line-height: 22px;
-    padding-top: 2px;
-    overflow: hidden;
-    &:hover {
-        background-color: #94C65A !important;
-        color: #FFF !important;
-    }
-    .icon {
-        font: $fontSize*1.25 $fontIcon;
-    }
-}
-.btnTVCAEditOk.icon {
-    margin: 0;
-    padding: 0;
-}
-.btnTVCAEditCancel {
-    @extend .btnDefault;
-    width: 22px;
-    min-width: 22px;
-    height: 22px;
-    min-height: 22px;
-    line-height: 22px;
-    padding-top: 2px;
-    overflow: hidden;
-    &:hover {
-        background-color: $colorWarning !important;
-        color: #FFF !important;
-    }
-    .icon {
-        font: $fontSize*1.25 $fontIcon;
-    }
-}
-.btnTVCAEditCancel.icon {
-    margin: 0;
-    padding: 0;
-}
-.btnTVCAEditDis {
-    @extend .btnDefault;
-    width: 26px;
-    height: 26px;
-    line-height: 26px;
-    margin: 2px;
-    padding: 2px 1px;
-    overflow: hidden;
-    
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=35)";
-    filter: alpha(opacity=35);
-    -moz-opacity: 0.35;
-    -khtml-opacity: 0.35;
-    opacity: 0.35;
-    
-    &:hover {
-        background-color: #444444 !important;
-        color: $colorGrayCoatedCool9C !important;
-    }
-    .icon {
-        font: $fontSize*1.4 $fontIcon;
-    }
-}
-.btnTVCAEditDis.icon {
-    margin: 0;
-    padding: 0;
-}
-
-
-
-
-
-
-
-
-.btnLike {
-	@extend .btnFree;
-	height: 36px;
-    line-height: 36px;
-    vertical-align: middle;
-	background-color: $colorGrayLight;
-	color: $colorGrayDark;
-	&:hover {
-		background-color: darken($colorSuccess, 8);
-		color: darken($colorSuccessFont, 25);
-		cursor: pointer;
-	}
-	.icon {
-        margin-top: 4px;
-		margin-right: 4px;
-    }
-}
-.btnMaybe {
-	@extend .btnFree;
-	height: 36px;
-    line-height: 36px;
-    vertical-align: middle;
-	background-color: $colorGrayLight;
-	color: $colorGrayDark;
-	&:hover {
-		background-color: darken($colorInfo, 8);
-		color: lighten($colorInfo, 25);
-		cursor: pointer;
-	}
-	.icon {
-        margin-top: 4px;
-		margin-right: 4px;
-    }
-}
-.btnDislike {
-	@extend .btnFree;
-	height: 36px;
-    line-height: 36px;
-    vertical-align: middle;
-	background-color: $colorGrayLight;
-	color: $colorGrayDark;
-	&:hover {
-		background-color: darken($colorWarning, 8);
-		color: lighten($colorWarning, 25);
-		cursor: pointer;
-	}
-	.icon {
-        margin-top: 4px;
-		margin-right: 4px;
-    }
-}
-.btnIcon {
-	display: block;
-	position: relative;
-	width: 100%;
-    height: auto;
-    line-height: auto;
-    vertical-align: middle;
-	font: 1em/1em $fontYekan;
-    font-weight: 600;
-    text-align: center;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border: none;
-    margin: 0;
-    padding: 0;
-    .icon {
-        display: inline-block;
-        font: 1.5em/1em $fontIcon;
-		text-align: center;
-        height: auto;
-        line-height: auto;
-        vertical-align: middle;
-        margin: 0;
-        padding: 0;
-    }
-	&:hover {
-		@include box-shadow(inset 1px 1px 1px rgba(255, 255, 255, 0.3), 0 2px 2px rgba(0, 0, 0, 0.15), 0 1px 2px -2px rgba(0, 0, 0, 0.2));
-		cursor: pointer;
-	}
-}
-.btnIcon.icon {
-    display: inline-block;
-    font: 1.5em/1em $fontIcon;
-	text-align: center;
-    height: auto;
-    line-height: auto;
-    vertical-align: middle;
-    margin: 0;
-    padding: 0;
-}
-.btnAdd {
-	@extend .btnIcon;
-	height: 28px;
-    line-height: 28px;
-    vertical-align: middle;
-	background-color: $colorSuccess;
-	color: $colorSuccessFont;
-	@include border-radius($borderRadius);
-	&:hover {
-		background-color: darken($colorSuccess, 8);
-		color: darken($colorSuccessFont, 8);
-		cursor: pointer;
-	}
-	.icon {
-		text-align: center;
-    }
-}
-.btnNotify {
-	@extend .btnIcon;
-	height: 28px;
-    line-height: 28px;
-    vertical-align: middle;
-	background-color: rgba(255,255,255,0.35);
-	color: $colorWhite;
-	@include border-radius($borderRadius);
-	&:hover {
-		background-color: $colorWhite;
-		color: $fontColorApp;
-		cursor: pointer;
-	}
-	.icon {
-        font: 1.35em/1em $fontIcon;
-		text-align: center;
-		margin-top: 2px;
-    }
-}
-.btnRef {
-	@extend .btnIcon;
-	height: 28px;
-    line-height: 28px;
-    vertical-align: middle;
-	background-color: $color1;
-	color: $color1Bk;
-	@include border-radius($borderRadius);
-	&:hover {
-		background-color: darken($color1, 8);
-		color: darken($color1Bk, 8);
-		cursor: pointer;
-	}
-	.icon {
-		text-align: center;
-    }
-}
-.btnRefGrid {
-	@extend .btnIcon;
-	height: 17px;
-    line-height: 17px;
-    vertical-align: middle;
-	background-color: $colorGrayLight;
-	color: $colorGrayDark;
-	font: 0.85em/1em $fontYekan;
-	margin-top: 1px;
-	padding-top: 2px;
-	@include border-radius(0);
-	&:hover {
-		background-color: $color1;
-		color: $color1Bk;
-		cursor: pointer;
-	}
-	.icon {
-		text-align: center;
-    }
-}
-.btnRefRsult {
-	@extend .btnIcon;
-	height: 17px;
-    line-height: 17px;
-    vertical-align: middle;
-	background-color: $color7;
-	color: darken($color7, 12);
-	font: 0.85em/1em $fontYekan;
-	margin-top: 6px;
-	padding-top: 0px;
-	@include border-radius(0);
-	&:hover {
-		background-color: #FFCE54;
-		color: darken(#FFCE54, 25);
-		cursor: pointer;
-	}
-	.icon {
-		text-align: center;
-    }
-}
-.btnSearch {
-	@extend .btnFree;
-	height: 28px;
-    line-height: 28px;
-    vertical-align: middle;
-	background-color: $colorGrayLight;
-	color: $colorGrayDark;
-	@include border-radius($borderRadius);
-	&:hover {
-		background-color: darken($colorSuccess, 8);
-		color: darken($colorSuccessFont, 25);
-		cursor: pointer;
-	}
-	.icon {
-		margin: 0px 4px;
-    }
-	.txt {
-		text-align: center;
-	}
-}
-.btnOk {
-	@extend .btnIcon;
-	width: 28px;
-	height: 28px;
-    line-height: 28px;
-    vertical-align: middle;
-	background-color: $colorSuccess;
-	color: $colorSuccessFont;
-	@include border-radius($borderRadius);
-	&:hover {
-		background-color: darken($colorSuccess, 8);
-		color: darken($colorSuccessFont, 8);
-		cursor: pointer;
-	}
-	.icon {
-		text-align: center;
-    }
-}
-.btnNok {
-	@extend .btnIcon;
-	width: 28px;
-	height: 28px;
-    line-height: 28px;
-    vertical-align: middle;
-	/*background-color: $colorWarning;
-	color: lighten($colorWarning, 20);*/
-	background-color: $colorWhite;
-	color: $colorGrayDark;
-	@include border-radius($borderRadius);
-	&:hover {
-		background-color: darken($colorWarning, 8);
-		color: lighten($colorWarning, 25);
-		cursor: pointer;
-	}
-	.icon {
-		text-align: center;
-    }
-}
-.btnActionShareboard {
-	@extend .btnIcon;
-	width: 24px;
-	height: 24px;
-    line-height: 24px;
-    vertical-align: middle;
-	background-color: transparent;
-	color: rgba(40,40,40,0.35);
-	@include border-radius($borderRadius);
-	&:hover {
-		background-color: transparent;
-		color: #F14349;
-		cursor: pointer;
-		@include box-shadow(0px 0px 0px rgba(0,0,0,0));
-	}
-	.icon {
-		text-align: center;
-		&:hover {
-			@include transition(all 0.07s linear);
-			-webkit-transform: scale(1.2);
-			-moz-transform: scale(1.2);
-			-o-transform: scale(1.2);
-		}
-    }
-}
-.btnActionTitle {
-	@extend .btnIcon;
-	width: 24px;
-	height: 24px;
-    line-height: 24px;
-    vertical-align: middle;
-	background-color: transparent;
-	color: $colorWhite;
-	@include border-radius($borderRadius);
-	&:hover {
-		background-color: $colorWhite;
-		color: $colorGrayDark;
-		cursor: pointer;
-		/*@include box-shadow(0px 0px 0px rgba(0,0,0,0));*/
-		@include transition(all 0.07s linear);
-		-webkit-transform: scale(1.2);
-		-moz-transform: scale(1.2);
-		-o-transform: scale(1.2);
-	}
-	.icon {
-		text-align: center;
-		&:hover {
-		}
-    }
-}
 
 
 
