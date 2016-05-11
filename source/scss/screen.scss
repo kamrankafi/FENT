@@ -66,22 +66,23 @@ body.tvcPre:before {
 	right: 0;
 	display: block;
 
+    background-color: #000000;
 	background-image: url($bkUrlTVCPreview);
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
 
-	-webkit-filter: blur(1px) grayscale(5%);
-	-moz-filter: blur(1px) grayscale(5%);
-	-o-filter: blur(1px) grayscale(5%);
-	-ms-filter: blur(1px) grayscale(5%);
-	filter: blur(1px) grayscale(5%);
+	-webkit-filter: blur(0px) grayscale(0%);
+	-moz-filter: blur(0px) grayscale(0%);
+	-o-filter: blur(0px) grayscale(0%);
+	-ms-filter: blur(0px) grayscale(0%);
+	filter: blur(0px) grayscale(0%);
 
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";
-	filter: alpha(opacity=75);
-	-moz-opacity: 0.75;
-	-khtml-opacity: 0.75;
-	opacity: 0.75;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
+	-moz-opacity: 0;
+	-khtml-opacity: 0;
+	opacity: 0;
 	z-index: -1;
 
     overflow: hidden;
@@ -89,6 +90,7 @@ body.tvcPre:before {
 body.tvcPre {
 	width: 100%;
 	height: 100%;
+    background-color: #000000;
 	color: $colorWhite1;
 	font: 0.625em/1em $fontApp;
 	font-weight: normal;
@@ -1398,15 +1400,18 @@ a {
     width: 26px;
     height: 26px;
     line-height: 26px;
+    background-color: $btnColorBK;
+    color: $btnColorTxt;
+    border: 1px $colorWhite solid;
     margin: 2px;
-    padding: 2px 1px;
+    padding: 3px;
     overflow: hidden;
     &:hover {
         background-color: #94C65A !important;
         color: #FFFFFF !important;
     }
     .icon {
-        font: $fontSize*1.25 $fontIcon;
+        font: $fontSize*1.15 $fontIcon;
     }
 }
 .btnTVCAEdit.icon {
@@ -1420,12 +1425,15 @@ a {
     height: 22px;
     min-height: 22px;
     line-height: 22px;
+    background-color: $btnColorBK;
+    color: $btnColorTxt;
+    border: 1px $colorWhite solid;
     margin: 2px;
     padding: 4px;
     padding-top: 6px;
     overflow: hidden;
     .icon {
-        font: $fontSize*1.35 $fontIcon;
+        font: $fontSize*1.15 $fontIcon;
     }
 }
 .btnTVCAEditSmall.icon {
@@ -1444,7 +1452,7 @@ a {
     padding-top: 6px;
     overflow: hidden;
     .icon {
-        font: $fontSize*1.35 $fontIcon;
+        font: $fontSize*1.15 $fontIcon;
     }
 }
 .btnTVCAEditSmall.select.icon {
@@ -1458,6 +1466,9 @@ a {
     height: 24px;
     min-height: 24px;
     line-height: 24px;
+    background-color: $btnColorBK;
+    color: $btnColorTxt;
+    border: 1px #colorWhite solid;
     margin: 0px 4px;
     padding: 4px;
     padding-top: 8px;
@@ -1477,6 +1488,9 @@ a {
     height: 22px;
     min-height: 22px;
     line-height: 22px;
+    background-color: $btnColorBK;
+    color: $btnColorTxt;
+    border: 1px #colorWhite solid;
     padding-top: 2px;
     overflow: hidden;
     &:hover {
@@ -1484,7 +1498,7 @@ a {
         color: #FFF !important;
     }
     .icon {
-        font: $fontSize*1.25 $fontIcon;
+        font: $fontSize*1.15 $fontIcon;
     }
 }
 .btnTVCAEditOk.icon {
@@ -1498,6 +1512,9 @@ a {
     height: 22px;
     min-height: 22px;
     line-height: 22px;
+    background-color: $btnColorBK;
+    color: $btnColorTxt;
+    border: 1px #colorWhite solid;
     padding-top: 2px;
     overflow: hidden;
     &:hover {
@@ -1505,7 +1522,7 @@ a {
         color: #FFF !important;
     }
     .icon {
-        font: $fontSize*1.25 $fontIcon;
+        font: $fontSize*1.15 $fontIcon;
     }
 }
 .btnTVCAEditCancel.icon {
@@ -1517,6 +1534,9 @@ a {
     width: 26px;
     height: 26px;
     line-height: 26px;
+    background-color: $btnColorBK;
+    color: $btnColorTxt;
+    border: 1px #colorWhite solid;
     margin: 2px;
     padding: 2px 1px;
     overflow: hidden;
@@ -1532,7 +1552,7 @@ a {
         color: $colorGrayCoatedCool9C !important;
     }
     .icon {
-        font: $fontSize*1.4 $fontIcon;
+        font: $fontSize*1.15 $fontIcon;
     }
 }
 .btnTVCAEditDis.icon {
@@ -1987,6 +2007,7 @@ a {
             min-height: 28px !important;
             line-height: 28px !important;
             background-color: rgba(102, 102, 102, 1);
+            color: $colorWhite;
             border: 1px $colorWhite1 solid;
             margin: 0px 2px;
             padding: 4px;
@@ -2107,10 +2128,10 @@ a {
             width: 200px;
             height: auto;
             background-color: $color1Bk;
-            color: $fontColorApp;
+            color: $color1;
             font: $fontSize*0.75 $fontApp;
             word-wrap: normal;
-            border-bottom: 1px $color1 solid;
+            border-bottom: 1px $color1Bk2 solid;
             margin: 0px;
             padding: 4px;
             float: right;
@@ -2129,7 +2150,7 @@ a {
         position: relative;
         width: 200px;
         height: 118px;
-        background-color: #FFFFFF;
+        background-color: $colorWhite;
         margin: 0px;
         padding: 0px;
         overflow-x: hidden;
@@ -2141,7 +2162,7 @@ a {
             color: $color1;
             font: $fontSize*0.75 $fontApp;
             word-wrap: normal;
-            border-bottom: 1px $color1 solid;
+            border-bottom: 1px $color1Bk2 solid;
             margin: 0px;
             padding: 4px;
             float: right;
@@ -2153,7 +2174,7 @@ a {
         position: relative;
         width: 200px;
         height: 118px;
-        background-color: $color1;
+        background-color: #666666;
         margin: 0px;
         padding: 0px;
         overflow-x: hidden;
@@ -2161,19 +2182,21 @@ a {
         .packageItemPreviewTemplate {
             width: 100px;
             height: auto;
-            background-color: $color1;
+            background-color: #666666;
             color: rgba(255, 255, 255, 0.2);
             font: $fontSize*0.95 $fontYekan;
+            padding-top: 2px;
             float: right;
         }
         .templateItemPreviewTemplate {
             width: 170px;
             height: auto;
-            background-color: $color1;
+            background-color: #666666;
             color: rgba(255, 255, 255, 0.2);
             text-align: center;
             font: $fontSize*0.95 $fontYekan;
             margin: 0px auto;
+             padding-top: 2px;
             float: none;
             overflow: hidden;
         }
@@ -2189,7 +2212,7 @@ a {
                 font: $fontSize*0.65 $fontApp;
                 text-align: right;
                 word-wrap: normal;
-                border-bottom: 1px rgba(0, 0, 0, 0.15) solid;
+                border-bottom: 1px $color1Bk2 solid;
                 margin: 0px;
                 padding: 4px;
                 float: right;
@@ -2198,12 +2221,13 @@ a {
             > a {
                 width: 100%;
                 height: auto;
-                background-color: $color1;
-                color: $color1Bk;
+                background-color: #666666;
+                color: $colorWhite;
                 font: $fontSize*0.65 $fontApp;
                 text-align: right;
+                font-weight: 600;
                 word-wrap: normal;
-                border-bottom: 1px $color1 solid;
+                border-bottom: 1px transparent solid;
                 margin: 0px;
                 padding: 4px;
                 float: right;
@@ -2213,7 +2237,25 @@ a {
         
     }
 }
-
+.packageItemModel.select {
+    @extend .packageItem;
+    border: 2px $colorSuccess solid;
+    @include border-radius($borderRadius);
+    .templateItemDivider {
+        background-color: $colorSuccess !important;
+        color: $colorSuccessTxt !important;
+        .templateItemTitle {
+            color: $colorSuccessTxt !important;
+        }
+    }
+    .packageItemDivider {
+        background-color: $colorSuccess !important;
+        color: $colorSuccessTxt !important;
+        .packageItemTitle {
+            color: $colorSuccessTxt !important;
+        }
+    }
+}
 
 
 
@@ -2231,17 +2273,18 @@ a {
     z-index: 99;
     @include border-radius($borderRadius);
     .folderItemOver {
-        display: none;
+        display: block;
         position: absolute;
-        width: 0%;
+        width: 100%;
         height: 0%;
         top: 0;
         right: 0;
         background-color: rgba(255, 255, 255, 0);
-        color: $folderTxt;
+        color: $fontColorApp;
         font: $fontSize*0.75 $fontApp;
         padding: 4px;
         z-index: 999;
+        opacity: 0;
     }
     &:hover {
         .folderItemOver {
@@ -2250,9 +2293,16 @@ a {
             height: 100%;
             top: 0;
             right: 0;
-            background-color: rgba(255, 255, 255, 0.85);
+            background-color: rgba(255, 255, 255, 0.75);
             @include transition(all 0.2s ease-out, opacity 0.2s ease-out);
+            opacity: 1;
         }
+        .folderItemIcon 
+            .icon {
+                @include transform(scale(1.25));
+                @include transition(all 0.2s ease-out);
+                font: $fontSize*3.55 $fontIcon;
+            }
         cursor: pointer;
     }
     .folderItemmIcon {
@@ -2261,7 +2311,7 @@ a {
         width: 100px;
         height: 50px;
         max-height: 50px;
-        background-color: $folderTxt;
+        background-color: #666666;
         .icon {
             color: $colorWhite1;
             font: $fontSize*3.15 $fontIcon;
@@ -2275,7 +2325,7 @@ a {
         max-height: 28px;
         vertical-align: middle;
         background-color: $colorWhite1;
-        color: $folderTxt;
+        color: $fontColorApp;
         font: $fontSize*1 $fontYekan;
         border-top: 1px solid rgba(0, 0, 0, 0.1);
         padding: 3px;
@@ -2302,7 +2352,7 @@ a {
     white-space: normal;
     overflow: hidden;
     z-index: 99;
-    border: 2px $folderTxt solid;
+    border: 2px $colorSuccess solid;
     @include border-radius($borderRadius);
     .folderItemOver {
         display: none;
@@ -2317,9 +2367,9 @@ a {
         width: 100px;
         height: 50px;
         max-height: 50px;
-        background-color: $color1;
+        background-color: $colorSuccess;
         .icon {
-            color: $colorWhite1;
+            color: $colorSuccessTxt;
             font: $fontSize*3.15 $fontIcon;
         }
     }
@@ -2330,8 +2380,8 @@ a {
         height: 28px;
         max-height: 28px;
         vertical-align: middle;
-        background-color: $color1;
-        color: $colorWhite1;
+        background-color: $colorSuccess;
+        color: $colorSuccessTxt;
         font: $fontSize*1 $fontYekan;
         border-top: none;
         padding: 3px;
@@ -2360,12 +2410,13 @@ a {
     min-height: 28px !important;
     line-height: 28px !important;
     margin: 0px;
-    padding: 0px;
+    padding: 4px;
     overflow: hidden;
     display: inline-block;
     position: relative;
     .icon {
-        font: $fontSize*1 $fontIcon;
+        margin-top: 2px;
+        font: $fontSize*1.15 $fontIcon;
     }
     &:hover {
         background-color: $colorSuccess !important;
@@ -2383,6 +2434,71 @@ a {
 
 
 
+
+.headerMainSearchPlace {
+    display: block;
+    position: relative;
+    width: 100%;
+    min-width: 100%;
+    height: 32px;
+    min-height: 32px;
+    margin: 0px auto;
+    padding: 0px;
+    > * {
+        float: right;
+    }
+}
+.inputSearch {
+    @extend .formInputDefault;
+    background-color: rgba(255, 255, 255, 0.25);
+    color: #F1F1F1;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
+.editPackageBtnSearch {
+    @extend .btnDefault;
+    width: 24px;
+    min-width: 24px;
+    height: 24px;
+    min-height: 24px;
+    line-height: 24px;
+    margin: 0px 4px;
+    padding: 4px;
+    padding-top: 8px;
+    overflow: hidden;
+    .icon {
+        font: $fontSize*1.25 $fontIcon;
+    }
+}
+
+.inputTxt {
+    background-color: rgba(255, 255, 255, 0.25);
+    color: #F1F1F1;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
+.inputTxt {
+    @extend .formInputDefault;
+}
+
+
+
+.editTemplateBtnSmall {
+    @extend .btnDefault;
+    width: 26px;
+    min-width: 26px;
+    height: 26px;
+    min-height: 26px;
+    line-height: 26px;
+    margin: 0px 4px;
+    padding: 3px;
+    overflow: hidden;
+    .icon {
+        font: $fontSize*1.25 $fontIcon;
+    }
+}
 
 
 
@@ -2625,8 +2741,10 @@ a {
             line-height: auto;
             vertical-align: middle;
             background-color: transparent;
-            margin: 0px auto;
-            padding: 6px 0px;
+            margin: 3px auto;
+            padding: 0px;
+            float: none;
+            clear: both;
         }
 
         .rowSelectDefault {
@@ -2637,20 +2755,34 @@ a {
             max-width: 910px;
             height: auto;
             background-color: rgba(0, 0, 0, 0.05);
+            border: 1px transparent solid;
             @include border-radius($borderRadius);
-            margin: 0px auto;
+            margin: 3px auto;
             padding: 6px;
-            :first-child {
-                .packageItem {
-                }
-            }
-            :only-child {
-                
+            float: none;
+            clear: both;
+            &:hover {
+                border: 1px rgba(0, 0, 0, 0.05) solid;
             }
         }
         .rowSelectDefault > div:only-child {
             @include border-radius($borderRadius);
         }
+        
+        .rowEditDefault {
+            display: block;
+            position: relative;
+            width: 910px;
+            min-width: 910px;
+            max-width: 910px;
+            height: auto;
+            background-color: transparent;
+            border: none;
+            @include border-radius(0px);
+            margin: 3px auto;
+            padding: 6px;
+        }
+        
         .rowSelectTemplate {
             display: block;
             position: relative;
@@ -2659,8 +2791,9 @@ a {
             max-width: 910px;
             height: auto;
             background-color: rgba(0, 0, 0, 0.05);
+            border: 1px transparent solid;
             @include border-radius($borderRadius $borderRadius 0 0);
-            margin: 0px auto;
+            margin: 3px auto 0px;
             padding: 6px;
             :first-child {
                 .packageItem {
@@ -2668,6 +2801,9 @@ a {
             }
             :only-child {
                 
+            }
+            &:hover {
+                border: 1px rgba(0, 0, 0, 0.05) solid;
             }
         }
         .rowSelectTemplate > div:only-child {
@@ -2686,10 +2822,21 @@ a {
             font-weight: 400;
             text-align: right;
             border-top: 1px rgba(0, 0, 0, 0.05) solid;
-            margin: 0px auto;
+            margin: 0px auto 3px;
             padding: 6px;
             bottom: 0px;
             @include border-radius(0 0 $borderRadius $borderRadius);
+            .statusTitle {
+                color: $colorGrayCoatedCool7C;
+                font: $fontSize*0.85 $fontApp;
+                font-weight: 400;
+            }
+            .statusDesc {
+                line-height: 21px;
+                color: $fontColorApp;
+                font: $fontSize*0.85 $fontApp;
+                font-weight: 400;
+            }
         }
         
         .rowContentDefault {
@@ -2721,11 +2868,13 @@ a {
         .rowSelectA {
             display: block;
             position: relative;
-            width: 910px;
-            min-width: 910px;
-            max-width: 910px;
-            height: 168px;
-            background-color: rgba(0, 0, 0, 0.05);
+            width: 898px;
+            min-width: 898px;
+            max-width: 898px;
+            // height: 168px;
+            height: 178px;
+            background-color: rgba(0, 0, 0, 0);
+            border: 1px transparent solid;
             @include border-radius($borderRadius);
             margin: 0px auto;
             padding: 6px;
@@ -2733,15 +2882,19 @@ a {
             overflow-x: auto;
             overflow-y: hidden;
 
+            &:hover {
+                border: 1px rgba(0, 0, 0, 0.05) solid;
+            }
+            
             #itemList {
-                min-width: 898px;
+                min-width: 876px;
                 min-height: 156px;
                 
                 overflow-x: auto;
                 overflow-y: hidden;
             }
             #itemSelect {
-                min-width: 898px;
+                min-width: 876px;
                 min-height: 156px;
                 
                 overflow-x: auto;

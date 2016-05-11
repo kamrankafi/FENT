@@ -38,40 +38,37 @@
                 <div class="blockHeaderTitle">
                     سامانه مدیریت و پخش دی وی تال
                 </div>
-                <div class="blockHeaderDesc">
-                    لیست بسته های نمایشی ساخته شده
-                </div>
                 <div class="blockHeaderTitle">
-                    
                     <div class="row itemSpace">
                         <div class="col2">
                         </div>
                         <div class="col2">
-                            <a href="tvc-02-package.html" class="btnMenuMode">
-                                <span class="icon" data-icon="&#xe0b3;"></span>
-                                <span class="txt">لیست بسته ها</span>
+                            <a href="tvc-02-package.html" class="btnMenuMode select">
+                                <span class="icon" data-icon="1"></span>
+                                <span class="txt">بسته ها و محتوا</span>
                             </a>
                         </div>
                         <div class="col2">
-                        <a href="tvc-03-packageNew.html" class="btnMenuMode select">
-                            <span class="icon" data-icon="&#xe05b;"></span>
-                            <span class="txt">ساخت بسته جدید</span>
+                        <a href="tvc-07-template.html" class="btnMenuMode ">
+                            <span class="icon" data-icon="&#xe29c;"></span>
+                            <span class="txt">قالب ها و ویرایش</span>
                         </a>
                         </div>
                         <div class="col2">
-                        <a href="tvc-04-packageAdd.html" class="btnMenuMode">
-                            <span class="icon" data-icon="&#xe02e;"></span>
-                            <span class="txt">ویرایش قالب</span>
+                        <a href="#" class="btnMenuMode">
+                            <span class="icon" data-icon="&#xe1f7;"></span>
+                            <span class="txt">سیستم های نمایش</span>
                         </a>
                         </div>
                         <div class="col2">
-                        <a href="tvc-01-login.html" class="btnMenuMode">
-                            <span class="icon" data-icon="&#xe007;"></span>
-                            <span class="txt">خروج از سیستم</span>
-                        </a>
+                            <input class="inputSearch" type="search" placeholder="جســــتجو">
+                        </div>
+                        <div class="blockHeaderBtnLogout">
+                            <a href="tvc-01-login.html" class="btnMenuModeSmallLogout">
+                                <span class="icon" data-icon="&#xe265;"></span>
+                            </a>
                         </div>
                     </div>
-                    
                 </div>
             </div>
             
@@ -95,222 +92,334 @@
         <div class="rowContentForm">
             
             
-            
-            
-            
-            
-         <div class="row rowSelectHeader">
-            <div class="editPackageTitle">1.
-                اطلاعات بسته جدید
+            <div class="row rowSelectHeader">
+                <div class="col6 editPackageBtnPlace">
+                    <div class="col4">
+                        <a href="tvc-02-package.html" class="btnMenuMode">
+                            <span class="icon" data-icon="&#xe04d;"></span>
+                            <span class="txt">بازگشت</span>
+                        </a>
+                    </div>
+                </div>
             </div>
-        </div>
+            
+            
+            <div class="rowSelectDefault">
+                 <div class="row rowSelectHeader">
+                    <div class="editPackageTitle">1.
+                        اطلاعات بسته جدید
+                    </div>
+                </div>
+                <div class="row itemSpace">
+                    <div class="col4">
+                        <input class="formInputDefault" type="text" placeholder="نام بسته">
+                    </div>
+                </div>
+                <div class="row itemSpace">
+                    <input class="formInputDefault" type="text" placeholder="توضیحات">
+                </div>
+            </div>
         
-        <div class="row itemSpace">
-            <div class="col4">
-                <input class="formInputDefault" type="text" placeholder="نام بسته">
-            </div>
-        </div>
-        <div class="row itemSpace">
-            <input class="formInputDefault" type="text" placeholder="توضیحات">
-        </div>
-        
-        <div class="row rowSelectHeader">
-            <div class="editPackageTitle">2.
-                انتخاب نوع بسته
-            </div>
-        </div>
-        
-        <div class="row itemSpace">
-            <div class="col3"></div>
-            <div class="col2">
-                <img src="images/packageModel01.png" alt="">
-            </div>
-            <div class="col2">
-                <img src="images/packageModel02.png" alt="">
-            </div>
-            <div class="col2">
-                <img src="images/packageModel03.png" alt="">
-            </div>
-        </div>
-        <div class="row itemSpace">
-            <div class="col3"></div>
-            <div class="col2">
-                <input id="Radio1" type="radio" name="packageNewModel" value="1" checked>
-                <label for="Radio1" onclick="">عکس</label>
-            </div>
-            <div class="col2">
-                <input id="Radio2" type="radio" name="packageNewModel" value="2">
-                <label for="Radio2" onclick="">فیلم</label>
-            </div>
-            <div class="col2">
-                <input id="Radio3" type="radio" name="packageNewModel" value="3">
-                <label for="Radio3" onclick="">متن</label>
-            </div>
-        </div>
-            
-        <div class="row rowSelectHeader">
-            <div class="editPackageTitle">3.
-                انتخاب و آپلود تصاویر
-            </div>
-        </div>
-        <div class="row itemSpace">
-            <div class="col4">
-                <div class="fileUpload" style="width: 100%;">
-                    <div class="fileUpload btnDefaultFile btnFormUp" style="width: 100%;">
-                        <span>انتخاب فایل های تصویری</span>
-                        <input id="uploadBtn" type="file" class="upload" />
+            <div class="rowSelectDefault">
+                <div class="row rowSelectHeader">
+                    <div class="editPackageTitle">2.
+                        انتخاب نوع بسته
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="row rowContentDefault rowSelectDefault">
-            
-            <div class="itemPreviewPlace">
-                <div class="itemPreviewThumb">
-                    <div class="itemPreviewThumbBtn">
-                        <a class="btnTVCAEditCancel">
-                            <span class="icon" data-icon="&#xe0da;"></span>
-                        </a>
+                <div class="row itemSpace">
+                    <div class="col3"></div>
+                    <div class="col2">
+                        <img src="images/packageModel01.png" alt="">
                     </div>
-                    <img src='slide/food01.jpg' >
-                </div>
-                <div class="itemPreviewThumb">
-                    <div class="itemPreviewThumbBtn">
-                        <a class="btnTVCAEditCancel">
-                            <span class="icon" data-icon="&#xe0da;"></span>
-                        </a>
+                    <div class="col2">
+                        <img src="images/packageModel02.png" alt="">
                     </div>
-                    <img src='slide/food02.jpg' >
-                </div>
-                <div class="itemPreviewThumb">
-                    <div class="itemPreviewThumbBtn">
-                        <a class="btnTVCAEditCancel">
-                            <span class="icon" data-icon="&#xe0da;"></span>
-                        </a>
+                    <div class="col2">
+                        <img src="images/packageModel03.png" alt="">
                     </div>
-                    <img src='slide/food03.jpg' >
                 </div>
-                <div class="itemPreviewThumb">
-                    <div class="itemPreviewThumbBtn">
-                        <a class="btnTVCAEditCancel">
-                            <span class="icon" data-icon="&#xe0da;"></span>
-                        </a>
+                <div class="row itemSpace">
+                    <div class="col3"></div>
+                    <div class="col2">
+                        <input id="Radio1" type="radio" name="packageNewModel" value="1" checked>
+                        <label for="Radio1" onclick="">عکس</label>
                     </div>
-                    <img src='slide/food01.jpg' >
-                </div>
-                <div class="itemPreviewThumb">
-                    <div class="itemPreviewThumbBtn">
-                        <a class="btnTVCAEditCancel">
-                            <span class="icon" data-icon="&#xe0da;"></span>
-                        </a>
+                    <div class="col2">
+                        <input id="Radio2" type="radio" name="packageNewModel" value="2">
+                        <label for="Radio2" onclick="">فیلم</label>
                     </div>
-                    <img src='slide/food02.jpg' >
-                </div>
-                <div class="itemPreviewThumb">
-                    <div class="itemPreviewThumbBtn">
-                        <a class="btnTVCAEditCancel">
-                            <span class="icon" data-icon="&#xe0da;"></span>
-                        </a>
+                    <div class="col2">
+                        <input id="Radio3" type="radio" name="packageNewModel" value="3">
+                        <label for="Radio3" onclick="">متن</label>
                     </div>
-                    <img src='slide/food03.jpg' >
                 </div>
-                <div class="itemPreviewThumb">
-                    <div class="itemPreviewThumbBtn">
-                        <a class="btnTVCAEditCancel">
-                            <span class="icon" data-icon="&#xe0da;"></span>
-                        </a>
-                    </div>
-                    <img src='slide/food01.jpg' >
-                </div>
-                <div class="itemPreviewThumb">
-                    <div class="itemPreviewThumbBtn">
-                        <a class="btnTVCAEditCancel">
-                            <span class="icon" data-icon="&#xe0da;"></span>
-                        </a>
-                    </div>
-                    <img src='slide/food02.jpg' >
-                </div>
-                <div class="itemPreviewThumb">
-                    <div class="itemPreviewThumbBtn">
-                        <a class="btnTVCAEditCancel">
-                            <span class="icon" data-icon="&#xe0da;"></span>
-                        </a>
-                    </div>
-                    <img src='slide/food03.jpg' >
-                </div>
-                <div class="itemPreviewThumb">
-                    <div class="itemPreviewThumbBtn">
-                        <a class="btnTVCAEditCancel">
-                            <span class="icon" data-icon="&#xe0da;"></span>
-                        </a>
-                    </div>
-                    <img src='slide/food01.jpg' >
-                </div>
-                <div class="itemPreviewThumb">
-                    <div class="itemPreviewThumbBtn">
-                        <a class="btnTVCAEditCancel">
-                            <span class="icon" data-icon="&#xe0da;"></span>
-                        </a>
-                    </div>
-                    <img src='slide/food02.jpg' >
-                </div>
-                <div class="itemPreviewThumb">
-                    <div class="itemPreviewThumbBtn">
-                        <a class="btnTVCAEditCancel">
-                            <span class="icon" data-icon="&#xe0da;"></span>
-                        </a>
-                    </div>
-                    <img src='slide/food03.jpg' >
-                </div>
-                
             </div>
             
-            
-        </div>
-        
-            
-        
-            
-        
-        
-        <div class="row rowSelectHeader">
-            <div class="editPackageTitle">3.
-                انتخاب و آپلود ویدیو
-            </div>
-        </div>
-        <div class="row itemSpace">
-            <div class="col4">
-                <div class="fileUpload" style="width: 100%;">
-                    <div class="fileUpload btnDefaultFile btnFormUp" style="width: 100%;">
-                        <span>انتخاب فایل های ویدیو</span>
-                        <input id="uploadBtn" type="file" class="upload" />
+            <div class="rowSelectDefault">
+                <div class="row rowSelectHeader">
+                    <div class="editPackageTitle">3.
+                        انتخاب و آپلود تصاویر
                     </div>
                 </div>
+                <div class="row itemSpace">
+                    <div class="col4">
+                        <div class="fileUpload" style="width: 100%;">
+                            <div class="fileUpload btnDefaultFile btnFormUp" style="width: 100%;">
+                                <span>انتخاب فایل های تصویری</span>
+                                <input id="uploadBtn" type="file" class="upload" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row rowEditDefault">
+
+                    <div class="itemPreviewPlace">
+                        <div class="itemPreviewThumb">
+                            <div class="itemPreviewThumbBtn">
+                                <a class="btnTVCAEditCancel">
+                                    <span class="icon" data-icon="&#xe0da;"></span>
+                                </a>
+                            </div>
+                            <img src='slide/food01.jpg' >
+                        </div>
+                        <div class="itemPreviewThumb">
+                            <div class="itemPreviewThumbBtn">
+                                <a class="btnTVCAEditCancel">
+                                    <span class="icon" data-icon="&#xe0da;"></span>
+                                </a>
+                            </div>
+                            <img src='slide/food02.jpg' >
+                        </div>
+                        <div class="itemPreviewThumb">
+                            <div class="itemPreviewThumbBtn">
+                                <a class="btnTVCAEditCancel">
+                                    <span class="icon" data-icon="&#xe0da;"></span>
+                                </a>
+                            </div>
+                            <img src='slide/food03.jpg' >
+                        </div>
+                        <div class="itemPreviewThumb">
+                            <div class="itemPreviewThumbBtn">
+                                <a class="btnTVCAEditCancel">
+                                    <span class="icon" data-icon="&#xe0da;"></span>
+                                </a>
+                            </div>
+                            <img src='slide/food01.jpg' >
+                        </div>
+                        <div class="itemPreviewThumb">
+                            <div class="itemPreviewThumbBtn">
+                                <a class="btnTVCAEditCancel">
+                                    <span class="icon" data-icon="&#xe0da;"></span>
+                                </a>
+                            </div>
+                            <img src='slide/food02.jpg' >
+                        </div>
+                        <div class="itemPreviewThumb">
+                            <div class="itemPreviewThumbBtn">
+                                <a class="btnTVCAEditCancel">
+                                    <span class="icon" data-icon="&#xe0da;"></span>
+                                </a>
+                            </div>
+                            <img src='slide/food03.jpg' >
+                        </div>
+                        <div class="itemPreviewThumb">
+                            <div class="itemPreviewThumbBtn">
+                                <a class="btnTVCAEditCancel">
+                                    <span class="icon" data-icon="&#xe0da;"></span>
+                                </a>
+                            </div>
+                            <img src='slide/food01.jpg' >
+                        </div>
+                        <div class="itemPreviewThumb">
+                            <div class="itemPreviewThumbBtn">
+                                <a class="btnTVCAEditCancel">
+                                    <span class="icon" data-icon="&#xe0da;"></span>
+                                </a>
+                            </div>
+                            <img src='slide/food02.jpg' >
+                        </div>
+                        <div class="itemPreviewThumb">
+                            <div class="itemPreviewThumbBtn">
+                                <a class="btnTVCAEditCancel">
+                                    <span class="icon" data-icon="&#xe0da;"></span>
+                                </a>
+                            </div>
+                            <img src='slide/food03.jpg' >
+                        </div>
+                        <div class="itemPreviewThumb">
+                            <div class="itemPreviewThumbBtn">
+                                <a class="btnTVCAEditCancel">
+                                    <span class="icon" data-icon="&#xe0da;"></span>
+                                </a>
+                            </div>
+                            <img src='slide/food01.jpg' >
+                        </div>
+                        <div class="itemPreviewThumb">
+                            <div class="itemPreviewThumbBtn">
+                                <a class="btnTVCAEditCancel">
+                                    <span class="icon" data-icon="&#xe0da;"></span>
+                                </a>
+                            </div>
+                            <img src='slide/food02.jpg' >
+                        </div>
+                        <div class="itemPreviewThumb">
+                            <div class="itemPreviewThumbBtn">
+                                <a class="btnTVCAEditCancel">
+                                    <span class="icon" data-icon="&#xe0da;"></span>
+                                </a>
+                            </div>
+                            <img src='slide/food03.jpg' >
+                        </div>
+
+                    </div>
+
+
+                </div>
             </div>
-        </div>
-        <div class="row rowContentDefault">
-            videoList
-        </div>
+
         
             
         
-            
-            
-            
-        <div class="row rowSelectHeader">
-            <div class="editPackageTitle">3.
-                ورود اطلاعات متنی
+            <div class="rowSelectDefault">
+                <div class="row rowSelectHeader">
+                    <div class="editPackageTitle">3.
+                        انتخاب و آپلود ویدیو
+                    </div>
+                </div>
+                <div class="row itemSpace">
+                    <div class="col4">
+                        <div class="fileUpload" style="width: 100%;">
+                            <div class="fileUpload btnDefaultFile btnFormUp" style="width: 100%;">
+                                <span>انتخاب فایل های ویدیو</span>
+                                <input id="uploadBtn" type="file" class="upload" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row rowEditDefault">
+
+                            <div class="itemPreviewPlace">
+                                <div class="itemPreviewThumb">
+                                    <div class="itemPreviewThumbBtn">
+                                        <a class="btnTVCAEditCancel">
+                                            <span class="icon" data-icon="&#xe0da;"></span>
+                                        </a>
+                                    </div>
+                                    <img src='slide/food01.jpg' >
+                                </div>
+                                <div class="itemPreviewThumb">
+                                    <div class="itemPreviewThumbBtn">
+                                        <a class="btnTVCAEditCancel">
+                                            <span class="icon" data-icon="&#xe0da;"></span>
+                                        </a>
+                                    </div>
+                                    <img src='slide/food02.jpg' >
+                                </div>
+                                <div class="itemPreviewThumb">
+                                    <div class="itemPreviewThumbBtn">
+                                        <a class="btnTVCAEditCancel">
+                                            <span class="icon" data-icon="&#xe0da;"></span>
+                                        </a>
+                                    </div>
+                                    <img src='slide/food03.jpg' >
+                                </div>
+                                <div class="itemPreviewThumb">
+                                    <div class="itemPreviewThumbBtn">
+                                        <a class="btnTVCAEditCancel">
+                                            <span class="icon" data-icon="&#xe0da;"></span>
+                                        </a>
+                                    </div>
+                                    <img src='slide/food01.jpg' >
+                                </div>
+                                <div class="itemPreviewThumb">
+                                    <div class="itemPreviewThumbBtn">
+                                        <a class="btnTVCAEditCancel">
+                                            <span class="icon" data-icon="&#xe0da;"></span>
+                                        </a>
+                                    </div>
+                                    <img src='slide/food02.jpg' >
+                                </div>
+                                <div class="itemPreviewThumb">
+                                    <div class="itemPreviewThumbBtn">
+                                        <a class="btnTVCAEditCancel">
+                                            <span class="icon" data-icon="&#xe0da;"></span>
+                                        </a>
+                                    </div>
+                                    <img src='slide/food03.jpg' >
+                                </div>
+                                <div class="itemPreviewThumb">
+                                    <div class="itemPreviewThumbBtn">
+                                        <a class="btnTVCAEditCancel">
+                                            <span class="icon" data-icon="&#xe0da;"></span>
+                                        </a>
+                                    </div>
+                                    <img src='slide/food01.jpg' >
+                                </div>
+                                <div class="itemPreviewThumb">
+                                    <div class="itemPreviewThumbBtn">
+                                        <a class="btnTVCAEditCancel">
+                                            <span class="icon" data-icon="&#xe0da;"></span>
+                                        </a>
+                                    </div>
+                                    <img src='slide/food02.jpg' >
+                                </div>
+                                <div class="itemPreviewThumb">
+                                    <div class="itemPreviewThumbBtn">
+                                        <a class="btnTVCAEditCancel">
+                                            <span class="icon" data-icon="&#xe0da;"></span>
+                                        </a>
+                                    </div>
+                                    <img src='slide/food03.jpg' >
+                                </div>
+                                <div class="itemPreviewThumb">
+                                    <div class="itemPreviewThumbBtn">
+                                        <a class="btnTVCAEditCancel">
+                                            <span class="icon" data-icon="&#xe0da;"></span>
+                                        </a>
+                                    </div>
+                                    <img src='slide/food01.jpg' >
+                                </div>
+                                <div class="itemPreviewThumb">
+                                    <div class="itemPreviewThumbBtn">
+                                        <a class="btnTVCAEditCancel">
+                                            <span class="icon" data-icon="&#xe0da;"></span>
+                                        </a>
+                                    </div>
+                                    <img src='slide/food02.jpg' >
+                                </div>
+                                <div class="itemPreviewThumb">
+                                    <div class="itemPreviewThumbBtn">
+                                        <a class="btnTVCAEditCancel">
+                                            <span class="icon" data-icon="&#xe0da;"></span>
+                                        </a>
+                                    </div>
+                                    <img src='slide/food03.jpg' >
+                                </div>
+
+                            </div>
+
+
+                        </div>
             </div>
-        </div>
-        <div class="row itemSpace">
-            <div class="col11">
-                <input class="formInputDefault" type="text" placeholder="توضیحات">
-            </div>
-            <div class="col1 itemSpace">
-                <a class="btnSmallOk"><span class="icon" data-icon="&#xe05b;"></span></a>
-            </div>
-        </div>
             
+        
+            
+            
+            <div class="rowSelectDefault">
+                <div class="row rowSelectHeader">
+                    <div class="editPackageTitle">3.
+                        ورود اطلاعات متنی
+                    </div>
+                </div>
+                <div class="row itemSpace">
+                    <div class="col11">
+                        <input class="formInputDefault" type="text" placeholder="توضیحات">
+                    </div>
+                    <div class="col1 itemSpace">
+                        <a class="btnSmallOk"><span class="icon" data-icon="&#xe05b;"></span></a>
+                    </div>
+                </div>
+            </div>
         
         
             
@@ -333,14 +442,6 @@
                 </div>
             </div>
             
-        
-            
-        
-        
-            
-        </div>
-
-        <div class="rowContentForm">
         
             
         
