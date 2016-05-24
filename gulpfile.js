@@ -77,6 +77,7 @@ gulp.task('connect', function () {
 gulp.task('livereload', function () {
     gulp.src([basePaths.src + '*.html',
               basePaths.src + 'stylesheets/*.css',
+              basePaths.src + 'tv/*.html',
               basePaths.src + 'css/*.css',
               basePaths.src + 'scripts/*.js'])
         .pipe(watch())
@@ -87,6 +88,7 @@ gulp.task('livereload', function () {
 // HTML task
 gulp.task('html', function () {
     gulp.src([basePaths.src + '*.html',
+              basePaths.src + 'tv/*.html',
               paths.uploader + '*.html',
               paths.grid + '*.html',
               paths.singlePage + '*.html'

@@ -1,13 +1,15 @@
 /* UI/UX: RohanIT.ir */
 /* طراحی رابط و تجربه کاربری فن آوری اطلاعات روهان */
 @charset "utf-8";
+
 @import "compass/reset";
 @import "compass/utilities";
 @import "fonts";
 @import "colors";
+
 /* Grid Setup */
 /* Define Some Variables */
-$limitTol : 976px;
+$limitWidth : 976px;
 $columnWidth : 8;
 $column : 12;
 $columnGutter : (100 - ($columnWidth * $column)) / ($column - 1);
@@ -16,21 +18,31 @@ img {
 	max-width: 100%;
 	height: auto;
 }
+.limit {
+	position: relative;
+	@include pie-clearfix;
+    padding: 0 .5em;
+}
+.row {
+	position: relative;
+    width: 100%;
+	max-width: $limitWidth;
+	@include pie-clearfix;
+    margin: 0 auto;
+}
 .full {
 	position: relative;
 	width: 100%;
-}
-.limit {
-	padding: 0 .5em;
-	position: relative;
-	@include pie-clearfix;
-}
-.row {
-	width: 100%;
-	margin: 0 auto;
-	position: relative;
-	max-width: $limitTol;
-	@include pie-clearfix;
+    @include pie-clearfix;
+    margin: 0 auto;
+    padding: 0 .5em;
+    .row {
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        @include pie-clearfix;
+        margin: 0 auto;
+    }
 }
 /* Select all element that contains class 'col' */
 // Select all element that contains class 'col'
@@ -122,3 +134,6 @@ $breakpoint-wide: 1440px;
 body {
 }
 }
+
+
+

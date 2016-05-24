@@ -39,14 +39,31 @@
 </notify-fix> <!-- /notify-fix place show -->
 
 <div class="limit">
+    <div class="row block">
+
+        <div class="col12 blockHeader">
+
+            <div class="row headerBK">
+                <div class="col4">
+                </div>
+                <div class="col4 headerLogoPlace">
+                    <img class="logoDivital" src="images/logo-divital.svg" alt="DIVITAL Control Panel">
+                </div>
+                <div class="col4">
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+</div>
+        
+<div class="limit">
 	<div class="row block">
         
     	<div class="col12 blockHeaderType">
             
             <div class="blockHeaderPlace">
-                <div class="blockHeaderTitle">
-                    سامانه مدیریت و پخش دی وی تال
-                </div>
                 <div class="blockHeaderTitle">
                     <div class="row itemSpace">
                         <div class="col2">
@@ -331,7 +348,7 @@
                             woeid: '',
                             unit: 'c',
                             success: function(weather) {
-                              html = '<div class="wi"><i class="wi-'+weather.code+'"></i></div><span class="cw">'+weather.temp+'</span><span class="cc">'+'&deg;'+weather.units.temp+'</span>';
+                              html = '<div class="wi"><i class="wi-'+weather.code+'"></i></div><div><span class="cw">'+weather.temp+'</span><span class="cc">'+'&deg;'+weather.units.temp+'</span></div>';
 
                               $(".weather").html(html);
                             },

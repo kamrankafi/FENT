@@ -1,9 +1,12 @@
 /* UI/UX: RohanIT.ir */
 /* طراحی رابط و تجربه کاربری فن آوری اطلاعات روهان */
 @charset "utf-8";
+
+@import "compass/css3";
 @import "base";
 @import "notify";
-@import "compass/css3";
+@import "checkbox";
+@import "tv";
 
 $fontApp : $fontMirza;
 
@@ -19,7 +22,7 @@ body.ui {
 	background-image: url(../images/bkUI.jpg);
 }
 
-$bkUrlTVC : '../images/bkDefaultBlack.jpg';
+$bkUrlTVC : '../images/bkPattern04.png';
 body.tvc:before {
 	width: 100%;
     height: 100%;
@@ -30,11 +33,11 @@ body.tvc:before {
 	right: 0;
 	display: block;
 	
-    background-color: transparent;
-	background-image: url();
-	background-repeat: no-repeat;
+    background-color: #315585;
+	background-image: url($bkUrlTVC);
+	background-repeat: repeat;
 	background-position: center center;
-	background-size: cover;
+	background-size: auto;
 	
 	-webkit-filter: blur(1px) grayscale(5%);
 	-moz-filter: blur(1px) grayscale(5%);
@@ -54,52 +57,12 @@ body.tvc {
     height: 100%;
     background-color: $colorWhite;
 }
-
-$bkUrlTVCPreview : '';
-body.tvcPre:before {
+body.tvc .loginPage {
+    display: block;
+    position: relative;
 	width: 100%;
     height: 100%;
-	content: "";
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	display: block;
-
-    background-color: #000000;
-	background-image: url($bkUrlTVCPreview);
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: cover;
-
-	-webkit-filter: blur(0px) grayscale(0%);
-	-moz-filter: blur(0px) grayscale(0%);
-	-o-filter: blur(0px) grayscale(0%);
-	-ms-filter: blur(0px) grayscale(0%);
-	filter: blur(0px) grayscale(0%);
-
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-	filter: alpha(opacity=0);
-	-moz-opacity: 0;
-	-khtml-opacity: 0;
-	opacity: 0;
-	z-index: -1;
-
-    overflow: hidden;
-}
-body.tvcPre {
-	width: 100%;
-	height: 100%;
-    background-color: #000000;
-	color: $colorWhite1;
-	font: 0.625em/1em $fontApp;
-	font-weight: normal;
-	line-height: 1.75 !important;
-	letter-spacing: 0;
-	margin: 0;
-	padding: 0;
-
-    overflow: scroll;
+    background-color: $colorWhite;
 }
 
 
@@ -126,481 +89,6 @@ a[disabled] {
 
 
 
-.ui {
-    a {
-        background-color: $color8;
-        color: darken($color8, 32);
-        text-decoration: none;
-        padding: 0px 4px;
-        @include transition(all 0.15s ease);
-        &:hover {
-            background-color: #444444;
-            color: $color8;
-            cursor: pointer;
-        }
-    }
-}
-.uiBtnIcon {
-	display: block;
-	position: relative;
-	width: 100%;
-    height: auto;
-    line-height: auto;
-    vertical-align: middle;
-    background-color: transparent !important;
-	color: $colorWhite !important;
-	font: 1em/1em $fontYekan;
-    font-weight: 600;
-    text-align: center;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border: none;
-    margin: 0;
-    padding: 0;
-    .icon {
-        display: inline-block;
-        font: 1.5em/1em $fontIcon;
-		text-align: center;
-        height: auto;
-        line-height: auto;
-        vertical-align: middle;
-        margin: 0;
-        padding: 0;
-    }
-	&:hover {
-        background-color: $colorWhite !important;
-        color: $color8TxtDark !important;
-		@include box-shadow(inset 1px 1px 1px rgba(255, 255, 255, 0.3), 0 2px 2px rgba(0, 0, 0, 0.15), 0 1px 2px -2px rgba(0, 0, 0, 0.2));
-		cursor: pointer;
-	}
-}
-.uiBtnIcon.icon {
-    display: inline-block;
-    font: 1.5em/1em $fontIcon;
-	text-align: center;
-    height: auto;
-    line-height: auto;
-    vertical-align: middle;
-    margin: 0;
-    padding: 0;
-}
-.uiBtnAction {
-	@extend .uiBtnIcon;
-	width: 24px;
-	height: 24px;
-    line-height: 24px;
-    vertical-align: middle;
-	@include border-radius($borderRadiusBtn);
-	&:hover {
-		background-color: $color8 !important;
-		color: $color8TxtDark !important;
-		cursor: pointer;
-		/*@include box-shadow(0px 0px 0px rgba(0,0,0,0));*/
-		@include transition(all 0.07s linear);
-		-webkit-transform: scale(1.2);
-		-moz-transform: scale(1.2);
-		-o-transform: scale(1.2);
-	}
-	.icon {
-		text-align: center;
-		&:hover {
-		}
-    }
-}
-.uiBtnActionHeader {
-    @extend .uiBtnAction;
-    float: left !important;
-    margin-top: 14px;
-    margin-right: 8px;
-}
-.uiBtnActionFooter {
-    @extend .uiBtnAction;
-}
-.uiHeader {
-    display: block;
-    position: relative;
-    height: auto;
-	vertical-align: middle;
-	background-color: rgba(0,0,0,0.45);
-	overflow: hidden;
-}
-.uiHeaderLink {
-    color: $colorWhite;
-    font: 0.75em/1em $fontApp;
-    text-align: left;
-    margin-top: 8px;
-    a, a:visited {
-        background-color: transparent;
-        color: $colorWhite;
-        &:hover {
-            background-color: $color8;
-            color: $color8TxtDark;
-            cursor: pointer;
-        }
-    }
-}
-.uiBlock {
-	color: $fontColor1;
-	font: 1.3em/1em $fontApp;
-	line-height: 1.45;
-	.title {
-		color: $colorWhite;
-		font: 1.5em/1em $fontAppTitle;
-		font-weight: 600;
-		line-height: 1.85;
-		.titleLogo {
-			width: 55px;
-			height: 55px;
-			line-height: 55px;
-			vertical-align: middle;
-			margin: 5px 0 0 25px;
-		}
-		.titleTxt {
-			width: auto;
-			height: 17px;
-			line-height: 17px;
-			vertical-align: middle;
-            margin: 19px 0 0 0;
-		}
-		.ver {
-			width: auto;
-			height: 17px;
-			line-height: 17px;
-			vertical-align: middle;
-			color: rgba(255,255,255,0.25);
-			font: 0.55em/1em $fontApp;
-			margin: 25px 15px 0 0;
-            padding: 0;
-		}
-        .desc {
-			width: auto;
-			height: 17px;
-			line-height: 17px;
-			vertical-align: middle;
-			color: rgba(255,255,255,0.65);
-			font: 0.55em/1em $fontApp;
-			margin: 4px 0;
-		}
-		.txtSpace {
-			margin: 2px 4px;
-			padding: 2px 4px;
-		}
-		a, a:visited {
-			background-color: transparent;
-			color: $colorWhite;
-			&:hover {
-				background-color: transparent;
-				color: $colorWhite;
-				cursor: pointer;
-			}
-		}
-		&:hover {
-		}
-	}
-	.desc {
-		color: $colorGrayDark;
-		font: 1.1em/1em $fontApp;
-	}
-	.desctitleCustom {
-		@extend .desc;
-		font: 0.9em/1em $fontApp;
-		text-align: left;
-		margin: 14px 0 0 0;
-		float: left;
-		.btnActionPlace {
-			text-align: left;
-			margin: 0 4px 0 0;
-			float: left;
-		}
-		.txtCustom {
-			text-align: center;
-			margin: 6px 4px 0 0;
-			padding: 0px 8px;
-			float: left;
-		}
-		.btnActionPlaceDesc {
-			display: inline-block;
-			position: relative;
-			width: 125px;
-			text-align: center;
-			margin: 0 4px 0 0;
-			float: left;
-			a {
-				.icon {
-					padding-right: 3px;
-				}
-				.txtDesc {
-					display: inline-block;
-					position: relative;
-					width: 105px;
-					top: -4px;
-					font: 0.6em/1em $fontApp;
-					text-align: right;
-					margin-top: -6px;
-					padding: 0px 12px;
-				}
-				&:hover {
-					.txtDesc {
-						color: $colorWhite;
-					}
-				}
-			}
-		}
-		
-	}
-	.desctitleCustomFooter {
-		@extend .desc;
-		font: 0.9em/1em $fontApp;
-		margin: 3px 0 0 0;
-		.btnActionPlace {
-			margin: 0 4px 0 0;
-		}
-		.txtCustomFooter {
-			text-align: center;
-			margin: 6px 4px 0 0;
-			padding: 0px 8px 0px;
-			float: right;
-		}
-	}
-}
-.uiBlockContent {
-	background-color: rgba(0, 0, 0, 0.45);
-	color: $colorWhite;
-    font: 0.95em/1em $fontApp;
-    line-height: 1.55;
-	margin: 6px 0px;
-    margin-bottom: 62px;
-    @include border-radius($borderRadius);
-    h1 {
-        font: 1.25em/1em $fontYekan;
-        line-height: 1.65;
-    }
-    h2 {
-        font: 1.15em/1em $fontYekan;
-        line-height: 1.55;
-    }
-    h3 {
-        font: 1.05em/1em $fontYekan;
-        line-height: 1.45;
-    }
-    .line {
-        height: 2px;
-        border-color: rgba(0, 0, 0, 0.15);
-        border-top: 1px rgba(0, 0, 0, 0.15) solid;
-        border-bottom: 1px rgba(255, 255, 255, 0.25) solid;;
-        margin: 6px 0;
-    }
-    .uiModelLogin {
-        background-color: transparent;
-        color: $colorWhite;
-        padding: 6px;
-        .title {
-            background-color: $color1;
-            color: $colorWhite;
-            font: 1.35em/1em $fontYekan;
-            font-weight: 600;
-            line-height: 1.75;
-            padding: 4px;
-            @include border-radius($borderRadius);
-        }
-        hr {
-            border-color: rgba(255, 255, 255, 0.35);
-        }
-    }
-    .uiModel {
-        background-color: transparent;
-        color: $colorWhite;
-        padding: 6px;
-        .title {
-            color: $colorWhite;
-            font: 1.35em/1em $fontYekan;
-            font-weight: 600;
-            line-height: 1.75;
-        }
-        hr {
-            border-color: rgba(255, 255, 255, 0.35);
-        }
-    }
-    .uiModel1 {
-        background-color: rgba(255, 255, 255, 0.85);
-        color: $fontColorApp;
-        padding: 6px;
-        .title {
-            color: $fontColorApp;
-            font: 1.35em/1em $fontYekan;
-            font-weight: 600;
-            line-height: 1.75;
-        }
-    }
-    .uiModel2 {
-        background-color: rgba(0, 0, 0, 0.45);
-        color: $colorWhite;
-        padding: 6px;
-        .title {
-            color: $colorWhite;
-            font: 1.35em/1em $fontYekan;
-            font-weight: 600;
-            line-height: 1.75;
-        }
-        hr {
-            border-color: rgba(255, 255, 255, 0.35);
-        }
-    }
-}
-.uiBlockContent.full {
-    height: 100vh;
-    margin-bottom: 62px;
-}
-.uiBlockMenuBlank {
-    display: block;
-    position: relative;
-    list-style: none;
-    width: 976px;
-	height: 3px;
-	line-height: 3px;
-	vertical-align: middle;
-    background-color: $bkColorDark;
-	color: $colorWhite;
-}
-.uiBlockMenuWrapBlank {
-    display: block;
-    position: relative;
-    list-style: none;
-    width: 100%;
-	height: 3px;
-	line-height: 3px;
-	vertical-align: middle;
-    background-color: $bkColorDark;
-	color: $colorWhite;
-    border-bottom: 2px $color8 solid;
-    @include transition(all 0.23s ease);
-    margin: 0;
-    padding: 0;
-    z-index: 999;
-    .uiBlockMenu {
-        height: 3px;
-        line-height: 3px;
-        border-bottom: 2px $color8 solid;
-        li {
-            display: block;
-            position: relative;
-            width: 122px;
-            height: 3px;
-            line-height: 3px;
-        }
-    }
-}
-.uiBlockMenu {
-    display: block;
-    position: relative;
-    list-style: none;
-    width: 976px;
-	height: 56px;
-	line-height: 56px;
-	vertical-align: middle;
-    background-color: $bkColorDark;
-	color: $colorWhite;
-    text-align: center;
-    @include transition(all 0.23s ease);
-    margin: 0px auto;
-    padding: 0;
-    z-index: 999;
-    li {
-        display: block;
-        position: relative;
-        width: 122px;
-        height: 56px;
-        line-height: 56px;
-        vertical-align: middle;
-        font: 0.9em/1em $fontYekan;
-        text-align: center;
-        margin: 0;
-        padding: 0;
-        float: right;
-        a, a:link, a:visited {
-            display: block;
-            position: relative;
-            width: 122px;
-            height: 100%;
-            vertical-align: middle;
-            background-color: transparent;
-            color: rgba(255, 255, 255, 0.85);
-            text-align: center;
-            padding: 0 8px;
-            &:hover {
-                height: 100%;
-                background-color: $color8;
-                color: $color8TxtDark;
-                cursor: pointer;
-            }
-        }
-    }
-}
-.uiBlockMenu.sticky {
-    display: block;
-    position: fixed;
-    width: 100%;
-    top: 0;
-	height: 22px;
-	line-height: 22px;
-    margin: 0px auto;
-}
-.uiBlockMenuPlace {
-    background-color: $bkColorDark;
-    width: 100%;
-    margin: 0px auto;
-}
-.uiBlockMenuWrap {
-    display: block;
-    position: relative;
-    list-style: none;
-    width: 100%;
-	height: 56px;
-	line-height: 56px;
-	vertical-align: middle;
-    background-color: $bkColorDark;
-	color: $colorWhite;
-    border-bottom: 2px $color8 solid;
-    @include transition(all 0.23s ease);
-    margin: 0;
-    padding: 0;
-    z-index: 999;
-    .uiBlockMenu {
-        height: 56px;
-        line-height: 56px;
-        border-bottom: 2px $color8 solid;
-        li {
-            display: block;
-            position: relative;
-            width: 122px;
-            height: 56px;
-            line-height: 56px;
-        }
-    }
-}
-.uiBlockMenuWrap.sticky {
-    display: block;
-    position: fixed;
-    width: 100%;
-    top: 0;
-	height: 32px;
-	line-height: 32px;
-    border-bottom: 2px $color8 solid;
-    margin: 0px auto;
-    .uiBlockMenu {
-        height: 32px;
-        line-height: 32px;
-        border-bottom: 2px $color8 solid;
-        li {
-            display: block;
-            position: relative;
-            width: 122px;
-            height: 32px;
-            line-height: 32px;
-        }
-    }
-}
 
 
 
@@ -641,67 +129,7 @@ blockquote.custom cite {
 
 
 
-.uiFooter {
-    display: block;
-    position: relative;
-    height: auto;
-    background-color: rgba(0,0,0,0.45);
-	color: $colorGrayDark;
-	font: 1em/1em $fontApp;
-	font-weight: 400;
-	margin: 8px auto 0px;
-	padding: 8px;
-    .uiCopyRightTxt,
-    .uiCopyRightTxt a,
-    .uiCopyRightTxt a:link,
-    .uiCopyRightTxt a:visited {
-        background-color: transparent;
-        color: $colorWhite;
-        font: 0.7em/1em $fontApp;
-        font-weight: 400;
-        line-height: 1.75 !important;
-        vertical-align: middle;
-        text-align: right;
-        text-indent: none;
-        padding: 4px;
-        a:hover {
-            background-color: $color8;
-            color: $color8TxtDark;
-            font-weight: 600;
-            cursor: pointer;
-        }
-    }
-    .uiBtnPlaceHeader {
-        font: 0.85em/1em $fontIcon;
-        text-align: left;
-        margin: 12px 4px 0 0;
-        padding: 12px 0 0 0;
-        float: left;
-    }
-    .uiBtnActionPlaceHeader {
-        text-align: center;
-        margin: 0 4px 0 0;
-        float: left;
-    }
-    .uiBtnPlaceFooter {
-        font: 0.7em/1em $fontIcon;
-        text-align: right;
-        margin: 0 4px 0 0;
-        float: right;
-    }
-    .uiBtnActionPlaceFooter {
-        text-align: center;
-        margin: 0 4px 0 0;
-        float: right;
-    }
-}
-.uiFooter.fix {
-    display: block;
-    position: fixed;
-    height: auto;
-    bottom: 0;
-    margin-top: 4px;
-}
+
 
 
 
@@ -846,7 +274,7 @@ a {
 	margin: 0.4em auto;
 }
 .blockType {
-	padding: 0.2em;
+	padding: 0.1em;
 }
 .blockTypeA {
 	@extend .blockType;
@@ -917,9 +345,9 @@ a {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     width: 100%;
-    min-height: 100%;
-    background: rgba(0, 0, 0, 0.35);
-    background-image: url(../images/remodalBk.jpg);
+    min-height: 1%;
+    background: #315585;
+    background-image: url();
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -942,7 +370,62 @@ a {
 
 
 
-
+.blockHeader {
+	@extend .blockType;
+	background-color: transparent;
+	color: $colorWhite1;
+    font: 1em/1em $fontYekan;
+    margin-top: 4px;
+    padding: 0px;
+    .headerBK {
+        display: block;
+        position: relative;
+        width: 100%;
+        height: 156px;
+        min-height: 156px;
+        max-height: 156px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        
+        background: #315585;
+        background-image: url(../images/background.jpg);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: $fontColorApp1;
+        @include border-radius($borderRadiusBtn);
+        margin: 0px;
+        padding: 15px;
+        opacity: 1;
+        z-index: 9;
+    }
+    .headerLogoPlace {
+        .logoDivital {
+            width: 100%;
+            height: auto;
+            margin: 0px auto;
+        }
+    }
+    .headerMenuPlace {
+        display: block;
+        position: relative;
+        width: 100%;
+        height: auto;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        width: 100%;
+        min-height: 100%;
+        background: #315585;
+        color: $fontColorApp1;
+        @include border-radius($borderRadiusBtn);
+        margin: 0px;
+        padding: 5px;
+        opacity: 1;
+        z-index: 99;
+    }
+}
 .blockHeaderType {
 	@extend .blockType;
 	/*background-color: $colorGrayLight;*/
@@ -953,7 +436,7 @@ a {
 	/*color: $colorGrayDark;*/
 	color: $colorWhite1;
     font: 1em/1em $fontYekan;
-    margin-top: 12px;
+    margin-top: 6px;
 }
 .blockHeaderPlace {
     display: block;
@@ -964,8 +447,8 @@ a {
     box-sizing: border-box;
     width: 100%;
     min-height: 100%;
-    background: rgba(0, 0, 0, 0.35);
-    background-image: url(../images/remodalBk.jpg);
+    background: #315585;
+    background-image: url();
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -1028,8 +511,11 @@ a {
     box-sizing: border-box;
     width: 100%;
     min-height: 100%;
-    background: rgba(0 , 0, 0, 0.05);
+//    background: rgba(0 , 0, 0, 0.05);
+//    background-color: #2F5487;
+    background-color: lighten($color1, 38);
     color: $fontColorApp1;
+    border-top: 2px $color1 solid;
     @include border-radius($borderRadiusBtn);
     padding: 15px;
     opacity: 1;
@@ -1048,7 +534,7 @@ a {
 	filter: url('/media/blur.svg#blur');
 	filter: blur(10px);*/
 	/*color: $colorGrayDark;*/
-	color: rgba(0, 0, 0, 0.15);
+	color: #2F5487;
     font: 0.75em/1em $fontYekan;
     text-align: left;
     margin-top: 12px;
@@ -1080,7 +566,7 @@ a {
     padding: 0;
     .icon {
         display: inline-block;
-        font: 1.15em/1em $fontIcon;
+        font: 1.25em/1em $fontIcon;
         height: 28px;
         line-height: 28px;
         vertical-align: middle;
@@ -1092,10 +578,10 @@ a {
     }
 	.txt {
 		display: inline-block;
-		font: 0.9em/1em $fontYekan;
+		font: 1.1em/1em $fontYekan;
 		font-weight: 600;
-		padding-top: 10px;
-		margin-right: -24px;
+		padding-top: 8px;
+		margin-right: -22px;
 	}
 	&:hover {
 		@include box-shadow(inset 1px 1px 1px rgba(255, 255, 255, 0.3), 0 2px 2px rgba(0, 0, 0, 0.15), 0 1px 2px -2px rgba(0, 0, 0, 0.2));
@@ -1104,7 +590,7 @@ a {
 }
 .btnDefault.icon {
     display: inline-block;
-    font: 1.15em/1em $fontIcon;
+    font: 1.25em/1em $fontIcon;
     height: 28px;
     line-height: 28px;
     vertical-align: middle;
@@ -1386,6 +872,21 @@ a {
 		color: $colorWarningTxt;
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1681,12 +1182,12 @@ a {
 	height: 28px;
     line-height: 28px;
     vertical-align: middle;
-	background-color: rgba(255,255,255,0.35);
-	color: $colorWhite;
+	background-color: rgba(255,255,255,0.25);
+	color: $colorWhite1;
 	@include border-radius($borderRadius);
 	&:hover {
 		background-color: $colorWhite;
-		color: $fontColorApp;
+		color: #2F5487;
 		cursor: pointer;
 	}
 	.icon {
@@ -1895,13 +1396,47 @@ a {
                 float: right;
             }
         }
+        .loadingBarSmall {
+            display: inline-block;
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            max-height: 5px;
+            background-color: $colorWhite;
+            bottom: 0;
+            z-index: 9999;
+            .loadingBarLine {
+                width: auto;
+                height: 5px;
+                background-color: $color1;
+            }
+        }
         * > img {
             width: 100px;
             height: auto;
         }
     }
-   
+    .itemPreviewThumb.loading {
+        img {
+            width: 100px;
+            height: auto;
+            -webkit-filter: blur(1px) grayscale(100%);
+            -moz-filter: blur(1px) grayscale(100%);
+            -o-filter: blur(1px) grayscale(100%);
+            -ms-filter: blur(1px) grayscale(100%);
+            filter: blur(1px) grayscale(100%);
+
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=35)";
+            filter: alpha(opacity=35);
+            -moz-opacity: 0.35;
+            -khtml-opacity: 0.35;
+            opacity: 0.35;
+        }
+    }
 }
+
+
+
 
 
 
@@ -1938,10 +1473,11 @@ a {
         width: 200px;
         height: 38px;
         max-height: 38px;
-        background-color: #F1F1F1;
+        background-color: $color1;
+        color: $colorWhite1;
         font: $fontSize*1 $fontYekan;
         text-align: center;
-        border-top: 1px solid #CCCCCC;
+        border-top: 1px solid $color1;
         padding: 3px;
         &:hover {
             cursor: grab;
@@ -1950,6 +1486,7 @@ a {
             cursor: grabbing;
         }
         a {
+            color: $colorWhite1;
             text-align: center;
             margin-right: 2px !important;
             float: none;
@@ -1961,7 +1498,7 @@ a {
             height: 32px;
             line-height: 32px;
             vertical-align: middle;
-            color: $fontColorApp;
+            color: $colorWhite1;
             font: $fontSize*1 $fontYekan;
             font-weight: 600;
             text-align: center;
@@ -1985,9 +1522,10 @@ a {
         width: 200px;
         height: 38px;
         max-height: 38px;
-        background-color: #F1F1F1;
+        background-color: $color1;
+        color: $colorWhite1;
         font: $fontSize*1 $fontYekan;
-        border-top: 1px solid #CCCCCC;
+        border-top: 1px solid $color1;
         padding: 3px;
         &:hover {
             cursor: grab;
@@ -2055,11 +1593,11 @@ a {
             height: 32px;
             line-height: 32px;
             vertical-align: middle;
-            color: $fontColorApp1;
-            font: $fontSize*0.75 $fontYekan;
+            color: $colorWhite1;
+            font: $fontSize*0.95 $fontYekan;
             font-weight: 600;
             text-align: right;
-            top: -10px;
+            top: -12px;
             z-index: 9;
             .icon {
                 display: block;
@@ -2077,7 +1615,7 @@ a {
             height: 32px;
             line-height: 32px;
             vertical-align: middle;
-            color: $fontColorApp1;
+            color: $colorWhite1;
             font: $fontSize*0.65 $fontYekan;
             font-weight: 600;
             text-align: right;
@@ -2244,6 +1782,7 @@ a {
     .templateItemDivider {
         background-color: $colorSuccess !important;
         color: $colorSuccessTxt !important;
+        border-top: 1px solid $colorSuccess;
         .templateItemTitle {
             color: $colorSuccessTxt !important;
         }
@@ -2279,8 +1818,8 @@ a {
         height: 0%;
         top: 0;
         right: 0;
-        background-color: rgba(255, 255, 255, 0);
-        color: $fontColorApp;
+        background-color: rgba(96, 96, 96, 0);
+        color: $colorWhite1;
         font: $fontSize*0.75 $fontApp;
         padding: 4px;
         z-index: 999;
@@ -2293,7 +1832,8 @@ a {
             height: 100%;
             top: 0;
             right: 0;
-            background-color: rgba(255, 255, 255, 0.75);
+            background-color: rgba(96, 96, 96, 0.85);
+            color: $colorWhite1;
             @include transition(all 0.2s ease-out, opacity 0.2s ease-out);
             opacity: 1;
         }
@@ -2324,10 +1864,10 @@ a {
         height: 28px;
         max-height: 28px;
         vertical-align: middle;
-        background-color: $colorWhite1;
-        color: $fontColorApp;
+        background-color: $color1;
+        color: $colorWhite1;
         font: $fontSize*1 $fontYekan;
-        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        border-top: 1px solid $color1;
         padding: 3px;
         &:hover {
             cursor: grab;
@@ -2747,14 +2287,16 @@ a {
             clear: both;
         }
 
-        .rowSelectDefault {
+        .rowSelectGrid {
             display: block;
             position: relative;
             width: 910px;
             min-width: 910px;
             max-width: 910px;
             height: auto;
-            background-color: rgba(0, 0, 0, 0.05);
+//            background-color: rgba(0, 0, 0, 0.05);
+//            background-color: lighten(#2D5389, 0);
+            background-color: transparent;
             border: 1px transparent solid;
             @include border-radius($borderRadius);
             margin: 3px auto;
@@ -2762,7 +2304,30 @@ a {
             float: none;
             clear: both;
             &:hover {
-                border: 1px rgba(0, 0, 0, 0.05) solid;
+//                background-color: lighten($color1, 32);
+//                border: 1px lighten($color1, 27) solid;
+            }
+        }
+        
+        .rowSelectDefault {
+            display: block;
+            position: relative;
+            width: 910px;
+            min-width: 910px;
+            max-width: 910px;
+            height: auto;
+//            background-color: rgba(0, 0, 0, 0.05);
+//            background-color: lighten(#2D5389, 0);
+            background-color: lighten($color1, 38);
+            border: 1px transparent solid;
+            @include border-radius($borderRadius);
+            margin: 3px auto;
+            padding: 6px;
+            float: none;
+            clear: both;
+            &:hover {
+                background-color: lighten($color1, 32);
+                border: 1px lighten($color1, 27) solid;
             }
         }
         .rowSelectDefault > div:only-child {
@@ -2790,8 +2355,8 @@ a {
             min-width: 910px;
             max-width: 910px;
             height: auto;
-            background-color: rgba(0, 0, 0, 0.05);
-            border: 1px transparent solid;
+            background-color: lighten($color1, 32);
+            border: 1px lighten($color1, 32) solid;
             @include border-radius($borderRadius $borderRadius 0 0);
             margin: 3px auto 0px;
             padding: 6px;
@@ -2803,7 +2368,7 @@ a {
                 
             }
             &:hover {
-                border: 1px rgba(0, 0, 0, 0.05) solid;
+                border: 1px lighten($color1, 27) solid;
             }
         }
         .rowSelectTemplate > div:only-child {
@@ -2816,24 +2381,24 @@ a {
             min-width: 910px;
             max-width: 910px;
             height: 43px;
-            background-color: rgba(0, 0, 0, 0.05);
-            color: $fontColorApp;
+            background-color: lighten($color1, 32);
+            color: $color1;
             font: $fontSize*0.75 $fontApp;
             font-weight: 400;
             text-align: right;
-            border-top: 1px rgba(0, 0, 0, 0.05) solid;
+            border-top: 1px lighten($color1, 27) solid;
             margin: 0px auto 3px;
             padding: 6px;
             bottom: 0px;
             @include border-radius(0 0 $borderRadius $borderRadius);
             .statusTitle {
-                color: $colorGrayCoatedCool7C;
+                color: $colorGrayCoatedCool3CTemp;
                 font: $fontSize*0.85 $fontApp;
                 font-weight: 400;
             }
             .statusDesc {
                 line-height: 21px;
-                color: $fontColorApp;
+                color: $colorGrayCoatedCool9C;
                 font: $fontSize*0.85 $fontApp;
                 font-weight: 400;
             }
@@ -4037,352 +3602,13 @@ textarea.formTextareaNote {
     padding: 5px;
 }
 
-
-.fullHD {
-    display: table;
-    position: absolute;
-    width: 1920px !important;
-    min-width: 1920px !important;
-    max-width: 1920px !important;
-    height: 1080px !important;
-    min-height: 1080px !important;
-    max-height: 1080px !important;
-    text-align: center;
-    vertical-align: middle;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    margin: 0px auto;
-    padding: 0px;
-    overflow: hidden;
-    .rowA {
-        display: table-row;
-        position: relative;
-        width: 100%;
-        min-width: 100%;
-        height: 900px;
-        min-height: 900px;
-        max-height: 900px;
-        margin: 0px;
-        padding: 0px;
-        clear: both;
-        overflow: hidden;
-    }
-    .rowB {
-        display: table-row;
-        position: relative;
-        width: 100%;
-        min-width: 100%;
-        height: 180px;
-        min-height: 180px;
-        max-height: 180px;
-        background-color: #000000;
-        background-image: url(../images/bkText.png);
-        background-size: auto;
-        background-position: center center;
-        background-repeat: no-repeat;
-        margin: 0px;
-        padding: 0px;
-        clear: both;
-        overflow: hidden;
-        .rowBEdit {
-            width: 100%;
-            height: 100%;
-            background-image: url();
-            background: #000000;
-            border: 1px dotted $colorGrayCoatedCool9C;
-            padding-top: 5px;
-            .menuTitle {
-                display: block;
-                color: $colorGrayCoatedCool9C;
-                font: $fontSize*1.2 $fontYekan;
-                font-weight: 600;
-            }
-            .menuEdit {
-                display: none;
-                width: 300px;
-                text-align: center;
-                margin: 0px auto;
-                right: -15px;
-                > a {
-                    float: right;
-                }
-            }
-            &:hover {
-                background-color: #1A1A1A;
-                border: 1px solid $colorSuccess;
-                cursor: pointer;
-                
-                transition: all 0.35s ease;
-                -webkit-transition: all 0.35s ease;
-                -moz-transition: all 0.35s ease;
-                -o-transition: all 0.35s ease;
-                
-                .menuTitle {
-                    color: $colorSuccess;
-                }
-                .menuEdit {
-                    display: block;
-                    right: 0;
-                }
-            }
-        }
-    }
-    .colAA {
-        display: table-column;
-        position: relative;
-        width: 320px;
-        min-width: 320px;
-        max-width: 320px;
-        height: 900px;
-        min-height: 900px;
-        max-height: 900px;
-        margin: 0px;
-        padding: 0px;
-        float: right;
-        overflow: hidden;
-    }
-    .colAB {
-        display: table-column;
-        position: relative;
-        width: 1600px;
-        min-width: 1600px;
-        max-width: 1600px;
-        height: 900px;
-        min-height: 900px;
-        max-height: 900px;
-        margin: 0px;
-        padding: 0px;
-        float: left;
-        overflow: hidden;
-        .colABEdit {
-            width: 100%;
-            height: 100%;
-            border: 1px dotted $colorGrayCoatedCool9C;
-            padding-top: 5px;
-            .menuTitle {
-                display: block;
-                color: $colorGrayCoatedCool9C;
-                font: $fontSize*1.2 $fontYekan;
-                font-weight: 600;
-            }
-            .menuEdit {
-                display: none;
-                width: 300px;
-                text-align: center;
-                margin: 0px auto;
-                right: -15px;
-                > a {
-                    float: right;
-                }
-            }
-            &:hover {
-                background-color: #1A1A1A;
-                border: 1px solid $colorSuccess;
-                cursor: pointer;
-                
-                transition: all 0.35s ease;
-                -webkit-transition: all 0.35s ease;
-                -moz-transition: all 0.35s ease;
-                -o-transition: all 0.35s ease;
-                
-                .menuTitle {
-                    color: $colorSuccess;
-                }
-                .menuEdit {
-                    display: block;
-                    right: 0;
-                }
-            }
-        }
-    }
-    .colAArowA {
-        display: block;
-        position: relative;
-        width: 320px;
-        min-width: 320px;
-        max-width: 320px;
-        height: 300px;
-        min-height: 300px;
-        max-height: 300px;
-        margin: 0px;
-        padding: 0px;
-        clear: both;
-        overflow: hidden;
-        .colAArowAEdit {
-            width: 100%;
-            height: 100%;
-            border: 1px dotted $colorGrayCoatedCool9C;
-            padding-top: 5px;
-            .menuTitle {
-                display: block;
-                color: $colorGrayCoatedCool9C;
-                font: $fontSize*1.2 $fontYekan;
-                font-weight: 600;
-            }
-            .menuEdit {
-                display: none;
-                width: 300px;
-                text-align: center;
-                margin: 0px auto;
-                right: -15px;
-                > a {
-                    float: right;
-                }
-            }
-            &:hover {
-                background-color: #1A1A1A;
-                border: 1px solid $colorSuccess;
-                cursor: pointer;
-                
-                transition: all 0.35s ease;
-                -webkit-transition: all 0.35s ease;
-                -moz-transition: all 0.35s ease;
-                -o-transition: all 0.35s ease;
-                
-                .menuTitle {
-                    color: $colorSuccess;
-                }
-                .menuEdit {
-                    display: block;
-                    right: 0;
-                }
-            }
-        }
-    }
-    .colAArowB {
-        display: block;
-        position: relative;
-        width: 320px;
-        min-width: 320px;
-        max-width: 320px;
-        height: 300px;
-        min-height: 300px;
-        max-height: 300px;
-        margin: 0px;
-        padding: 0px;
-        clear: both;
-        overflow: hidden;
-        .colAArowBEdit {
-            width: 100%;
-            height: 100%;
-            border: 1px dotted $colorGrayCoatedCool9C;
-            padding-top: 5px;
-            .menuTitle {
-                display: block;
-                color: $colorGrayCoatedCool9C;
-                font: $fontSize*1.2 $fontYekan;
-                font-weight: 600;
-            }
-            .menuEdit {
-                display: none;
-                width: 300px;
-                text-align: center;
-                margin: 0px auto;
-                right: -15px;
-                > a {
-                    float: right;
-                }
-            }
-            &:hover {
-                background-color: #1A1A1A;
-                border: 1px solid $colorSuccess;
-                cursor: pointer;
-                
-                transition: all 0.35s ease;
-                -webkit-transition: all 0.35s ease;
-                -moz-transition: all 0.35s ease;
-                -o-transition: all 0.35s ease;
-                
-                .menuTitle {
-                    color: $colorSuccess;
-                }
-                .menuEdit {
-                    display: block;
-                    right: 0;
-                }
-            }
-        }
-    }
-    .colAArowC {
-        display: block;
-        position: relative;
-        width: 320px;
-        min-width: 320px;
-        max-width: 320px;
-        height: 300px;
-        min-height: 300px;
-        max-height: 300px;
-        text-align: center;
-        margin: 0px;
-        padding: 0px;
-        clear: both;
-        overflow: hidden;
-        .colAArowCEdit {
-            width: 100%;
-            height: 100%;
-            border: 1px dotted $colorGrayCoatedCool9C;
-            padding-top: 5px;
-            
-            .menuTitle {
-                display: block;
-                color: $colorGrayCoatedCool9C;
-                font: $fontSize*1.2 $fontYekan;
-                font-weight: 600;
-            }
-            .menuEdit {
-                display: none;
-                position: relative;
-                width: 300px;
-                text-align: center;
-                margin: 0px auto;
-                padding: 0px;
-                padding-top: -35px;
-                
-                > a {
-                    float: right;
-                }
-            }
-            &:hover {
-                background-color: #1A1A1A;
-                border: 1px solid $colorSuccess;
-                cursor: pointer;
-                
-                transition: all 0.35s ease;
-                -webkit-transition: all 0.35s ease;
-                -moz-transition: all 0.35s ease;
-                -o-transition: all 0.35s ease;
-                
-                .menuTitle {
-                    color: $colorSuccess;
-                }
-                .menuEdit {
-                    display: block;
-                    padding-top: 5px;
-                    
-                    transition: all 0.25s ease;
-                    -webkit-transition: all 0.25s ease;
-                    -moz-transition: all 0.25s ease;
-                    -o-transition: all 0.25s ease;
-                    
-                }
-            }
-        }
-    }
-}
-
-
 .fullHD.editMode {
 //    resize: both;
-    
     @include transform(scale(0.5));
 //    @include transform(translate(0.5));
-    
 //    @include transform(translate(-100%) scale(0.5));
     
 }
-
 
 .fullHDeditMode {
     display: table;
@@ -4399,535 +3625,536 @@ textarea.formTextareaNote {
     margin: 0px auto;
     padding: 0px;
     overflow: hidden;
-    .rowA {
-        display: table-row;
-        position: relative;
+}
+.rowA {
+    display: block;
+    position: relative;
+    width: 100%;
+    min-width: 100%;
+    height: 440px;
+    min-height: 440px;
+    max-height: 440px;
+    margin: 0px;
+    padding: 0px;
+    clear: both;
+    overflow: hidden;
+}
+.rowB {
+    display: block;
+    position: relative;
+    width: 100%;
+    min-width: 100%;
+    height: 89px;
+    min-height: 89px;
+    max-height: 89px;
+    background-color: #000000;
+    background-image: url();
+    background-size: auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin: 0px;
+    padding: 0px;
+    clear: both;
+    overflow: hidden;
+    .rowBEdit {
         width: 100%;
-        min-width: 100%;
-        height: 440px;
-        min-height: 440px;
-        max-height: 440px;
-        margin: 0px;
-        padding: 0px;
-        clear: both;
-        overflow: hidden;
-    }
-    .rowB {
-        display: table-row;
-        position: relative;
-        width: 100%;
-        min-width: 100%;
-        height: 89px;
-        min-height: 89px;
-        max-height: 89px;
-        background-color: #000000;
+        height: 100%;
         background-image: url();
-        background-size: auto;
-        background-position: center center;
-        background-repeat: no-repeat;
-        margin: 0px;
-        padding: 0px;
-        clear: both;
-        overflow: hidden;
-        .rowBEdit {
-            width: 100%;
-            height: 100%;
-            background-image: url();
-            background: #000000;
-            border: 1px dotted $colorGrayCoatedCool9C;
-            padding-top: 5px;
+        background: #000000;
+        border: 1px dotted $colorGrayCoatedCool9C;
+        padding-top: 5px;
+        .menuTitle {
+            display: block;
+            color: $colorGrayCoatedCool9C;
+            font: $fontSize*1.2 $fontYekan;
+            font-weight: 600;
+        }
+        .menuEdit {
+            display: none;
+            width: 128px;
+            text-align: center;
+            margin: 0px auto;
+            right: -15px;
+            > a {
+                float: right;
+            }
+        }
+        &:hover {
+            background-color: #1A1A1A;
+            border: 1px solid $color1;
+            cursor: pointer;
+
+            transition: all 0.35s ease;
+            -webkit-transition: all 0.35s ease;
+            -moz-transition: all 0.35s ease;
+            -o-transition: all 0.35s ease;
+
             .menuTitle {
-                display: block;
-                color: $colorGrayCoatedCool9C;
-                font: $fontSize*1.2 $fontYekan;
-                font-weight: 600;
+                color: $color1;
             }
             .menuEdit {
-                display: none;
-                width: 128px;
-                text-align: center;
-                margin: 0px auto;
-                right: -15px;
-                > a {
-                    float: right;
-                }
-            }
-            &:hover {
-                background-color: #1A1A1A;
-                border: 1px solid $color1;
-                cursor: pointer;
-                
-                transition: all 0.35s ease;
-                -webkit-transition: all 0.35s ease;
-                -moz-transition: all 0.35s ease;
-                -o-transition: all 0.35s ease;
-                
-                .menuTitle {
-                    color: $color1;
-                }
-                .menuEdit {
-                    display: block;
-                    right: 0;
-                }
-            }
-        }
-        .rowBEditFill {
-            display: block;
-            position: relative;
-            width: 100%;
-            height: 100%;
-            background-color: transparent;
-            border: none;
-            padding-top: 0px;
-            @include transition(all 0.35s ease);
-            z-index: 999;
-            .colAArowBEditFillOverlay {
-                display: none;
-                position: absolute;
-                width: 100%;
-                height: 1%;
-                background-color: rgba(0, 0, 0, 0);
-                border: none;
-                @include transition(all 0.35s ease);
-                padding-top: 5px;
-                z-index: 9999;
-                > a {
-                    margin-right: 4px;
-                    float: right;
-                }
-            }
-            &:hover {
                 display: block;
-                border: 1px solid $color1;
-                cursor: pointer;
-                background-color: transparent;
-                .colAArowBEditFillOverlay {
-                    display: block;
-                    width: 100%;
-                    height: 100%;
-                    top: 0;
-                    right: 0;
-                    background-color: rgba(0, 0, 0, 0.45);
-                    z-index: 9999;
-                }
+                right: 0;
             }
         }
-
-
     }
-    .colAA {
-        display: table-column;
-        position: relative;
-        width: 156px;
-        min-width: 156px;
-        max-width: 156px;
-        height: 440px;
-        min-height: 440px;
-        max-height: 440px;
-        margin: 0px;
-        padding: 0px;
-        float: right;
-        overflow: hidden;
-    }
-    .colAB {
-        display: table-column;
-        position: relative;
-        width: 784px;
-        min-width: 784px;
-        max-width: 784px;
-        height: 440px;
-        min-height: 440px;
-        max-height: 440px;
-        margin: 0px;
-        padding: 0px;
-        float: left;
-        overflow: hidden;
-        .colABEdit {
-            width: 100%;
-            height: 100%;
-            border: 1px dotted $colorGrayCoatedCool9C;
-            padding-top: 5px;
-            .menuTitle {
-                display: block;
-                color: $colorGrayCoatedCool9C;
-                font: $fontSize*1.2 $fontYekan;
-                font-weight: 600;
-            }
-            .menuEdit {
-                display: none;
-                width: 128px;
-                text-align: center;
-                margin: 0px auto;
-                right: -15px;
-                > a {
-                    float: right;
-                }
-            }
-            &:hover {
-                background-color: #1A1A1A;
-                border: 1px solid $color1;
-                cursor: pointer;
-                
-                transition: all 0.35s ease;
-                -webkit-transition: all 0.35s ease;
-                -moz-transition: all 0.35s ease;
-                -o-transition: all 0.35s ease;
-                
-                .menuTitle {
-                    color: $color1;
-                }
-                .menuEdit {
-                    display: block;
-                    right: 0;
-                }
-            }
-        }
-        .colABEditFill {
-            display: block;
-            position: relative;
-            width: 100%;
-            height: 100%;
-            background-color: transparent;
-            border: none;
-            padding-top: 0px;
-            @include transition(all 0.35s ease);
-            z-index: 999;
-            .colAArowBEditFillOverlay {
-                display: none;
-                position: absolute;
-                width: 100%;
-                height: 1%;
-                background-color: rgba(0, 0, 0, 0);
-                border: none;
-                @include transition(all 0.35s ease);
-                padding-top: 5px;
-                z-index: 9999;
-                > a {
-                    margin-right: 4px;
-                    float: right;
-                }
-            }
-            &:hover {
-                display: block;
-                border: 1px solid $color1;
-                cursor: pointer;
-                background-color: transparent;
-                .colAArowBEditFillOverlay {
-                    display: block;
-                    width: 100%;
-                    height: 100%;
-                    top: 0;
-                    right: 0;
-                    background-color: rgba(0, 0, 0, 0.45);
-                    z-index: 9999;
-                }
-            }
-        }
-
-
-
-    }
-    .colAArowA {
+    .rowBEditFill {
         display: block;
         position: relative;
-        width: 156px;
-        min-width: 156px;
-        max-width: 156px;
-        height: 147px;
-        min-height: 147px;
-        max-height: 147px;
-        margin: 0px;
-        padding: 0px;
-        clear: both;
-        overflow: hidden;
-        .colAArowAEdit {
-            width: 100%;
-            height: 100%;
-            border: 1px dotted $colorGrayCoatedCool9C;
-            padding-top: 5px;
-            .menuTitle {
-                display: block;
-                color: $colorGrayCoatedCool9C;
-                font: $fontSize*1.2 $fontYekan;
-                font-weight: 600;
-            }
-            .menuEdit {
-                display: none;
-                width: 128px;
-                text-align: center;
-                margin: 0px auto;
-                right: -15px;
-                > a {
-                    float: right;
-                }
-            }
-            &:hover {
-                background-color: #1A1A1A;
-                border: 1px solid $color1;
-                cursor: pointer;
-                
-                transition: all 0.35s ease;
-                -webkit-transition: all 0.35s ease;
-                -moz-transition: all 0.35s ease;
-                -o-transition: all 0.35s ease;
-                
-                .menuTitle {
-                    color: $color1;
-                }
-                .menuEdit {
-                    display: block;
-                    right: 0;
-                }
-            }
-        }
-        .colAArowAEditFill {
-            display: block;
-            position: relative;
-            width: 100%;
-            height: 100%;
-            background-color: transparent;
-            border: none;
-            padding-top: 0px;
-            @include transition(all 0.35s ease);
-            z-index: 999;
-            .colAArowBEditFillOverlay {
-                display: none;
-                position: absolute;
-                width: 100%;
-                height: 1%;
-                background-color: rgba(0, 0, 0, 0);
-                border: none;
-                @include transition(all 0.35s ease);
-                padding-top: 5px;
-                z-index: 9999;
-                > a {
-                    margin-right: 4px;
-                    float: right;
-                }
-            }
-            &:hover {
-                display: block;
-                border: 1px solid $color1;
-                cursor: pointer;
-                background-color: transparent;
-                .colAArowBEditFillOverlay {
-                    display: block;
-                    width: 100%;
-                    height: 100%;
-                    top: 0;
-                    right: 0;
-                    background-color: rgba(0, 0, 0, 0.45);
-                    z-index: 9999;
-                }
-            }
-        }
-    }
-    .colAArowB {
-        display: block;
-        position: relative;
-        width: 156px;
-        min-width: 156px;
-        max-width: 156px;
-        height: 147px;
-        min-height: 147px;
-        max-height: 147px;
+        width: 100%;
+        height: 100%;
         background-color: transparent;
-        margin: 0px;
-        padding: 0px;
-        clear: both;
-        overflow: hidden;
-        .colAArowBEdit {
+        border: none;
+        padding-top: 0px;
+        @include transition(all 0.35s ease);
+        z-index: 999;
+        .colAArowBEditFillOverlay {
+            display: none;
+            position: absolute;
             width: 100%;
-            height: 100%;
-            border: 1px dotted $colorGrayCoatedCool9C;
+            height: 1%;
+            background-color: rgba(0, 0, 0, 0);
+            border: none;
+            @include transition(all 0.35s ease);
             padding-top: 5px;
-            .menuTitle {
-                display: block;
-                color: $colorGrayCoatedCool9C;
-                font: $fontSize*1.2 $fontYekan;
-                font-weight: 600;
-            }
-            .menuEdit {
-                display: none;
-                width: 128px;
-                text-align: center;
-                margin: 0px auto;
-                right: -15px;
-                > a {
-                    float: right;
-                }
-            }
-            &:hover {
-                background-color: #1A1A1A;
-                border: 1px solid $color1;
-                cursor: pointer;
-                
-                transition: all 0.35s ease;
-                -webkit-transition: all 0.35s ease;
-                -moz-transition: all 0.35s ease;
-                -o-transition: all 0.35s ease;
-                
-                .menuTitle {
-                    color: $color1;
-                }
-                .menuEdit {
-                    display: block;
-                    right: 0;
-                }
+            z-index: 9999;
+            > a {
+                margin-right: 4px;
+                float: right;
             }
         }
-        .colAArowBEditFill {
+        &:hover {
             display: block;
-            position: relative;
-            width: 100%;
-            height: 100%;
+            border: 1px solid $color1;
+            cursor: pointer;
             background-color: transparent;
-            border: none;
-            padding-top: 0px;
-            @include transition(all 0.35s ease);
-            z-index: 999;
             .colAArowBEditFillOverlay {
-                display: none;
-                position: absolute;
-                width: 100%;
-                height: 1%;
-                background-color: rgba(0, 0, 0, 0);
-                border: none;
-                @include transition(all 0.35s ease);
-                padding-top: 5px;
-                z-index: 9999;
-                > a {
-                    margin-right: 4px;
-                    float: right;
-                }
-            }
-            &:hover {
                 display: block;
-                border: 1px solid $color1;
-                cursor: pointer;
-                background-color: transparent;
-                .colAArowBEditFillOverlay {
-                    display: block;
-                    width: 100%;
-                    height: 100%;
-                    top: 0;
-                    right: 0;
-                    background-color: rgba(0, 0, 0, 0.45);
-                    z-index: 9999;
-                }
+                width: 100%;
+                height: 100%;
+                top: 0;
+                right: 0;
+                background-color: rgba(0, 0, 0, 0.45);
+                z-index: 9999;
             }
         }
     }
-    .colAArowC {
-        display: block;
-        position: relative;
-        width: 156px;
-        min-width: 156px;
-        max-width: 156px;
-        height: 147px;
-        min-height: 147px;
-        max-height: 147px;
-        text-align: center;
-        margin: 0px;
-        padding: 0px;
-        clear: both;
-        overflow: hidden;
-        .colAArowCEdit {
-            width: 100%;
-            height: 100%;
-            border: 1px dotted $colorGrayCoatedCool9C;
-            padding-top: 5px;
-            
+
+
+}
+.colAA {
+    display: table-column;
+    position: relative;
+    width: 156px;
+    min-width: 156px;
+    max-width: 156px;
+    height: 440px;
+    min-height: 440px;
+    max-height: 440px;
+    margin: 0px;
+    padding: 0px;
+    float: right;
+    overflow: hidden;
+}
+.colAB {
+    display: table-column;
+    position: relative;
+    width: 784px;
+    min-width: 784px;
+    max-width: 784px;
+    height: 440px;
+    min-height: 440px;
+    max-height: 440px;
+    margin: 0px;
+    padding: 0px;
+    float: left;
+    overflow: hidden;
+    .colABEdit {
+        width: 100%;
+        height: 100%;
+        border: 1px dotted $colorGrayCoatedCool9C;
+        padding-top: 5px;
+        .menuTitle {
+            display: block;
+            color: $colorGrayCoatedCool9C;
+            font: $fontSize*1.2 $fontYekan;
+            font-weight: 600;
+        }
+        .menuEdit {
+            display: none;
+            width: 128px;
+            text-align: center;
+            margin: 0px auto;
+            right: -15px;
+            > a {
+                float: right;
+            }
+        }
+        &:hover {
+            background-color: #1A1A1A;
+            border: 1px solid $color1;
+            cursor: pointer;
+
+            transition: all 0.35s ease;
+            -webkit-transition: all 0.35s ease;
+            -moz-transition: all 0.35s ease;
+            -o-transition: all 0.35s ease;
+
             .menuTitle {
-                display: block;
-                color: $colorGrayCoatedCool9C;
-                font: $fontSize*1.2 $fontYekan;
-                font-weight: 600;
+                color: $color1;
             }
             .menuEdit {
-                display: none;
-                position: relative;
-                width: 128px;
-                text-align: center;
-                margin: 0px auto;
-                padding: 0px;
-                padding-top: -35px;
-                
-                > a {
-                    float: right;
-                }
-            }
-            &:hover {
-                background-color: #1A1A1A;
-                border: 1px solid $color1;
-                cursor: pointer;
-                
-                transition: all 0.35s ease;
-                -webkit-transition: all 0.35s ease;
-                -moz-transition: all 0.35s ease;
-                -o-transition: all 0.35s ease;
-                
-                .menuTitle {
-                    color: $color1;
-                }
-                .menuEdit {
-                    display: block;
-                    padding-top: 5px;
-                    
-                    transition: all 0.25s ease;
-                    -webkit-transition: all 0.25s ease;
-                    -moz-transition: all 0.25s ease;
-                    -o-transition: all 0.25s ease;
-                    
-                }
-            }
-        }
-        .colAArowCEditFill {
-            display: block;
-            position: relative;
-            width: 100%;
-            height: 100%;
-            background-color: transparent;
-            border: none;
-            padding-top: 0px;
-            @include transition(all 0.35s ease);
-            z-index: 999;
-            .colAArowBEditFillOverlay {
-                display: none;
-                position: absolute;
-                width: 100%;
-                height: 1%;
-                background-color: rgba(0, 0, 0, 0);
-                border: none;
-                @include transition(all 0.35s ease);
-                padding-top: 5px;
-                z-index: 9999;
-                > a {
-                    margin-right: 4px;
-                    float: right;
-                }
-            }
-            &:hover {
                 display: block;
-                border: 1px solid $color1;
-                cursor: pointer;
-                background-color: transparent;
-                .colAArowBEditFillOverlay {
-                    display: block;
-                    width: 100%;
-                    height: 100%;
-                    top: 0;
-                    right: 0;
-                    background-color: rgba(0, 0, 0, 0.45);
-                    z-index: 9999;
-                }
+                right: 0;
             }
         }
+    }
+    .colABEditFill {
+        display: block;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        border: none;
+        padding-top: 0px;
+        @include transition(all 0.35s ease);
+        z-index: 999;
+        .colAArowBEditFillOverlay {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 1%;
+            background-color: rgba(0, 0, 0, 0);
+            border: none;
+            @include transition(all 0.35s ease);
+            padding-top: 5px;
+            z-index: 9999;
+            > a {
+                margin-right: 4px;
+                float: right;
+            }
+        }
+        &:hover {
+            display: block;
+            border: 1px solid $color1;
+            cursor: pointer;
+            background-color: transparent;
+            .colAArowBEditFillOverlay {
+                display: block;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                right: 0;
+                background-color: rgba(0, 0, 0, 0.45);
+                z-index: 9999;
+            }
+        }
+    }
 
 
 
+}
+.colAArowA {
+    display: block;
+    position: relative;
+    width: 156px;
+    min-width: 156px;
+    max-width: 156px;
+    height: 147px;
+    min-height: 147px;
+    max-height: 147px;
+    margin: 0px;
+    padding: 0px;
+    clear: both;
+    overflow: hidden;
+    .colAArowAEdit {
+        width: 100%;
+        height: 100%;
+        border: 1px dotted $colorGrayCoatedCool9C;
+        padding-top: 5px;
+        .menuTitle {
+            display: block;
+            color: $colorGrayCoatedCool9C;
+            font: $fontSize*1.2 $fontYekan;
+            font-weight: 600;
+        }
+        .menuEdit {
+            display: none;
+            width: 128px;
+            text-align: center;
+            margin: 0px auto;
+            right: -15px;
+            > a {
+                float: right;
+            }
+        }
+        &:hover {
+            background-color: #1A1A1A;
+            border: 1px solid $color1;
+            cursor: pointer;
+
+            transition: all 0.35s ease;
+            -webkit-transition: all 0.35s ease;
+            -moz-transition: all 0.35s ease;
+            -o-transition: all 0.35s ease;
+
+            .menuTitle {
+                color: $color1;
+            }
+            .menuEdit {
+                display: block;
+                right: 0;
+            }
+        }
+    }
+    .colAArowAEditFill {
+        display: block;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        border: none;
+        padding-top: 0px;
+        @include transition(all 0.35s ease);
+        z-index: 999;
+        .colAArowBEditFillOverlay {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 1%;
+            background-color: rgba(0, 0, 0, 0);
+            border: none;
+            @include transition(all 0.35s ease);
+            padding-top: 5px;
+            z-index: 9999;
+            > a {
+                margin-right: 4px;
+                float: right;
+            }
+        }
+        &:hover {
+            display: block;
+            border: 1px solid $color1;
+            cursor: pointer;
+            background-color: transparent;
+            .colAArowBEditFillOverlay {
+                display: block;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                right: 0;
+                background-color: rgba(0, 0, 0, 0.45);
+                z-index: 9999;
+            }
+        }
     }
 }
+.colAArowB {
+    display: block;
+    position: relative;
+    width: 156px;
+    min-width: 156px;
+    max-width: 156px;
+    height: 147px;
+    min-height: 147px;
+    max-height: 147px;
+    background-color: transparent;
+    margin: 0px;
+    padding: 0px;
+    clear: both;
+    overflow: hidden;
+    .colAArowBEdit {
+        width: 100%;
+        height: 100%;
+        border: 1px dotted $colorGrayCoatedCool9C;
+        padding-top: 5px;
+        .menuTitle {
+            display: block;
+            color: $colorGrayCoatedCool9C;
+            font: $fontSize*1.2 $fontYekan;
+            font-weight: 600;
+        }
+        .menuEdit {
+            display: none;
+            width: 128px;
+            text-align: center;
+            margin: 0px auto;
+            right: -15px;
+            > a {
+                float: right;
+            }
+        }
+        &:hover {
+            background-color: #1A1A1A;
+            border: 1px solid $color1;
+            cursor: pointer;
+
+            transition: all 0.35s ease;
+            -webkit-transition: all 0.35s ease;
+            -moz-transition: all 0.35s ease;
+            -o-transition: all 0.35s ease;
+
+            .menuTitle {
+                color: $color1;
+            }
+            .menuEdit {
+                display: block;
+                right: 0;
+            }
+        }
+    }
+    .colAArowBEditFill {
+        display: block;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        border: none;
+        padding-top: 0px;
+        @include transition(all 0.35s ease);
+        z-index: 999;
+        .colAArowBEditFillOverlay {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 1%;
+            background-color: rgba(0, 0, 0, 0);
+            border: none;
+            @include transition(all 0.35s ease);
+            padding-top: 5px;
+            z-index: 9999;
+            > a {
+                margin-right: 4px;
+                float: right;
+            }
+        }
+        &:hover {
+            display: block;
+            border: 1px solid $color1;
+            cursor: pointer;
+            background-color: transparent;
+            .colAArowBEditFillOverlay {
+                display: block;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                right: 0;
+                background-color: rgba(0, 0, 0, 0.45);
+                z-index: 9999;
+            }
+        }
+    }
+}
+.colAArowC {
+    display: block;
+    position: relative;
+    width: 156px;
+    min-width: 156px;
+    max-width: 156px;
+    height: 147px;
+    min-height: 147px;
+    max-height: 147px;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    clear: both;
+    overflow: hidden;
+    .colAArowCEdit {
+        width: 100%;
+        height: 100%;
+        border: 1px dotted $colorGrayCoatedCool9C;
+        padding-top: 5px;
+
+        .menuTitle {
+            display: block;
+            color: $colorGrayCoatedCool9C;
+            font: $fontSize*1.2 $fontYekan;
+            font-weight: 600;
+        }
+        .menuEdit {
+            display: none;
+            position: relative;
+            width: 128px;
+            text-align: center;
+            margin: 0px auto;
+            padding: 0px;
+            padding-top: -35px;
+
+            > a {
+                float: right;
+            }
+        }
+        &:hover {
+            background-color: #1A1A1A;
+            border: 1px solid $color1;
+            cursor: pointer;
+
+            transition: all 0.35s ease;
+            -webkit-transition: all 0.35s ease;
+            -moz-transition: all 0.35s ease;
+            -o-transition: all 0.35s ease;
+
+            .menuTitle {
+                color: $color1;
+            }
+            .menuEdit {
+                display: block;
+                padding-top: 5px;
+
+                transition: all 0.25s ease;
+                -webkit-transition: all 0.25s ease;
+                -moz-transition: all 0.25s ease;
+                -o-transition: all 0.25s ease;
+
+            }
+        }
+    }
+    .colAArowCEditFill {
+        display: block;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        border: none;
+        padding-top: 0px;
+        @include transition(all 0.35s ease);
+        z-index: 999;
+        .colAArowBEditFillOverlay {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 1%;
+            background-color: rgba(0, 0, 0, 0);
+            border: none;
+            @include transition(all 0.35s ease);
+            padding-top: 5px;
+            z-index: 9999;
+            > a {
+                margin-right: 4px;
+                float: right;
+            }
+        }
+        &:hover {
+            display: block;
+            border: 1px solid $color1;
+            cursor: pointer;
+            background-color: transparent;
+            .colAArowBEditFillOverlay {
+                display: block;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                right: 0;
+                background-color: rgba(0, 0, 0, 0.45);
+                z-index: 9999;
+            }
+        }
+    }
+
+
+
+}
+
 
 
 
@@ -4986,43 +4213,7 @@ textarea.formTextareaNote {
 
 
 
-.widgetTimeDate {
-    display: block;
-    width: 100%;
-    min-width: 100%;
-    max-width: 100%;
-    height: 100%;
-    min-height: 100%;
-    max-height: 100%;
-    text-align: center;
-    
-    background-image: url(../images/borderStyleDate.png);
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    
-    margin: 0px;
-    padding: 0px;
-    
-    .txtTime {
-        height: 170px;
-        min-height: 170px;
-        color: #FFFFFF;
-        font: $fontSize*9.2 $fontRoya;
-        font-weight: 600;
-        margin: 0px;
-        padding: 0px;
-        padding-top: 85px;
-    }
-    .txtDate {
-        color: #FFFFFF;
-        font: $fontSize*2.9 $fontRoya;
-        font-weight: 600;
-        margin: 0px;
-        padding: 0px;
-        padding-top: 5px;
-    }
-}
+
 .blockEditModeOver {
     .widgetTimeDate {
         display: block;
@@ -5069,106 +4260,7 @@ textarea.formTextareaNote {
 
 
 
-.weather {
-    display: block;
-    position: relative;
-//    background-color: #1C1B1B;
-    width: 320px;
-    min-width: 320px;
-    max-width: 320px;
-    height: 300px;
-    min-height: 300px;
-    max-height: 300px;
-    line-height: 188px;
-    vertical-align: middle;
-    text-align: center;
-    text-transform: uppercase;
-    margin: 0px auto;
-    padding: 0px;
-    padding-top: 6px;
-    overflow: hidden;
-}
-i {
-    color: #FFFFFF;
-    font-family: weather;
-    font-weight: normal;
-    font-style: normal;
-    line-height: 1.0;
-    text-transform: none;
-}
-.weather .wi {
-    color: #FFFFFF;
-    height: 140px;
-    min-height: 140px;
-    max-height: 140px;
-    line-height: 140px;
-    font-family: weather;
-    font-size: 186px;
-    font-weight: 600;
-    text-align: center;
-//    text-shadow: 0px 1px 3px rgba(255, 255, 255, 0.45);
-    margin: 0px;
-    padding: 0px;
-    padding-top: 25px;
-}
-.weather .cw {
-    color: #FFFFFF;
-    height: 120px;
-    min-height: 120px;
-    max-height: 120px;
-    line-height: 120px;
-    font: $fontSize*9.6 $fontRoya;
-    font-weight: 600;
-    text-align: center;
-//    text-shadow: 0px 1px 3px rgba(255, 255, 255, 0.45);
-    margin: 0px;
-    padding: 0px;
-    padding-top: 25px;
-}
-.weather .cc {
-    height: 120px;
-    min-height: 120px;
-    max-height: 120px;
-    line-height: 120px;
-    font: $fontSize*3.2 $fontDefault;
-    color: rgba(255, 255, 255, 0.55);
-    text-align: center;
-//    text-shadow: 0px 1px 3px rgba(255, 255, 255, 0.15);
-    margin: 0px 0 0 15px;;
-    padding: 0px;
-}
-.weather ul {
-    margin: 0;
-    padding: 0;
-}
-.weather li {
-    color: #FFFFFF;
-    background: rgba(255,255,255,0.15);
-    padding: 4px;
-    display: inline-block;
-    border-radius: 4px;
-}
-.weather .currently {
-    margin: 0 4px;
-}
-.widgetWeather {
-    display: block;
-    width: 100%;
-    min-width: 100%;
-    max-width: 100%;
-    height: 100%;
-    min-height: 100%;
-    max-height: 100%;
-    text-align: center;
-    
-    background-image: url(../images/borderStyleWeather.png);
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    
-    margin: 0px;
-    padding: 0px;
-}
+
 .blockEditModeOver {
     .widgetWeather {
         display: block;
@@ -5243,58 +4335,6 @@ i {
 
 
 
-.widgetSlider {
-    display: block;
-    width: 100%;
-    min-width: 100%;
-    max-width: 100%;
-    height: 100%;
-    min-height: 100%;
-    max-height: 100%;
-    text-align: center;
-    
-    background-image: url();
-    background-position: center center;
-    background-repeat: no-repeat;
-    
-    margin: 0px;
-    padding: 0px;
-    
-    .coin-slider {
-        width: 100%;
-        min-width: 100%;
-        max-width: 100%;
-        height: 100%;
-        min-height: 100%;
-        max-height: 100%;
-        margin: 0px;
-        padding: 0px;
-    }
-    
-    > img {
-        display: block;
-        width: 100%;
-        min-width: 100%;
-        max-width: 100%;
-        height: 100%;
-        min-height: 100%;
-        max-height: 100%;
-        margin: 0px;
-        padding: 0px;
-        overflow: hidden;
-    }
-}
-
-.widgetVideo {
-    > video {
-        width: 100%;
-        min-width: 100%;
-        height: 100%;
-        min-height: 100%;
-        margin: 0px;
-        padding: 0px;
-    }
-}
 
 
 
@@ -5306,96 +4346,7 @@ i {
 
 
 
-.widgetText {
-    position: relative;
-    width: 100%;
-    min-width: 100%;
-    max-width: 100%;
-	height: 100%;
-    min-height: 100%;
-    max-height: 100%;
-    background-color: transparent;
-    color: #FFFFFF;
-    font: $fontSize*1 $fontApp;
 
-    margin: 0px;
-    padding: 0px;
-    overflow: hidden;
-}
-
-.marquee {
-    position: relative;
-	width: 100%;
-    min-width: 100%;
-    max-width: 100%;
-	height: 100%;
-    min-height: 100%;
-    max-height: 100%;
-    margin: 0px;
-    padding: 0px;
-    overflow: hidden;
-}
-.marquee p {
-	position: absolute;
-    color: #FFFFFF;
-	width: 100%;
-	height: 120px;
-    line-height: 120px;
-    vertical-align: middle;
-    font: $fontSize*3.8 $fontApp;
-    font-weight: 400;
-    text-align: center;
-	margin: 0px;
-    padding: 0px;
-    padding-top: 60px;
-	text-align: center;
-    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.35);
-    filter: dropshadow(color=rgba(0, 0, 0, 0.35), offx=1, offy=1);
-
-	transform:translateX(100%);
-	-moz-transform:translateX(100%);
-	-webkit-transform:translateX(100%);
-}
-.marquee p:nth-child(1) {
-	animation: left-one 20s ease infinite;
-	-moz-animation: left-one 20s ease infinite;
-	-webkit-animation: left-one 20s ease infinite;
-}
-.marquee p:nth-child(2) {
-	animation: left-two 20s ease infinite;
-	-moz-animation: left-two 20s ease infinite;
-	-webkit-animation: left-two 20s ease infinite;
-}
-.marquee.down p {
-	transform:translateY(-100%);
-	-moz-transform:translateY(-100%);
-	-webkit-transform:translateY(-100%);
-}
-.marquee.down p:nth-child(1) {
-	animation: down-one 20s ease infinite;
-	-moz-animation: down-one 20s ease infinite;
-	-webkit-animation: down-one 20s ease infinite;
-}
-.marquee.down p:nth-child(2) {
-	animation: down-two 20s ease infinite;
-	-moz-animation: down-two 20s ease infinite;
-	-webkit-animation: down-two 20s ease infinite;
-}
-.marquee.up p {
-	transform:translateY(100%);
-	-moz-transform:translateY(100%);
-	-webkit-transform:translateY(100%);
-}
-.marquee.up p:nth-child(1) {
-	animation: up-one 20s ease infinite;
-	-moz-animation: up-one 20s ease infinite;
-	-webkit-animation: up-one 20s ease infinite;
-}
-.marquee.up p:nth-child(2) {
-	animation: up-two 20s ease infinite;
-	-moz-animation: up-two 20s ease infinite;
-	-webkit-animation: up-two 20s ease infinite;
-}
 
 .blockEditModeOver {
     .widgetText .marquee p {
@@ -5421,234 +4372,6 @@ i {
         -webkit-transform:translateX(100%);
     }
 }
-
-/*================================
-	Move the Marquee to the Left
-==================================*/
-
-/** Mozilla Firefox Keyframes **/
-@-moz-keyframes left-one {
-	0%	{
-		-moz-transform:translateX(100%);
-	}
-	10% {
-		-moz-transform:translateX(0);
-	}
-	40% {
-		-moz-transform:translateX(0);
-	}
-	50% {
-		-moz-transform:translateX(-100%);
-	}
-	100%{
-		-moz-transform:translateX(-100%);
-	}
-}
-@-moz-keyframes left-two {
-	0% {
-		-moz-transform:translateX(100%);
-	}
-	50% {
-		-moz-transform:translateX(100%);
-	}
-	60% {
-		-moz-transform:translateX(0);
-	}
-	90% {
-		-moz-transform:translateX(0);
-	}
-	100%{
-		-moz-transform:translateX(-100%);
-	}
-}
-/** Webkit Keyframes **/
-@-webkit-keyframes left-one {
-	0% {
-		-webkit-transform:translateX(100%);
-	}
-	10% {
-		-webkit-transform:translateX(0);
-	}
-	40% {
-		-webkit-transform:translateX(0);
-	}
-	50% {
-		-webkit-transform:translateX(-100%);
-	}
-	100%{
-		-webkit-transform:translateX(-100%);
-	}
-}
-@-webkit-keyframes left-two {
-	0% {
-		-webkit-transform:translateX(100%);
-	}
-	50% {
-		-webkit-transform:translateX(100%);
-	}
-	60% {
-		-webkit-transform:translateX(0);
-	}
-	90% {
-		-webkit-transform:translateX(0);
-	}
-	100%{
-		-webkit-transform:translateX(-100%);
-	}
-}
-
-/*================================
-	Move the Marquee Downwards
-==================================*/
-
-/** Mozilla Firefox Keyframes **/
-@-moz-keyframes down-one {
-	0%	{
-		-moz-transform:translateY(-100%);
-	}
-	10% {
-		-moz-transform:translateY(0);
-	}
-	40% {
-		-moz-transform:translateY(0);
-	}
-	50% {
-		-moz-transform:translateY(100%);
-	}
-	100%{
-		-moz-transform:translateY(100%);
-	}
-}
-@-moz-keyframes down-two {
-	0% {
-		-moz-transform:translateY(-100%);
-	}
-	50% {
-		-moz-transform:translateY(-100%);
-	}
-	60% {
-		-moz-transform:translateY(0);
-	}
-	90% {
-		-moz-transform:translateY(0);
-	}
-	100%{
-		-moz-transform:translateY(100%);
-	}
-}
-
-/** Webkit Keyframes **/
-@-webkit-keyframes down-one {
-	0% {
-		-webkit-transform:translateY(-100%);
-	}
-	10% {
-		-webkit-transform:translateY(0);
-	}
-	40% {
-		-webkit-transform:translateY(0);
-	}
-	50% {
-		-webkit-transform:translateY(100%);
-	}
-	100%{
-		-webkit-transform:translateY(100%);
-	}
-}
-@-webkit-keyframes down-two {
-	0% {
-		-webkit-transform:translateY(-100%);
-	}
-	50% {
-		-webkit-transform:translateY(-100%);
-	}
-	60% {
-		-webkit-transform:translateY(0);
-	}
-	90% {
-		-webkit-transform:translateY(0);
-	}
-	100%{
-		-webkit-transform:translateY(100%);
-	}
-}
-
-/*================================
-	Move the Marquee Upwards
-==================================*/
-
-/** Mozilla Firefox Keyframes **/
-@-moz-keyframes up-one {
-	0%	{
-		-moz-transform:translateY(100%);
-	}
-	10% {
-		-moz-transform:translateY(0);
-	}
-	40% {
-		-moz-transform:translateY(0);
-	}
-	50% {
-		-moz-transform:translateY(-100%);
-	}
-	100%{
-		-moz-transform:translateY(-100%);
-	}
-}
-@-moz-keyframes up-two {
-	0% {
-		-moz-transform:translateY(100%);
-	}
-	50% {
-		-moz-transform:translateY(100%);
-	}
-	60% {
-		-moz-transform:translateY(0);
-	}
-	90% {
-		-moz-transform:translateY(0);
-	}
-	100%{
-		-moz-transform:translateY(-100%);
-	}
-}
-
-/** Webkit Keyframes **/
-@-webkit-keyframes up-one {
-	0% {
-		-webkit-transform:translateY(100%);
-	}
-	10% {
-		-webkit-transform:translateY(0);
-	}
-	40% {
-		-webkit-transform:translateY(0);
-	}
-	50% {
-		-webkit-transform:translateY(-100%);
-	}
-	100%{
-		-webkit-transform:translateY(-100%);
-	}
-}
-@-webkit-keyframes up-two {
-	0% {
-		-webkit-transform:translateY(100%);
-	}
-	50% {
-		-webkit-transform:translateY(100%);
-	}
-	60% {
-		-webkit-transform:translateY(0);
-	}
-	90% {
-		-webkit-transform:translateY(0);
-	}
-	100%{
-		-webkit-transform:translateY(-100%);
-	}
-}
-
 
 
 
@@ -5873,6 +4596,7 @@ i {
 	@extend .techtalkPlace;
 	height: 100%;
 }
+
 
 
 
@@ -7472,6 +6196,1848 @@ ul#countdown li p {
  right: 0;
  border-width: 1em 1em 0 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/* Grid Component */
+
+.gridComp {
+	width: 100%;
+	background-color: transparent !important;
+	color: $fontColorDefault;
+    
+    font-size: $fontSize;
+    font: 1em/1em $fontApp;
+	font-weight: normal;
+	line-height: 1.75 !important;
+	letter-spacing: 0;
+    direction: rtl;
+	margin: 0;
+	padding: 0;
+//	overflow-x: hidden;
+//	overflow-y: auto;
+    
+	a {
+		background-color: transparent !important;
+		color: $color1;
+		text-decoration: none;
+		@include transition(all 0.15s ease);
+		&:hover {
+			background-color: transparent !important;
+			color: darken($color1, 15);
+			cursor: pointer;
+		}
+	}
+}
+.gridCompHeader {
+	width: 100%;
+	background-color: transparent !important;
+	color: $fontColorDefault;
+	.txt {
+		font: 1.5em/1em $fontAppTitle;
+		font-weight: 600;
+		line-height: 1.85;
+	}
+	.ver {
+		font: 1em/1em $fontApp;
+		font-weight: 400;
+		line-height: 1.55;
+	}
+}
+.gridCompBlock {
+	background-color: transparent !important;
+	color: $fontColorDefault;
+	line-height: 1.55;
+}
+
+.gridBtnDefault {
+    display: block;
+	position: relative;
+	width: 100%;
+    height: 19px;
+    line-height: 19px;
+    vertical-align: middle;
+	background-color: $colorWhite;
+	color: $fontColorDefault;
+	font: 1em/1em $fontYekan;
+    font-weight: 600;
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+	@include border-radius($borderRadius);
+    margin: 0px 2px;
+    padding: 0;
+	padding-top: 6px;
+	cursor: pointer;
+    .icon {
+        display: inline-block;
+        font: 1.25em/1em $fontIcon;
+        height: 17px;
+        line-height: 17px;
+        vertical-align: middle;
+        margin: 0;
+        margin-top: -4px;
+        padding: 0;
+		padding-right: 4px;
+        float: right;
+    }
+	&:hover {
+		background-color: $colorWhite;
+		color: $color1;
+		cursor: pointer;
+	}
+}
+.btnToggleTop {
+    @extend .gridBtnDefault;
+    width: 240px;
+    background-color: transparent !important;
+	color: $color1;
+    &:hover {
+		background-color: $colorInfo !important;
+		color: $colorWhite !important;
+		cursor: pointer;
+	}
+}
+.btnSave {
+    @extend .gridBtnDefault;
+    width: 130px;
+    background-color: $colorSuccess !important;
+	color: $colorWhite;
+    margin: 0px auto;
+    &:hover {
+		background-color: darken($colorSuccess, 5) !important;
+		color: $colorWhite !important;
+		cursor: pointer;
+	}
+}
+a.btnSave, a.btnSave:visited {
+	@extend .btnSave;
+	&:hover {
+		background-color: darken($colorSuccess, 5);
+		color: $colorWhite;
+		cursor: pointer;
+	}
+}
+.btnActionDetails {
+	@extend .gridBtnDefault;
+	width: 19px;
+	height: 19px;
+    line-height: 19px;
+	vertical-align: middle;
+	background-color: transparent;
+	color: $colorWhite;
+    text-align: center;
+	margin: 0px auto;
+	padding: 0;
+	@include border-radius($borderRadiusBtn);
+	.icon {
+        display: inline-block;
+        font-weight: 400;
+        height: 15px;
+        line-height: 15px;
+        vertical-align: middle;
+        margin: 0;
+        margin-top: 0px;
+        padding: 0;
+		padding-right: 2px;
+        padding-top: 1px;
+    }
+	&:hover {
+		background-color: $colorWhite;
+		color: $colorSuccess;
+		cursor: pointer;
+	}
+}
+a.btnActionDetails, a.btnActionDetails:visited {
+	@extend .btnActionDetails;
+	&:hover {
+		background-color: $colorWhite;
+		color: $colorSuccess;
+		cursor: pointer;
+	}
+}
+.btnActionDelete {
+	@extend .gridBtnDefault;
+	width: 19px;
+	height: 19px;
+    line-height: 19px;
+	vertical-align: middle;
+	background-color: transparent;
+	color: $colorWhite;
+    text-align: center;
+	margin: 0px auto;
+	padding: 0;
+	@include border-radius($borderRadiusBtn);
+	.icon {
+        display: inline-block;
+        font-weight: 400;
+        height: 15px;
+        line-height: 15px;
+        vertical-align: middle;
+        margin: 0;
+        margin-top: 0px;
+        padding: 0;
+		padding-right: 2px;
+        padding-top: 1px;
+    }
+	&:hover {
+		background-color: $colorWhite;
+		color: $colorWarning;
+		cursor: pointer;
+	}
+}
+a.btnActionDelete, a.btnActionDelete:visited {
+	@extend .btnActionDelete;
+	&:hover {
+		background-color: $colorWhite;
+		color: $colorWarning;
+		cursor: pointer;
+	}
+}
+
+
+
+
+
+
+
+
+.gridInputDefault {
+    display: block;
+	position: relative;
+	width: 100%;
+    height: 19px;
+    line-height: 19px;
+    vertical-align: middle;
+    background-color: lighten($colorGrayLight, 6);
+    color: #444;
+    font: 1em/1em $fontApp;
+    font-weight: 600;
+    border: 1px #F1F1F1 solid;
+    outline: none;
+    @include border-radius($borderRadiusBtn);
+//	@include box-shadow(inset 2px 2px 4px #ddd);
+    
+    -webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.3), 0px 1px 0px rgba(255,255,255,.6);
+	-moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.3), 0px 1px 0px rgba(255,255,255,.6);
+	box-shadow: inset 0px 1px 1px rgba(0,0,0,0.3), 0px 1px 0px rgba(255,255,255,.6);
+
+	background: -webkit-linear-gradient(top, $colorGrayLight 0%, $colorWhite 100%);
+	background: -moz-linear-gradient(top, $colorGrayLight 0%, $colorWhite 100%);
+	background: -o-linear-gradient(top, $colorGrayLight 0%, $colorWhite 100%);
+	background: -ms-linear-gradient(top, $colorGrayLight 0%, $colorWhite 100%);
+	background: linear-gradient(top, $colorGrayLight 0%, $colorWhite 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$colorGrayLight', endColorstr='$colorWhite',GradientType=0 );
+    
+    margin: 2px;
+	padding: 2px 2px 0 2px;
+}
+.gridInputDefault::-webkit-input-placeholder {
+    color: #999999;
+    font-weight: 400;
+}
+.gridInputDefault::-moz-placeholder {
+    color: #999999;
+    font-weight: 400;
+}
+.gridInputDefault::-ms-input-placeholder {
+    color: #999999;
+    font-weight: 400;
+}
+input[type="text"].gridInputDefault {
+	@extend .gridInputDefault;
+}
+.gridSelectDragBox {
+    @extend .gridInputDefault;
+    background-color: lighten($color2Bk, 6);
+    color: $color2;
+    
+    -webkit-box-shadow: inset 0px 0px 0px rgba(0,0,0,0);
+	-moz-box-shadow: inset 0px 0px 0px rgba(0,0,0,0);
+	box-shadow: inset 0px 0px 0px rgba(0,0,0,0);
+
+	background: -webkit-linear-gradient(top, $colorWhite 0%, $color2Bk 100%);
+	background: -moz-linear-gradient(top, $colorWhite 0%, $color2Bk 100%);
+	background: -o-linear-gradient(top, $colorWhite 0%, $color2Bk 100%);
+	background: -ms-linear-gradient(top, $colorWhite 0%, $color2Bk 100%);
+	background: linear-gradient(top, $colorWhite 0%, $color2Bk 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$colorWhite', endColorstr='$color2Bk',GradientType=0 );
+}
+
+
+
+
+.gridInputDefaultSearch {
+    @extend .gridInputDefault;
+    background-color: lighten($color1Bk, 6);
+    color: $color1;
+    
+    border: 1px lighten($color1Bk, 6) solid;
+    
+    margin: 0px 5px;
+    
+    -webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.3), 0px 1px 0px rgba(255,255,255,.6);
+	-moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.3), 0px 1px 0px rgba(255,255,255,.6);
+	box-shadow: inset 0px 1px 1px rgba(0,0,0,0.3), 0px 1px 0px rgba(255,255,255,.6);
+
+	background: -webkit-linear-gradient(top, $color1Bk 0%, $colorWhite 100%);
+	background: -moz-linear-gradient(top, $color1Bk 0%, $colorWhite 100%);
+	background: -o-linear-gradient(top, $color1Bk 0%, $colorWhite 100%);
+	background: -ms-linear-gradient(top, $color1Bk 0%, $colorWhite 100%);
+	background: linear-gradient(top, $color1Bk 0%, $colorWhite 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color1Bk', endColorstr='$colorWhite',GradientType=0 );
+    &:focus {
+        background-color: $color2Bk4;
+        color: $color2;
+
+        border: 1px $color2Bk4 solid;
+        
+        background: -webkit-linear-gradient(top, $color2Bk4 0%, $colorWhite 100%);
+        background: -moz-linear-gradient(top, $color2Bk4 0%, $colorWhite 100%);
+        background: -o-linear-gradient(top, $color2Bk4 0%, $colorWhite 100%);
+        background: -ms-linear-gradient(top, $color2Bk4 0%, $colorWhite 100%);
+        background: linear-gradient(top, $color2Bk4 0%, $colorWhite 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color2Bk4', endColorstr='$colorWhite',GradientType=0 );
+    }
+}
+.gridInputDefaultSearch::-webkit-input-placeholder {
+    color: $color2Bk1;
+    font-weight: 400;
+}
+.gridInputDefaultSearch::-moz-placeholder {
+    color: $color2Bk1;
+    font-weight: 400;
+}
+.gridInputDefaultSearch::-ms-input-placeholder {
+    color: $color2Bk1;
+    font-weight: 400;
+}
+input[type="search"].gridInputDefaultSearch {
+	@extend .gridInputDefaultSearch;
+}
+
+
+
+
+.gridCheckTagPlace {
+	display: none;
+	position: absolute;
+	width: 140px;
+	height: 29px;
+	line-height: 29px;
+	vertical-align: middle;
+	background-color: transparent;
+	background-image: url(../images/tagBk.png);
+	background-position: center top;
+	background-repeat: no-repeat;
+	text-align: center;
+	margin: -29px -145px 0 0;
+	padding: 0 4px;
+}
+.gridInputTagPlace {
+	@extend .gridCheckTagPlace;
+    z-index: 99;
+}
+.gridInputTag {
+	height: 18px;
+	line-height: 18px;
+	vertical-align: middle;
+}
+.gridInputTagDefault {
+	width: 100px;
+	height: 18px;
+	line-height: 18px;
+	vertical-align: middle;
+	font: $fontSize*1.15 $fontApp;
+	font-weight: 600;
+	background-color: #EBEBEB;
+	padding: 0;
+	margin: 5px auto;
+	border: none;
+	background-color: #FFD33D;
+	color: #555;
+	&:focus{
+		outline: none;
+		box-shadow: none;
+		border-color: transparent;
+	}
+}
+input[type="text"].gridInputTag {
+	@extend .gridInputTagDefault;
+}
+
+
+
+
+
+
+.gridCompFilter {
+    display: block;
+    position: relative;
+    height: auto;
+    vertical-align: middle;
+    background-color: lighten($color1Bk, 6);
+    color: $color1;
+    font: 1.05em/1em $fontApp;
+    font-weight: 600;
+    margin: 1px 0;
+    padding: 4px;
+    overflow: hidden;
+    @include border-radius($borderRadius);
+    .filterTitle {
+        height: 23px;
+        max-height: 23px;
+        line-height: 23px;
+        vertical-align: middle;
+        font: 1.05em/1em $fontAppTitle;
+        font-weight: 600;
+        padding: 4px;
+    }
+    .filterPlace {
+        height: auto;
+        padding: 6px 4px;
+        .filterPlaceTitle {
+            width: 100%;
+            color: $color2;
+            font: 1.15em/1em $fontApp;
+            text-align: center;
+            padding: 6px;
+        }
+        .filterPlaceBtn {
+            width: 100%;
+            text-align: center;
+            padding: 6px;
+        }
+    }
+    a.btnToggleTop, a.btnToggleTop:visited, a.btnToggleTop:link {
+        @extend .btnToggleTop;
+        &:hover {
+            background-color: $color1;
+            color: lighten($color1, 35);
+            cursor: pointer;
+        }
+    }
+    a.btnSave, a.btnSave:visited, a.btnSave:link {
+        @extend .btnSave;
+        &:hover {
+            background-color: $colorSuccess;
+            color: $colorWhite;
+            cursor: pointer;
+        }
+    }
+    a.btnToggleTop > span {
+    }
+}
+ul.gridCompList {
+	display: table;
+	position: relative;
+    list-style: none;
+	width: 100%;
+    height: auto;
+    font: 1em/1em $fontApp;
+    margin: 0;
+    padding: 0;
+    z-index: 9;
+    li {
+        display: table-row;
+		position: relative;
+		width: 100%;
+        height: 27px !important;
+        line-height: 27px !important;
+        vertical-align: middle;
+    }
+    li.roww {
+        display: table-row;
+		position: relative;
+		width: 100%;
+        height: 27px !important;
+        line-height: 27px !important;
+        vertical-align: middle;
+        background-color: transparent;
+        color: $fontColorDefault;
+        font: 1em/1em $fontApp;
+        font-weight: 600;
+        line-height: 1.65;
+        clear: both;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        .cell {
+            height: 27px !important;
+            line-height: 27px !important;
+            vertical-align: middle;
+            margin: 1px;
+            padding: 0px 2px;
+            overflow: hidden;
+        }
+        .collCheck {
+            height: 25px !important;
+            min-height: 25px !important;
+            line-height: 25px !important;
+            vertical-align: middle;
+            text-align: center;
+            margin: 1px auto 0px;
+            padding-top: 4px;
+            padding-right: 2px;
+            overflow: hidden;
+            > * {
+                margin: 0;
+                padding: 0;
+            }
+            input[type="checkbox"] {
+            }
+            label {
+                width: 15px;
+                height: 15px;
+                margin-right: 0px !important;
+            }
+        }
+        &:nth-child(odd) {
+            .cell {
+                background-color: lighten($color1, 30);
+            }
+        }
+        &:nth-child(even) {
+            .cell {
+                background-color: lighten($color1, 35);
+            }
+        }
+        .btnActionDetails, a.btnActionDetails {
+            background-color: $colorWhite;
+            color: $fontColorDefault;
+            margin: 0px 2px;
+            &:hover {
+                @extend a.btnActionDetails:hover;
+            }
+        }
+        .btnActionDelete, a.btnActionDelete {
+            background-color: $colorWhite;
+            color: $fontColorDefault;
+            margin: 0px 2px;
+            &:hover {
+                @extend a.btnActionDelete:hover;
+            }
+        }
+        &:hover {
+            cursor: pointer;
+            @include transition(all 0.15s ease);
+            a {
+                @include transition(all 0.15s ease);
+                &:hover,
+                &:focus {
+                    @include transition(all 0.15s ease);
+                }
+            }
+            .cell {
+                background-color: lighten($color1, 15);
+                color: $fontColorDefault;
+                @include transition(all 0.15s ease);
+            }
+            .btnActionDetails, a.btnActionDetails {
+                background-color: $colorWhite !important;
+                color: $fontColorDefault;
+                &:hover {
+                    @extend a.btnActionDetails:hover;
+                }
+            }
+            .btnActionDelete, a.btnActionDelete {
+                background-color: $colorWhite !important;
+                color: $fontColorDefault;
+                &:hover {
+                    @extend a.btnActionDelete:hover;
+                }
+            }
+        }
+        &:focus {
+            cursor: pointer;
+            @include transition(all 0.15s ease);
+            a {
+                @include transition(all 0.15s ease);
+                &:hover,
+                &:focus {
+                    @include transition(all 0.15s ease);
+                }
+            }
+            .cell {
+                background-color: lighten($color2, 25);
+                color: $colorWhite1;
+                @include transition(all 0.15s ease);
+            }
+        }
+    }
+    li.roww.select {
+        height: 27px !important;
+        line-height: 27px !important;
+        vertical-align: middle;
+        cursor: pointer;
+        @include transition(all 0.15s ease);
+        a {
+            @include transition(all 0.15s ease);
+            &:hover,
+            &:focus {
+                @include transition(all 0.15s ease);
+            }
+        }
+        .cell {
+            background-color: lighten($color2, 5);
+            color: $colorWhite1;
+            @include transition(all 0.15s ease);
+        }
+        .btnActionDetails, a.btnActionDetails {
+            background-color: transparent !important;
+            color: $colorWhite;
+            &:hover {
+                @extend a.btnActionDetails:hover;
+            }
+        }
+        .btnActionDelete, a.btnActionDelete {
+            background-color: transparent !important;
+            color: $colorWhite;
+            &:hover {
+                @extend a.btnActionDelete:hover;
+            }
+        }
+    }
+    li.search {
+        display: table-row;
+		position: relative;
+		width: 100%;
+        height: 27px !important;
+        line-height: 27px !important;
+        vertical-align: middle;
+        background-color: transparent !important;
+        color: $color1;
+        font: 1em/1em $fontAppTitle;
+        font-weight: 600;
+        line-height: 1.75;
+        clear: both;
+        margin: 0;
+        padding: 0;
+        @include border-radius($borderRadius $borderRadius 0 0);
+        .cell {
+            background-color: transparent;
+            color: $color1;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .colSearchClear {
+            height: 21px !important;
+            line-height: 21px !important;
+            vertical-align: middle;
+            padding: 6px 8px 0 0;
+            .icon {
+                font: 1.45em/1em $fontIcon;
+                font-weight: 600;
+            }
+        }
+    }
+    li.header {
+        display: table-row;
+		position: relative;
+		width: 100%;
+        height: 43px !important;
+        line-height: 43px !important;
+        vertical-align: middle;
+        background-color: transparent !important;
+        color: $color1Bk;
+        font: 1em/1em $fontAppTitle;
+        font-weight: 600;
+        line-height: 1.75;
+        clear: both;
+        margin: 0;
+        padding: 0;
+        @include border-radius($borderRadius $borderRadius 0 0);
+        .cell {
+            height: 43px !important;
+            line-height: 43px !important;
+            vertical-align: middle;
+            background-color: $color1;
+            margin: 1px;
+            padding: 4px 2px 0 0;
+            overflow: hidden;
+        }
+        .collCheck {
+//            height: 37px !important;
+//            min-height: 37px !important;
+//            line-height: 37px !important;
+            vertical-align: middle;
+            text-align: center;
+            margin: 1px auto 0px;
+            padding-top: 4px;
+            padding-right: 2px;
+            overflow: hidden;
+            > * {
+                margin: 0;
+                padding: 0;
+            }
+            input[type="checkbox"] {
+            }
+            label {
+                width: 15px;
+                height: 15px;
+                margin-top: 8px !important;
+                margin-right: 0px !important;
+            }
+        }
+        a.sortIcon {
+            color: $color1Bk;
+            font: 1em/1em $fontIcon;
+            float: left;
+            padding-top: 10px;
+            padding-left: 3px;
+            
+            @include transition(all 0.15s ease);
+            &:hover,
+            &:focus {
+                color: $color1Bk;
+                @include transition(all 0.15s ease);
+            }
+        }
+    }
+    li.header > div:first-child div.cell {
+        @include border-radius(0 $borderRadius 0 0);
+    }
+    li.header > div:last-child div.cell {
+        @include border-radius($borderRadius 0 0 0);
+    }
+    li.dragHeader {
+        display: table-row;
+		position: relative;
+		width: 100%;
+        height: 136px !important;
+//        line-height: 37px !important;
+//        vertical-align: middle;
+        background-color: $colorWhite;
+        color: $color2Bk;
+        font: 1.15em/1em $fontApp;
+        font-weight: 600;
+        line-height: 1.75;
+        clear: both;
+        margin: 0;
+        padding: 0;
+        @include border-radius($borderRadius $borderRadius 0 0);
+        .cell {
+            background-color: $color2;
+            height: 136px !important;
+//            line-height: 57px !important;
+//            vertical-align: middle;
+            margin: 1px;
+            padding: 4px;
+            overflow: hidden;
+            cursor: move;
+            .title {
+                font: 1.05em/1em $fontAppTitle;
+                font-weight: 600;
+                padding: 2px 0;
+            }
+            .titleSmall {
+                font: 0.9em/1em $fontApp;
+                font-weight: 400;
+                padding: 2px 0;
+            }
+            .titleRadio {
+                font: 0.9em/1em $fontApp;
+                font-weight: 400;
+            }
+            .titleSelect {
+                font: 0.9em/1em $fontApp;
+                font-weight: 400;
+            }
+            .gridSelectDragBoxPlace {
+                width: 100%;
+                padding: 2px 0;
+                margin: 2px 0;
+            }
+            .gridSelectDragBox {
+                background-color: $color2Bk;
+                color: $color2;
+                width: 100%;
+                font: 0.9em/1em $fontApp;
+                font-weight: 400;
+                margin: 0;
+                padding: 0;
+                padding-right: 3px;
+                cursor: pointer;
+            }
+        }
+        .cell > span {
+            float: right;
+            clear: both;
+        }
+    }
+    li.dragHeader > div:first-child div.cell {
+        @include border-radius(0 $borderRadius $borderRadius 0);
+    }
+    li.dragHeader > div:last-child div.cell {
+        @include border-radius($borderRadius 0 0 $borderRadius);
+    }
+    li.roww:last-child > div:first-child div.cell {
+        @include border-radius(0 0 $borderRadius 0);
+    }
+    li.roww:last-child > div:last-child div.cell {
+        @include border-radius(0 0 0 $borderRadius);
+    }
+    li > div {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        float: right;
+        overflow: hidden;
+    }
+    .collCheck {
+        width: 100%;
+        white-space: normal !important;
+    }
+    .collNo {
+        width: 100%;
+        white-space: normal !important;
+    }
+    .cellBtnAction {
+        height: 27px;
+        line-height: 27px;
+        vertical-align: middle;
+        text-align: center;
+        margin: 0px auto;
+        padding-top: 4px !important;
+        span {
+            text-align: center;
+            float: right;
+        }
+    }
+    .coll1 {
+        width: 1%;
+        min-width: 1%;
+        max-width: 1%;
+    }
+    .coll2 {
+        width: 2%;
+        min-width: 2%;
+        max-width: 2%;
+    }
+    .coll3 {
+        width: 3%;
+        min-width: 3%;
+        max-width: 3%;
+    }
+    .coll4 {
+        width: 4%;
+        min-width: 1%;
+        max-width: 4%;
+    }
+    .coll5 {
+        width: 5%;
+        min-width: 5%;
+        max-width: 5%;
+    }
+    .coll6 {
+        width: 6%;
+        min-width: 6%;
+        max-width: 6%;
+    }
+    .coll7 {
+        width: 7%;
+        min-width: 7%;
+        max-width: 7%;
+    }
+    .coll8 {
+        width: 8%;
+        min-width: 8%;
+        max-width: 8%;
+    }
+    .coll9 {
+        width: 9%;
+        min-width: 9%;
+        max-width: 9%;
+    }
+    .coll10 {
+        width: 10%;
+        min-width: 10%;
+        max-width: 10%;
+    }
+    .coll15 {
+        width: 15%;
+        min-width: 15%;
+        max-width: 15%;
+    }
+    .coll20 {
+        width: 20%;
+        min-width: 20%;
+        max-width: 20%;
+    }
+    .coll25 {
+        width: 25%;
+        min-width: 25%;
+        max-width: 25%;
+    }
+    .coll30 {
+        width: 30%;
+        max-width: 30%;
+    }
+	.coll35 {
+        width: 35%;
+        max-width: 35%;
+    }
+    .coll40 {
+        width: 40%;
+        max-width: 40%;
+    }
+    .coll45 {
+        width: 45%;
+        max-width: 45%;
+    }
+    .coll50 {
+        width: 50%;
+        max-width: 50%;
+    }
+    .coll55 {
+        width: 55%;
+        max-width: 55%;
+    }
+    .coll60 {
+        width: 60%;
+        max-width: 60%;
+    }
+    .coll65 {
+        width: 65%;
+        max-width: 65%;
+    }
+	.coll70 {
+        width: 70%;
+        max-width: 70%;
+    }
+    .coll75 {
+        width: 75%;
+        max-width: 75%;
+    }
+	.coll80 {
+        width: 80%;
+        max-width: 80%;
+    }
+	.coll85 {
+        width: 85%;
+        max-width: 85%;
+    }
+	.coll90 {
+        width: 90%;
+        max-width: 90%;
+    }
+    .coll95 {
+        width: 95%;
+        max-width: 95%;
+    }
+    .coll100 {
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+    }
+    .collBtnFix {
+        width: 25px;
+        max-width: 25px;
+        min-width: 25px;
+    }
+}
+.gridCompFooter > div {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    float: right;
+    overflow: hidden;
+}
+.gridCompFooter {
+    display: block;
+    position: relative;
+    color: $color1;
+    height: 25px;
+//    max-height: 25px;
+    line-height: 25px;
+    vertical-align: middle;
+    background-color: transparent;
+    font: 1em/1em $fontApp;
+    margin: 2px 0;
+    padding: 4px;
+    overflow: hidden;
+    @include border-radius($borderRadius);
+    .pagingNoRecPlace {
+        display: inline-block;
+        position: relative;
+        width: 10%;
+        max-width: 10%;
+        font: 1em/1em $fontApp;
+        font-weight: 600;
+        padding: 4px 0 0 0;
+        .noRecTxt {
+            color: lighten($color1, 25);
+            margin: 0;
+            padding: 0;
+        }
+        .noRecAll {
+            color: $color1;
+            margin: 0;
+            padding: 0;
+        }
+    }
+    .pagingPagesPlace {
+        display: inline-block;
+        position: relative;
+        width: 50%;
+        max-width: 50%;
+        ul.paging {
+            display: table;
+            position: relative;
+            list-style: none;
+            width: 100%;
+            height: auto;
+            font: 1em/1em $fontApp;
+            margin: 0;
+            padding: 0;
+            li {
+                width: 29px;
+                height: 19px;
+                line-height: 19px;
+                vertical-align: middle;
+                white-space: nowrap;
+//                text-overflow: ellipsis;
+                float: right;
+                overflow: hidden;
+                margin: 1px;
+                padding: 1px;
+                a {
+                    width: 29px;
+                    height: 19px;
+                    color: lighten($color1, 25);
+                    padding: 8px;
+                    @include transition(all 0.15s ease);
+                    &:hover,
+                    &:focus {
+                        background-color: $colorWhite;
+                        color: $color1;
+                        @include transition(all 0.15s ease);
+                    }
+                }
+            }
+            li.select {
+                a {
+                    width: 29px;
+                    height: 19px;
+                    background-color: $color1 !important;
+                    color: $colorWhite !important;
+                    padding: 8px;
+                    @include transition(all 0.15s ease);
+                    &:hover,
+                    &:focus {
+                        background-color: $color1;
+                        color: $colorWhite;
+                        @include transition(all 0.15s ease);
+                    }
+                }
+            }
+        }
+    }
+    .pagingBlockLeftPlace {
+        display: inline-block;
+        position: relative;
+        width: 40%;
+        max-width: 40%;
+        height: 25px;
+        line-height: 25px;
+        vertical-align: middle;
+//        height: 35px;
+//        line-height: 35px;
+//        vertical-align: middle;
+        text-align: left;
+        padding-left: 15px;
+        float: left;
+    }
+    .pagingNoPlace {
+        display: inline-block;
+        position: relative;
+        height: 25px;
+        line-height: 25px;
+        vertical-align: middle;
+//        width: 25%;
+//        max-width: 25%;
+        font-weight: 600;
+        .noAll {
+            padding: 0px 0 0 2px;
+        }
+        .noSep {
+            padding: 0px 0 0 2px;
+        }
+        .no {
+            width: 65px;
+            height: 25px;
+            line-height: 25px;
+            vertical-align: middle;
+            padding-top: 0px;
+        }
+    }
+    .pagingNoPlace > span {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        float: right;
+        overflow: hidden;
+    }
+    .pagingRowNoPlace {
+        display: inline-block;
+        position: relative;
+        height: 25px;
+        line-height: 25px;
+        vertical-align: middle;
+//        width: 15%;
+//        max-width: 15%;
+        margin: 0;
+        padding: 0;
+        top: 0;
+        .rowwNo {
+            width: 55px;
+            height: 21px;
+            line-height: 21px;
+            vertical-align: middle;
+            padding-top: 0px;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+     theme 02
+   ========================================================================== */
+.Edit {
+    width: 100%;
+    height: 100%;
+    border: 1px dotted #666666;
+    padding-top: 5px;
+}
+    /* line 7366, ../sass/screen.scss */
+    .Edit .menuTitle {
+        display: block;
+        color: #fff;
+        font: 120% Yekan, Tahoma, Arial, Gadget, sans-serif, uicon;
+        font-weight: 600;
+    }
+    /* line 7372, ../sass/screen.scss */
+    .Edit .menuEdit {
+        display: none;
+        width: 140px;
+        text-align: center;
+        margin: 0px auto;
+        right: -15px;
+    }
+        /* line 7378, ../sass/screen.scss */
+        .Edit .menuEdit > a {
+            float: right;
+        }
+    /* line 7382, ../sass/screen.scss */
+    .Edit:hover {
+        background-color: #1A1A1A;
+        border: 1px solid #0068C0;
+        cursor: pointer;
+        transition: all 0.35s ease;
+        -webkit-transition: all 0.35s ease;
+        -moz-transition: all 0.35s ease;
+        -o-transition: all 0.35s ease;
+    }
+        /* line 7390, ../sass/screen.scss */
+        .Edit:hover .menuTitle {
+            color: #0068C0;
+        }
+        /* line 7393, ../sass/screen.scss */
+        .Edit:hover .menuEdit {
+            display: block;
+            right: 0;
+        }
+
+/* line 7400, ../sass/screen.scss */
+.content {
+    width: 927px;
+    padding: 50px;
+    margin: auto;
+}
+    /* line 7404, ../sass/screen.scss */
+    .content .slide {
+        width: 35%;
+        max-width: 35%;
+        min-width: 35%;
+        height: 280px;
+        max-height: 280px;
+        min-height: 280px;
+        float: right;
+        box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.2), 0 20px 30px 0 rgba(0, 0, 0, 0.19);
+    }
+    /* line 7414, ../sass/screen.scss */
+    .content .video {
+        width: 60%;
+        max-width: 60%;
+        min-width: 60%;
+        height: 280px;
+        max-height: 280px;
+        min-height: 280px;
+        float: left;
+        box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.2), 0 20px 30px 0 rgba(0, 0, 0, 0.19);
+    }
+
+/* line 7425, ../sass/screen.scss */
+.containor {
+    width:940px;
+     height:529px;
+      background: url('/Skins/CSS_tvShow/images/bg22.png') center center no-repeat;
+
+}
+
+/* line 7428, ../sass/screen.scss */
+.row-text {
+   display: block;
+    position: relative;
+    width: 100%;
+    min-width: 100%;
+    height: 100px;
+    min-height: 100px;
+    max-height: 100px;
+    /* background-color: #000000; */
+    background-image: url();
+    background-size: auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin: 0px;
+    padding: 0px;
+    clear: both;
+    overflow: hidden;
+}
+
+/* line 7444, ../sass/screen.scss */
+.text-slider {
+    width: 600px;
+    max-width: 600px;
+    min-width: 600px;
+    height: 100%;
+    max-height: 100%;
+    min-height: 100%;
+    margin-right: 157px;
+}
+
+/* line 7455, ../sass/screen.scss */
+.logo {
+    width: 100px;
+    max-width: 100px;
+    min-width: 100px;
+    height: 71px;
+    max-height: 71px;
+    min-height: 71px;
+    float: left;
+    background: url(../images/logo-DV.png) center center no-repeat;
+}
+
+/* line 7466, ../sass/screen.scss */
+.txt-title {
+    display: table-row;
+    position: relative;
+    width: 100%;
+    min-width: 100%;
+    height: 89px;
+    min-height: 89px;
+    max-height: 89px;
+    background-size: auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin: 0px;
+    padding: 0px;
+    clear: both;
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.ui {
+    a {
+        background-color: $color8;
+        color: darken($color8, 32);
+        text-decoration: none;
+        padding: 0px 4px;
+        @include transition(all 0.15s ease);
+        &:hover {
+            background-color: #444444;
+            color: $color8;
+            cursor: pointer;
+        }
+    }
+}
+.uiBtnIcon {
+	display: block;
+	position: relative;
+	width: 100%;
+    height: auto;
+    line-height: auto;
+    vertical-align: middle;
+    background-color: transparent !important;
+	color: $colorWhite !important;
+	font: 1em/1em $fontYekan;
+    font-weight: 600;
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    .icon {
+        display: inline-block;
+        font: 1.5em/1em $fontIcon;
+		text-align: center;
+        height: auto;
+        line-height: auto;
+        vertical-align: middle;
+        margin: 0;
+        padding: 0;
+    }
+	&:hover {
+        background-color: $colorWhite !important;
+        color: $color8TxtDark !important;
+		@include box-shadow(inset 1px 1px 1px rgba(255, 255, 255, 0.3), 0 2px 2px rgba(0, 0, 0, 0.15), 0 1px 2px -2px rgba(0, 0, 0, 0.2));
+		cursor: pointer;
+	}
+}
+.uiBtnIcon.icon {
+    display: inline-block;
+    font: 1.5em/1em $fontIcon;
+	text-align: center;
+    height: auto;
+    line-height: auto;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+}
+.uiBtnAction {
+	@extend .uiBtnIcon;
+	width: 24px;
+	height: 24px;
+    line-height: 24px;
+    vertical-align: middle;
+	@include border-radius($borderRadiusBtn);
+	&:hover {
+		background-color: $color8 !important;
+		color: $color8TxtDark !important;
+		cursor: pointer;
+		/*@include box-shadow(0px 0px 0px rgba(0,0,0,0));*/
+		@include transition(all 0.07s linear);
+		-webkit-transform: scale(1.2);
+		-moz-transform: scale(1.2);
+		-o-transform: scale(1.2);
+	}
+	.icon {
+		text-align: center;
+		&:hover {
+		}
+    }
+}
+.uiBtnActionHeader {
+    @extend .uiBtnAction;
+    float: left !important;
+    margin-top: 14px;
+    margin-right: 8px;
+}
+.uiBtnActionFooter {
+    @extend .uiBtnAction;
+}
+.uiHeader {
+    display: block;
+    position: relative;
+    height: auto;
+	vertical-align: middle;
+	background-color: rgba(0,0,0,0.45);
+	overflow: hidden;
+}
+.uiHeaderLink {
+    color: $colorWhite;
+    font: 0.75em/1em $fontApp;
+    text-align: left;
+    margin-top: 8px;
+    a, a:visited {
+        background-color: transparent;
+        color: $colorWhite;
+        &:hover {
+            background-color: $color8;
+            color: $color8TxtDark;
+            cursor: pointer;
+        }
+    }
+}
+.uiBlock {
+	color: $fontColor1;
+	font: 1.3em/1em $fontApp;
+	line-height: 1.45;
+	.title {
+		color: $colorWhite;
+		font: 1.5em/1em $fontAppTitle;
+		font-weight: 600;
+		line-height: 1.85;
+		.titleLogo {
+			width: 55px;
+			height: 55px;
+			line-height: 55px;
+			vertical-align: middle;
+			margin: 5px 0 0 25px;
+		}
+		.titleTxt {
+			width: auto;
+			height: 17px;
+			line-height: 17px;
+			vertical-align: middle;
+            margin: 19px 0 0 0;
+		}
+		.ver {
+			width: auto;
+			height: 17px;
+			line-height: 17px;
+			vertical-align: middle;
+			color: rgba(255,255,255,0.25);
+			font: 0.55em/1em $fontApp;
+			margin: 25px 15px 0 0;
+            padding: 0;
+		}
+        .desc {
+			width: auto;
+			height: 17px;
+			line-height: 17px;
+			vertical-align: middle;
+			color: rgba(255,255,255,0.65);
+			font: 0.55em/1em $fontApp;
+			margin: 4px 0;
+		}
+		.txtSpace {
+			margin: 2px 4px;
+			padding: 2px 4px;
+		}
+		a, a:visited {
+			background-color: transparent;
+			color: $colorWhite;
+			&:hover {
+				background-color: transparent;
+				color: $colorWhite;
+				cursor: pointer;
+			}
+		}
+		&:hover {
+		}
+	}
+	.desc {
+		color: $colorGrayDark;
+		font: 1.1em/1em $fontApp;
+	}
+	.desctitleCustom {
+		@extend .desc;
+		font: 0.9em/1em $fontApp;
+		text-align: left;
+		margin: 14px 0 0 0;
+		float: left;
+		.btnActionPlace {
+			text-align: left;
+			margin: 0 4px 0 0;
+			float: left;
+		}
+		.txtCustom {
+			text-align: center;
+			margin: 6px 4px 0 0;
+			padding: 0px 8px;
+			float: left;
+		}
+		.btnActionPlaceDesc {
+			display: inline-block;
+			position: relative;
+			width: 125px;
+			text-align: center;
+			margin: 0 4px 0 0;
+			float: left;
+			a {
+				.icon {
+					padding-right: 3px;
+				}
+				.txtDesc {
+					display: inline-block;
+					position: relative;
+					width: 105px;
+					top: -4px;
+					font: 0.6em/1em $fontApp;
+					text-align: right;
+					margin-top: -6px;
+					padding: 0px 12px;
+				}
+				&:hover {
+					.txtDesc {
+						color: $colorWhite;
+					}
+				}
+			}
+		}
+		
+	}
+	.desctitleCustomFooter {
+		@extend .desc;
+		font: 0.9em/1em $fontApp;
+		margin: 3px 0 0 0;
+		.btnActionPlace {
+			margin: 0 4px 0 0;
+		}
+		.txtCustomFooter {
+			text-align: center;
+			margin: 6px 4px 0 0;
+			padding: 0px 8px 0px;
+			float: right;
+		}
+	}
+}
+.uiBlockContent {
+	background-color: rgba(0, 0, 0, 0.45);
+	color: $colorWhite;
+    font: 0.95em/1em $fontApp;
+    line-height: 1.55;
+	margin: 6px 0px;
+    margin-bottom: 62px;
+    @include border-radius($borderRadius);
+    h1 {
+        font: 1.25em/1em $fontYekan;
+        line-height: 1.65;
+    }
+    h2 {
+        font: 1.15em/1em $fontYekan;
+        line-height: 1.55;
+    }
+    h3 {
+        font: 1.05em/1em $fontYekan;
+        line-height: 1.45;
+    }
+    .line {
+        height: 2px;
+        border-color: rgba(0, 0, 0, 0.15);
+        border-top: 1px rgba(0, 0, 0, 0.15) solid;
+        border-bottom: 1px rgba(255, 255, 255, 0.25) solid;;
+        margin: 6px 0;
+    }
+    .uiModelLogin {
+        background-color: transparent;
+        color: $colorWhite;
+        padding: 6px;
+        .title {
+            background-color: $color1;
+            color: $colorWhite;
+            font: 1.35em/1em $fontYekan;
+            font-weight: 600;
+            line-height: 1.75;
+            padding: 4px;
+            @include border-radius($borderRadius);
+        }
+        hr {
+            border-color: rgba(255, 255, 255, 0.35);
+        }
+    }
+    .uiModel {
+        background-color: transparent;
+        color: $colorWhite;
+        padding: 6px;
+        .title {
+            color: $colorWhite;
+            font: 1.35em/1em $fontYekan;
+            font-weight: 600;
+            line-height: 1.75;
+        }
+        hr {
+            border-color: rgba(255, 255, 255, 0.35);
+        }
+    }
+    .uiModel1 {
+        background-color: rgba(255, 255, 255, 0.85);
+        color: $fontColorDefault;
+        padding: 6px;
+        .title {
+            color: $fontColorDefault;
+            font: 1.35em/1em $fontYekan;
+            font-weight: 600;
+            line-height: 1.75;
+        }
+    }
+    .uiModel2 {
+        background-color: rgba(0, 0, 0, 0.45);
+        color: $colorWhite;
+        padding: 6px;
+        .title {
+            color: $colorWhite;
+            font: 1.35em/1em $fontYekan;
+            font-weight: 600;
+            line-height: 1.75;
+        }
+        hr {
+            border-color: rgba(255, 255, 255, 0.35);
+        }
+    }
+}
+.uiBlockContent.full {
+    height: 100vh;
+    margin-bottom: 62px;
+}
+.uiBlockMenuBlank {
+    display: block;
+    position: relative;
+    list-style: none;
+    width: 976px;
+	height: 3px;
+	line-height: 3px;
+	vertical-align: middle;
+    background-color: $bkColorDark;
+	color: $colorWhite;
+}
+.uiBlockMenuWrapBlank {
+    display: block;
+    position: relative;
+    list-style: none;
+    width: 100%;
+	height: 3px;
+	line-height: 3px;
+	vertical-align: middle;
+    background-color: $bkColorDark;
+	color: $colorWhite;
+    border-bottom: 2px $color8 solid;
+    @include transition(all 0.23s ease);
+    margin: 0;
+    padding: 0;
+    z-index: 999;
+    .uiBlockMenu {
+        height: 3px;
+        line-height: 3px;
+        border-bottom: 2px $color8 solid;
+        li {
+            display: block;
+            position: relative;
+            width: 122px;
+            height: 3px;
+            line-height: 3px;
+        }
+    }
+}
+.uiBlockMenu {
+    display: block;
+    position: relative;
+    list-style: none;
+    width: 976px;
+	height: 56px;
+	line-height: 56px;
+	vertical-align: middle;
+    background-color: $bkColorDark;
+	color: $colorWhite;
+    text-align: center;
+    @include transition(all 0.23s ease);
+    margin: 0px auto;
+    padding: 0;
+    z-index: 999;
+    li {
+        display: block;
+        position: relative;
+        width: 122px;
+        height: 56px;
+        line-height: 56px;
+        vertical-align: middle;
+        font: 0.9em/1em $fontYekan;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        float: right;
+        a, a:link, a:visited {
+            display: block;
+            position: relative;
+            width: 122px;
+            height: 100%;
+            vertical-align: middle;
+            background-color: transparent;
+            color: rgba(255, 255, 255, 0.85);
+            text-align: center;
+            padding: 0 8px;
+            &:hover {
+                height: 100%;
+                background-color: $color8;
+                color: $color8TxtDark;
+                cursor: pointer;
+            }
+        }
+    }
+}
+.uiBlockMenu.sticky {
+    display: block;
+    position: fixed;
+    width: 100%;
+    top: 0;
+	height: 22px;
+	line-height: 22px;
+    margin: 0px auto;
+}
+.uiBlockMenuPlace {
+    background-color: $bkColorDark;
+    width: 100%;
+    margin: 0px auto;
+}
+.uiBlockMenuWrap {
+    display: block;
+    position: relative;
+    list-style: none;
+    width: 100%;
+	height: 56px;
+	line-height: 56px;
+	vertical-align: middle;
+    background-color: $bkColorDark;
+	color: $colorWhite;
+    border-bottom: 2px $color8 solid;
+    @include transition(all 0.23s ease);
+    margin: 0;
+    padding: 0;
+    z-index: 999;
+    .uiBlockMenu {
+        height: 56px;
+        line-height: 56px;
+        border-bottom: 2px $color8 solid;
+        li {
+            display: block;
+            position: relative;
+            width: 122px;
+            height: 56px;
+            line-height: 56px;
+        }
+    }
+}
+.uiBlockMenuWrap.sticky {
+    display: block;
+    position: fixed;
+    width: 100%;
+    top: 0;
+	height: 32px;
+	line-height: 32px;
+    border-bottom: 2px $color8 solid;
+    margin: 0px auto;
+    .uiBlockMenu {
+        height: 32px;
+        line-height: 32px;
+        border-bottom: 2px $color8 solid;
+        li {
+            display: block;
+            position: relative;
+            width: 122px;
+            height: 32px;
+            line-height: 32px;
+        }
+    }
+}
+.uiFooter {
+    display: block;
+    position: relative;
+    height: auto;
+    background-color: rgba(0,0,0,0.45);
+	color: $colorGrayDark;
+	font: 1em/1em $fontApp;
+	font-weight: 400;
+	margin: 8px auto 0px;
+	padding: 8px;
+    .uiCopyRightTxt,
+    .uiCopyRightTxt a,
+    .uiCopyRightTxt a:link,
+    .uiCopyRightTxt a:visited {
+        background-color: transparent;
+        color: $colorWhite;
+        font: 0.7em/1em $fontApp;
+        font-weight: 400;
+        line-height: 1.75 !important;
+        vertical-align: middle;
+        text-align: right;
+        text-indent: none;
+        padding: 4px;
+        a:hover {
+            background-color: $color8;
+            color: $color8TxtDark;
+            font-weight: 600;
+            cursor: pointer;
+        }
+    }
+    .uiBtnPlaceHeader {
+        font: 0.85em/1em $fontIcon;
+        text-align: left;
+        margin: 12px 4px 0 0;
+        padding: 12px 0 0 0;
+        float: left;
+    }
+    .uiBtnActionPlaceHeader {
+        text-align: center;
+        margin: 0 4px 0 0;
+        float: left;
+    }
+    .uiBtnPlaceFooter {
+        font: 0.7em/1em $fontIcon;
+        text-align: right;
+        margin: 0 4px 0 0;
+        float: right;
+    }
+    .uiBtnActionPlaceFooter {
+        text-align: center;
+        margin: 0 4px 0 0;
+        float: right;
+    }
+}
+.uiFooter.fix {
+    display: block;
+    position: fixed;
+    height: auto;
+    bottom: 0;
+    margin-top: 4px;
+}
+
+
+
+
+
+
+@media (min-width: $breakpoint-wide) {
+    
+body {
+    font-size: 1.35em/1em;
+}
+    
+}
+
+
+
+
 
 
 

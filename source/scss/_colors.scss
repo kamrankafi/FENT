@@ -2,15 +2,16 @@
 /* طراحی رابط و تجربه کاربری فن آوری اطلاعات روهان */
 /* http://www.color-hex.com/color-names.html */
 @charset "utf-8";
-$fontColorApp: #666666;
-$fontColorApp1: #777777;
-$fontColorApp2: #999999;
-$fontColorApp3: #A9A9A9;
-$fontColorApp4: #D0D0D0;
-$fontColorApp5: #E5E5E5;
+
+$fontColorApp: #9CDCF9;
+$fontColorApp1: #53B7E8;
+$fontColorApp2: #42A2DA;
+$fontColorApp3: #1D88C9;
+$fontColorApp4: #2C67B2;
+$fontColorApp5: #315585;
 
 $bkColorDark: #444444;
-$backgroundColor: #FFFFFF;
+$backgroundColor: #315585;
 $topBar: #F8F8F8;
 $topBarTxt: #888888;
 $pageHeaderBk: #E7E7E7;
@@ -22,9 +23,9 @@ $btnColorBK: #666666;
 $btnColorTxt: #FFFFFF;
 
 /* Application Colors */
-$color1: #0068C0;
-$color1Bk: lighten($color1, 50);
-$color1Bk2: lighten($color1, 45);
+$color1: #D9B451;
+$color1Bk: lighten($color1, 30);
+$color1Bk2: lighten($color1, 20);
 
 // $color1: #0068C0;
 // $color1Bk: lighten($color1, 45);
@@ -38,11 +39,20 @@ $color1Bk2: lighten($color1, 45);
 // $color1: #5774AD;
 // $color1Bk: #D3DBF1;
 
+$fontColorDefault: #555555;
+
 $fontColor: $color1;
 $fontColor1: lighten($color1, 15);
 
-$color2: #AC4D81;
-$color2Bk: lighten(#E27D9C, 15);
+$color2: #2F5487;
+$color2Bk: lighten($color2, 5);
+$color2Bk1: lighten($color2, 10);
+$color2Bk2: lighten($color2, 15);
+$color2Bk3: lighten($color2, 25);
+$color2Bk4: lighten($color2, 35);
+
+// $color2: #AC4D81;
+// $color2Bk: lighten(#E27D9C, 15);
 $color3: #BA4980;
 $color3Bk: lighten(#E7839A, 20);
 $color4: #EB5D47;
