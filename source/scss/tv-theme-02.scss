@@ -114,9 +114,9 @@ $dark-blue: #1D1D3F;
 		overflow:hidden;
   	}
   	.header {
-		width:1920px;
+		width: 1920px;
 		height: 218px;
-		padding-top:20px;
+		padding-top: 20px;
 		overflow:hidden;
 		
 		
@@ -130,7 +130,13 @@ $dark-blue: #1D1D3F;
                 color: #F4BF24;
                 padding: 0px;
                 margin: 0px;
-                font-size:46px;
+                font-size: 46px;
+			}
+            ul.marquee li {
+                color: #F4BF24;
+                padding: 0px;
+                margin: 0px;
+                font-size: 46px;
 			}
 		
 			}

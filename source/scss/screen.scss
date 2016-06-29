@@ -458,6 +458,40 @@ a {
     opacity: 1;
     z-index: 9;
 }
+.blockMenuType {
+	@extend .blockType;
+	/*background-color: $colorGrayLight;*/
+	background-color: transparent;
+	/*-webkit-filter: blur(10px);
+	filter: url('/media/blur.svg#blur');
+	filter: blur(10px);*/
+	/*color: $colorGrayDark;*/
+	color: $colorWhite1;
+    font: 1em/1em $fontYekan;
+    @include border-radius($borderRadiusBtn);
+    margin-top: 6px;
+}
+.blockMenuPlace {
+    display: block;
+    position: relative;
+    /*font-size: 16px;*/
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 100%;
+    background: $color2;
+    background-image: url();
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: $fontColorApp1;
+    border-bottom: 2px $color1 solid;
+    @include border-radius($borderRadiusBtn);
+    padding: 0;
+    opacity: 1;
+    z-index: 9;
+}
 .blockHeaderTitle {
 	color: $fontColorApp;
 	font: 1em/1em $fontYekan;
@@ -471,8 +505,9 @@ a {
 .blockHeaderBtnLogout {
     display: block;
     position: relative;
-    top: 0;
-    left: 0;
+    top: 5;
+    left: 5;
+    margin: 8px;
     float: left;
     z-index: 99;
 }
@@ -584,7 +619,7 @@ a {
 		margin-right: -22px;
 	}
 	&:hover {
-		@include box-shadow(inset 1px 1px 1px rgba(255, 255, 255, 0.3), 0 2px 2px rgba(0, 0, 0, 0.15), 0 1px 2px -2px rgba(0, 0, 0, 0.2));
+//		@include box-shadow(inset 1px 1px 1px rgba(255, 255, 255, 0.3), 0 2px 2px rgba(0, 0, 0, 0.15), 0 1px 2px -2px rgba(0, 0, 0, 0.2));
 		cursor: pointer;
 	}
 }
@@ -784,25 +819,51 @@ a {
 
 
 
-.btnMenuMode {
+.btnMenuHeader {
 	@extend .btnDefault;
-	background-color: $color1Bk;
-	color: $color1;
+	background-color: transparent;
+	color: $color1Bk;
+    padding: 3px;
     .icon {
         padding-right: 6px;
     }
 	&:hover {
-		background-color: $color1;
+		background-color: $color1Bk3;
 		color: $color1Bk;
+	}
+}
+.btnMenuHeader.select {
+	@extend .btnMenuHeader;
+    background-color: $color1Bk3;
+    color: $colorWhite;
+	&:hover {
+		background-color: $color1Bk3;
+        color: $colorWhite;
+	}
+}
+
+
+
+.btnMenuMode {
+	@extend .btnDefault;
+	background-color: $color1Bk1;
+	color: $color1;
+    padding: 3px;
+    .icon {
+        padding-right: 6px;
+    }
+	&:hover {
+		background-color: $color1Bk4;
+		color: $colorWhite;
 	}
 }
 .btnMenuMode.select {
 	@extend .btnMenuMode;
     background-color: $color1;
-    color: $color1Bk;
+    color: $colorWhite;
 	&:hover {
 		background-color: $color1;
-		color: $color1Bk;
+        color: $colorWhite;
 	}
 }
 .btnMenuModeSmall {
@@ -831,10 +892,17 @@ a {
 	@extend .btnMenuModeSmall;
     background-color: transparent;
     color: $fontColorApp;
+    margin: 0;
+    padding: 0;
+    padding-right: 6px;
 	&:hover {
 		background-color: $colorWarning;
 		color: $colorWarningTxt;
 	}
+    .icon {
+        margin: 0;
+        padding: 0;
+    }
 }
 .btnMenuModeSmallLogout.select {
 	@extend .btnMenuModeSmallLogout;
@@ -1996,6 +2064,50 @@ a {
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
 }
+.inputSearchMenuPlace {
+    display: block;
+    position: relative;
+    top: 5;
+    left: 5;
+    width: 255px;
+    border-left: 1px $color2Bk1 solid;
+    padding: 8px;
+    margin-left: 5px;
+    padding-left: 15px;
+    float: left;
+    z-index: 99;
+}
+.inputSearchMenuIcon.icon {
+    color: $color2Bk1;
+    font: $fontSize*1.35 $fontIcon;
+    padding-top: 3px;
+    float: right;
+}
+.inputSearchMenuBox {
+    width: 200px;
+    float: left;
+}
+.inputSearchMenu {
+    @extend .formInputDefault;
+    display: block;
+    position: relative;
+    width: 175px !important;;
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    color: #F1F1F1 !important;
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    @include box-shadow(none);
+}
+.inputSearchMenu::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.35) !important;
+}
+.inputSearchMenu::-moz-placeholder {
+    color: rgba(255, 255, 255, 0.35) !important;
+}
+.inputSearchMenu::-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.35) !important;
+}
 .editPackageBtnSearch {
     @extend .btnDefault;
     width: 24px;
@@ -2304,8 +2416,8 @@ a {
             float: none;
             clear: both;
             &:hover {
-//                background-color: lighten($color1, 32);
-//                border: 1px lighten($color1, 27) solid;
+//                background-color: $color1Bk1;
+//                border: 1px $color1Bk2 solid;
             }
         }
         
@@ -2322,12 +2434,12 @@ a {
             border: 1px transparent solid;
             @include border-radius($borderRadius);
             margin: 3px auto;
-            padding: 6px;
+            padding: 30px;
             float: none;
             clear: both;
             &:hover {
-                background-color: lighten($color1, 32);
-                border: 1px lighten($color1, 27) solid;
+                background-color: $color1Bk1;
+                border: 1px $color1Bk2 solid;
             }
         }
         .rowSelectDefault > div:only-child {
@@ -2355,8 +2467,8 @@ a {
             min-width: 910px;
             max-width: 910px;
             height: auto;
-            background-color: lighten($color1, 32);
-            border: 1px lighten($color1, 32) solid;
+            background-color: $color1Bk1;
+            border: 1px $color1Bk3 solid;
             @include border-radius($borderRadius $borderRadius 0 0);
             margin: 3px auto 0px;
             padding: 6px;
@@ -2368,7 +2480,7 @@ a {
                 
             }
             &:hover {
-                border: 1px lighten($color1, 27) solid;
+                border: 1px $color1Bk2 solid;
             }
         }
         .rowSelectTemplate > div:only-child {
@@ -2381,12 +2493,12 @@ a {
             min-width: 910px;
             max-width: 910px;
             height: 43px;
-            background-color: lighten($color1, 32);
+            background-color: $color1Bk1;
             color: $color1;
             font: $fontSize*0.75 $fontApp;
             font-weight: 400;
             text-align: right;
-            border-top: 1px lighten($color1, 27) solid;
+            border-top: 1px $color1Bk4 solid;
             margin: 0px auto 3px;
             padding: 6px;
             bottom: 0px;
@@ -3257,13 +3369,13 @@ input[type="range"]::-webkit-slider-thumb {
     vertical-align: middle;
     background-color: $colorWhite;
     color: #444;
-    font: 0.9em/1em $fontApp;
+    font: 1em/1em $fontApp;
     font-weight: 400;
     border: none;
     outline: none;
     @include border-radius($borderRadius);
 	@include box-shadow(inset 2px 2px 2px #ddd);
-	padding: 4px 4px 0 4px;
+	padding: 2px 8px 0 4px;
 }
 .formInputDefaultDate {
 	@extend .formInputDefault;
@@ -4349,11 +4461,12 @@ textarea.formTextareaNote {
 
 
 .blockEditModeOver {
+    
     .widgetText .marquee p {
         display: block;
         position: absolute;
         background-color: transparent;
-        color: #FFFFFF;
+//        color: #FFFFFF;
         width: 100%;
         height: 80px;
         line-height: 80px;
@@ -4371,6 +4484,45 @@ textarea.formTextareaNote {
         -moz-transform:translateX(100%);
         -webkit-transform:translateX(100%);
     }
+    
+    ul.marquee {
+        /* required styles */
+        display: block;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        line-height: 1;
+        position: relative;
+        overflow: hidden;
+
+        /* optional styles for appearance */
+        width: 100%;
+        height: 80px; /* height should be included to reserve visual space for the marquee */
+
+        text-align: center;
+
+        background-color: transparent;
+
+        margin: 0px auto;
+    }
+
+    ul.marquee li {
+        /* required styles */
+        position: absolute;
+        top: -999em;
+        right: 0;
+        display: block;
+        white-space: nowrap; /* keep all text on a single line */
+
+        /* optional styles for appearance */
+//        color: $colorWhite;
+        font: $fontSize*1.4 $fontApp;
+        text-align: center;
+
+        margin: 0px;
+        padding: 0px;
+    }
+    
 }
 
 
@@ -4378,6 +4530,94 @@ textarea.formTextareaNote {
 
 
 
+
+
+
+
+.menuTab {
+	section {
+        display: none;
+        background-color: $color1;
+        color: $color1Bk;
+        border-top: 1px solid $color1;
+        padding: 6px;
+	}
+	input {
+//	  display: none;
+	}
+    input[type=radio] {
+        display: none;
+	}
+	label {
+        display: inline-block;
+        height: 44px;
+        line-height: 44px;
+        vertical-align: middle;
+        background-color: transparent;
+        color: $color2Bk4;
+        font: 1.15em/1em $fontYekan;
+        font-weight: 600;
+        text-align: center;
+        margin: 0;
+        padding: 12px;
+        border-top: 3px transparent solid;
+        border-bottom: 0px solid $color1;
+        @include transition(all 0.15s ease);
+        .icon {
+            padding: 0px 3px;
+        }
+	}
+	label:before {
+	}
+	label[for*='1']:before { content: ''; }
+	label[for*='2']:before { content: ''; }
+	label[for*='3']:before { content: ''; }
+	label[for*='4']:before { content: ''; }
+	label[for*='5']:before { content: ''; }
+	label[for*='6']:before { content: ''; }
+	label[for*='7']:before { content: ''; }
+	label[for*='8']:before { content: ''; }
+	label:hover {
+        background-color: $color2Bk1;
+        cursor: pointer;
+        @include transition(all 0.15s ease);
+	}
+	input:checked + label {
+        background-color: $color1;
+        color: $color1Bk;
+        border-top: 3px $color1Bk solid;
+        border-bottom: 1px solid $color1;
+        @include transition(all 0.15s ease);
+	}
+	#tab1:checked ~ #content1,
+	#tab2:checked ~ #content2,
+	#tab3:checked ~ #content3,
+	#tab4:checked ~ #content4,
+	#tab5:checked ~ #content5,
+	#tab6:checked ~ #content6,
+	#tab7:checked ~ #content7,
+	#tab8:checked ~ #content8 {
+        display: block;
+	}
+}
+@media screen and (max-width: 650px) {
+.menuTab {
+	label {
+		font-size: 0;
+	}
+	label:before {
+        font: 1em/1em $fontYekan;
+		margin: 0;
+	}
+}
+}
+@media screen and (max-width: 400px) {
+.menuTab {
+	label {
+		padding: 5px;
+	}
+}
+}
 
 
 
@@ -7397,9 +7637,10 @@ ul.gridCompList {
 
 /* line 7425, ../sass/screen.scss */
 .containor {
-    width:940px;
-     height:529px;
-      background: url('/Skins/CSS_tvShow/images/bg22.png') center center no-repeat;
+    width: 940px;
+     height: 529px;
+    background-color: #000000;
+      background: url('../images/bg22.png') center center no-repeat;
 
 }
 
@@ -7413,6 +7654,9 @@ ul.gridCompList {
     min-height: 100px;
     max-height: 100px;
     /* background-color: #000000; */
+    
+    color: #F4BF24;
+    
     background-image: url();
     background-size: auto;
     background-position: center center;
@@ -7421,6 +7665,11 @@ ul.gridCompList {
     padding: 0px;
     clear: both;
     overflow: hidden;
+    
+    ul.marquee li {
+        color: #F4BF24;
+        padding-top: 25px;
+    }
 }
 
 /* line 7444, ../sass/screen.scss */
@@ -7455,6 +7704,7 @@ ul.gridCompList {
     height: 89px;
     min-height: 89px;
     max-height: 89px;
+    color: #F4BF24;
     background-size: auto;
     background-position: center center;
     background-repeat: no-repeat;
@@ -7462,7 +7712,158 @@ ul.gridCompList {
     padding: 0px;
     clear: both;
     overflow: hidden;
+    
+    
+    ul.marquee li {
+        color: #F4BF24;
+    }
+    
 }
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+    them03
+   ========================================================================== */
+.container-them03 {
+    margin: 0 auto;
+    position: relative;
+    width: 640px;
+    max-width: 640px;
+    min-width: 640px;
+}
+.them03-ads {
+    width: 100%;
+    height: 350px;
+    background: #000;
+}
+.them03-ads-txt {
+    width: 100%;
+    height: 185px;
+    background: #4d82a4 url(../images/bg-txt.png);
+    .widgetText {
+        position: relative;
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+        height: 100%;
+        min-height: 100%;
+        max-height: 100%;
+        background-color: transparent;
+        color: #FFFFFF;
+        font: 40px;
+
+        margin: 0px;
+        padding: 0px;
+        overflow: hidden;
+    }
+    .marquee {
+        position: relative;
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+        height: 100%;
+        min-height: 100%;
+        max-height: 100%;
+        margin: 0px;
+        padding: 0px;
+        overflow: hidden;
+    }
+    
+    .marquee p {
+        position: absolute;
+        color: #FFFFFF;
+        width: 100%;
+        height: 185px !important;
+        line-height: 45px;
+        vertical-align: middle;
+        font-weight: 400;
+        font: 240% Mirza, Tahoma, Verdana, Geneva, sans-serif, uicon !important;
+        font-family: WMitraBold;
+        text-align: center;
+        margin: 0px;
+        padding: 25px 0px;
+        text-align: center;
+        text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.35);
+        filter: dropshadow(color=rgba(0, 0, 0, 0.35), offx=1, offy=1);
+        transform: translateX(100%);
+        -moz-transform: translateX(100%);
+        -webkit-transform: translateX(100%);
+    }
+    .marquee p:nth-child(1) {
+        animation: left-one 20s ease infinite;
+        -moz-animation: left-one 20s ease infinite;
+        -webkit-animation: left-one 20s ease infinite;
+    }
+    .marquee p:nth-child(2) {
+        animation: left-two 20s ease infinite;
+        -moz-animation: left-two 20s ease infinite;
+        -webkit-animation: left-two 20s ease infinite;
+    }
+    .marquee.down p {
+        transform:translateY(-100%);
+        -moz-transform:translateY(-100%);
+        -webkit-transform:translateY(-100%);
+    }
+    .marquee.down p:nth-child(1) {
+        animation: down-one 20s ease infinite;
+        -moz-animation: down-one 20s ease infinite;
+        -webkit-animation: down-one 20s ease infinite;
+    }
+    .marquee.down p:nth-child(2) {
+        animation: down-two 20s ease infinite;
+        -moz-animation: down-two 20s ease infinite;
+        -webkit-animation: down-two 20s ease infinite;
+    }
+    .marquee.up p {
+        transform:translateY(100%);
+        -moz-transform:translateY(100%);
+        -webkit-transform:translateY(100%);
+    }
+    .marquee.up p:nth-child(1) {
+        animation: up-one 20s ease infinite;
+        -moz-animation: up-one 20s ease infinite;
+        -webkit-animation: up-one 20s ease infinite;
+    }
+    .marquee.up p:nth-child(2) {
+        animation: up-two 20s ease infinite;
+        -moz-animation: up-two 20s ease infinite;
+        -webkit-animation: up-two 20s ease infinite;
+    }
+    
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.checkboxDefault {
+    @extend .squaredThree;
+    color: $fontColorDefault;
+}
+
+
 
 
 

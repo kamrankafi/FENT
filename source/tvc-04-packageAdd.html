@@ -23,11 +23,12 @@
     <script src="js/Modernizr.js"></script>
 
     <script src="js/jquery.remodal.js"></script>
-     <script src="js/jquery.resizeimagetoparent.js"></script>
+    <script src="js/jquery.resizeimagetoparent.js"></script>
     <script src="js/pdate.min.js"></script>
     <script src="js/datePersian.js"></script>
     <script src="js/jquery.simpleWeather.js"></script>
     <script src="js/coin-slider.js"></script>
+    <script src="js/jquery.scrollbox.js"></script>
     
 </head>
 <body class="tvc">
@@ -395,11 +396,54 @@
             </div>
 
             <div class="widgetText">
-                <div class="marquee up">
-                    <p>هم رسانی چگونه می توانید این مطلب را به دیگران برسانید</p>
-                    <p>چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
+                <div id="marqueeP" class="marqueeTxt">
+                    <ul class="row">
+                        <li class="row">
+                            1
+                        </li>
+                        <li class="row">
+                            2
+                        </li>
+                        <li class="row">
+                            3
+                        </li>
+                        <li class="row">
+                            4
+                        </li>
+                        <li class="row">
+                            5
+                        </li>
+                        <li class="row">
+                            6
+                        </li>
+                        <li class="row">
+                            7
+                        </li>
+                        <li class="row">
+                            8
+                        </li>
+                	</ul>
                 </div>
+                
+                
+<!--
+                <div class="marquee up">
+                    <p>1</p>
+                    <p>2</p>
+                    <p>3</p>
+                    <p>4</p>
+                </div>
+-->
             </div>
+            
+            <script>
+                $(function () {
+                    $('#marqueeP').scrollbox({
+                        delay: 1,
+                    });
+                });
+            </script>
+            
 
         </div>
     </div>

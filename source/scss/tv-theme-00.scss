@@ -140,17 +140,60 @@ a {
         text-align: center;
         vertical-align: middle;
         margin: 0px auto;
-        margin-top: 23%;
+        margin-top: 17%;
         padding: 0px;
         clear: both;
         overflow: hidden;
         h1 {
-            font: $fontSize*7.9 $fontYekan;
+            font: $fontSize*6.9 $fontYekan;
             font-weight: 600;
         }
         h3 {
-            font: $fontSize*4.1 $fontYekan;
+            color: $colorGrayDark;
+            font: $fontSize*3.6 $fontYekan;
             font-weight: 600;
+        }
+        .inputCode {
+            display: inline-block;
+            position: relative;
+            font: $fontSize*5.9 $fontYekan;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 0;
+            line-height: 59px;
+            background-color: #000000;
+            color: $colorWhite;
+            padding: 10px;
+            width: 100%;
+            height: 400px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -ms-box-sizing: border-box;
+            box-sizing: border-box;
+            border: 1px solid rgba(0,0,0,0);
+            outline: none;
+            resize: none;
+            margin: 10px;
+            overflow: hidden;
+            
+            -moz-appearance:    textfield;
+            -webkit-appearance: textfield;
+            appearance: textfield;
+            
+        }
+        ::-webkit-input-placeholder {
+            color: $colorWhite;
+        }
+        :-moz-placeholder {
+           color: $colorWhite;
+           opacity: 1;
+        }
+        ::-moz-placeholder {
+           color: $colorWhite;
+           opacity: 1;
+        }
+        :-ms-input-placeholder {
+           color: $colorWhite;
         }
     }
 }

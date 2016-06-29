@@ -19,13 +19,13 @@
     
     <script src="../js/jquery.js"></script>
     <script src="../js/Modernizr.js"></script>
-
-    <script src="../js/jquery.remodal.js"></script>
+    
     <script src="../js/jquery.resizeimagetoparent.js"></script>
     <script src="../js/pdate.min.js"></script>
     <script src="../js/datePersian.js"></script>
     <script src="../js/jquery.simpleWeather.js"></script>
     <script src="../js/coin-slider.js"></script>
+    <script src="../js/jquery.marquee.js"></script>
 
 </head>
 <body class="tvcPre">
@@ -34,10 +34,17 @@
 		<div class="header">
 			<div class="bg">
 			<div class="widgetText">
-                <div class="marquee up">
-                    <p>هم رسانی چگونه می توانید این مطلب را به دیگران برسانید</p>
-                    <p>چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
-                </div>
+                
+                <ul id="marquee" class="marquee">
+                    <li>چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</li>
+                </ul>
+                
+                <script>
+                    $(document).ready(function (){
+                          $("#marquee").marquee({yScroll: "bottom"});
+                    });
+                </script>
+                
             </div>
 			</div>
 		</div>

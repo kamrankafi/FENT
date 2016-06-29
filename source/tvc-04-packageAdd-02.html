@@ -21,13 +21,13 @@
     <!-- <script src="../bower_components/jquery/dist/jquery.js"></script> -->
     <script src="js/jquery.js"></script>
     <script src="js/Modernizr.js"></script>
-
-    <script src="js/jquery.remodal.js"></script>
-     <script src="js/jquery.resizeimagetoparent.js"></script>
+    
+    <script src="js/jquery.resizeimagetoparent.js"></script>
     <script src="js/pdate.min.js"></script>
     <script src="js/datePersian.js"></script>
     <script src="js/jquery.simpleWeather.js"></script>
     <script src="js/coin-slider.js"></script>
+    <script src="js/jquery.marquee.js"></script>
     
 </head>
 <body class="tvc">
@@ -151,7 +151,7 @@
                 
     
     
-<div class="fullHDeditMode  container">
+<div class="fullHDeditMode container containor">
 	<div class="logo">
 
 	</div>
@@ -211,14 +211,14 @@
 </div>
 <br>
 <br>
-<div class="fullHDeditMode  container">
+<div class="fullHDeditMode  container containor">
 		<div class="logo">
 			
 		</div>
 	    <div class="row-text">
 	
             
-             <div class="blockEditModeOver">
+            <div class="blockEditModeOver">
             <div class="blockEditModeOverlay">
                 <a class="btnTVCAEditOk">
                     <span class="icon" data-icon="&#xe1cf;"></span>
@@ -229,10 +229,20 @@
             </div>
 
             <div class="widgetText">
-                <div class="marquee up">
-                    <p>هم رسانی چگونه می توانید این مطلب را به دیگران برسانید</p>
-                    <p>چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
-                </div>
+                
+                <ul id="marquee" class="marquee">
+                    <li>هم رسانی چگونه می توانید این مطلب را به دیگران برسانید</li>
+                    <li>چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</li>
+                    <li>تست خط سوم</li>
+                    <li>تست مطالب در خط چهارم</li>
+                </ul>
+                
+                <script>
+                    $(document).ready(function (){
+                          $("#marquee").marquee({yScroll: "bottom"});
+                    });
+                </script>
+                
             </div>
 
         </div>
