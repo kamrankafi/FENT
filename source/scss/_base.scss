@@ -10,7 +10,7 @@
 /* Grid Setup */
 /* Define Some Variables */
 $limitWidth : 976px;
-$columnWidth : 8;
+$columnWidth : 7;
 $column : 12;
 $columnGutter : (100 - ($columnWidth * $column)) / ($column - 1);
 /* Flexible Image */
@@ -51,7 +51,8 @@ img {
 	display: inline;
 	min-height: 1px;
 	position: relative;
-	margin-right: 1% * $columnGutter;
+//    margin-right: 1% * $columnGutter;
+    margin-right: 3px;
 	&:first-child {
 		margin-right: 0;
 	}
@@ -68,6 +69,7 @@ img {
 		[class*="col"] {
 			width: 100%;
 			margin-left: 0;
+            margin-right: 0;
 		}
 	}
 }

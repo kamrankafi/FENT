@@ -20,6 +20,8 @@
     <script src="js/modernizr.custom.63321.js"></script>
     <!-- <script src="js/jquery.js"></script> -->
     
+    <script src="scripts/tooltip.js"></script>
+    
 </head>
 <body class="tvc loginPage">
 
@@ -54,7 +56,12 @@
         
     	<div class="col12 blockLloginType">
             
-            <div class="blockLoginPlace">
+            <div class="blockLoginPlace" id="panelToggleLogin" style="display: block;">
+                
+                <div class="row blockLoginTxtNormalDesc">
+                    با استفاده از نام کاربری و کلمه عبور تایید شده وارد پنل کاربری شوید، در غیر اینصورت با انتخاب یکی از پلن ها عضو سیستم شوید.
+                </div>
+                
                 <div class="row">
                     <div class="col4">
                     </div>
@@ -68,20 +75,291 @@
                                 <input class="formInputDefault" type="password" placeholder="کلمه عبور">
                             </div>
                             <div class="row itemSpace">
-                                <a href="tvc-02-package.html" class="btnMenuMode">
-                                    <span class="icon" data-icon="&#xe04d;"></span>
-                                    <span class="txt">ورود</span>
-                                </a>
+                                
+                                <div class="panelCaptchaPlace">
+                                    captcha place
+                                </div>
+                                
+                            </div>
+                            <div class="row itemSpace">
+                                <div class="col8">
+                                    <a href="tvc-02-package.html" class="btnLogin">
+                                        <span class="icon" data-icon="&#xe04d;"></span>
+                                        <span class="txt">ورود</span>
+                                    </a>
+                                </div>
+                                <div class="col4">
+                                    <a href="#" id="btnToggleRegiter" class="btnRegister">
+                                        <span class="icon" data-icon="&#xe1cf;"></span>
+                                        <span class="txt">عضـــویت</span>
+                                    </a>
+                                </div>
                             </div>
                         </form>
 
                     </div>
                 </div>
+                
+                <div class="row block itemSpaceSmallTop">
+                    <div class="col4">
+                    </div>
+                    <div class="col4">
+
+                        <div class="row">
+                            <div class="col8">
+                                <span class="col1 checkboxBlue">
+                                    <input type="checkbox" value="None" id="checkId" name="check" />
+                                    <label for="checkId"></label>
+                                </span>
+                                <span class="col11 blockLoginTxtNormal checkboxTxt">
+                                    بخاطر سپردن کاربر و کلمه عبور
+                                </span>
+                            </div>
+                            <div class="col4 blockLoginTxtNormal linkTxt">
+                                <a class="linkTxtHelp" title="راهنمای ورود به پنل کاربری، با استفاده از نام کاربری و کلمه عبور تایید شده وارد پنل کاربری شوید، در غیر اینصورت با انتخاب یکی از پلن ها عضو سیستم شوید." rel="tooltip">
+                                    <span class="icon" data-icon="&#xe145;"></span><span class="linkTxtHelpLogin"> راهنما</span>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                
+                <div class="row block itemSpace">
+                    <div class="col4">
+                    </div>
+                    <div class="col4">
+
+                        <div class="row">
+                            <div class="col6">
+                                <span class="col12 blockLoginTxtNormal linkTxt">
+                                    <a href="#" id="btnToggleForgotPass">فراموشی کلمه عبور</a>
+                                </span>
+                            </div>
+                            <div class="col6">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                
+                <div class="row" id="panelToggleForgotPass" style="display: none;">
+                    <div class="col4">
+                    </div>
+                    <div class="col4 panelToggleForgotPass">
+                        <div class="row blockLoginTxtNormalDesc">
+                            ایمیل خود را جهت دریافت لینک تغییر کلمه عبور وارد نمایید.
+                        </div>
+                        <div class="row itemSpace">
+                            <input class="formInputDefault" type="text" placeholder="ایمیل">
+                        </div>
+                        <div class="row itemSpace">
+                            <div class="col12">
+                                <a href="#" id="btnToggleChangePass" class="btnLogin">
+                                    <span class="icon" data-icon="&#xe042;"></span>
+                                    <span class="txt">ارسال</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
             
+            <div class="blockLoginPlace" id="panelToggleChangePass" style="display: none;">
+                
+                <div class="row blockLoginTxtNormalDesc">
+                    کلمه عبور جدید را وارد نمایید.
+                </div>
+                
+                <div class="row">
+                    <div class="col4">
+                    </div>
+                    <div class="col4">
+
+                        <form>
+                            <div class="row itemSpace">
+                                <input class="formInputDefault" type="password" placeholder="کلمه عبور">
+                            </div>
+                            <div class="row itemSpace">
+                                <input class="formInputDefault" type="password" placeholder="تکرار کلمه عبور">
+                            </div>
+                            <div class="row itemSpace">
+                                <div class="col12">
+                                    <a href="#" id="btnToggleChangePassOk" class="btnLogin">
+                                        <span class="icon" data-icon="&#xe042;"></span>
+                                        <span class="txt">تایید</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+                
+            </div>
             
+            <div class="row" id="panelToggleForgotPass" style="display: none;">
+                <div class="col4">
+                </div>
+                <div class="col4 panelToggleForgotPass">
+                    <div class="row blockLoginTxtNormalDesc">
+                        ایمیل خود را جهت دریافت لینک تغییر کلمه عبور وارد نمایید.
+                    </div>
+                    <div class="row itemSpace">
+                        <input class="formInputDefault" type="text" placeholder="ایمیل">
+                    </div>
+                    <div class="row itemSpace">
+                        <div class="col12">
+                            <a href="#" id="btnToggleChangePass" class="btnLogin">
+                                <span class="icon" data-icon="&#xe042;"></span>
+                                <span class="txt">ارسال</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- register -->
+
+            <div class="blockLoginPlace" id="panelToggleRegiter" style="display: none;"> 
+                
+                <div class="row blockLoginTxtNormalDesc">
+                    1. برای عضویت و ثبت نام در سیستم فرم زیر را پر نمایید، جهت تایید نهایی در ورود ایمیل صحیح دقت نمایید.
+                </div>
+                
+                <div class="row">
+                    <div class="col4">
+                    </div>
+                    <div class="col4">
+
+                            <div class="row itemSpace">
+                                <input class="formInputDefault" type="text" placeholder="نام کاربری">
+                            </div>
+                            <div class="row itemSpace">
+                                <input class="formInputDefault" type="email" placeholder="ایمیل">
+                            </div>
+                            <div class="row itemSpace">
+                                <input class="formInputDefault" type="password" placeholder="کلمه عبور">
+                            </div>
+                            <div class="row itemSpace">
+                                <input class="formInputDefault" type="password" placeholder="تکرار کلمه عبور">
+                            </div>
+
+                    </div>
+                </div>
+                <div class="row blockLoginTxtNormalDesc">
+                    2. پلن عضویت مورد نظر خود را انتخاب نمایید
+                </div>
+                <div class="row itemSpace panelPlanPlace">
+                    <div class="col4">
+                        <div class="panelPlanRegister planA">
+                            <div class="row itemSpace planTitle">نام پلن</div>
+                            <ul class="planList">
+                                <li>لیست موارد در این پلن</li>
+                                <li>لیست موارد در این پلن</li>
+                                <li>لیست موارد در این پلن</li>
+                                <li>لیست موارد در این پلن</li>
+                                <li>لیست موارد در این پلن</li>
+                            </ul>
+                            <div class="row itemSpace planPrice">
+                                <span class="icon" data-icon="&#xe30e;"></span>
+                                <span class="planPriceAmont">۱۴</span>
+                                <span>روز مجانی</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col4">
+                        <div class="panelPlanRegister planB">
+                            <div class="row itemSpace planTitle">نام پلن</div>
+                            <ul class="planList">
+                                <li>لیست موارد در این پلن</li>
+                                <li>لیست موارد در این پلن</li>
+                                <li>لیست موارد در این پلن</li>
+                                <li>لیست موارد در این پلن</li>
+                                <li>لیست موارد در این پلن</li>
+                            </ul>
+                            <div class="row itemSpace planPrice">
+                                <span class="icon" data-icon="&#xe30e;"></span>
+                                <span class="planPriceAmont">۱۰۰</span>
+                                <span>هزار تومان ماهیانه</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col4">
+                        <div class="panelPlanRegister planC">
+                            <div class="row itemSpace planTitle">نام پلن</div>
+                            <ul class="planList">
+                                <li>لیست موارد در این پلن</li>
+                                <li>لیست موارد در این پلن</li>
+                                <li>لیست موارد در این پلن</li>
+                                <li>لیست موارد در این پلن</li>
+                                <li>لیست موارد در این پلن</li>
+                            </ul>
+                            <div class="row itemSpace planPrice">
+                                <span class="icon" data-icon="&#xe30e;"></span>
+                                <span class="planPriceAmont">۲۰۰</span>
+                                <span>هزار تومان ماهیانه</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col4">
+                    </div>
+                    <div class="col4">
+                        
+                            <div class="row itemSpace">
+                                
+                                <div class="panelCaptchaPlace">
+                                    captcha place
+                                </div>
+                                
+                            </div>
+                            <div class="row itemSpace">
+                                <div class="col12">
+                                    <a href="#" id="btnToggleSabt" class="btnSabt">
+                                        <span class="icon" data-icon="&#xe1cf;"></span>
+                                        <span class="txt">ثبت نام</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                    </div>
+                </div>
+                
+            </div>
             
         </div>
+        
+        <script>
+        $(document).ready(function(){
+            $("#btnToggleForgotPass").click(function(){
+                $("#panelToggleForgotPass").slideToggle("fast");
+            });
+            $("#btnToggleChangePass").click(function(){
+                $("#panelToggleLogin").hide();
+                $("#panelToggleChangePass").slideToggle("fast");
+            });
+            $("#btnToggleChangePassOk").click(function(){
+                $("#panelToggleForgotPass").hide();
+                $("#panelToggleChangePass").hide();
+                $("#panelToggleLogin").slideToggle("fast");
+            });
+            $("#btnToggleRegiter").click(function(){
+                $("#panelToggleLogin").hide();
+                $("#panelToggleForgotPass").hide();
+                $("#panelToggleChangePass").hide();
+                $("#panelToggleRegiter").slideToggle("fast");
+            });
+            $("#btnToggleSabt").click(function(){
+                $("#panelToggleForgotPass").hide();
+                $("#panelToggleChangePass").hide();
+                $("#panelToggleRegiter").hide();
+                $("#panelToggleLogin").slideToggle("fast");
+            });
+         });
+        </script>
         
     </div>
     <div class="row block">
@@ -89,89 +367,6 @@
             تمامی حقوق محفوظ میباشد و متعلق به دی وی تال است.
         </div>
     </div>
-    
-    
-    <div class="row block itemSpaceSmall">
-        
-    	<div class="col12">
-            <div class="row">
-            	<script>
-					function notifyAlert() {
-						if(! $('.alert-box').length) {
-							$('<div class="alert-box alert" >نمایش پیام مورد نظر</div>').prependTo('notify').delay(1500).fadeOut(1000, function() {
-										$('.alert-box').remove();
-										});
-						};
-					};
-					function notifySuccess() {
-						if(! $('.alert-box').length) {
-							$('<div class="alert-box success" >نمایش پیام مورد نظر</div>').prependTo('notify').delay(1500).fadeOut(1000, function() {
-										$('.alert-box').remove();
-										});
-						};
-					};
-					function notifyWarning() {
-						if(! $('.alert-box').length) {
-							$('<div class="alert-box warning" >نمایش پیام مورد نظر</div>').prependTo('notify').delay(1500).fadeOut(1000, function() {
-										$('.alert-box').remove();
-										});
-						};
-					};
-					function notifyInfo() {
-						if(! $('.alert-box').length) {
-							$('<div class="alert-box info" >نمایش پیام مورد نظر</div>').prependTo('notify').delay(1500).fadeOut(1000, function() {
-										$('.alert-box').remove();
-										});
-						};
-					};
-					
-					function notifyFix() {
-						if(! $('.alert-box-fix').length) {
-							$('<div onClick="notifyFixClose()" class="alert-box-fix alert" ><span>نمایش پیام مورد نظر نمایش پیام مورد نظر</span>').prependTo('notify-fix');
-						};
-					};
-					
-					function notifyFixClose() {
-						if($('.alert-box-fix').length) {
-							$('.alert-box-fix').delay(30).fadeOut(1000, function() {$('.alert-box-fix').remove()});
-						};
-					};
-					
-				</script>
-                
-            	<div class="col1">
-                    <a href="#" onClick="notifyAlert()" class="btnIcon btnNotify">
-                        <span class="icon" data-icon="&#xe034;"></span>
-                    </a>
-                </div>
-                <div class="col1">
-                    <a href="#" onClick="notifySuccess()" class="btnIcon btnNotify">
-                        <span class="icon" data-icon="&#xe042;"></span>
-                    </a>
-                </div>
-                <div class="col1">
-                    <a href="#" onClick="notifyWarning()" class="btnIcon btnNotify">
-                        <span class="icon" data-icon="&#xe015;"></span>
-                    </a>
-                </div>
-                <div class="col1">
-                    <a href="#" onClick="notifyInfo()" class="btnIcon btnNotify">
-                        <span class="icon" data-icon="&#xe07a;"></span>
-                    </a>
-                </div>
-                <div class="col1">
-                    <a href="#" onClick="notifyFix()" class="btnIcon btnNotify">
-                        <span class="icon" data-icon="&#xe398;"></span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    
-           
-           
-        
-        </div>
-    
     
     
 </div>

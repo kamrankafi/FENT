@@ -10,7 +10,6 @@
 
     <link href="../css/uicon.css" rel="stylesheet" type="text/css">
     <link href="../css/tv-theme-02.css" media="screen, projection" rel="stylesheet" type="text/css" />
-    <link href="../css/coin-slider-styles.css" rel="stylesheet" type="text/css">
     <link href="../css/wi.css" rel="stylesheet" type="text/css">
     
     <!--[if lt IE 8]>
@@ -24,9 +23,15 @@
     <script src="../js/pdate.min.js"></script>
     <script src="../js/datePersian.js"></script>
     <script src="../js/jquery.simpleWeather.js"></script>
-    <script src="../js/coin-slider.js"></script>
+    <script src="../js/rhinoslider-1.05.js"></script>
     <script src="../js/jquery.marquee.js"></script>
 
+    <script type="text/javascript">
+        $(document).ready(function(){
+            changeEffect('transfer');
+        });
+    </script>
+    
 </head>
 <body class="tvcPre">
 	<div class="containor">
@@ -50,17 +55,11 @@
 		</div>
 		<div class="content">
 			<div class="slide">
-			 <div class="widgetSlider">
-                    <div id="coin-slider">
-                        <img src='../slide/food01.jpg' width="595px" height="573px" >
-                        <img src='../slide/food02.jpg' width="595px" height="573px" >
-                        
-                    </div>
-                    <script type="text/javascript">
-                        $(document).ready(function() {
-        $('#coin-slider').coinslider({ width: 595, height: 573, navigation: false, delay: 5000, spw: 4, sph: 4 });
-      });
-                    </script>
+                <div class="widgetSlider">
+                    <ul id="slider">
+                        <li><img src='../slide/food01.jpg' width="595px" height="573px" ></li>
+                        <li><img src='../slide/food02.jpg' width="595px" height="573px" ></li>
+                    </ul>
                 </div>
 			</div>
 			<div class="video">

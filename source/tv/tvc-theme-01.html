@@ -10,7 +10,6 @@
 
     <link href="../css/uicon.css" rel="stylesheet" type="text/css">
     <link href="../css/tv-theme-01.css" media="screen, projection" rel="stylesheet" type="text/css" />
-    <link href="../css/coin-slider-styles.css" rel="stylesheet" type="text/css">
     <link href="../css/wi.css" rel="stylesheet" type="text/css">
     
     <!--[if lt IE 8]>
@@ -19,13 +18,19 @@
     
     <script src="../js/jquery.js"></script>
     <script src="../js/Modernizr.js"></script>
-
-    <script src="../js/jquery.remodal.js"></script>
+    
     <script src="../js/jquery.resizeimagetoparent.js"></script>
     <script src="../js/pdate.min.js"></script>
     <script src="../js/datePersian.js"></script>
     <script src="../js/jquery.simpleWeather.js"></script>
-    <script src="../js/coin-slider.js"></script>
+    <script src="../js/rhinoslider-1.05.js"></script>
+    <script src="../js/jquery.marquee.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            changeEffect('transfer');
+        });
+    </script>
 
 </head>
 <body class="tvcPre">
@@ -83,16 +88,11 @@
             </div>
             <div class="colAArowC">
                 <div class="widgetSlider">
-                    <div id="coin-slider">
-                        <img src='../slide/food01.jpg' width="320px" height="300px" >
-                        <img src='../slide/food02.jpg' width="320px" height="300px" >
-                        <img src='../slide/food03.jpg' width="320px" height="300px" >
-                    </div>
-                    <script type="text/javascript">
-                        $(document).ready(function() {
-        $('#coin-slider').coinslider({ width: 320, height: 300, navigation: false, delay: 5000, spw: 4, sph: 4 });
-      });
-                    </script>
+                    <ul id="slider">
+                        <li><img src='../slide/food01.jpg' width="320px" height="300px" ></li>
+                        <li><img src='../slide/food02.jpg' width="320px" height="300px" ></li>
+                        <li><img src='../slide/food03.jpg' width="320px" height="300px" ></li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -107,10 +107,15 @@
     </div>
     <div class="rowB">
         <div class="widgetText">
-            <div class="marquee up">
-                <p>هم رسانی چگونه می توانید این مطلب را به دیگران برسانید</p>
-                <p>چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
-            </div>
+            <ul id="marquee" class="marquee">
+                <li>چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</li>
+            </ul>
+
+            <script>
+                $(document).ready(function (){
+                      $("#marquee").marquee({yScroll: "bottom"});
+                });
+            </script>
         </div>
     </div>
 </div>
