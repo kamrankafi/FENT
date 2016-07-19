@@ -4607,7 +4607,87 @@ textarea.formTextareaNote {
 
 $bkUrlTVCPreview : '../images/fullHDver02.jpg';
 $bkUrlTVCPreviewOver : '../images/fullHDver02over.png';
+
+$bkUrlTVCPreview06 : '../images/fullHDver-theme06-01.png';
+$bkUrlTVCPreviewOver06 : '';
+
 .fullHDeditMode.vertical {
+    display: table;
+    position: relative;
+    width: 529px !important; //1080
+    min-width: 529px !important;
+    max-width: 529px !important;
+    height: 940px !important; //1920
+    min-height: 940px !important;
+    max-height: 940px !important;
+    background-color: #000000;
+    vertical-align: middle;
+    text-align: center;
+    vertical-align: middle;
+    background-image: url();
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: 0px auto;
+    padding: 0px;
+    overflow: hidden;
+    z-index: 9;
+}
+.fullHDVerOver {
+    display: block;
+    position: absolute;
+    width: 529px !important; //1080
+    min-width: 529px !important;
+    max-width: 529px !important;
+    height: 940px !important; //1920
+    min-height: 940px !important;
+    max-height: 940px !important;
+    text-align: center;
+    vertical-align: middle;
+    background-image: url();
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: 0px auto;
+    padding: 0px;
+    overflow: hidden;
+    z-index: 99;
+}
+.fullHDeditMode.vertical {
+    display: table;
+    position: relative;
+    width: 529px !important; //1080
+    min-width: 529px !important;
+    max-width: 529px !important;
+    height: 940px !important; //1920
+    min-height: 940px !important;
+    max-height: 940px !important;
+    background-color: #000000;
+    vertical-align: middle;
+    text-align: center;
+    vertical-align: middle;
+    background-image: url();
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: 0px auto;
+    padding: 0px;
+    overflow: hidden;
+    z-index: 9;
+}
+.theme05Content {
     display: table;
     position: relative;
     width: 529px !important; //1080
@@ -4633,7 +4713,33 @@ $bkUrlTVCPreviewOver : '../images/fullHDver02over.png';
     overflow: hidden;
     z-index: 9;
 }
-.fullHDVerOver {
+.theme06Content {
+    display: table;
+    position: relative;
+    width: 529px !important; //1080
+    min-width: 529px !important;
+    max-width: 529px !important;
+    height: 940px !important; //1920
+    min-height: 940px !important;
+    max-height: 940px !important;
+    background-color: #000000;
+    vertical-align: middle;
+    text-align: center;
+    vertical-align: middle;
+    background-image: url($bkUrlTVCPreview06);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: 0px auto;
+    padding: 0px;
+    overflow: hidden;
+    z-index: 9;
+}
+.fullHDVerOver.theme05 {
     display: block;
     position: absolute;
     width: 529px !important; //1080
@@ -4709,6 +4815,14 @@ $bkUrlTVCPreviewOver : '../images/fullHDver02over.png';
         top: 60px;
         right: 20px;
     }
+    .theme06Logo {
+        display: block;
+        position: absolute;
+        width: 170px;
+        height: 100px;
+        top: 60px;
+        right: 180px;
+    }
     $fontWeather : weather;
     .theme05Weather {
         display: block;
@@ -4717,6 +4831,86 @@ $bkUrlTVCPreviewOver : '../images/fullHDver02over.png';
         height: 120px;
         top: 50px;
         right: 190px;
+        font: $fontSize*1 $fontRoya;
+        .widgetWeather {
+            display: block;
+            width: 100%;
+            min-width: 100%;
+            max-width: 100%;
+            height: 100%;
+            min-height: 100%;
+            max-height: 100%;
+            text-align: center;
+
+            background-image: none;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+
+            margin: 0px;
+            padding: 0px;
+            div {
+                height: 29px;
+                min-height: 29px;
+                max-height: 29px;
+                line-height: 29px;
+                margin: 10px 5px;
+                padding: 5px;
+            }
+        }
+        .weather {
+            display: block;
+            position: relative;
+            width: 100%;
+            min-width: 100%;
+            max-width: 100%;
+            height: 100%;
+            min-height: 100%;
+            max-height: 100%;
+            div {
+                height: 29px;
+                min-height: 29px;
+                max-height: 29px;
+                line-height: 29px;
+                margin: 10px 5px;
+                padding: 5px;
+            }
+        }
+        .weather .wi {
+            height: 19px;
+            min-height: 19px;
+            max-height: 19px;
+            line-height: 19px;
+            font: $fontSize*3.5 $fontWeather;
+            margin: 0px;
+            padding: 0px;
+        }
+        .weather .cw {
+            color: #FFFFFF;
+            height: 19px;
+            min-height: 19px;
+            max-height: 19px;
+            line-height: 19px;
+            font: $fontSize*1.8 $fontRoya;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        .weather .cc {
+            height: 19px;
+            min-height: 19px;
+            max-height: 19px;
+            line-height: 19px;
+            font: $fontSize*0.65 $fontDefault;
+            margin: 0px 0 0 5px;
+        }
+    }
+    .theme06Weather {
+        display: block;
+        position: absolute;
+        width: 140px;
+        height: 120px;
+        top: 50px;
+        right: 40px;
         font: $fontSize*1 $fontRoya;
         .widgetWeather {
             display: block;
@@ -4822,13 +5016,60 @@ $bkUrlTVCPreviewOver : '../images/fullHDver02over.png';
                 line-height: 33px;
                 vertical-align: middle;
                 color: #FFFFFF;
-                font: $fontSize*3.1 $fontRoya;
+                font: $fontSize*3.5 $fontRoya;
                 font-weight: 600;
                 margin: 0px;
                 padding: 0px;
             }
             .txtDate {
                 color: #A3CAE1;
+                font: $fontSize*1.15 $fontRoya;
+                font-weight: 600;
+                margin: 0px;
+                padding: 0px;
+                padding-top: 5px;
+            }
+        }
+    }
+    .theme06TimeDate {
+        display: block;
+        position: absolute;
+        width: 140px;
+        height: 120px;
+        top: 63px;
+        left: 15px;
+        font: $fontSize*1 $fontRoya;
+        .widgetTimeDate {
+            display: block;
+            width: 100%;
+            min-width: 100%;
+            max-width: 100%;
+            height: 100%;
+            min-height: 100%;
+            max-height: 100%;
+            text-align: center;
+
+            background-image: none;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+
+            margin: 0px;
+            padding: 0px;
+
+            .txtTime {
+                height: 33px;
+                min-height: 33px;
+                line-height: 33px;
+                vertical-align: middle;
+                color: #FFFFFF;
+                font: $fontSize*3.5 $fontRoya;
+                font-weight: 600;
+                margin: 0px;
+                padding: 0px;
+            }
+            .txtDate {
+                color: #F2F2F2;
                 font: $fontSize*1.15 $fontRoya;
                 font-weight: 600;
                 margin: 0px;
@@ -4874,6 +5115,25 @@ $bkUrlTVCPreviewOver : '../images/fullHDver02over.png';
             }
         }
     }
+    .theme06Video {
+        display: block;
+        position: absolute;
+        width: 473px;
+        height: 265px;
+        top: 200px;
+        right: 25px;
+        font: $fontSize*1 $fontCompset;
+        font-weight: 600;
+        overflow: hidden;
+        .widgetVideo {
+            width: 100%;
+            height: 100%;
+            video {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
     .theme05Slider01 {
         display: block;
         position: absolute;
@@ -4895,13 +5155,13 @@ $bkUrlTVCPreviewOver : '../images/fullHDver02over.png';
         }
 
     }
-    .theme05Slider02 {
+    .theme06Slider01 {
         display: block;
         position: absolute;
-        width: 300px;
-        height: 167px;
-        top: 770px;
-        right: 46px;
+        width: 473px;
+        height: 265px;
+        top: 540px;
+        right: 25px;
         font: $fontSize*1 $fontCompset;
         font-weight: 600;
         overflow: hidden;
@@ -4909,8 +5169,8 @@ $bkUrlTVCPreviewOver : '../images/fullHDver02over.png';
             width: 100%;
             height: 100%;
             ul li img {
-                width: 306px;
-                height: 172px;
+                width: 473px;
+                height: 265px;
                 overflow: hidden;
             }
         }
@@ -4934,6 +5194,24 @@ $bkUrlTVCPreviewOver : '../images/fullHDver02over.png';
             }
         }
     }
+    .theme06Marquee02 {
+        display: block;
+        position: absolute;
+        width: 473px;
+        height: 55px;
+        top: 830px;
+        right: 25px;
+        font: $fontSize*1 $fontCompset;
+        font-weight: 600;
+        overflow: hidden;
+        ul.marquee {
+            li {
+                color: #ACD6FF;
+                font: $fontSize*1.4 $fontNassim;
+                font-weight: 600;
+            }
+        }
+    }
     .theme05Copyright {
         display: block;
         position: absolute;
@@ -4946,6 +5224,22 @@ $bkUrlTVCPreviewOver : '../images/fullHDver02over.png';
         overflow: hidden;
         .copyrightTxt {
             color: #4E557B;
+            font: $fontSize*0.75 $fontApp;
+            font-weight: 600;
+        }
+    }
+    .theme06Copyright {
+        display: block;
+        position: absolute;
+        width: 490px;
+        height: 20px;
+        top: 915px;
+        right: 32px;
+        font: $fontSize*1 $fontApp;
+        font-weight: 600;
+        overflow: hidden;
+        .copyrightTxt {
+            color: rgba(255, 255, 255, 0.35);
             font: $fontSize*0.75 $fontApp;
             font-weight: 600;
         }
@@ -9116,6 +9410,166 @@ ul.gridCompList {
     
 
 }
+
+
+
+
+
+
+
+
+/* ==========================================================================
+    them04
+   ========================================================================== */
+
+.section1-them04{
+    width: 700px;
+    min-width: 700px;
+    max-width: 700px;
+    height: 850px;
+    min-height: 850px;
+    max-height: 850px;
+    margin: auto;
+    background: url(../images/bg-k.png);
+    background-size: cover;
+    a {
+        background: none !important;
+        text-decoration: none !important;
+        padding: 0px !important;
+    }
+}
+.time-them04{
+    width: 150px;
+    min-width: 150px;
+    max-width: 150px;
+    height: 80px;
+    min-height: 80px;
+    max-height: 80px;
+    float: left;
+    .blockEditModeOver .widgetTimeDate .txtTime {
+        height: 30px;
+        min-height: 30px;
+        vertical-align: middle;
+        color: #FFFFFF;
+        font: 150% Roya, Arial, Tahoma, Gadget, sans-serif, uicon;
+        font-weight: 600;
+        margin: 0px;
+        padding: 0px;
+        /* padding-top: 35px; */
+    }
+    .blockEditModeOver .widgetTimeDate .txtTime {
+        height: 25px;
+        min-height: 25px;
+        vertical-align: middle;
+        color: #FFFFFF;
+        font: 220% Roya, Arial, Tahoma, Gadget, sans-serif, uicon;
+        font-weight: 600;
+        margin: 0px;
+        padding: 0px;
+        /* padding-top: 35px; */
+    }
+    .blockEditModeOver .widgetTimeDate .txtDate {
+        color: #FFFFFF;
+        font: 150% Roya, Arial, Tahoma, Gadget, sans-serif, uicon;
+        font-weight: 600;
+        margin: 0px;
+        padding: 0px;
+        padding-top: 10px;
+    }
+    .blockEditModeOver .widgetTimeDate{
+        background:none !important;
+    }
+}
+.content-them04{
+    padding-top: 230px;
+}
+.bottom-them04{
+    display: block;
+    position: relative;
+    width: 507px;
+    min-width: 507px;
+    max-width:507px;
+    height: 509px;
+    min-height: 509px;
+    max-height: 509px;
+    margin:auto;
+    padding: 0;
+    clear: both;
+    overflow: hidden;
+}
+.col-s-them04{
+    float: right;
+}
+.col-b-them04{
+    float: left;
+}
+
+.section2-them04{
+    width: 700px;
+    min-width: 700px;
+    max-width: 700px;
+    height: 390px;
+    min-height: 390px;
+    max-height: 390px;
+    margin: auto;
+    .blockEditModeOver ul.marquee li{
+       line-height: 70px;
+    }
+}
+.slider-them04{
+    width: 700px;
+    min-width: 700px;
+    max-width: 700px;
+    height: 320px;
+    min-height: 320px;
+    max-height: 320px;
+    #slider {
+        width: 700px !important;
+        height: 320px !important;
+        overflow: hidden;
+    }
+    .rhino-container {
+        width: 700px !important;
+        height: 320px !important;
+        overflow: hidden;
+    }
+    .widgetSlider {
+        width: 100%;
+        height: 100%;
+        .rhino-container {
+            width: 700px !important;
+            height: 320px !important;
+            overflow: hidden;
+        }
+        ul li img {
+            width: 700px !important;
+            height: 320px !important;
+            overflow: hidden;
+        }
+    }
+
+}
+.ads-txt-them04{
+    width: 700px;
+    min-width: 700px;
+    max-width: 700px;
+    height: 66px;
+    min-height: 66px;
+    max-height: 66px;
+    background: url(../images/ads-txt-them04.png);
+    ul.marquee {
+        li {
+            color: #E0FCFF;
+            font: $fontSize*1.5 $fontNassim;
+            font-weight: 600;
+        }
+    }
+}
+
+
+
+
+
 
 
 

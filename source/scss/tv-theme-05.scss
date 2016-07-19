@@ -300,24 +300,16 @@ $fontWeather : weather;
     .widgetSlider {
         width: 100%;
         height: 100%;
-        ul li img {
-            width: 613px;
-            height: 344px;
+        .rhino-container {
+            width: 613px !important;;
+            min-width: 613px;
+            max-width: 613px;
+            height: 344px !important;
+            min-height: 344px;
+            max-height: 344px;
             overflow: hidden;
         }
     }
-    
-}
-.theme05Slider02 {
-    display: block;
-    position: absolute;
-    width: 613px;
-    height: 344px;
-    top: 1557px;
-    right: 93px;
-    font: $fontSize*1 $fontCompset;
-    font-weight: 600;
-    overflow: hidden;
     .widgetSlider {
         width: 100%;
         height: 100%;
@@ -363,6 +355,42 @@ $fontWeather : weather;
         font-weight: 600;
     }
 }
-
+.theme05Loading {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    vertical-align: middle;
+    background-color: lighten(#FFCE54, 15);
+    color: $colorAlertTxt;
+    text-align: center;
+    bottom: 0;
+    left: 0;
+    z-index: 9;
+    overflow: hidden;
+    .loadingBk {
+        display: block;
+        position: absolute;
+        width: 1%;
+        max-width: 100%;
+        height: 25px;
+        line-height: 25px;
+        vertical-align: middle;
+        background-color: #FFCE54;
+        z-index: 10;
+        bottom: 0;
+        left: 0;
+    }
+    .loadingTxt {
+        display: block;
+        position: absolute;
+        color: darken(#FFCE54, 35);
+        font-weight: 600;
+        text-align: center;
+        margin: 0px auto;
+        z-index: 11;
+    }
+}
 
 
