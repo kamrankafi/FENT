@@ -16,6 +16,32 @@
 	font-weight: bold;
 }
 @font-face {
+  font-family: Sahel;
+  src: url('../fonts/Sahel.eot');
+  src: url('../fonts/../fonts/Sahel.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/Sahel.woff') format('woff'),
+       url('../fonts/Sahel.ttf') format('truetype');
+  font-weight: normal;
+}
+      
+@font-face {
+  font-family: SahelBold;
+  src: url('../fonts/Sahel-Bold.eot');
+  src: url('../fonts/Sahel-Bold.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/Sahel-Bold.woff') format('woff'),
+       url('../fonts/Sahel-Bold.ttf') format('truetype');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: SahelBlack;
+  src: url('../fonts/Sahel-Black.eot');
+  src: url('../fonts/Sahel-Black.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/Sahel-Black.woff') format('woff'),
+       url('../fonts/Sahel-MedBlackium.ttf') format('truetype');
+  font-weight: 900;
+}
+@font-face {
 	font-family: Nassim;
 	src: url('../fonts/nassim-bold.eot?#iefix') format('eot'),
 		url('../fonts/nassim-bold.woff') format('woff'),
@@ -109,6 +135,9 @@
 /* Application Fonts */
 $fontDefault: Tahoma, Verdana, Geneva, sans-serif, uicon;
 $fontMirza: Mirza, Tahoma, Verdana, Geneva, sans-serif, uicon;
+$fontSahel: Sahel, Tahoma, Verdana, Geneva, sans-serif, uicon;
+$fontSahelBold: SahelBold, Tahoma, Verdana, Geneva, sans-serif, uicon;
+$fontSahelBlack: SahelBlack, Tahoma, Verdana, Geneva, sans-serif, uicon;
 $fontNassim: Nassim, Arial, Tahoma, Gadget, sans-serif, uicon;
 $fontSerif: irSerif, Arial, Tahoma, Gadget, sans-serif, uicon;
 $fontYekan: Yekan, Tahoma, Arial, Gadget, sans-serif, uicon;
